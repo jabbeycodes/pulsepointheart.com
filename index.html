@@ -259,8 +259,12 @@
   }
   .diag-img {
     width: 100%; aspect-ratio: 4/3;
-    background: linear-gradient(135deg,#c9d4e0,#dde4ee);
-    display: flex; align-items: center; justify-content: center;
+    background: #dde4ee;
+    overflow: hidden;
+  }
+  .diag-img img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center;
   }
   .diag-card h4 { font-size: .82rem; font-weight: 700; color: var(--wine); margin: 10px 12px 4px; }
   .diag-card p { font-size: .75rem; color: var(--muted); line-height: 1.5; padding: 0 12px 14px; }
@@ -616,27 +620,27 @@
     </div>
     <div class="diag-scroll">
       <div class="diag-card">
-        <div class="diag-img"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#7A1E2C" stroke-width="1.2" opacity=".5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+        <div class="diag-img"><img src="./assets/diagnostics/echocardiography.jpg" alt="Photorealistic echocardiography imaging in a modern cardiology clinic"/></div>
         <h4>Echocardiography</h4>
         <p>Detailed imaging of the heart's structure and function.</p>
       </div>
       <div class="diag-card">
-        <div class="diag-img"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#7A1E2C" stroke-width="1.2" opacity=".5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+        <div class="diag-img"><img src="./assets/diagnostics/vascular-ultrasound.jpg" alt="Photorealistic vascular ultrasound consultation in a modern clinic"/></div>
         <h4>Vascular Ultrasound</h4>
         <p>Assessment of blood flow and vascular health.</p>
       </div>
       <div class="diag-card">
-        <div class="diag-img"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#7A1E2C" stroke-width="1.2" opacity=".5"><path d="M12 21s-8-4-8-10V5l8-3 8 3v6c0 6-8 10-8 10z"/></svg></div>
+        <div class="diag-img"><img src="./assets/diagnostics/stress-testing.jpg" alt="Photorealistic cardiac stress testing consultation in a modern clinic"/></div>
         <h4>Stress Testing</h4>
         <p>Evaluating heart performance during physical stress.</p>
       </div>
       <div class="diag-card">
-        <div class="diag-img"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#7A1E2C" stroke-width="1.2" opacity=".5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <div class="diag-img"><img src="./assets/diagnostics/heart-rhythm-monitoring.jpg" alt="Photorealistic heart rhythm monitoring care in a cardiology clinic"/></div>
         <h4>Heart Rhythm Monitoring</h4>
         <p>Continuous monitoring for arrhythmia detection.</p>
       </div>
       <div class="diag-card">
-        <div class="diag-img"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#7A1E2C" stroke-width="1.2" opacity=".5"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/></svg></div>
+        <div class="diag-img"><img src="./assets/diagnostics/cardiac-ct-calcium.jpg" alt="Photorealistic cardiac CT and calcium screening technology"/></div>
         <h4>Cardiac CT &amp; Calcium</h4>
         <p>Advanced screening for coronary artery disease.</p>
       </div>
