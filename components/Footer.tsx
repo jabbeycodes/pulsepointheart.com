@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import NewsletterForm from './NewsletterForm'
 
 const QUICK_LINKS = [
   { href: '/about', label: 'About Us' },
@@ -87,6 +88,7 @@ export default function Footer() {
               </svg>
             </a>
           </div>
+          <NewsletterForm />
         </div>
 
         {/* Quick Links */}
@@ -215,8 +217,7 @@ export default function Footer() {
 
       <div className="flex flex-col items-center gap-2 border-t border-white/10 px-5 py-4 text-center text-[.72rem] text-white/40 sm:flex-row sm:justify-between sm:text-left sm:px-8 lg:px-12">
         <span>
-          &copy; {new Date().getFullYear()} PulsePoint Clinic &middot;
-          pulsepointheart.com
+          &copy; {new Date().getFullYear()} PulsePoint Clinic &middot; pulsepointheart.com
         </span>
         <div className="flex gap-[18px]">
           <Link href="/privacy" className="text-white/40 hover:text-gold">
