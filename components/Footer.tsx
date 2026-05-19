@@ -163,8 +163,10 @@ export default function Footer() {
             >
               <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a2 2 0 012-2.18h3a2 2 0 012 1.72l.26 1.56a12 12 0 00.75 2.57l-1.5 1.5a16 16 0 006.29 6.29l1.5-1.5a12 12 0 002.57.75l1.56.26a2 2 0 011.72 2z" />
             </svg>
-            <a href="tel:5734249000" className="hover:text-gold">
-              573.424.9000
+            <a href="tel:18557857337" className="hover:text-gold">
+              (855) 785-7337
+              <br />
+              1-855-PULSEDR
             </a>
           </div>
           <div className="mb-2.5 flex items-start gap-2.5 text-[.82rem] leading-[1.5] text-white/65">
@@ -178,8 +180,8 @@ export default function Footer() {
               <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
               <polyline points="22,6 12,13 2,6" />
             </svg>
-            <a href="mailto:drtibiz@pulsepointheart.com" className="hover:text-gold">
-              drtibiz@pulsepointheart.com
+            <a href="mailto:Mtibuakuu@pulsepointheart.com" className="hover:text-gold">
+              Mtibuakuu@pulsepointheart.com
             </a>
           </div>
           <div className="mb-2.5 flex items-start gap-2.5 text-[.82rem] leading-[1.5] text-white/65">

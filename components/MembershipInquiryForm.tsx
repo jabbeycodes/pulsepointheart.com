@@ -37,7 +37,7 @@ export default function MembershipInquiryForm() {
       if (!res.ok) { setErrorMsg(data.error || 'Something went wrong.'); setStatus('error'); return }
       setStatus('success')
     } catch {
-      setErrorMsg('Network error. Please try again or call 573.424.9000.')
+      setErrorMsg('Network error. Please try again or call (855) 785-7337.')
       setStatus('error')
     }
   }
@@ -49,7 +49,7 @@ export default function MembershipInquiryForm() {
         <p className="text-[.92rem] leading-[1.65] text-muted">
           We will reach out shortly to tell you more about the PulsePoint membership program.
           Questions? Call us at{' '}
-          <a href="tel:5734249000" className="font-semibold text-wine">573.424.9000</a>.
+          <a href="tel:18557857337" className="font-semibold text-wine">(855) 785-7337</a>.
         </p>
       </div>
     )

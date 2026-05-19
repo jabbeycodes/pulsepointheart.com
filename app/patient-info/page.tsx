@@ -177,10 +177,10 @@ export default function PatientInfoPage() {
                 scheduling, membership questions, and visit preparation.
               </p>
               <a
-                href="tel:5734249000"
+                href="tel:18557857337"
                 className="mt-5 inline-flex min-h-[44px] items-center justify-center rounded-md bg-gold px-5 py-3 text-sm font-bold text-navy transition-colors hover:bg-white"
               >
-                573.424.9000
+                (855) 785-7337
               </a>
             </aside>
           </div>

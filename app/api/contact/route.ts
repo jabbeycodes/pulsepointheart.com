@@ -59,12 +59,12 @@ export async function POST(request: NextRequest) {
     // Log server-side but don't expose internals to client
     console.error('contact_submissions insert failed:', error)
     return NextResponse.json(
-      { error: 'Something went wrong. Please call us at 573.424.9000.' },
+      { error: 'Something went wrong. Please call us at (855) 785-7337.' },
       { status: 500 }
     )
   }
 
-  // TODO Phase 2: trigger email notification to drtibiz@pulsepointheart.com
+  // TODO Phase 2: trigger email notification to Mtibuakuu@pulsepointheart.com
   // via Resend or a Supabase Edge Function.
 
   return NextResponse.json({ ok: true })

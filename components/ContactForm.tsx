@@ -66,8 +66,8 @@ export default function ContactForm() {
         <p className="text-[.92rem] leading-[1.65] text-muted">
           We received your message and will reach out within one business day.
           For urgent matters, please call us at{' '}
-          <a href="tel:5734249000" className="font-semibold text-wine">
-            573.424.9000
+          <a href="tel:18557857337" className="font-semibold text-wine">
+            (855) 785-7337
           </a>
           .
         </p>

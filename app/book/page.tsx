@@ -88,12 +88,12 @@ export default function BookPage() {
                 </p>
                 <p className="text-[.88rem] text-white/80">
                   Our team is available by appointment. Call us at{' '}
-                  <a href="tel:5734249000" className="font-semibold text-gold">
-                    573.424.9000
+                  <a href="tel:18557857337" className="font-semibold text-gold">
+                    (855) 785-7337 / 1-855-PULSEDR
                   </a>{' '}
                   or email{' '}
-                  <a href="mailto:drtibiz@pulsepointheart.com" className="font-semibold text-gold">
-                    drtibiz@pulsepointheart.com
+                  <a href="mailto:Mtibuakuu@pulsepointheart.com" className="font-semibold text-gold">
+                    Mtibuakuu@pulsepointheart.com
                   </a>
                   .
                 </p>

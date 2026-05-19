@@ -32,7 +32,7 @@ export async function POST(request: NextRequest) {
   if (error) {
     console.error('appointment_requests insert failed:', error)
     return NextResponse.json(
-      { error: 'Something went wrong. Please call us at 573.424.9000.' },
+      { error: 'Something went wrong. Please call us at (855) 785-7337.' },
       { status: 500 }
     )
   }

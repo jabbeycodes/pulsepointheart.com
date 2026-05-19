@@ -54,7 +54,11 @@ export default function ContactPage() {
                   </svg>
                   <div>
                     <div className="font-semibold text-charcoal">Phone</div>
-                    <a href="tel:5734249000" className="text-wine hover:underline">573.424.9000</a>
+                    <a href="tel:18557857337" className="text-wine hover:underline">
+                      (855) 785-7337
+                      <br />
+                      1-855-PULSEDR
+                    </a>
                   </div>
                 </div>
 
@@ -66,8 +70,8 @@ export default function ContactPage() {
                   </svg>
                   <div>
                     <div className="font-semibold text-charcoal">Email</div>
-                    <a href="mailto:drtibiz@pulsepointheart.com" className="break-all text-wine hover:underline">
-                      drtibiz@pulsepointheart.com
+                    <a href="mailto:Mtibuakuu@pulsepointheart.com" className="break-all text-wine hover:underline">
+                      Mtibuakuu@pulsepointheart.com
                     </a>
                   </div>
                 </div>
