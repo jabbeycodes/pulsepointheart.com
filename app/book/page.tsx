@@ -58,46 +58,28 @@ export default function BookPage() {
                 directly.
               </p>
 
-              {/*
-                ── MICROSOFT BOOKINGS PLACEHOLDER ──────────────────
-                TODO: Replace this block with your Microsoft Bookings
-                iframe embed once Dr. Tibuakuu sets up the account.
-
-                Steps:
-                1. Go to Microsoft Bookings (office.com → Bookings)
-                2. Set up availability and services
-                3. Settings → Booking page → Embed
-                4. Copy the iframe src URL
-                5. Replace the src below with your real URL
-
-                Example:
+              <div className="overflow-hidden rounded shadow-card">
                 <iframe
-                  src="https://outlook.office365.com/owa/calendar/YourBookingLink@pulsepointheart.com/bookings/"
+                  src="https://outlook.office.com/book/PulsePointHeartClinic@pulsepointheart.com/"
                   width="100%"
                   height="600"
                   scrolling="yes"
-                  style={{ border: 0 }}
+                  style={{ border: 0, minHeight: 600 }}
+                  title="Book an appointment with PulsePoint Clinic"
+                  allow="camera; microphone"
                 />
-              */}
-              <div className="flex min-h-[320px] flex-col items-center justify-center gap-4 rounded border-2 border-dashed border-[#E2E8F0] bg-graybg p-8 text-center">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"
-                  className="h-10 w-10 text-muted/50">
-                  <rect x="3" y="4" width="18" height="18" rx="2" />
-                  <path d="M16 2v4M8 2v4M3 10h18" />
-                </svg>
-                <div>
-                  <p className="font-semibold text-charcoal">Online Scheduling Coming Soon</p>
-                  <p className="mt-1 text-[.85rem] text-muted">
-                    In the meantime, please call us to book your appointment.
-                  </p>
-                </div>
-                <a
-                  href="tel:5734249000"
-                  className="flex min-h-[44px] items-center gap-2 rounded-md bg-wine px-5 py-3 text-[.88rem] font-semibold text-white transition-colors hover:bg-wine-light"
-                >
-                  Call 573.424.9000
-                </a>
               </div>
+              <p className="mt-3 text-center text-[.78rem] text-muted">
+                Having trouble?{' '}
+                <a
+                  href="https://outlook.office.com/book/PulsePointHeartClinic@pulsepointheart.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-wine hover:underline"
+                >
+                  Open scheduling page directly →
+                </a>
+              </p>
 
               {/* Quick contact info */}
               <div className="mt-5 rounded bg-navy p-5 text-white">
