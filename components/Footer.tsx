@@ -7,7 +7,7 @@ const QUICK_LINKS = [
   { href: '/services', label: 'Services' },
   { href: '/membership', label: 'Membership' },
   { href: '/diagnostics', label: 'Diagnostics' },
-  { href: '/contact', label: 'Patient Info' },
+  { href: '/patient-info', label: 'Patient Info' },
   { href: '/contact', label: 'Contact' },
 ]
 
@@ -21,11 +21,11 @@ const SERVICE_LINKS = [
 ]
 
 const PATIENT_LINKS = [
-  'Patient Portal',
-  'Forms',
-  'Insurance Information',
-  'FAQs',
-  'Careers',
+  { href: '/patient-info', label: 'Patient Portal' },
+  { href: '/patient-info', label: 'Forms' },
+  { href: '/patient-info', label: 'Insurance Information' },
+  { href: '/patient-info', label: 'FAQs' },
+  { href: '/book', label: 'Book Appointment' },
 ]
 
 export default function Footer() {
@@ -135,13 +135,13 @@ export default function Footer() {
             For Patients
           </h5>
           <ul className="flex flex-col gap-2">
-            {PATIENT_LINKS.map((label) => (
-              <li key={label}>
+            {PATIENT_LINKS.map((link) => (
+              <li key={link.label}>
                 <Link
-                  href="/contact"
+                  href={link.href}
                   className="text-[.85rem] text-white/65 hover:text-gold"
                 >
-                  {label}
+                  {link.label}
                 </Link>
               </li>
             ))}
