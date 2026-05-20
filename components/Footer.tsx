@@ -221,9 +221,12 @@ export default function Footer() {
         <span>
           &copy; {new Date().getFullYear()} PulsePoint Clinic &middot; pulsepointheart.com
         </span>
-        <div className="flex gap-[18px]">
+        <div className="flex flex-wrap justify-center gap-x-[18px] gap-y-2 sm:justify-end">
           <Link href="/privacy" className="text-white/40 hover:text-gold">
             Privacy Policy
+          </Link>
+          <Link href="/hipaa-notice" className="text-white/40 hover:text-gold">
+            Privacy Practices
           </Link>
           <Link href="/terms" className="text-white/40 hover:text-gold">
             Terms of Service
