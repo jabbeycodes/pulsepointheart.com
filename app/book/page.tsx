@@ -6,7 +6,8 @@ import AppointmentRequestForm from '@/components/AppointmentRequestForm'
 
 export const metadata: Metadata = {
   title: 'Book an Appointment',
-  description: 'Request a consultation or book your next appointment at PulsePoint Clinic.',
+  description:
+    'Request a cardiology consultation or book your next appointment with PulsePoint Clinic in Columbia, MO.',
 }
 
 export default function BookPage() {

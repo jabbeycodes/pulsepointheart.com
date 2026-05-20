@@ -6,9 +6,9 @@ import StickyMobileCta from '@/components/StickyMobileCta'
 import CtaBanner from '@/components/CtaBanner'
 
 export const metadata: Metadata = {
-  title: 'Services',
+  title: 'Cardiology Services in Columbia, MO',
   description:
-    'Preventive cardiology, advanced imaging, vascular care, cardiometabolic wellness, executive health, and remote follow-up.',
+    'PulsePoint Clinic offers preventive cardiology, advanced imaging, vascular care, cardiometabolic wellness, executive health, and remote follow-up in Columbia, MO.',
 }
 
 const SERVICES = [

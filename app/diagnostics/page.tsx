@@ -7,9 +7,9 @@ import StickyMobileCta from '@/components/StickyMobileCta'
 import CtaBanner from '@/components/CtaBanner'
 
 export const metadata: Metadata = {
-  title: 'Diagnostics',
+  title: 'Cardiovascular Diagnostics',
   description:
-    'Advanced cardiovascular diagnostics including echocardiography, vascular ultrasound, stress testing, rhythm monitoring, and cardiac CT.',
+    'Advanced cardiovascular diagnostics in Columbia, MO including echocardiography, vascular ultrasound, stress testing, rhythm monitoring, and cardiac CT calcium scoring.',
 }
 
 const DIAGNOSTICS = [

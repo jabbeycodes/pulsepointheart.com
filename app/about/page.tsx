@@ -7,9 +7,9 @@ import StickyMobileCta from '@/components/StickyMobileCta'
 import CtaBanner from '@/components/CtaBanner'
 
 export const metadata: Metadata = {
-  title: 'About',
+  title: 'About Dr. Martin Tibuakuu',
   description:
-    'Meet PulsePoint Clinic, a physician-led cardiovascular practice focused on prevention, diagnostics, and personalized heart care.',
+    'Meet Dr. Martin Tibuakuu and PulsePoint Clinic, a physician-led cardiovascular practice in Columbia, MO focused on prevention, diagnostics, and personalized heart care.',
 }
 
 const PRINCIPLES = [

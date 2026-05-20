@@ -6,7 +6,8 @@ import StickyMobileCta from '@/components/StickyMobileCta'
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
-  description: 'Website privacy policy for PulsePoint Clinic.',
+  description:
+    'Website privacy policy for PulsePoint Clinic, including how public form submissions and administrative inquiries are handled.',
 }
 
 const SECTIONS = [

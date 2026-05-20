@@ -6,7 +6,8 @@ import StickyMobileCta from '@/components/StickyMobileCta'
 
 export const metadata: Metadata = {
   title: 'Terms of Use',
-  description: 'Website terms of use for PulsePoint Clinic.',
+  description:
+    'Website terms of use for PulsePoint Clinic, including public form, informational content, scheduling, and emergency-use disclaimers.',
 }
 
 const TERMS = [

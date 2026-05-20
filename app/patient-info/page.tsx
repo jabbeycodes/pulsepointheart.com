@@ -8,7 +8,7 @@ import CtaBanner from '@/components/CtaBanner'
 export const metadata: Metadata = {
   title: 'Patient Info',
   description:
-    'New patient guidance for appointments, forms, insurance, privacy, and preparing for a visit at PulsePoint Clinic.',
+    'New patient guidance for PulsePoint Clinic in Columbia, MO, including appointment preparation, forms, insurance, privacy, and visit expectations.',
 }
 
 const VISIT_STEPS = [

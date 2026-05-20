@@ -5,8 +5,9 @@ import StickyMobileCta from '@/components/StickyMobileCta'
 import ContactForm from '@/components/ContactForm'
 
 export const metadata: Metadata = {
-  title: 'Contact Us',
-  description: 'Get in touch with PulsePoint Clinic. Call, email, or send us a message.',
+  title: 'Contact PulsePoint Clinic',
+  description:
+    'Contact PulsePoint Clinic in Columbia, MO. Call (855) 785-7337, email the clinic, or send a secure administrative inquiry.',
 }
 
 export default function ContactPage() {

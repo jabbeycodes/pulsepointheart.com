@@ -6,8 +6,9 @@ import CtaBanner from '@/components/CtaBanner'
 import MembershipInquiryForm from '@/components/MembershipInquiryForm'
 
 export const metadata: Metadata = {
-  title: 'Membership',
-  description: 'Learn about PulsePoint Clinic\'s personalized membership-based cardiology care.',
+  title: 'Membership-Based Cardiology',
+  description:
+    'Learn about PulsePoint Clinic\'s personalized membership-based cardiology care in Columbia, MO with extended visits, direct physician access, and prevention planning.',
 }
 
 const BENEFITS = [

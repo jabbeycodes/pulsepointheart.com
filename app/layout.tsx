@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import { Inter, Playfair_Display } from 'next/font/google'
+import { buildClinicJsonLd, buildWebsiteJsonLd } from '@/lib/seo'
 import './globals.css'
 
 const inter = Inter({
@@ -14,15 +15,27 @@ const playfairDisplay = Playfair_Display({
   display: 'swap',
 })
 
-// Metadata carried over from the live static site, plus a few upgrades.
 export const metadata: Metadata = {
   metadataBase: new URL('https://pulsepointheart.com'),
   title: {
-    default: 'PulsePoint Clinic - State-of-the-Art Heart Care',
+    default: 'PulsePoint Clinic | Cardiologist in Columbia, MO',
     template: '%s | PulsePoint Clinic',
   },
   description:
-    'PulsePoint Clinic - Concierge cardiology built around you. Precision care, advanced diagnostics, and direct physician access for stronger hearts and better lives.',
+    'PulsePoint Clinic is a physician-led cardiology clinic in Columbia, MO offering preventive cardiology, advanced diagnostics, membership-based care, and personalized heart health planning.',
+  keywords: [
+    'cardiologist Columbia MO',
+    'cardiology clinic Columbia Missouri',
+    'preventive cardiology',
+    'heart doctor Columbia MO',
+    'echocardiography Columbia MO',
+    'vascular ultrasound Columbia MO',
+    'calcium scoring Columbia MO',
+    'membership cardiology',
+  ],
+  alternates: {
+    canonical: '/',
+  },
   icons: {
     icon: '/assets/favicon.png',
     apple: '/assets/favicon.png',
@@ -31,9 +44,10 @@ export const metadata: Metadata = {
     type: 'website',
     url: 'https://pulsepointheart.com/',
     siteName: 'PulsePoint Clinic',
-    title: 'PulsePoint Clinic - State-of-the-Art Heart Care',
+    title: 'PulsePoint Clinic | Cardiologist in Columbia, MO',
     description:
-      'Concierge cardiology built around you. Precision care, advanced diagnostics, and direct physician access for stronger hearts and better lives.',
+      'Physician-led cardiovascular care in Columbia, MO with preventive cardiology, advanced diagnostics, and personalized heart health planning.',
+    locale: 'en_US',
     images: [
       {
         url: '/assets/social-preview.png',
@@ -46,10 +60,14 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'PulsePoint Clinic - State-of-the-Art Heart Care',
+    title: 'PulsePoint Clinic | Cardiologist in Columbia, MO',
     description:
-      'Concierge cardiology built around you. Precision care, advanced diagnostics, and direct physician access for stronger hearts and better lives.',
+      'Preventive cardiology, advanced diagnostics, and personalized heart care in Columbia, MO.',
     images: ['/assets/social-preview.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 }
 
@@ -66,9 +84,17 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const jsonLd = [buildClinicJsonLd(), buildWebsiteJsonLd()]
+
   return (
     <html lang="en" className={`${inter.variable} ${playfairDisplay.variable}`}>
-      <body className="font-sans text-charcoal bg-white">{children}</body>
+      <body className="font-sans text-charcoal bg-white">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        {children}
+      </body>
     </html>
   )
 }
