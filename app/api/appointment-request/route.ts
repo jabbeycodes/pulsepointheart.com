@@ -1,6 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createServerClient } from '@/lib/supabase/server'
-import { appointmentRequestSchema } from '@/lib/validation'
+import {
+  APPOINTMENT_REASON_LABELS,
+  TIMEFRAME_LABELS,
+  appointmentRequestSchema,
+} from '@/lib/validation'
+import { sendFormNotification } from '@/lib/email'
 
 export const runtime = 'nodejs'
 
@@ -35,6 +40,24 @@ export async function POST(request: NextRequest) {
       { error: 'Something went wrong. Please call us at (855) 785-7337.' },
       { status: 500 }
     )
+  }
+
+  try {
+    await sendFormNotification({
+      subject: `New PulsePoint appointment request: ${APPOINTMENT_REASON_LABELS[reason_for_visit]}`,
+      heading: 'New appointment request',
+      intro: 'A new appointment request was saved in the PulsePoint admin dashboard.',
+      fields: [
+        { label: 'Name', value: name },
+        { label: 'Email', value: email },
+        { label: 'Phone', value: phone },
+        { label: 'Preferred contact', value: preferred_contact },
+        { label: 'Preferred timeframe', value: TIMEFRAME_LABELS[preferred_timeframe] },
+        { label: 'Reason for visit', value: APPOINTMENT_REASON_LABELS[reason_for_visit] },
+      ],
+    })
+  } catch (notificationError) {
+    console.error('appointment request notification failed:', notificationError)
   }
 
   return NextResponse.json({ ok: true })

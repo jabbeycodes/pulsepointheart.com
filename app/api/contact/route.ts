@@ -9,7 +9,8 @@
 
 import { NextRequest, NextResponse } from 'next/server'
 import { createServerClient } from '@/lib/supabase/server'
-import { contactSchema } from '@/lib/validation'
+import { CONTACT_REASON_LABELS, contactSchema } from '@/lib/validation'
+import { sendFormNotification } from '@/lib/email'
 
 export const runtime = 'nodejs'
 
@@ -64,8 +65,21 @@ export async function POST(request: NextRequest) {
     )
   }
 
-  // TODO Phase 2: trigger email notification to Mtibuakuu@pulsepointheart.com
-  // via Resend or a Supabase Edge Function.
+  try {
+    await sendFormNotification({
+      subject: `New PulsePoint contact: ${CONTACT_REASON_LABELS[reason]}`,
+      heading: 'New contact form submission',
+      intro: 'A new contact form submission was saved in the PulsePoint admin dashboard.',
+      fields: [
+        { label: 'Name', value: name },
+        { label: 'Email', value: email },
+        { label: 'Phone', value: phone || null },
+        { label: 'Reason', value: CONTACT_REASON_LABELS[reason] },
+      ],
+    })
+  } catch (notificationError) {
+    console.error('contact notification failed:', notificationError)
+  }
 
   return NextResponse.json({ ok: true })
 }

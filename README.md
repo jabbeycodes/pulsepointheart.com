@@ -105,20 +105,27 @@ supabase db push
 In the Vercel dashboard:
 
 1. Project Settings → Environment Variables
-2. Add these three for **Production, Preview, and Development**:
+2. Add these Supabase variables for **Production, Preview, and Development**:
    - `NEXT_PUBLIC_SUPABASE_URL`
    - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
    - `SUPABASE_SERVICE_ROLE_KEY` (server-only - **don't** check `NEXT_PUBLIC` exposure)
-3. Redeploy for the changes to take effect
+3. Add these email notification variables once the Resend sender is verified:
+   - `RESEND_API_KEY`
+   - `NOTIFICATION_EMAIL`
+   - `NOTIFICATION_FROM_EMAIL`
+4. Redeploy for the changes to take effect
 
-## Testing the contact form
+## Testing form notifications
 
 After deployment with env vars set:
 
-1. Visit `/contact` (placeholder for now; full page coming in Phase 4)
-2. Or import `<ContactForm />` into any page to test
-3. Submit a test entry
-4. Check Supabase: Table Editor → `contact_submissions` → should see a new row
+1. Visit `/contact`, `/book`, or `/membership`
+2. Submit a test entry
+3. Check Supabase for the saved row
+4. Check `NOTIFICATION_EMAIL` for the alert email
+
+Email alerts intentionally exclude free-text notes/messages so sensitive details
+stay in the secured admin dashboard instead of inbox previews.
 
 ## What's coming next
 

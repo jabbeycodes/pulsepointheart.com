@@ -4,6 +4,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createServerClient } from '@/lib/supabase/server'
 import { newsletterSchema } from '@/lib/validation'
+import { sendFormNotification } from '@/lib/email'
 
 export const runtime = 'nodejs'
 
@@ -40,6 +41,19 @@ export async function POST(request: NextRequest) {
       { error: 'Something went wrong. Please try again later.' },
       { status: 500 }
     )
+  }
+
+  if (!error) {
+    try {
+      await sendFormNotification({
+        subject: 'New PulsePoint newsletter signup',
+        heading: 'New newsletter signup',
+        intro: 'A new newsletter signup was saved in the PulsePoint admin dashboard.',
+        fields: [{ label: 'Email', value: email }],
+      })
+    } catch (notificationError) {
+      console.error('newsletter notification failed:', notificationError)
+    }
   }
 
   return NextResponse.json({ ok: true })

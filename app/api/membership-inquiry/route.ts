@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createServerClient } from '@/lib/supabase/server'
-import { membershipInquirySchema } from '@/lib/validation'
+import { INTEREST_LEVEL_LABELS, membershipInquirySchema } from '@/lib/validation'
+import { sendFormNotification } from '@/lib/email'
 
 export const runtime = 'nodejs'
 
@@ -33,6 +34,23 @@ export async function POST(request: NextRequest) {
       { error: 'Something went wrong. Please call us at (855) 785-7337.' },
       { status: 500 }
     )
+  }
+
+  try {
+    await sendFormNotification({
+      subject: `New PulsePoint membership inquiry: ${INTEREST_LEVEL_LABELS[interest_level]}`,
+      heading: 'New membership inquiry',
+      intro: 'A new membership inquiry was saved in the PulsePoint admin dashboard.',
+      fields: [
+        { label: 'Name', value: name },
+        { label: 'Email', value: email },
+        { label: 'Phone', value: phone || null },
+        { label: 'Interest level', value: INTEREST_LEVEL_LABELS[interest_level] },
+        { label: 'Heard about PulsePoint', value: hear_about_us || null },
+      ],
+    })
+  } catch (notificationError) {
+    console.error('membership inquiry notification failed:', notificationError)
   }
 
   return NextResponse.json({ ok: true })
