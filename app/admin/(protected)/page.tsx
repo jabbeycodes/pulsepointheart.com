@@ -5,17 +5,19 @@ import Link from 'next/link'
 export const metadata: Metadata = { title: 'Dashboard | PulsePoint Admin' }
 
 async function getCounts(supabase: Awaited<ReturnType<typeof createServerClient>>) {
-  const [contacts, appointments, memberships, newsletters] = await Promise.all([
+  const [contacts, appointments, memberships, newsletters, blogs] = await Promise.all([
     supabase.from('contact_submissions').select('id, status', { count: 'exact' }),
     supabase.from('appointment_requests').select('id, status', { count: 'exact' }),
     supabase.from('membership_inquiries').select('id, status', { count: 'exact' }),
     supabase.from('newsletter_signups').select('id', { count: 'exact' }),
+    supabase.from('blog_posts').select('id, is_published', { count: 'exact' }),
   ])
   return {
     contacts: { total: contacts.count ?? 0, newCount: contacts.data?.filter(r => r.status === 'new').length ?? 0 },
     appointments: { total: appointments.count ?? 0, newCount: appointments.data?.filter(r => r.status === 'new').length ?? 0 },
     memberships: { total: memberships.count ?? 0, newCount: memberships.data?.filter(r => r.status === 'new').length ?? 0 },
     newsletters: { total: newsletters.count ?? 0 },
+    blogs: { total: blogs.count ?? 0, newCount: blogs.data?.filter(r => !r.is_published).length ?? 0 },
   }
 }
 
@@ -28,6 +30,7 @@ export default async function AdminDashboardPage() {
     { label: 'Appointment Requests', href: '/admin/appointments', total: counts.appointments.total, newCount: counts.appointments.newCount, color: 'bg-navy' },
     { label: 'Membership Inquiries', href: '/admin/membership', total: counts.memberships.total, newCount: counts.memberships.newCount, color: 'bg-[#7A6020]' },
     { label: 'Newsletter Signups', href: '/admin/newsletter', total: counts.newsletters.total, newCount: 0, color: 'bg-[#2A6E3A]' },
+    { label: 'Blog Drafts', href: '/admin/blog', total: counts.blogs.total, newCount: counts.blogs.newCount, color: 'bg-charcoal' },
   ]
 
   return (
@@ -37,7 +40,7 @@ export default async function AdminDashboardPage() {
         <p className="mt-1 text-[.88rem] text-muted">Overview of all patient inquiries and submissions.</p>
       </div>
 
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
         {cards.map((card) => (
           <Link
             key={card.label}

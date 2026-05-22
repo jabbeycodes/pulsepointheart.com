@@ -1,8 +1,8 @@
 // API route: POST /api/newsletter
-// Captures email signups. Handles duplicate emails gracefully.
+// Captures newsletter signups. Handles duplicate emails gracefully.
 
 import { NextRequest, NextResponse } from 'next/server'
-import { createServerClient } from '@/lib/supabase/server'
+import { createAdminClient } from '@/lib/supabase/server'
 import { newsletterSchema } from '@/lib/validation'
 import { sendFormNotification } from '@/lib/email'
 
@@ -24,18 +24,26 @@ export async function POST(request: NextRequest) {
     )
   }
 
-  const { email, website } = result.data
+  const { name, email, website } = result.data
   if (website && website.length > 0) {
     return NextResponse.json({ ok: true })
   }
 
-  const supabase = await createServerClient()
+  const supabase = createAdminClient()
   const { error } = await supabase
     .from('newsletter_signups')
-    .insert({ email, source: 'website' })
+    .upsert(
+      {
+        name,
+        email,
+        subscribed: true,
+        source: 'website',
+        unsubscribed_at: null,
+      },
+      { onConflict: 'email' }
+    )
 
-  // Postgres unique violation code = 23505. Treat as success (idempotent UX).
-  if (error && error.code !== '23505') {
+  if (error) {
     console.error('newsletter_signups insert failed:', error)
     return NextResponse.json(
       { error: 'Something went wrong. Please try again later.' },
@@ -49,7 +57,10 @@ export async function POST(request: NextRequest) {
         subject: 'New PulsePoint newsletter signup',
         heading: 'New newsletter signup',
         intro: 'A new newsletter signup was saved in the PulsePoint admin dashboard.',
-        fields: [{ label: 'Email', value: email }],
+        fields: [
+          { label: 'Name', value: name },
+          { label: 'Email', value: email },
+        ],
       })
     } catch (notificationError) {
       console.error('newsletter notification failed:', notificationError)

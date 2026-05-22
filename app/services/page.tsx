@@ -13,41 +13,60 @@ export const metadata: Metadata = {
 
 const SERVICES = [
   {
+    id: 'preventive-cardiology',
     title: 'Preventive Cardiology',
     summary:
       'Risk assessment, blood pressure guidance, cholesterol management, lifestyle planning, and longitudinal heart health strategy.',
     details: ['Family history review', 'ASCVD risk evaluation', 'Personalized prevention plan'],
   },
   {
+    id: 'advanced-imaging',
     title: 'Advanced Imaging',
     summary:
       'Thoughtful use of echocardiography, vascular ultrasound, cardiac CT, and calcium scoring to clarify risk and guide next steps.',
     details: ['Echo interpretation', 'Calcium scoring guidance', 'Imaging-based care planning'],
   },
   {
+    id: 'vascular-care',
     title: 'Vascular & Vein Care',
     summary:
       'Evaluation of circulation concerns, leg symptoms, vascular risk, and ultrasound findings with clear treatment recommendations.',
     details: ['Vascular ultrasound', 'Peripheral circulation review', 'Vein and arterial concerns'],
   },
   {
+    id: 'cardiometabolic-wellness',
     title: 'Cardiometabolic Wellness',
     summary:
       'Integrated care for cardiovascular risk linked to weight, insulin resistance, blood pressure, cholesterol, and inflammation.',
     details: ['Metabolic risk review', 'Medication optimization', 'Lifestyle and nutrition goals'],
+    href: '/services/cardiometabolic-wellness',
   },
   {
+    id: 'executive-health',
     title: 'Executive Health',
     summary:
       'A high-touch cardiovascular evaluation for busy professionals who want a precise understanding of their heart health.',
     details: ['Comprehensive review', 'Efficient scheduling', 'Written action plan'],
+    href: '/services/executive-health',
   },
   {
+    id: 'telemedicine',
     title: 'Telemedicine & Remote Care',
     summary:
       'Convenient follow-up for results review, prevention planning, medication questions, and ongoing care coordination.',
     details: ['Virtual follow-ups', 'Remote results review', 'Care coordination'],
   },
+]
+
+const PATIENT_NEEDS = [
+  'High blood pressure or cholesterol',
+  'Family history of heart disease',
+  'Palpitations, dizziness, or rhythm concerns',
+  'Chest discomfort or shortness of breath',
+  'Abnormal ECG, echo, calcium score, or lab results',
+  'Second opinions before procedures or medication changes',
+  'Executive or premium preventive care',
+  'Long-term cardiology follow-up after a prior event',
 ]
 
 const PROCESS = [
@@ -79,12 +98,12 @@ export default function ServicesPage() {
               Services
             </div>
             <h1 className="max-w-4xl font-display text-[2.2rem] font-bold leading-[1.12] sm:text-[3rem] lg:text-[3.3rem]">
-              Comprehensive heart care with a prevention-first lens.
+              Personalized cardiovascular care with a prevention-first lens.
             </h1>
             <p className="mt-5 max-w-2xl text-[.98rem] leading-[1.75] text-white/78">
-              PulsePoint Clinic brings together preventive cardiology, advanced
-              diagnostics, vascular evaluation, and cardiometabolic wellness so
-              your care plan reflects the full cardiovascular picture.
+              PulsePoint brings together preventive cardiology, advanced
+              diagnostics, vascular evaluation, and cardiometabolic wellness in
+              a premium physician-led experience.
             </p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
               <Link
@@ -113,7 +132,11 @@ export default function ServicesPage() {
             </div>
             <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
               {SERVICES.map((service) => (
-                <article key={service.title} className="rounded-md bg-white p-6 shadow-card">
+                <article
+                  id={service.id}
+                  key={service.title}
+                  className="scroll-mt-24 rounded-md bg-white p-6 shadow-card"
+                >
                   <h3 className="text-[1.05rem] font-bold text-charcoal">
                     {service.title}
                   </h3>
@@ -131,7 +154,44 @@ export default function ServicesPage() {
                       </li>
                     ))}
                   </ul>
+                  {service.href ? (
+                    <Link
+                      href={service.href}
+                      className="mt-5 inline-flex text-[.78rem] font-bold uppercase tracking-[1.4px] text-wine transition-colors hover:text-navy"
+                    >
+                      Learn more
+                    </Link>
+                  ) : null}
                 </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-graybg px-5 py-12 sm:px-8 sm:py-16 lg:px-12 lg:py-[72px]">
+          <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[360px_1fr] lg:items-start">
+            <div>
+              <h2 className="font-display text-[1.8rem] font-bold leading-tight text-charcoal sm:text-[2.2rem]">
+                Reasons patients reach out.
+              </h2>
+              <div className="mt-4 h-[3px] w-12 rounded bg-wine" />
+              <p className="mt-5 text-[.92rem] leading-[1.7] text-muted">
+                PulsePoint is built for people who want the time and structure
+                to understand what their cardiovascular risk means before it
+                becomes a crisis.
+              </p>
+            </div>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {PATIENT_NEEDS.map((need) => (
+                <div
+                  key={need}
+                  className="flex min-h-[58px] items-center gap-3 rounded-md border border-[#E5EAF0] bg-graybg px-4 py-3"
+                >
+                  <span className="h-2 w-2 flex-shrink-0 rounded-full bg-wine" />
+                  <span className="text-[.88rem] font-semibold leading-[1.45] text-charcoal">
+                    {need}
+                  </span>
+                </div>
               ))}
             </div>
           </div>

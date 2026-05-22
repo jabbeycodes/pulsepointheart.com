@@ -29,20 +29,33 @@ const VISIT_STEPS = [
 const INFO_BLOCKS = [
   {
     title: 'Forms',
+    id: 'forms',
     text: 'New patient forms and consent materials will be provided before or during scheduling. Please do not email medical details unless our team has instructed you to use a secure channel.',
   },
   {
     title: 'Insurance & payment',
+    id: 'insurance',
     text: 'Coverage can vary by service. Our team can discuss appointment type, membership inquiries, and payment expectations before your visit.',
   },
   {
     title: 'Patient portal',
+    id: 'portal',
     text: 'Portal access is intended for secure communication, results, and care follow-up when available. Contact the clinic if you need help getting connected.',
   },
   {
     title: 'Privacy',
+    id: 'privacy',
     text: 'For your safety, public website forms should not include symptoms, diagnoses, or other sensitive medical details.',
   },
+]
+
+const PREP_CHECKLIST = [
+  'Current medication list, including supplements',
+  'Recent lab results and blood pressure readings',
+  'Prior ECG, echo, stress test, CT, or ultrasound reports',
+  'Hospital records or procedure reports if available',
+  'Insurance card and preferred pharmacy',
+  'Top questions you want answered during the visit',
 ]
 
 const FAQS = [
@@ -137,7 +150,11 @@ export default function PatientInfoPage() {
             </div>
             <div className="grid gap-5 md:grid-cols-2">
               {INFO_BLOCKS.map((block) => (
-                <article key={block.title} className="border-t-2 border-gold pt-5">
+                <article
+                  id={block.id}
+                  key={block.title}
+                  className="scroll-mt-24 border-t-2 border-gold pt-5"
+                >
                   <h3 className="text-[1rem] font-bold text-charcoal">{block.title}</h3>
                   <p className="mt-2 text-[.86rem] leading-[1.65] text-muted">
                     {block.text}
@@ -149,6 +166,33 @@ export default function PatientInfoPage() {
         </section>
 
         <section className="bg-graybg px-5 py-12 sm:px-8 sm:py-16 lg:px-12 lg:py-[72px]">
+          <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[360px_1fr] lg:items-start">
+            <div>
+              <h2 className="font-display text-[1.8rem] font-bold leading-tight text-charcoal sm:text-[2.2rem]">
+                New patient checklist.
+              </h2>
+              <div className="mt-4 h-[3px] w-12 rounded bg-wine" />
+              <p className="mt-5 text-[.92rem] leading-[1.7] text-muted">
+                Bringing the right information helps Dr. Tibuakuu understand
+                your risk quickly and avoid repeating tests unnecessarily.
+              </p>
+            </div>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {PREP_CHECKLIST.map((item) => (
+                <div key={item} className="rounded-md bg-white px-4 py-3 shadow-card">
+                  <div className="flex items-start gap-3">
+                    <span className="mt-[7px] h-1.5 w-1.5 flex-shrink-0 rounded-full bg-wine" />
+                    <span className="text-[.88rem] font-semibold leading-[1.45] text-charcoal">
+                      {item}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-white px-5 py-12 sm:px-8 sm:py-16 lg:px-12 lg:py-[72px]">
           <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[1fr_380px]">
             <div>
               <h2 className="font-display text-[1.8rem] font-bold leading-tight text-charcoal sm:text-[2.25rem]">

@@ -17,8 +17,8 @@ export default function TeamCard() {
           </h2>
           <div className="my-3.5 h-[3px] w-12 rounded bg-wine" />
           <p className="mt-3 text-[.92rem] leading-[1.65] text-muted">
-            Board-certified cardiologist providing precision concierge care,
-            advanced diagnostics, and direct physician access.
+            Board-certified cardiologist providing physician-led cardiovascular
+            care, advanced diagnostics, and a prevention-first philosophy.
           </p>
           <div className="mt-5 hidden lg:block">
             <Link
@@ -45,11 +45,11 @@ export default function TeamCard() {
               Martin Tibuakuu, MD, MPH, FACC
             </h3>
             <div className="mb-3 text-[.82rem] font-semibold text-wine">
-              Cardiologist &middot; Concierge Cardiology
+              Cardiologist &middot; Preventive Cardiovascular Care
             </div>
             <p className="mb-3.5 text-[.85rem] leading-[1.6] text-muted">
-              State-of-the-art heart care built around you. Precision care.
-              Stronger hearts. Better lives.
+              State-of-the-art heart care built around you, with a focus on
+              prevention, access, and lifelong cardiovascular wellness.
             </p>
             <Link
               href="/about"

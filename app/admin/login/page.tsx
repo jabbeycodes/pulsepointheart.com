@@ -16,7 +16,7 @@ export default function AdminLoginPage() {
         <div className="rounded-lg bg-white p-8 shadow-xl">
           <h1 className="mb-1 font-display text-[1.4rem] font-bold text-charcoal">Admin Access</h1>
           <p className="mb-6 text-[.85rem] text-muted">
-            Enter your email to receive a secure login link.
+            Enter your admin email and password to access the dashboard.
           </p>
           <AdminLoginForm />
         </div>

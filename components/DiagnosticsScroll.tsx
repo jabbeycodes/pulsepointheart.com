@@ -5,33 +5,38 @@ import Link from 'next/link'
 const DIAGNOSTICS = [
   {
     key: 'echocardiography',
+    href: '/services/echocardiography',
     title: 'Echocardiography',
     desc: "Detailed imaging of the heart's structure and function.",
-    alt: 'Echocardiography exam in a modern cardiology clinic',
+    alt: 'Echocardiography exam in a modern cardiovascular care setting',
   },
   {
     key: 'vascular-ultrasound',
+    href: '/services/vascular-ultrasound',
     title: 'Vascular Ultrasound',
     desc: 'Assessment of blood flow and vascular health.',
-    alt: 'Vascular ultrasound exam in a modern cardiology clinic',
+    alt: 'Vascular ultrasound exam in a modern cardiovascular care setting',
   },
   {
     key: 'stress-testing',
+    href: '/services/stress-testing',
     title: 'Stress Testing',
     desc: 'Evaluating heart performance during physical stress.',
-    alt: 'Cardiac stress testing in a modern cardiology clinic',
+    alt: 'Cardiac stress testing in a modern cardiovascular care setting',
   },
   {
     key: 'heart-rhythm-monitoring',
+    href: '/services/heart-rhythm-monitoring',
     title: 'Heart Rhythm Monitoring',
     desc: 'Continuous monitoring for arrhythmia detection.',
-    alt: 'Heart rhythm monitor placement in a modern cardiology clinic',
+    alt: 'Heart rhythm monitor placement in a modern cardiovascular care setting',
   },
   {
     key: 'cardiac-ct-calcium',
+    href: '/services/cardiac-ct-calcium-scoring',
     title: 'Cardiac CT & Calcium',
     desc: 'Advanced screening for coronary artery disease.',
-    alt: 'Cardiac CT and calcium screening in a modern cardiology clinic',
+    alt: 'Cardiac CT and calcium screening in a modern cardiovascular care setting',
   },
 ]
 
@@ -67,8 +72,9 @@ export default function DiagnosticsScroll() {
         {/* Horizontal scroll on mobile, 5-col grid on desktop */}
         <div className="-mx-5 flex gap-3.5 overflow-x-auto pb-2 pl-5 pr-5 [scroll-snap-type:x_mandatory] [-webkit-overflow-scrolling:touch] no-scrollbar sm:-mx-8 sm:pl-8 sm:pr-8 lg:mx-0 lg:grid lg:grid-cols-5 lg:gap-4 lg:overflow-visible lg:p-0">
           {DIAGNOSTICS.map((item) => (
-            <div
+            <Link
               key={item.key}
+              href={item.href}
               className="flex-[0_0_200px] overflow-hidden rounded bg-white shadow-card [scroll-snap-align:start] lg:flex-none"
             >
               <div className="flex aspect-[4/3] items-center justify-center overflow-hidden bg-[#dde4ee]">
@@ -86,7 +92,7 @@ export default function DiagnosticsScroll() {
               <p className="px-3 pb-3.5 text-[.75rem] leading-[1.5] text-muted">
                 {item.desc}
               </p>
-            </div>
+            </Link>
           ))}
         </div>
 

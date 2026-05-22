@@ -9,7 +9,7 @@ import CtaBanner from '@/components/CtaBanner'
 export const metadata: Metadata = {
   title: 'About Dr. Martin Tibuakuu',
   description:
-    'Meet Dr. Martin Tibuakuu and PulsePoint Clinic, a physician-led cardiovascular practice in Columbia, MO focused on prevention, diagnostics, and personalized heart care.',
+    'Meet Dr. Martin Tibuakuu and PulsePoint Clinic, a physician-led cardiovascular care platform in Columbia, MO focused on prevention, advanced diagnostics, access, and personalized heart health.',
 }
 
 const PRINCIPLES = [
@@ -34,6 +34,28 @@ const CREDENTIALS = [
   'Preventive and diagnostic heart care',
 ]
 
+const PHILOSOPHY_POINTS = [
+  {
+    title: 'Prevention should feel personal',
+    text: 'Risk scores and test results only matter when they are translated into a plan that fits the patient in front of us.',
+  },
+  {
+    title: 'Access changes the relationship',
+    text: 'Premium cardiovascular care should make it easier to ask questions, understand results, and know what happens next.',
+  },
+  {
+    title: 'Diagnostics should create clarity',
+    text: 'Advanced testing is used to answer meaningful questions, guide prevention, and reduce uncertainty.',
+  },
+]
+
+const TRUST_SIGNALS = [
+  'Academic medicine and public health background',
+  'Board-certified cardiovascular disease specialist',
+  'Fellow of the American College of Cardiology',
+  'Physician-led prevention and diagnostics model',
+]
+
 export default function AboutPage() {
   return (
     <>
@@ -46,14 +68,14 @@ export default function AboutPage() {
                 About PulsePoint
               </div>
               <h1 className="max-w-3xl font-display text-[2.2rem] font-bold leading-[1.12] text-charcoal sm:text-[3rem] lg:text-[3.35rem]">
-                Physician-led cardiovascular care built around prevention.
+                A physician-led approach to prevention, access, and lifelong heart health.
               </h1>
               <div className="my-5 h-[3px] w-12 rounded bg-wine" />
               <p className="max-w-2xl text-[1rem] leading-[1.75] text-muted">
-                PulsePoint Clinic was created for patients who want a more
-                personal, proactive relationship with their heart specialist.
-                We combine advanced cardiovascular diagnostics with practical
-                prevention planning, clear communication, and close follow-up.
+                PulsePoint was created for patients who want a more thoughtful,
+                proactive relationship with their cardiologist. The model
+                combines advanced cardiovascular diagnostics with prevention
+                planning, clear communication, and close follow-up.
               </p>
               <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                 <Link
@@ -72,11 +94,11 @@ export default function AboutPage() {
             </div>
             <div className="overflow-hidden rounded-md bg-graybg shadow-card">
               <Image
-                src="/assets/care-team.jpg"
-                alt="PulsePoint Clinic care team"
-                width={860}
-                height={940}
-                className="h-full max-h-[520px] w-full object-cover"
+                src="/assets/hero.png"
+                alt="Dr. Martin Tibuakuu speaking with a PulsePoint Clinic patient"
+                width={1475}
+                height={1067}
+                className="aspect-[4/3] w-full object-cover object-left-center"
                 priority
               />
             </div>
@@ -106,6 +128,32 @@ export default function AboutPage() {
           </div>
         </section>
 
+        <section className="bg-navy px-5 py-12 text-white sm:px-8 sm:py-16 lg:px-12 lg:py-[72px]">
+          <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[360px_1fr]">
+            <div>
+              <h2 className="font-display text-[1.85rem] font-bold leading-tight sm:text-[2.3rem]">
+                The philosophy behind PulsePoint.
+              </h2>
+              <div className="mt-4 h-[3px] w-12 rounded bg-gold" />
+              <p className="mt-5 text-[.94rem] leading-[1.75] text-white/75">
+                Premium cardiovascular care should give patients more than a
+                diagnosis. It should provide confidence, access, and a plan for
+                protecting long-term health.
+              </p>
+            </div>
+            <div className="grid gap-5 md:grid-cols-3">
+              {PHILOSOPHY_POINTS.map((point) => (
+                <article key={point.title} className="border-t border-white/20 pt-5">
+                  <h3 className="text-[1rem] font-bold text-white">{point.title}</h3>
+                  <p className="mt-2 text-[.84rem] leading-[1.65] text-white/68">
+                    {point.text}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section className="bg-white px-5 py-12 sm:px-8 sm:py-16 lg:px-12 lg:py-[72px]">
           <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[420px_1fr] lg:items-start">
             <div className="rounded-md border border-[#E5EAF0] bg-white p-6 shadow-card">
@@ -116,8 +164,9 @@ export default function AboutPage() {
                 Martin Tibuakuu, MD, MPH, FACC
               </h2>
               <p className="mt-3 text-[.92rem] leading-[1.7] text-muted">
-                Dr. Tibuakuu leads PulsePoint Clinic with a focus on prevention,
-                early detection, and personalized cardiovascular care.
+                Dr. Tibuakuu leads PulsePoint with a focus on prevention, early
+                detection, physician accessibility, and personalized
+                cardiovascular care.
               </p>
               <ul className="mt-5 space-y-2">
                 {CREDENTIALS.map((credential) => (
@@ -143,10 +192,10 @@ export default function AboutPage() {
                 a physician who knows the full picture.
               </p>
               <p className="mt-4 text-[.95rem] leading-[1.75] text-muted">
-                The clinic serves patients seeking preventive cardiology,
-                advanced imaging guidance, vascular evaluation, metabolic
-                wellness, second opinions, executive heart health, and ongoing
-                cardiology follow-up.
+                The practice serves patients seeking preventive cardiology,
+                advanced heart screening, vascular evaluation, cardiometabolic
+                wellness, second opinions, executive health, and ongoing
+                cardiovascular follow-up.
               </p>
               <div className="mt-7 grid gap-4 sm:grid-cols-3">
                 {['Prevention', 'Diagnostics', 'Continuity'].map((label) => (
@@ -161,6 +210,29 @@ export default function AboutPage() {
                   </div>
                 ))}
               </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-graybg px-5 py-12 sm:px-8 sm:py-16 lg:px-12 lg:py-[72px]">
+          <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[360px_1fr]">
+            <div>
+              <h2 className="font-display text-[1.8rem] font-bold leading-tight text-charcoal sm:text-[2.2rem]">
+                Trust signals that matter.
+              </h2>
+              <div className="mt-4 h-[3px] w-12 rounded bg-wine" />
+            </div>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {TRUST_SIGNALS.map((signal) => (
+                <div key={signal} className="rounded-md bg-white px-5 py-4 shadow-card">
+                  <div className="flex items-start gap-3">
+                    <span className="mt-[7px] h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold" />
+                    <p className="text-[.9rem] font-semibold leading-[1.45] text-charcoal">
+                      {signal}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>

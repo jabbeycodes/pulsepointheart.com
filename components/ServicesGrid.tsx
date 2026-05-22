@@ -1,55 +1,33 @@
-// Services from build doc section 7
 const SERVICES = [
   {
     name: 'Preventive Cardiology',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
-        <path d="M12 21s-8-4-8-10V5l8-3 8 3v6c0 6-8 10-8 10z" />
-      </svg>
-    ),
+    href: '/services/preventive-cardiology',
+    desc: 'Risk assessment and long-term heart health optimization.',
   },
   {
     name: 'Advanced Imaging',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
-        <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-      </svg>
-    ),
+    href: '/services/echocardiography',
+    desc: 'Echo, cardiac CT coordination, and imaging-guided prevention.',
   },
   {
     name: 'Vascular & Vein Care',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
-        <circle cx="12" cy="12" r="10" />
-        <path d="M8 12h8M12 8v8" />
-      </svg>
-    ),
+    href: '/services/vascular-ultrasound',
+    desc: 'Noninvasive vascular evaluation and blood-flow assessment.',
   },
   {
     name: 'Cardiometabolic Wellness',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
-        <path d="M3 3h18v4H3zM3 10h18v4H3zM3 17h18v4H3z" />
-      </svg>
-    ),
+    href: '/services/cardiometabolic-wellness',
+    desc: 'Integrated care for metabolic risk, blood pressure, and cholesterol.',
   },
   {
     name: 'Executive Health',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
-        <circle cx="12" cy="8" r="4" />
-        <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
-      </svg>
-    ),
+    href: '/services/executive-health',
+    desc: 'Efficient preventive cardiovascular insight for busy patients.',
   },
   {
     name: 'Telemedicine & Remote',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
-        <rect x="2" y="3" width="20" height="14" rx="2" />
-        <path d="M8 21h8M12 17v4" />
-      </svg>
-    ),
+    href: '/services#telemedicine',
+    desc: 'Convenient results review, planning, and care coordination.',
   },
 ]
 
@@ -74,17 +52,21 @@ export default function ServicesGrid() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4">
+        <div className="grid gap-3 sm:grid-cols-2 sm:gap-4 xl:grid-cols-3">
           {SERVICES.map((svc) => (
-            <div
+            <a
               key={svc.name}
-              className="rounded bg-white px-3.5 py-5 text-center shadow-card transition-transform active:scale-[.98]"
+              href={svc.href}
+              className="rounded bg-white px-5 py-5 shadow-card transition-transform hover:-translate-y-0.5 active:scale-[.98]"
             >
-              <div className="mx-auto mb-2.5 h-9 w-9 text-wine">{svc.icon}</div>
-              <h4 className="text-[.8rem] font-semibold leading-[1.3] text-charcoal">
+              <div className="mb-4 h-[2px] w-9 rounded bg-gold" />
+              <h4 className="text-[.95rem] font-bold leading-[1.3] text-charcoal">
                 {svc.name}
               </h4>
-            </div>
+              <p className="mt-2 text-[.8rem] leading-[1.55] text-muted">
+                {svc.desc}
+              </p>
+            </a>
           ))}
         </div>
       </div>

@@ -101,7 +101,11 @@ export default function ContactPage() {
                   </svg>
                   <div>
                     <div className="font-semibold text-charcoal">Hours</div>
-                    <p className="leading-[1.6] text-muted">By Appointment Only</p>
+                    <p className="leading-[1.6] text-muted">
+                      Monday-Friday, 8:00 AM-4:00 PM
+                      <br />
+                      By appointment
+                    </p>
                   </div>
                 </div>
               </div>

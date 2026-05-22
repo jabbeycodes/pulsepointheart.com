@@ -7,9 +7,9 @@ import StickyMobileCta from '@/components/StickyMobileCta'
 import CtaBanner from '@/components/CtaBanner'
 
 export const metadata: Metadata = {
-  title: 'Cardiovascular Diagnostics',
+  title: 'Advanced Cardiovascular Diagnostics',
   description:
-    'Advanced cardiovascular diagnostics in Columbia, MO including echocardiography, vascular ultrasound, stress testing, rhythm monitoring, and cardiac CT calcium scoring.',
+    'Advanced cardiovascular diagnostics in Columbia, MO including echocardiography, vascular ultrasound, stress testing, rhythm monitoring, preventive screening, and cardiac CT calcium scoring coordination.',
 }
 
 const DIAGNOSTICS = [
@@ -45,6 +45,15 @@ const DIAGNOSTICS = [
   },
 ]
 
+const ADVANTAGES = [
+  'Preventive screening strategy',
+  'Integrated diagnostics',
+  'Physician interpretation',
+  'Earlier risk detection',
+  'Coordinated next steps',
+  'Technology-enabled workflows',
+]
+
 export default function DiagnosticsPage() {
   return (
     <>
@@ -57,13 +66,14 @@ export default function DiagnosticsPage() {
                 Advanced Diagnostics
               </div>
               <h1 className="max-w-4xl font-display text-[2.2rem] font-bold leading-[1.12] text-charcoal sm:text-[3rem] lg:text-[3.3rem]">
-                Earlier detection starts with the right cardiovascular information.
+                Advanced cardiovascular diagnostics for earlier detection.
               </h1>
               <div className="my-5 h-[3px] w-12 rounded bg-wine" />
               <p className="max-w-2xl text-[.98rem] leading-[1.75] text-muted">
-                PulsePoint uses noninvasive testing to help identify structural,
-                rhythm, vascular, and coronary risk signals. Each test is paired
-                with a physician review and a practical next-step plan.
+                PulsePoint uses integrated diagnostics to identify structural,
+                rhythm, vascular, and coronary risk signals earlier. Testing is
+                paired with physician interpretation and a prevention-focused
+                plan.
               </p>
             </div>
             <div className="rounded-md bg-navy p-6 text-white shadow-card">
@@ -71,9 +81,35 @@ export default function DiagnosticsPage() {
                 Not every patient needs every test.
               </h2>
               <p className="mt-3 text-[.86rem] leading-[1.65] text-white/75">
-                Diagnostic recommendations are based on your history, symptoms,
-                risk factors, prior results, and goals for prevention.
+                Diagnostic recommendations are based on your history, risk
+                factors, prior results, and goals for prevention, wellness, and
+                long-term cardiovascular health.
               </p>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-white px-5 py-12 sm:px-8 sm:py-16 lg:px-12 lg:py-[72px]">
+          <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[380px_1fr]">
+            <div>
+              <h2 className="font-display text-[1.8rem] font-bold leading-tight text-charcoal sm:text-[2.25rem]">
+                Built to feel like an advanced cardiovascular institute.
+              </h2>
+              <div className="mt-4 h-[3px] w-12 rounded bg-wine" />
+              <p className="mt-5 text-[.92rem] leading-[1.7] text-muted">
+                Diagnostics are not presented as isolated procedures. They are
+                part of a larger prevention and cardiovascular wellness model.
+              </p>
+            </div>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {ADVANTAGES.map((item) => (
+                <div
+                  key={item}
+                  className="border-l-2 border-gold bg-graybg px-4 py-3 text-[.9rem] font-semibold text-charcoal"
+                >
+                  {item}
+                </div>
+              ))}
             </div>
           </div>
         </section>

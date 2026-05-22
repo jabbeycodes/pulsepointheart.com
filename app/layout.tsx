@@ -18,20 +18,23 @@ const playfairDisplay = Playfair_Display({
 export const metadata: Metadata = {
   metadataBase: new URL('https://pulsepointheart.com'),
   title: {
-    default: 'PulsePoint Clinic | Cardiologist in Columbia, MO',
+    default: 'PulsePoint Clinic | Premium Cardiovascular Care in Columbia, MO',
     template: '%s | PulsePoint Clinic',
   },
   description:
-    'PulsePoint Clinic is a physician-led cardiology clinic in Columbia, MO offering preventive cardiology, advanced diagnostics, membership-based care, and personalized heart health planning.',
+    'PulsePoint Clinic is a physician-led cardiovascular care platform in Columbia, MO offering preventive cardiology, advanced diagnostics, membership-based care, and personalized heart health planning.',
   keywords: [
     'cardiologist Columbia MO',
-    'cardiology clinic Columbia Missouri',
+    'premium cardiology Columbia Missouri',
     'preventive cardiology',
     'heart doctor Columbia MO',
     'echocardiography Columbia MO',
     'vascular ultrasound Columbia MO',
     'calcium scoring Columbia MO',
     'membership cardiology',
+    'cardiovascular wellness',
+    'heart health optimization',
+    'physician-led care',
   ],
   alternates: {
     canonical: '/',
@@ -44,7 +47,7 @@ export const metadata: Metadata = {
     type: 'website',
     url: 'https://pulsepointheart.com/',
     siteName: 'PulsePoint Clinic',
-    title: 'PulsePoint Clinic | Cardiologist in Columbia, MO',
+    title: 'PulsePoint Clinic | Premium Cardiovascular Care in Columbia, MO',
     description:
       'Physician-led cardiovascular care in Columbia, MO with preventive cardiology, advanced diagnostics, and personalized heart health planning.',
     locale: 'en_US',
@@ -60,7 +63,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'PulsePoint Clinic | Cardiologist in Columbia, MO',
+    title: 'PulsePoint Clinic | Premium Cardiovascular Care in Columbia, MO',
     description:
       'Preventive cardiology, advanced diagnostics, and personalized heart care in Columbia, MO.',
     images: ['/assets/social-preview.png'],

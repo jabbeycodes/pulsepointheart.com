@@ -21,6 +21,7 @@ export default async function AdminNewsletterPage() {
         <table className="w-full text-[.85rem]">
           <thead className="border-b border-[#E2E8F0] bg-graybg text-left text-[.72rem] font-semibold uppercase tracking-[1px] text-muted">
             <tr>
+              <th className="px-4 py-3">Name</th>
               <th className="px-4 py-3">Email</th>
               <th className="px-4 py-3">Status</th>
               <th className="px-4 py-3">Subscribed</th>
@@ -29,6 +30,7 @@ export default async function AdminNewsletterPage() {
           <tbody className="divide-y divide-[#F1F5F9]">
             {(data ?? []).map((row) => (
               <tr key={row.id} className="hover:bg-graybg/50">
+                <td className="px-4 py-3 font-semibold text-charcoal">{row.name ?? '—'}</td>
                 <td className="px-4 py-3 font-medium text-charcoal">{row.email}</td>
                 <td className="px-4 py-3">
                   <span className={`rounded-full px-2 py-0.5 text-[.72rem] font-semibold ${
@@ -44,7 +46,7 @@ export default async function AdminNewsletterPage() {
             ))}
             {data?.length === 0 && (
               <tr>
-                <td colSpan={3} className="px-4 py-8 text-center text-muted">No signups yet.</td>
+                <td colSpan={4} className="px-4 py-8 text-center text-muted">No signups yet.</td>
               </tr>
             )}
           </tbody>

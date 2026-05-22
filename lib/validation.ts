@@ -41,6 +41,7 @@ export type ContactInput = z.infer<typeof contactSchema>
 
 // ─── NEWSLETTER ───────────────────────────────────────────────────────────────
 export const newsletterSchema = z.object({
+  name: trimmed(2, 80),
   email: z.string().trim().email('Please enter a valid email').max(120),
   website: z.string().max(0).optional(),
 })

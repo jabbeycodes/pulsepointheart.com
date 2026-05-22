@@ -8,22 +8,23 @@ const QUICK_LINKS = [
   { href: '/membership', label: 'Membership' },
   { href: '/diagnostics', label: 'Diagnostics' },
   { href: '/patient-info', label: 'Patient Info' },
+  { href: '/blog', label: 'Blog' },
   { href: '/contact', label: 'Contact' },
 ]
 
 const SERVICE_LINKS = [
-  'Preventive Cardiology',
-  'Vascular & Vein Care',
-  'Advanced Imaging',
-  'Cardiometabolic Wellness',
-  'Executive Health',
-  'Telemedicine',
+  { href: '/services#preventive-cardiology', label: 'Preventive Cardiology' },
+  { href: '/services#vascular-care', label: 'Vascular & Vein Care' },
+  { href: '/services#advanced-imaging', label: 'Advanced Imaging' },
+  { href: '/services/cardiometabolic-wellness', label: 'Cardiometabolic Wellness' },
+  { href: '/services/executive-health', label: 'Executive Health' },
+  { href: '/services#telemedicine', label: 'Telemedicine' },
 ]
 
 const PATIENT_LINKS = [
-  { href: '/patient-info', label: 'Patient Portal' },
-  { href: '/patient-info', label: 'Forms' },
-  { href: '/patient-info', label: 'Insurance Information' },
+  { href: '/patient-info#portal', label: 'Patient Portal' },
+  { href: '/patient-info#forms', label: 'Forms' },
+  { href: '/patient-info#insurance', label: 'Insurance Information' },
   { href: '/patient-info', label: 'FAQs' },
   { href: '/book', label: 'Book Appointment' },
 ]
@@ -44,23 +45,39 @@ export default function Footer() {
             />
           </div>
           <p className="my-3.5 text-[.82rem] leading-[1.7] text-white/60">
-            Concierge cardiology. Precision care. Stronger hearts. Better lives.
+            Premium personalized cardiovascular care. Stronger hearts. Better lives.
           </p>
           <div className="flex gap-2.5">
             {/* Facebook */}
             <a
-              href="#"
+              href="https://www.facebook.com/profile.php?id=61590350815271"
               aria-label="Facebook"
+              target="_blank"
+              rel="noreferrer"
               className="flex h-9 w-9 items-center justify-center rounded border border-white/20 text-white/60 transition-colors hover:border-gold hover:text-gold"
             >
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
               </svg>
             </a>
+            {/* TikTok */}
+            <a
+              href="https://www.tiktok.com/@pulsepointheart"
+              aria-label="TikTok"
+              target="_blank"
+              rel="noreferrer"
+              className="flex h-9 w-9 items-center justify-center rounded border border-white/20 text-white/60 transition-colors hover:border-gold hover:text-gold"
+            >
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M16.6 5.82a5.7 5.7 0 003.23 1.03V10a8.9 8.9 0 01-3.23-.62v5.67a6.11 6.11 0 11-6.1-6.1c.39 0 .77.04 1.13.11v3.29a2.86 2.86 0 102.01 2.73V2h2.96v3.82z" />
+              </svg>
+            </a>
             {/* Instagram */}
             <a
-              href="#"
+              href="https://www.instagram.com/pulsepointheart?igsh=aGtrcHo3YTQ5Y2t0"
               aria-label="Instagram"
+              target="_blank"
+              rel="noreferrer"
               className="flex h-9 w-9 items-center justify-center rounded border border-white/20 text-white/60 transition-colors hover:border-gold hover:text-gold"
             >
               <svg
@@ -70,21 +87,11 @@ export default function Footer() {
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2"
+                aria-hidden="true"
               >
                 <rect x="2" y="2" width="20" height="20" rx="5" />
                 <circle cx="12" cy="12" r="4" />
                 <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
-              </svg>
-            </a>
-            {/* LinkedIn */}
-            <a
-              href="#"
-              aria-label="LinkedIn"
-              className="flex h-9 w-9 items-center justify-center rounded border border-white/20 text-white/60 transition-colors hover:border-gold hover:text-gold"
-            >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
-                <circle cx="4" cy="4" r="2" />
               </svg>
             </a>
           </div>
@@ -116,13 +123,13 @@ export default function Footer() {
             Services
           </h5>
           <ul className="flex flex-col gap-2">
-            {SERVICE_LINKS.map((label) => (
-              <li key={label}>
+            {SERVICE_LINKS.map((link) => (
+              <li key={link.label}>
                 <Link
-                  href="/services"
+                  href={link.href}
                   className="text-[.85rem] text-white/65 hover:text-gold"
                 >
-                  {label}
+                  {link.label}
                 </Link>
               </li>
             ))}
@@ -212,7 +219,11 @@ export default function Footer() {
               <circle cx="12" cy="12" r="10" />
               <path d="M12 6v6l4 2" />
             </svg>
-            <span>By Appointment</span>
+            <span>
+              Monday-Friday, 8:00 AM-4:00 PM
+              <br />
+              By appointment
+            </span>
           </div>
         </div>
       </div>

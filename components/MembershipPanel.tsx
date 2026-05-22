@@ -33,11 +33,11 @@ export default function MembershipPanel() {
     <div id="membership" className="flex flex-col lg:flex-row">
       <div className="bg-wine px-5 py-10 sm:px-8 lg:flex-[0_0_340px] lg:p-[52px]">
         <h2 className="mb-3.5 font-display text-[1.6rem] leading-[1.25] text-white">
-          A More Personalized Approach to Healthcare
+          A More Personalized Approach to Heart Care
         </h2>
         <p className="mb-5 text-[.9rem] leading-[1.7] text-white/85">
-          Our membership model allows us to limit the number of patients we
-          see&mdash;so we can focus on what matters most: you.
+          Membership-based care creates more time for prevention, physician
+          access, cardiovascular wellness, and thoughtful follow-through.
         </p>
         <Link
           href="/membership"

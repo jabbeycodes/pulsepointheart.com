@@ -13,7 +13,7 @@ const TRUST_INDICATORS = [
     ),
   },
   {
-    label: 'Same/Next-Day Visits',
+    label: 'Preventive Focus',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
         <rect x="3" y="4" width="18" height="18" rx="2" />
@@ -30,7 +30,7 @@ const TRUST_INDICATORS = [
     ),
   },
   {
-    label: 'Personalized Plans',
+    label: 'Lifelong Wellness',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
@@ -41,16 +41,15 @@ const TRUST_INDICATORS = [
 
 export default function Hero() {
   return (
-    <section className="bg-white px-5 pb-10 pt-8 lg:grid lg:min-h-[560px] lg:grid-cols-2 lg:items-center lg:gap-12 lg:px-12 lg:py-10">
+    <section className="bg-white px-5 pb-12 pt-8 lg:grid lg:min-h-[600px] lg:grid-cols-[1fr_0.92fr] lg:items-center lg:gap-14 lg:px-12 lg:py-12">
       <div className="lg:order-1">
-        <h1 className="mb-3.5 animate-fadeUp font-display text-[2rem] font-bold leading-[1.18] text-charcoal [animation-delay:.05s] sm:text-[2.5rem] lg:text-[3.2rem]">
+        <h1 className="mb-4 animate-fadeUp max-w-[720px] font-display text-[2.15rem] font-bold leading-[1.12] text-charcoal [animation-delay:.05s] sm:text-[2.8rem] lg:text-[3.65rem]">
           State-of-the-Art Heart Care Built Around{' '}
           <em className="not-italic text-wine">You.</em>
         </h1>
-        <p className="mb-6 animate-fadeUp text-[.95rem] leading-[1.65] text-muted [animation-delay:.15s]">
-          Concierge cardiology built around you. Precision care, advanced
-          diagnostics, and direct physician access for stronger hearts and
-          better lives.
+        <p className="mb-7 max-w-[620px] animate-fadeUp text-[1rem] leading-[1.75] text-muted [animation-delay:.15s]">
+          Personalized cardiovascular care focused on prevention, advanced
+          diagnostics, physician accessibility, and lifelong wellness.
         </p>
 
         <div className="mb-8 flex animate-fadeUp flex-col gap-2.5 [animation-delay:.25s] sm:flex-row">
@@ -58,7 +57,7 @@ export default function Hero() {
             href="/book"
             className="flex min-h-[44px] w-full items-center justify-center gap-2 rounded-md bg-wine px-5 py-3 text-[.88rem] font-semibold text-white transition-colors hover:bg-wine-light sm:w-auto"
           >
-            Schedule a Consultation &rarr;
+            Schedule Consultation &rarr;
           </Link>
           <Link
             href="/membership"
@@ -68,7 +67,7 @@ export default function Hero() {
           </Link>
         </div>
 
-        <div className="grid animate-fadeUp grid-cols-2 gap-x-3 gap-y-[18px] border-t border-[#EEF1F5] pt-5 [animation-delay:.35s] sm:grid-cols-4">
+        <div className="grid max-w-[620px] animate-fadeUp grid-cols-2 gap-x-3 gap-y-6 border-t border-[#EEF1F5] pb-2 pt-5 [animation-delay:.35s] sm:grid-cols-4 lg:pb-0">
           {TRUST_INDICATORS.map((item) => (
             <div
               key={item.label}
@@ -83,7 +82,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="mb-7 mt-0 aspect-[4/3] animate-fadeUp overflow-hidden rounded bg-graybg lg:order-2 lg:mb-0 lg:aspect-auto lg:h-[480px]">
+      <div className="mb-7 mt-10 aspect-[4/3] animate-fadeUp overflow-hidden rounded bg-graybg shadow-card sm:mt-12 lg:order-2 lg:mb-0 lg:mt-0 lg:aspect-auto lg:h-[500px]">
         <Image
           src="/assets/hero.png"
           alt="PulsePoint Clinic physician consulting with a patient"
