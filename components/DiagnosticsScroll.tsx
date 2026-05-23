@@ -64,7 +64,7 @@ export default function DiagnosticsScroll() {
               href="/diagnostics"
               className="inline-flex min-h-[44px] items-center gap-2 rounded-md border-[1.5px] border-wine bg-white px-5 py-[11.5px] text-[.85rem] font-semibold text-wine"
             >
-              Explore Diagnostics &rarr;
+              Explore Diagnostics
             </Link>
           </div>
         </div>
@@ -102,7 +102,7 @@ export default function DiagnosticsScroll() {
             href="/diagnostics"
             className="flex min-h-[44px] w-full items-center justify-center gap-2 rounded-md border-[1.5px] border-wine bg-white px-5 py-[11.5px] text-[.85rem] font-semibold text-wine"
           >
-            Explore Diagnostics &rarr;
+            Explore Diagnostics
           </Link>
         </div>
       </div>

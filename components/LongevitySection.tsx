@@ -1,12 +1,12 @@
 import Link from 'next/link'
 
 const FOCUS_AREAS = [
-  'Heart health optimization',
-  'Advanced heart screening',
+  'Heart Disease Prevention',
   'Cardiometabolic wellness',
-  'Early detection',
-  'Integrated diagnostics',
-  'Longevity-focused care',
+  'Nutrition & Lifestyle',
+  'Exercise & Performance',
+  'Stress & Sleep Health',
+  'Healthy Aging & Longevity',
 ]
 
 export default function LongevitySection() {
@@ -15,20 +15,18 @@ export default function LongevitySection() {
       <div className="mx-auto grid max-w-6xl gap-9 lg:grid-cols-[1fr_420px] lg:items-center">
         <div>
           <h2 className="max-w-3xl font-display text-[2rem] font-bold leading-[1.15] sm:text-[2.6rem]">
-            Focused on prevention, wellness, and longevity.
+            Prevention, Wellness, and Longevity
           </h2>
           <div className="mt-4 h-[3px] w-12 rounded bg-gold" />
           <p className="mt-5 max-w-2xl text-[.98rem] leading-[1.75] text-white/76">
-            Premium cardiology should do more than respond to disease.
-            PulsePoint helps patients understand risk earlier, protect long-term
-            cardiovascular health, and make confident decisions about the next
-            decade of life.
+            We go beyond treating disease. We help you optimize your heart
+            health, energy, and quality of life through a whole-person approach.
           </p>
           <Link
             href="/services/cardiometabolic-wellness"
             className="mt-7 inline-flex min-h-[44px] items-center justify-center rounded-md bg-gold px-5 py-3 text-sm font-bold text-navy transition-colors hover:bg-white"
           >
-            Explore Cardiometabolic Wellness
+            Explore Wellness
           </Link>
         </div>
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">

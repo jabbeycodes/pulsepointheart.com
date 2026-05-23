@@ -1,27 +1,27 @@
 const DIFFERENTIATORS = [
   {
     title: 'More Time With Your Physician',
-    text: 'Unhurried visits designed for meaningful conversation, not rushed transactions.',
+    text: 'Longer visits focused on what matters most.',
   },
   {
     title: 'Preventive Heart Care',
-    text: 'Risk, lifestyle, imaging, labs, and goals connected into one forward-looking plan.',
+    text: 'Identify risks early and prevent future disease.',
   },
   {
     title: 'Advanced Diagnostics',
-    text: 'Integrated cardiovascular testing used intentionally to support earlier detection.',
+    text: 'State-of-the-art testing for earlier detection.',
   },
   {
     title: 'Rapid Access',
-    text: 'A more responsive care experience for questions, follow-up, and timely decisions.',
+    text: 'Same/next-day appointments and direct communication.',
   },
   {
     title: 'Physician-Led Care',
-    text: 'Care directed by a board-certified cardiologist who knows the full picture.',
+    text: 'Expert care coordinated around you.',
   },
   {
     title: 'Technology-Enabled Experience',
-    text: 'Modern systems that support scheduling, communication, screening, and continuity.',
+    text: 'Modern tools for better care and convenience.',
   },
 ]
 
@@ -32,13 +32,13 @@ export default function WhyPulsePoint() {
         <div className="grid gap-8 lg:grid-cols-[390px_1fr] lg:items-start">
           <div>
             <h2 className="font-display text-[1.95rem] font-bold leading-[1.15] text-charcoal sm:text-[2.45rem]">
-              Modern cardiovascular care designed differently.
+              Modern Cardiovascular Care Designed Differently
             </h2>
             <div className="mt-4 h-[3px] w-12 rounded bg-wine" />
             <p className="mt-5 text-[.95rem] leading-[1.75] text-muted">
-              PulsePoint brings a premium, relationship-based model to
-              preventive cardiology: more access, more clarity, and a stronger
-              focus on the years ahead.
+              We blend advanced medicine with a personalized approach that
+              gives you more time, better access, and a proactive plan for your
+              heart health.
             </p>
           </div>
           <div className="grid gap-x-8 gap-y-7 sm:grid-cols-2">

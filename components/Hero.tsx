@@ -13,7 +13,7 @@ const TRUST_INDICATORS = [
     ),
   },
   {
-    label: 'Preventive Focus',
+    label: 'Same/Next-Day Availability',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
         <rect x="3" y="4" width="18" height="18" rx="2" />
@@ -30,7 +30,7 @@ const TRUST_INDICATORS = [
     ),
   },
   {
-    label: 'Lifelong Wellness',
+    label: 'Personalized Plans',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
@@ -43,11 +43,11 @@ export default function Hero() {
   return (
     <section className="bg-white px-5 pb-12 pt-8 lg:grid lg:min-h-[600px] lg:grid-cols-[1fr_0.92fr] lg:items-center lg:gap-14 lg:px-12 lg:py-12">
       <div className="lg:order-1">
-        <h1 className="mb-4 animate-fadeUp max-w-[720px] font-display text-[2.15rem] font-bold leading-[1.12] text-charcoal [animation-delay:.05s] sm:text-[2.8rem] lg:text-[3.65rem]">
+        <h1 className="mb-5 animate-fadeUp max-w-[760px] font-display text-[2.35rem] font-bold leading-[1.08] text-navy [text-shadow:0_2px_18px_rgba(255,255,255,0.84)] [animation-delay:.05s] sm:text-[3.05rem] lg:text-[3.95rem]">
           State-of-the-Art Heart Care Built Around{' '}
           <em className="not-italic text-wine">You.</em>
         </h1>
-        <p className="mb-7 max-w-[620px] animate-fadeUp text-[1rem] leading-[1.75] text-muted [animation-delay:.15s]">
+        <p className="mb-8 max-w-[660px] animate-fadeUp text-[1.08rem] font-medium leading-[1.75] text-charcoal [text-shadow:0_1px_14px_rgba(255,255,255,0.9)] [animation-delay:.15s] sm:text-[1.14rem]">
           Personalized cardiovascular care focused on prevention, advanced
           diagnostics, physician accessibility, and lifelong wellness.
         </p>
@@ -55,13 +55,13 @@ export default function Hero() {
         <div className="mb-8 flex animate-fadeUp flex-col gap-2.5 [animation-delay:.25s] sm:flex-row">
           <Link
             href="/book"
-            className="flex min-h-[44px] w-full items-center justify-center gap-2 rounded-md bg-wine px-5 py-3 text-[.88rem] font-semibold text-white transition-colors hover:bg-wine-light sm:w-auto"
+            className="flex min-h-[48px] w-full items-center justify-center gap-2 rounded-md bg-wine px-6 py-3 text-[.94rem] font-semibold text-white transition-colors hover:bg-wine-light sm:w-auto"
           >
-            Schedule Consultation &rarr;
+            Schedule Consultation
           </Link>
           <Link
             href="/membership"
-            className="flex min-h-[44px] w-full items-center justify-center gap-2 rounded-md border-[1.5px] border-gold bg-white px-5 py-[11.5px] text-[.88rem] font-semibold text-charcoal transition-colors hover:bg-gold/10 sm:w-auto"
+            className="flex min-h-[48px] w-full items-center justify-center gap-2 rounded-md border-[1.5px] border-gold bg-white px-6 py-3 text-[.94rem] font-semibold text-navy transition-colors hover:bg-gold/10 sm:w-auto"
           >
             Explore Membership
           </Link>
@@ -73,8 +73,8 @@ export default function Hero() {
               key={item.label}
               className="flex flex-col items-center gap-1.5 text-center"
             >
-              <span className="h-[26px] w-[26px] text-wine">{item.icon}</span>
-              <span className="text-[.72rem] font-semibold leading-[1.3] text-charcoal">
+              <span className="h-[28px] w-[28px] text-wine">{item.icon}</span>
+              <span className="text-[.78rem] font-bold leading-[1.25] text-navy [text-shadow:0_1px_12px_rgba(255,255,255,0.9)]">
                 {item.label}
               </span>
             </div>

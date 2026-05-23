@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Inter, Playfair_Display } from 'next/font/google'
 import { buildClinicJsonLd, buildWebsiteJsonLd } from '@/lib/seo'
+import PublicSiteFrame from '@/components/PublicSiteFrame'
 import './globals.css'
 
 const inter = Inter({
@@ -96,7 +97,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        {children}
+        <PublicSiteFrame>{children}</PublicSiteFrame>
       </body>
     </html>
   )
