@@ -28,6 +28,7 @@ function CheckIcon() {
   )
 }
 
+// BUILD-MARKER-20260525161430
 export default function MembershipPanel() {
   return (
     <section id="membership" className="flex flex-col border-y border-[#E8EDF3] lg:flex-row">

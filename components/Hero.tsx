@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Link from 'next/link'
 
 // Trust indicators carried over from the live site
@@ -83,13 +82,11 @@ export default function Hero() {
       </div>
 
       <div className="mb-7 mt-10 aspect-[4/3] animate-fadeUp overflow-hidden rounded bg-graybg shadow-card sm:mt-12 lg:order-2 lg:mb-0 lg:mt-0 lg:aspect-auto lg:h-[500px]">
-        <Image
+        <img
           src="/assets/hero.png"
           alt="PulsePoint Clinic physician consulting with a patient"
-          width={900}
-          height={680}
-          priority
           className="h-full w-full object-cover object-center"
+          loading="eager"
         />
       </div>
     </section>

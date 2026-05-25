@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import Image from 'next/image'
 import Link from 'next/link'
 
 const NAV_LINKS = [
@@ -60,12 +59,9 @@ export default function Navbar() {
           className="flex items-center"
         >
           {/* h-[42px] mobile, h-12 desktop matches the original site */}
-          <Image
+          <img
             src="/assets/logo.png"
             alt="PulsePoint Clinic"
-            width={200}
-            height={48}
-            priority
             className="h-12 w-auto lg:h-14"
           />
         </Link>

@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Link from 'next/link'
 
 const CREDENTIALS = [
@@ -39,12 +38,9 @@ export default function TeamCard() {
           </div>
 
           <div className="mx-auto w-full max-w-[260px] overflow-hidden rounded-md bg-white/8 sm:max-w-none">
-            <Image
+            <img
               src="/assets/physician-headshot.png"
               alt="Martin Tibuakuu, MD, MPH, FACC - Cardiologist at PulsePoint Clinic"
-              width={768}
-              height={1024}
-              sizes="(min-width: 1280px) 300px, (min-width: 1024px) 260px, (min-width: 640px) 220px, 80vw"
               className="aspect-[3/4] h-auto w-full object-contain"
             />
           </div>

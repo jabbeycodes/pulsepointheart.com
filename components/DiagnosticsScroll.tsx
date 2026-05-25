@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Link from 'next/link'
 
 // Diagnostics from build doc section 9
@@ -40,6 +39,7 @@ const DIAGNOSTICS = [
   },
 ]
 
+// BUILD-MARKER-20260525161430
 export default function DiagnosticsScroll() {
   return (
     <section
@@ -78,12 +78,11 @@ export default function DiagnosticsScroll() {
               className="flex-[0_0_200px] overflow-hidden rounded bg-white shadow-card [scroll-snap-align:start] lg:flex-none"
             >
               <div className="flex aspect-[4/3] items-center justify-center overflow-hidden bg-[#dde4ee]">
-                <Image
+                <img
                   src={`/assets/diagnostics/${item.key}.png`}
                   alt={item.alt}
-                  width={400}
-                  height={300}
                   className="h-full w-full object-cover object-center"
+                  loading="lazy"
                 />
               </div>
               <h4 className="mx-3 mb-1 mt-2.5 text-[.82rem] font-bold text-wine">

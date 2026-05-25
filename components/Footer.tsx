@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import NewsletterForm from './NewsletterForm'
 import { CLINIC } from '@/lib/seo'
@@ -34,11 +33,9 @@ export default function Footer() {
         {/* Brand column */}
         <div>
           <div className="inline-block">
-            <Image
+            <img
               src="/assets/logo.png"
               alt="PulsePoint Clinic"
-              width={170}
-              height={42}
               className="h-12 w-auto"
             />
           </div>

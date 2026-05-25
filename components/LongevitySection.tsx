@@ -48,6 +48,7 @@ function FocusIcon({ name }: { name: string }) {
   return icons[name] || null
 }
 
+// BUILD-MARKER-20260525161430
 export default function LongevitySection() {
   return (
     <section className="overflow-hidden bg-white lg:grid lg:grid-cols-2">
