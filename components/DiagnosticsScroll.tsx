@@ -40,6 +40,7 @@ const DIAGNOSTICS = [
   },
 ]
 
+// BUILD-MARKER-20260525161430
 export default function DiagnosticsScroll() {
   return (
     <section
