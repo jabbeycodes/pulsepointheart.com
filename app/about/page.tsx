@@ -58,7 +58,7 @@ const PHILOSOPHY_POINTS = [
     text: 'Premium cardiovascular care should make it easier to ask questions, understand results, and know what happens next.',
   },
   {
-    title: 'Diagnostics should create clarity',
+    title: 'Testing should create clarity',
     text: 'Advanced testing is used to answer meaningful questions, guide prevention, and reduce uncertainty.',
   },
 ]
@@ -99,10 +99,10 @@ export default function AboutPage() {
                   Book an Appointment
                 </Link>
                 <Link
-                  href="/membership"
+                  href="/patient-info"
                   className="inline-flex min-h-[44px] items-center justify-center rounded-md border border-navy/20 px-5 py-3 text-sm font-semibold text-navy transition-colors hover:border-wine hover:text-wine"
                 >
-                  Explore Membership
+                  Patient Portal
                 </Link>
               </div>
             </div>
@@ -225,12 +225,11 @@ export default function AboutPage() {
               </p>
               <p className="mt-4 text-[.95rem] leading-[1.75] text-muted">
                 The practice serves patients seeking preventive cardiology,
-                advanced heart screening, vascular evaluation, cardiometabolic
-                wellness, second opinions, executive health, and ongoing
-                cardiovascular follow-up.
+                advanced heart screening, vascular evaluation, second opinions,
+                executive health, and ongoing cardiovascular follow-up.
               </p>
               <div className="mt-7 grid gap-4 sm:grid-cols-3">
-                {['Prevention', 'Diagnostics', 'Continuity'].map((label) => (
+                {['Prevention', 'Access', 'Continuity'].map((label) => (
                   <div key={label} className="border-l-2 border-gold pl-4">
                     <div className="text-[.78rem] font-bold uppercase tracking-[1.5px] text-wine">
                       {label}

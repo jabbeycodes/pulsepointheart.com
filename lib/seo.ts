@@ -7,9 +7,11 @@ export const CLINIC = {
   phoneDisplay: '(855) 785-7337',
   phoneHref: '+18557857337',
   vanityPhone: '1-855-PULSEDR',
-  email: 'Mtibuakuu@pulsepointheart.com',
+  email: 'info@pulsepointheart.com',
+  hoursDisplay: 'Monday-Friday, 8:00 AM-5:00 PM',
+  hoursNote: 'By appointment',
   address: {
-    streetAddress: '1000 W Nifong Blvd, BLD 2 Suite 120',
+    streetAddress: '1000 W Nifong Blvd, Bldg 2, Suite 120',
     addressLocality: 'Columbia',
     addressRegion: 'MO',
     postalCode: '65203',
@@ -28,9 +30,7 @@ export const CLINIC = {
     'Stress testing',
     'Heart rhythm monitoring',
     'Executive heart health',
-    'Cardiometabolic wellness',
     'Cardiac CT and calcium scoring',
-    'Membership-based cardiology care',
   ],
 }
 
@@ -44,10 +44,7 @@ export const PUBLIC_ROUTES = [
   { path: '/services/stress-testing', priority: 0.85, changeFrequency: 'monthly' as const },
   { path: '/services/heart-rhythm-monitoring', priority: 0.85, changeFrequency: 'monthly' as const },
   { path: '/services/executive-health', priority: 0.85, changeFrequency: 'monthly' as const },
-  { path: '/services/cardiometabolic-wellness', priority: 0.85, changeFrequency: 'monthly' as const },
   { path: '/services/cardiac-ct-calcium-scoring', priority: 0.85, changeFrequency: 'monthly' as const },
-  { path: '/diagnostics', priority: 0.9, changeFrequency: 'monthly' as const },
-  { path: '/membership', priority: 0.85, changeFrequency: 'monthly' as const },
   { path: '/book', priority: 0.9, changeFrequency: 'weekly' as const },
   { path: '/contact', priority: 0.85, changeFrequency: 'monthly' as const },
   { path: '/patient-info', priority: 0.75, changeFrequency: 'monthly' as const },
@@ -75,9 +72,9 @@ export function buildClinicJsonLd() {
     email: CLINIC.email,
     medicalSpecialty: 'Cardiovascular',
     priceRange: '$$',
-    openingHours: 'Mo-Fr 08:00-16:00',
+    openingHours: 'Mo-Fr 08:00-17:00',
     description:
-      'PulsePoint Clinic is a physician-led cardiovascular care platform in Columbia, Missouri focused on prevention, advanced diagnostics, cardiometabolic wellness, and personalized heart health planning.',
+      'PulsePoint Clinic is a physician-led cardiovascular care platform in Columbia, Missouri focused on prevention, advanced heart screening, and personalized heart health planning.',
     address: {
       '@type': 'PostalAddress',
       ...CLINIC.address,

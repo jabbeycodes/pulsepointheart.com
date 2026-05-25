@@ -10,7 +10,7 @@ type SendNotificationInput = {
   fields: NotificationField[]
 }
 
-const DEFAULT_TO = 'Mtibuakuu@pulsepointheart.com'
+const DEFAULT_TO = 'info@pulsepointheart.com'
 const DEFAULT_FROM = 'PulsePoint Clinic <notifications@pulsepointheart.com>'
 
 function escapeHtml(value: string) {

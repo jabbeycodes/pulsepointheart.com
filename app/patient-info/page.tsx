@@ -35,7 +35,7 @@ const INFO_BLOCKS = [
   {
     title: 'Insurance & payment',
     id: 'insurance',
-    text: 'Coverage can vary by service. Our team can discuss appointment type, membership inquiries, and payment expectations before your visit.',
+    text: 'Coverage can vary by service. Our team can discuss appointment type and payment expectations before your visit.',
   },
   {
     title: 'Patient portal',
@@ -70,9 +70,9 @@ const FAQS = [
       'Yes. PulsePoint can review prior results and help explain options, unanswered questions, and reasonable next steps.',
   },
   {
-    question: 'Is every service membership-based?',
+    question: 'How do I schedule a visit?',
     answer:
-      'Membership is available for patients who want a more personalized care relationship. The clinic can discuss the right care path when you reach out.',
+      'Use the Book a Visit page to request a consultation or schedule follow-up care. Our team can help you choose the right next step.',
   },
 ]
 
@@ -91,7 +91,7 @@ export default function PatientInfoPage() {
             </h1>
             <div className="my-5 h-[3px] w-12 rounded bg-wine" />
             <p className="max-w-2xl text-[.98rem] leading-[1.75] text-muted">
-              Whether you are scheduling a first visit, asking about membership,
+              Whether you are scheduling a first visit, preparing for care,
               or preparing for diagnostic care, this page outlines what to
               expect and how to get ready.
             </p>
@@ -218,7 +218,7 @@ export default function PatientInfoPage() {
               </h3>
               <p className="mt-3 text-[.86rem] leading-[1.65] text-white/75">
                 Call the clinic and our team can help with appointment
-                scheduling, membership questions, and visit preparation.
+                scheduling, visit preparation, and patient portal access.
               </p>
               <a
                 href="tel:18557857337"

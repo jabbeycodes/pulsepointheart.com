@@ -22,7 +22,7 @@ const TRUST_INDICATORS = [
     ),
   },
   {
-    label: 'Advanced Diagnostics',
+    label: 'Comprehensive Screening',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
         <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
@@ -49,7 +49,7 @@ export default function Hero() {
         </h1>
         <p className="mb-8 max-w-[660px] animate-fadeUp text-[1.08rem] font-medium leading-[1.75] text-charcoal [animation-delay:.15s] sm:text-[1.14rem]">
           Personalized cardiovascular care focused on prevention, advanced
-          diagnostics, physician accessibility, and lifelong wellness.
+          heart screening, physician accessibility, and long-term health.
         </p>
 
         <div className="mb-8 flex animate-fadeUp flex-col gap-2.5 [animation-delay:.25s] sm:flex-row">
@@ -57,13 +57,13 @@ export default function Hero() {
             href="/book"
             className="flex min-h-[48px] w-full items-center justify-center gap-2 rounded-md bg-wine px-6 py-3 text-[.94rem] font-semibold text-white transition-colors hover:bg-wine-light sm:w-auto"
           >
-            Schedule Consultation
+            Book a Visit
           </Link>
           <Link
-            href="/membership"
+            href="/patient-info"
             className="flex min-h-[48px] w-full items-center justify-center gap-2 rounded-md border-[1.5px] border-gold bg-white px-6 py-3 text-[.94rem] font-semibold text-navy transition-colors hover:bg-gold/10 sm:w-auto"
           >
-            Explore Membership
+            Patient Portal
           </Link>
         </div>
 

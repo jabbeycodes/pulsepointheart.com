@@ -30,7 +30,7 @@ export default function CtaBanner() {
         href="/book"
         className="flex min-h-[48px] w-full flex-shrink-0 items-center justify-center gap-2 rounded-md bg-gold px-6 py-3.5 text-[.9rem] font-bold text-charcoal transition-opacity hover:opacity-90 sm:w-auto"
       >
-        Schedule Your Consultation
+        Book a Visit
       </Link>
     </div>
   )

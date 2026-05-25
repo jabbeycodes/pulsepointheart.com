@@ -8,7 +8,7 @@ import CtaBanner from '@/components/CtaBanner'
 export const metadata: Metadata = {
   title: 'Cardiology Services in Columbia, MO',
   description:
-    'PulsePoint Clinic offers preventive cardiology, advanced imaging, vascular care, cardiometabolic wellness, executive health, and remote follow-up in Columbia, MO.',
+    'PulsePoint Clinic offers preventive cardiology, advanced imaging, vascular care, executive health, and remote follow-up in Columbia, MO.',
 }
 
 const SERVICES = [
@@ -32,14 +32,6 @@ const SERVICES = [
     summary:
       'Evaluation of circulation concerns, leg symptoms, vascular risk, and ultrasound findings with clear treatment recommendations.',
     details: ['Vascular ultrasound', 'Peripheral circulation review', 'Vein and arterial concerns'],
-  },
-  {
-    id: 'cardiometabolic-wellness',
-    title: 'Cardiometabolic Wellness',
-    summary:
-      'Integrated care for cardiovascular risk linked to weight, insulin resistance, blood pressure, cholesterol, and inflammation.',
-    details: ['Metabolic risk review', 'Medication optimization', 'Lifestyle and nutrition goals'],
-    href: '/services/cardiometabolic-wellness',
   },
   {
     id: 'executive-health',
@@ -102,21 +94,21 @@ export default function ServicesPage() {
             </h1>
             <p className="mt-5 max-w-2xl text-[.98rem] leading-[1.75] text-white/78">
               PulsePoint brings together preventive cardiology, advanced
-              diagnostics, vascular evaluation, and cardiometabolic wellness in
-              a premium physician-led experience.
+              imaging, and vascular evaluation in a premium physician-led
+              experience.
             </p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
               <Link
                 href="/book"
                 className="inline-flex min-h-[44px] items-center justify-center rounded-md bg-gold px-5 py-3 text-sm font-bold text-navy transition-colors hover:bg-white"
               >
-                Book an Appointment
+                Book a Visit
               </Link>
               <Link
-                href="/diagnostics"
+                href="/contact"
                 className="inline-flex min-h-[44px] items-center justify-center rounded-md border border-white/25 px-5 py-3 text-sm font-semibold text-white transition-colors hover:border-gold hover:text-gold"
               >
-                View Diagnostics
+                Contact Us
               </Link>
             </div>
           </div>

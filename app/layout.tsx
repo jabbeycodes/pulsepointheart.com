@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     template: '%s | PulsePoint Clinic',
   },
   description:
-    'PulsePoint Clinic is a physician-led cardiovascular care platform in Columbia, MO offering preventive cardiology, advanced diagnostics, membership-based care, and personalized heart health planning.',
+    'PulsePoint Clinic is a physician-led cardiovascular care platform in Columbia, MO offering preventive cardiology, advanced heart screening, and personalized heart health planning.',
   keywords: [
     'cardiologist Columbia MO',
     'premium cardiology Columbia Missouri',
@@ -32,8 +32,6 @@ export const metadata: Metadata = {
     'echocardiography Columbia MO',
     'vascular ultrasound Columbia MO',
     'calcium scoring Columbia MO',
-    'membership cardiology',
-    'cardiovascular wellness',
     'heart health optimization',
     'physician-led care',
   ],

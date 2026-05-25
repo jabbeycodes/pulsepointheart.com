@@ -4,27 +4,23 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import StickyMobileCta from '@/components/StickyMobileCta'
 import AppointmentRequestForm from '@/components/AppointmentRequestForm'
+import { CLINIC } from '@/lib/seo'
 
 export const metadata: Metadata = {
-  title: 'Schedule a Consultation',
+  title: 'Book a Visit',
   description:
-    'Request a consultation, membership conversation, or existing patient appointment with PulsePoint Clinic in Columbia, MO.',
+    'Request a consultation or schedule a follow-up appointment with PulsePoint Clinic in Columbia, MO.',
 }
 
 const PATHWAYS = [
   {
     title: 'New Patient Consultation',
-    text: 'Start here if you are new to PulsePoint and want to discuss preventive cardiology, diagnostics, or cardiovascular wellness.',
+    text: 'Start here if you are new to PulsePoint and want to discuss preventive cardiology or cardiovascular care.',
     href: '#request',
   },
   {
-    title: 'Membership Inquiry',
-    text: 'Explore whether membership-based heart care is the right fit for your goals, access needs, and long-term prevention plan.',
-    href: '/membership#inquire',
-  },
-  {
     title: 'Existing Patient Scheduling',
-    text: 'Already connected with PulsePoint? Use the scheduling calendar for follow-up and wellness visits.',
+    text: 'Already connected with PulsePoint? Use the scheduling calendar for follow-up visits and ongoing care.',
     href: '#existing',
   },
 ]
@@ -44,15 +40,15 @@ export default function BookPage() {
             </h1>
             <div className="my-5 h-[3px] w-12 rounded bg-wine" />
             <p className="max-w-2xl text-[.98rem] leading-[1.75] text-muted">
-              Whether you are seeking a first consultation, membership-based
-              cardiovascular care, or follow-up as an existing patient, our team
-              will help route you to the right experience.
+              Whether you are seeking a first consultation or follow-up as an
+              existing patient, our team will help route you to the right
+              experience.
             </p>
           </div>
         </section>
 
         <section className="bg-graybg px-5 py-10 sm:px-8 sm:py-12 lg:px-12">
-          <div className="mx-auto grid max-w-6xl gap-4 md:grid-cols-3">
+          <div className="mx-auto grid max-w-6xl gap-4 md:grid-cols-2">
             {PATHWAYS.map((pathway) => (
               <Link
                 key={pathway.title}
@@ -111,8 +107,8 @@ export default function BookPage() {
               </h2>
               <div className="mt-3 h-[3px] w-12 rounded bg-wine" />
               <p className="mt-5 text-[.92rem] leading-[1.7] text-muted">
-                Use the calendar for follow-up visits, wellness planning, and
-                ongoing care coordination.
+                Use the calendar for follow-up visits and ongoing care
+                coordination.
               </p>
               <div className="mt-6 rounded-md bg-navy p-5 text-white">
                 <p className="mb-1 text-[.78rem] font-semibold uppercase tracking-[1.5px] text-gold">
@@ -124,10 +120,13 @@ export default function BookPage() {
                     (855) 785-7337 / 1-855-PULSEDR
                   </a>{' '}
                   or email{' '}
-                  <a href="mailto:Mtibuakuu@pulsepointheart.com" className="font-semibold text-gold">
-                    Mtibuakuu@pulsepointheart.com
+                  <a href={`mailto:${CLINIC.email}`} className="font-semibold text-gold">
+                    {CLINIC.email}
                   </a>
                   .
+                </p>
+                <p className="mt-3 text-[.84rem] leading-[1.6] text-white/70">
+                  {CLINIC.hoursDisplay}. {CLINIC.hoursNote}.
                 </p>
               </div>
             </div>

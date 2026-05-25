@@ -356,67 +356,6 @@ export const SERVICE_PAGES: ServicePage[] = [
     ],
   },
   {
-    slug: 'cardiometabolic-wellness',
-    eyebrow: 'Cardiometabolic Wellness',
-    title: 'Cardiometabolic wellness in Columbia, MO',
-    shortTitle: 'Cardiometabolic Wellness',
-    description:
-      'Cardiometabolic wellness at PulsePoint Clinic helps patients address blood pressure, cholesterol, insulin resistance, weight-related risk, inflammation, and long-term cardiovascular prevention.',
-    heroText:
-      'A physician-led approach to metabolic risk, cardiovascular wellness, and heart health optimization for patients who want prevention to be more precise and more personal.',
-    overview:
-      'Cardiometabolic wellness connects the major drivers of cardiovascular risk: blood pressure, cholesterol, blood sugar, weight, inflammation, sleep, activity, stress, and family history. PulsePoint helps patients understand how these factors interact and turns that information into a practical prevention plan built around long-term cardiovascular health.',
-    reasons: [
-      'High blood pressure or cholesterol',
-      'Prediabetes or diabetes risk',
-      'Weight-related cardiovascular risk',
-      'Family history of early heart disease',
-      'Inflammation or abnormal metabolic labs',
-      'Sleep, stress, or lifestyle patterns affecting risk',
-      'Desire for longevity-focused prevention',
-    ],
-    includes: [
-      'Cardiometabolic risk review',
-      'Blood pressure and cholesterol strategy',
-      'Blood sugar and insulin resistance review',
-      'Medication and supplement review',
-      'Lifestyle and nutrition priorities',
-      'Advanced screening recommendations',
-      'Long-term wellness planning',
-    ],
-    process: [
-      {
-        title: 'Map the risk picture',
-        text: 'Your history, labs, blood pressure, weight trends, family history, sleep, activity, and prior testing are reviewed together.',
-      },
-      {
-        title: 'Set prevention targets',
-        text: 'The plan identifies which numbers and behaviors matter most for reducing cardiovascular risk over time.',
-      },
-      {
-        title: 'Track and refine',
-        text: 'Follow-up focuses on progress, tolerability, updated results, and whether the plan needs to change.',
-      },
-    ],
-    faqs: [
-      {
-        question: 'Is this the same as primary care?',
-        answer:
-          'No. Cardiometabolic wellness is focused specifically on metabolic factors that drive cardiovascular risk and how they should shape prevention planning. It can complement your primary care relationship.',
-      },
-      {
-        question: 'Do I need abnormal labs to benefit?',
-        answer:
-          'Not necessarily. Patients often seek this care because risk is emerging, family history is strong, or they want a more precise prevention strategy.',
-      },
-      {
-        question: 'Does this include weight-loss medication?',
-        answer:
-          'Medication questions can be reviewed as part of the broader cardiovascular risk plan. Recommendations depend on your history, labs, goals, safety considerations, and coordination with the rest of your care team.',
-      },
-    ],
-  },
-  {
     slug: 'cardiac-ct-calcium-scoring',
     eyebrow: 'Cardiac CT & Calcium Scoring',
     title: 'Cardiac CT and calcium scoring in Columbia, MO',

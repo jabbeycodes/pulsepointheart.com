@@ -53,7 +53,6 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
   }
 
   const relatedServices = SERVICE_PAGES.filter((item) => item.slug !== service.slug).slice(0, 3)
-  const isCardiometabolic = service.slug === 'cardiometabolic-wellness'
   const isExecutiveHealth = service.slug === 'executive-health'
 
   return (
@@ -125,93 +124,6 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
             </p>
           </div>
         </section>
-
-        {isCardiometabolic ? (
-          <>
-            <section className="bg-white px-5 py-12 sm:px-8 sm:py-16 lg:px-12 lg:py-[72px]">
-              <div className="mx-auto max-w-6xl">
-                <div className="grid gap-8 lg:grid-cols-[380px_1fr] lg:items-start">
-                  <div>
-                    <div className="mb-2 text-[.68rem] font-semibold uppercase tracking-[2.5px] text-gold">
-                      Prevention + Metabolism
-                    </div>
-                    <h2 className="font-display text-[1.9rem] font-bold leading-tight text-charcoal sm:text-[2.35rem]">
-                      The heart-metabolism connection is where prevention becomes more precise.
-                    </h2>
-                    <div className="mt-4 h-[3px] w-12 rounded bg-wine" />
-                  </div>
-                  <div className="grid gap-4 sm:grid-cols-2">
-                    {[
-                      {
-                        title: 'Blood pressure',
-                        text: 'Understanding patterns, targets, medication questions, and lifestyle drivers that influence long-term vascular risk.',
-                      },
-                      {
-                        title: 'Cholesterol and plaque risk',
-                        text: 'Connecting lipid results, family history, calcium scoring, and prevention choices into a clearer strategy.',
-                      },
-                      {
-                        title: 'Blood sugar and insulin resistance',
-                        text: 'Reviewing prediabetes, diabetes risk, weight trends, and metabolic health through a cardiovascular lens.',
-                      },
-                      {
-                        title: 'Sleep, stress, and recovery',
-                        text: 'Looking at daily patterns that can affect blood pressure, inflammation, rhythm symptoms, and overall wellness.',
-                      },
-                    ].map((item) => (
-                      <article key={item.title} className="rounded-md bg-graybg p-5">
-                        <div className="mb-3 h-[2px] w-10 rounded bg-gold" />
-                        <h3 className="text-[1rem] font-bold text-charcoal">
-                          {item.title}
-                        </h3>
-                        <p className="mt-2 text-[.86rem] leading-[1.65] text-muted">
-                          {item.text}
-                        </p>
-                      </article>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <section className="bg-navy px-5 py-12 text-white sm:px-8 sm:py-16 lg:px-12 lg:py-[72px]">
-              <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[1fr_420px] lg:items-center">
-                <div>
-                  <div className="mb-2 text-[.68rem] font-semibold uppercase tracking-[2.5px] text-gold">
-                    Long-Term Wellness Strategy
-                  </div>
-                  <h2 className="font-display text-[1.95rem] font-bold leading-tight sm:text-[2.45rem]">
-                    Built for patients who want more than a one-number answer.
-                  </h2>
-                  <p className="mt-5 max-w-2xl text-[.95rem] leading-[1.75] text-white/78">
-                    Cardiometabolic risk is rarely about one lab value. The
-                    stronger approach is to understand the pattern, decide what
-                    matters most, and build a plan that can be followed,
-                    measured, and refined.
-                  </p>
-                </div>
-                <div className="rounded-md border border-white/15 bg-white/8 p-6">
-                  <h3 className="font-display text-[1.4rem] font-bold leading-tight">
-                    A premium prevention plan may help clarify:
-                  </h3>
-                  <ul className="mt-5 space-y-3">
-                    {[
-                      'Which risk factors deserve the most attention now',
-                      'Whether advanced screening could change the plan',
-                      'How medication, nutrition, movement, and follow-up fit together',
-                      'What progress should be tracked over the next 3 to 12 months',
-                    ].map((item) => (
-                      <li key={item} className="flex items-start gap-3 text-[.88rem] leading-[1.55] text-white/82">
-                        <span className="mt-[8px] h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </section>
-          </>
-        ) : null}
 
         {isExecutiveHealth ? (
           <>

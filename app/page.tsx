@@ -1,9 +1,6 @@
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
 import WhyPulsePoint from '@/components/WhyPulsePoint'
-import MembershipPanel from '@/components/MembershipPanel'
-import DiagnosticsScroll from '@/components/DiagnosticsScroll'
-import LongevitySection from '@/components/LongevitySection'
 import TeamCard from '@/components/TeamCard'
 import TestimonialSection from '@/components/TestimonialSection'
 import BottomBanner from '@/components/BottomBanner'
@@ -17,9 +14,6 @@ export default function HomePage() {
       <main>
         <Hero />
         <WhyPulsePoint />
-        <MembershipPanel />
-        <DiagnosticsScroll />
-        <LongevitySection />
         <TeamCard />
         <TestimonialSection />
         <BottomBanner />

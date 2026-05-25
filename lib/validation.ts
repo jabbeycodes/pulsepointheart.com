@@ -13,7 +13,6 @@ const optionalTrimmed = (max: number) =>
 // ─── CONTACT FORM ────────────────────────────────────────────────────────────
 export const CONTACT_REASONS = [
   'new_patient_inquiry',
-  'membership_inquiry',
   'general_question',
   'media_or_partnership',
   'other',
@@ -23,7 +22,6 @@ export type ContactReason = (typeof CONTACT_REASONS)[number]
 
 export const CONTACT_REASON_LABELS: Record<ContactReason, string> = {
   new_patient_inquiry: 'I want to become a patient',
-  membership_inquiry: 'Membership question',
   general_question: 'General question',
   media_or_partnership: 'Media / partnership',
   other: 'Other',

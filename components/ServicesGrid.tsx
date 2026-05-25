@@ -15,11 +15,6 @@ const SERVICES = [
     desc: 'Noninvasive vascular evaluation and blood-flow assessment.',
   },
   {
-    name: 'Cardiometabolic Wellness',
-    href: '/services/cardiometabolic-wellness',
-    desc: 'Integrated care for metabolic risk, blood pressure, and cholesterol.',
-  },
-  {
     name: 'Executive Health',
     href: '/services/executive-health',
     desc: 'Efficient preventive cardiovascular insight for busy patients.',
@@ -43,7 +38,7 @@ export default function ServicesGrid() {
             What We Offer
           </div>
           <h2 className="font-display text-[1.7rem] font-bold leading-[1.2] text-charcoal sm:text-[2rem]">
-            Comprehensive Cardiovascular &amp; Wellness Care
+            Comprehensive Cardiovascular Care
           </h2>
           <div className="my-3.5 h-[3px] w-12 rounded bg-wine" />
           <p className="mt-3 text-[.92rem] leading-[1.65] text-muted">
