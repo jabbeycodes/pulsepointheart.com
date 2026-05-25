@@ -16,7 +16,7 @@ export default function PublicSiteFrame({
   }
 
   return (
-    <div className="relative isolate min-h-screen overflow-hidden bg-white">
+    <div className="site-content-wrapper relative isolate min-h-screen overflow-hidden bg-white">
       <HeartScrollStoryLoader />
       <div className="site-with-cardiac-bg relative z-10">{children}</div>
     </div>

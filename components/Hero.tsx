@@ -43,11 +43,11 @@ export default function Hero() {
   return (
     <section className="bg-white px-5 pb-12 pt-8 lg:grid lg:min-h-[600px] lg:grid-cols-[1fr_0.92fr] lg:items-center lg:gap-14 lg:px-12 lg:py-12">
       <div className="lg:order-1">
-        <h1 className="mb-5 animate-fadeUp max-w-[760px] font-display text-[2.35rem] font-bold leading-[1.08] text-navy [text-shadow:0_2px_18px_rgba(255,255,255,0.84)] [animation-delay:.05s] sm:text-[3.05rem] lg:text-[3.95rem]">
+        <h1 className="mb-5 animate-fadeUp max-w-[760px] font-display text-[2.35rem] font-bold leading-[1.08] text-navy [animation-delay:.05s] sm:text-[3.05rem] lg:text-[3.95rem]">
           State-of-the-Art Heart Care Built Around{' '}
           <em className="not-italic text-wine">You.</em>
         </h1>
-        <p className="mb-8 max-w-[660px] animate-fadeUp text-[1.08rem] font-medium leading-[1.75] text-charcoal [text-shadow:0_1px_14px_rgba(255,255,255,0.9)] [animation-delay:.15s] sm:text-[1.14rem]">
+        <p className="mb-8 max-w-[660px] animate-fadeUp text-[1.08rem] font-medium leading-[1.75] text-charcoal [animation-delay:.15s] sm:text-[1.14rem]">
           Personalized cardiovascular care focused on prevention, advanced
           diagnostics, physician accessibility, and lifelong wellness.
         </p>
@@ -74,7 +74,7 @@ export default function Hero() {
               className="flex flex-col items-center gap-1.5 text-center"
             >
               <span className="h-[28px] w-[28px] text-wine">{item.icon}</span>
-              <span className="text-[.78rem] font-bold leading-[1.25] text-navy [text-shadow:0_1px_12px_rgba(255,255,255,0.9)]">
+              <span className="text-[.78rem] font-bold leading-[1.25] text-navy">
                 {item.label}
               </span>
             </div>
