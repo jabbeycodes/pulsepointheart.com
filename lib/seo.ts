@@ -30,7 +30,9 @@ export const CLINIC = {
     'Stress testing',
     'Heart rhythm monitoring',
     'Executive heart health',
+    'Cardiometabolic wellness',
     'Cardiac CT and calcium scoring',
+    'Membership-based cardiology care',
   ],
 }
 
@@ -44,7 +46,10 @@ export const PUBLIC_ROUTES = [
   { path: '/services/stress-testing', priority: 0.85, changeFrequency: 'monthly' as const },
   { path: '/services/heart-rhythm-monitoring', priority: 0.85, changeFrequency: 'monthly' as const },
   { path: '/services/executive-health', priority: 0.85, changeFrequency: 'monthly' as const },
+  { path: '/services/cardiometabolic-wellness', priority: 0.85, changeFrequency: 'monthly' as const },
   { path: '/services/cardiac-ct-calcium-scoring', priority: 0.85, changeFrequency: 'monthly' as const },
+  { path: '/diagnostics', priority: 0.9, changeFrequency: 'monthly' as const },
+  { path: '/membership', priority: 0.85, changeFrequency: 'monthly' as const },
   { path: '/book', priority: 0.9, changeFrequency: 'weekly' as const },
   { path: '/contact', priority: 0.85, changeFrequency: 'monthly' as const },
   { path: '/patient-info', priority: 0.75, changeFrequency: 'monthly' as const },

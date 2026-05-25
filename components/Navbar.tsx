@@ -59,7 +59,11 @@ export default function Navbar() {
           className="flex items-center"
         >
           {/* h-[42px] mobile, h-12 desktop matches the original site */}
-          \u003cimg\r\n            src="/assets/logo.png"\r\n            alt="PulsePoint Clinic"\r\n            className="h-[42px] w-auto lg:h-12"\r\n          /\u003e
+          <img
+            src="/assets/logo.png"
+            alt="PulsePoint Clinic"
+            className="h-12 w-auto lg:h-14"
+          />
         </Link>
 
         {/* Desktop nav links */}

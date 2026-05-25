@@ -106,7 +106,12 @@ export default function AboutPage() {
               </div>
             </div>
             <div className="overflow-hidden rounded-md bg-graybg shadow-card">
-              \u003cimg\r\n                src="/assets/care-team.jpg"\r\n                alt="Dr. Martin Tibuakuu speaking with a PulsePoint Clinic patient"\r\n                className="aspect-[4/3] w-full object-cover object-left-center"\r\n                loading="eager"\r\n              /\u003e
+              <img
+                src="/assets/care-team.jpg"
+                alt="Dr. Martin Tibuakuu speaking with a PulsePoint Clinic patient"
+                className="aspect-[4/3] w-full object-cover object-left-center"
+                loading="eager"
+              />
             </div>
           </div>
         </section>

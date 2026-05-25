@@ -823,7 +823,7 @@ function buildActionSteps(tags: string[]) {
     steps.push(
       'Follow the DASH diet: rich in potassium (bananas, spinach, sweet potatoes), magnesium (nuts, seeds, whole grains), and calcium (low-fat dairy, leafy greens) while keeping sodium low.',
       'Limit alcohol: no more than one drink per day for women and two for men. Excess alcohol raises blood pressure and contributes to weight gain.',
-      'Increase potassium-rich foods: potassium helps counter sodium\u2019s effects. Good sources include bananas, oranges, tomatoes, potatoes, spinach, beans, and yogurt.'
+      "Increase potassium-rich foods: potassium helps counter sodium's effects. Good sources include bananas, oranges, tomatoes, potatoes, spinach, beans, and yogurt."
     )
   }
 
@@ -874,7 +874,7 @@ function buildActionSteps(tags: string[]) {
   if (normalizedTags.includes('smoking') || normalizedTags.includes('tobacco')) {
     steps.push(
       'Quit smoking completely: even one cigarette daily damages blood vessels. Within one year of quitting, heart disease risk drops by half.',
-      'Avoid secondhand smoke: exposure to others\u2019 tobacco smoke also increases cardiovascular risk.',
+      "Avoid secondhand smoke: exposure to others' tobacco smoke also increases cardiovascular risk.",
       'Use evidence-based cessation tools: nicotine replacement, prescription medications, counseling, and support groups all improve quit rates.'
     )
   }
@@ -902,7 +902,7 @@ function buildActionSteps(tags: string[]) {
     steps.push(
       'Know your pregnancy history: preeclampsia, gestational diabetes, and preterm delivery predict future cardiovascular risk. Share this with your physician.',
       'Track symptoms across your cycle: hormonal fluctuations can affect blood pressure, palpitations, and migraine. Note patterns to discuss with your clinician.',
-      'Advocate for yourself: if symptoms feel wrong, insist on cardiac evaluation. Women\u2019s heart disease is underdiagnosed but highly treatable when caught early.'
+      "Advocate for yourself: if symptoms feel wrong, insist on cardiac evaluation. Women's heart disease is underdiagnosed but highly treatable when caught early."
     )
   }
 
@@ -928,7 +928,7 @@ function buildActionSteps(tags: string[]) {
     steps.push(
       'Small changes compound: a 10-minute walk, swapping soda for water, or adding vegetables to one meal daily creates momentum. Build from there.',
       'Set specific, measurable goals: "I will walk 20 minutes after lunch on weekdays" works better than "I will exercise more."',
-      'Involve your family: heart-healthy habits are easier when shared. Cook together, walk together, and support each other\u2019s health goals.'
+      "Involve your family: heart-healthy habits are easier when shared. Cook together, walk together, and support each other's health goals."
     )
   }
 

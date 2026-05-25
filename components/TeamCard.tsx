@@ -3,7 +3,7 @@ import Link from 'next/link'
 const CREDENTIALS = [
   'Board-Certified Cardiologist',
   'Johns Hopkins Trained',
-  'Expert in Preventive \u0026 Interventional Cardiology',
+  'Expert in Preventive & Interventional Cardiology',
   'Compassionate, Personalized Care',
   'Dedicated to Lifelong Heart Health',
 ]
@@ -12,57 +12,54 @@ export default function TeamCard() {
   return (
     <section
       id="about"
-      className="overflow-hidden lg:grid lg:grid-cols-2"
+      className="overflow-hidden lg:grid lg:grid-cols-[1.15fr_0.85fr]"
     >
-      {/* LEFT: Dark navy panel with physician photo */}
-      <div className="relative bg-navy px-5 py-12 text-white sm:px-8 sm:py-16 lg:px-12 lg:py-[72px]">
-        <div className="mb-2 text-[.68rem] font-semibold uppercase tracking-[2.5px] text-gold">
-          Our Physician
-        </div>
-        <h2 className="font-display text-[1.8rem] font-bold leading-[1.15] sm:text-[2.4rem]">
-          Meet Your Physician
-        </h2>
-        <p className="mt-4 max-w-lg text-[.92rem] leading-[1.7] text-white/72">
-          Led by board-certified cardiologist Dr. Martin Tibuakuu, MD, MPH,
-          FACC, our practice is built on expertise, integrity, and a
-          commitment to exceptional patient care.
-        </p>
-
-        <div className="mt-8 overflow-hidden rounded bg-white">
-          <div className="aspect-[4/3] overflow-hidden bg-[#dde4ee]">
-            <img
-              src="/assets/care-team.jpg"
-              alt="Martin Tibuakuu, MD, MPH, FACC - Cardiologist at PulsePoint Clinic"
-              className="h-full w-full object-cover object-top"
-              loading="eager"
-            />
-          </div>
-          <div className="p-[22px]">
-            <h3 className="mb-1 text-[1.05rem] font-bold leading-[1.3] text-charcoal">
-              Martin Tibuakuu, MD, MPH, FACC
-            </h3>
-            <div className="mb-3 text-[.82rem] font-semibold text-wine">
-              Cardiologist \u00b7 Preventive and Interventional Cardiology
+      {/* Physician intro: compact band so image and copy align cleanly */}
+      <div className="relative bg-navy px-5 py-10 text-white sm:px-8 lg:px-12">
+        <div className="mx-auto grid max-w-4xl gap-8 sm:grid-cols-[1fr_220px] sm:items-center lg:max-w-none lg:grid-cols-[1fr_260px] xl:grid-cols-[1fr_300px]">
+          <div>
+            <div className="mb-2 text-[.68rem] font-semibold uppercase tracking-[2.5px] text-gold">
+              Our Physician
             </div>
-            <p className="mb-3.5 text-[.85rem] leading-[1.6] text-muted">
-              Compassionate, personalized care dedicated to lifelong heart
-              health.
+            <h2 className="font-display text-[1.8rem] font-bold leading-[1.15] !text-white sm:text-[2.35rem]">
+              Meet Our Physician
+            </h2>
+            <p className="mt-4 block max-w-lg text-[.94rem] leading-[1.7] text-white/85">
+              Led by board-certified cardiologist Dr. Martin Tibuakuu, MD, MPH,
+              FACC, our practice is built on expertise, integrity, and a
+              commitment to exceptional patient care.
             </p>
             <Link
               href="/about"
-              className="inline-flex items-center gap-1 text-[.82rem] font-semibold text-wine"
+              className="mt-6 inline-flex min-h-[42px] items-center justify-center rounded-md border border-gold/70 px-5 py-2.5 text-[.78rem] font-bold uppercase tracking-[.8px] text-white transition-colors hover:bg-white/10"
             >
-              View Full Profile
+              About Dr. Tibuakuu
             </Link>
+          </div>
+
+          <div className="mx-auto w-full max-w-[260px] overflow-hidden rounded-md bg-white/8 sm:max-w-none">
+            <img
+              src="/assets/physician-headshot.png"
+              alt="Martin Tibuakuu, MD, MPH, FACC - Cardiologist at PulsePoint Clinic"
+              className="aspect-[3/4] h-auto w-full object-contain"
+            />
           </div>
         </div>
       </div>
 
       {/* RIGHT: Credentials list on light background */}
-      <div className="bg-graybg px-5 py-12 sm:px-8 sm:py-16 lg:px-12 lg:py-[72px]">
-        <div className="mx-auto max-w-md">
+      <div className="flex items-center bg-graybg px-5 py-10 sm:px-8 lg:px-12">
+        <div className="mx-auto w-full max-w-md">
+          <div className="mb-5">
+            <h3 className="font-display text-[1.4rem] font-bold text-navy">
+              Martin Tibuakuu, MD, MPH, FACC
+            </h3>
+            <p className="mt-1 text-[.88rem] font-semibold text-wine">
+              Cardiologist - Preventive and Interventional Cardiology
+            </p>
+          </div>
           <h3 className="mb-6 font-display text-[1.4rem] font-bold text-navy">
-            Credentials \u0026 Expertise
+            Credentials & Expertise
           </h3>
           <div className="space-y-4">
             {CREDENTIALS.map((cred) => (
@@ -79,14 +76,12 @@ export default function TeamCard() {
             ))}
           </div>
 
-          <div className="mt-8">
-            <Link
-              href="/about"
-              className="inline-flex min-h-[44px] items-center gap-2 rounded-md border-[1.5px] border-wine bg-white px-5 py-[11.5px] text-[.85rem] font-semibold text-wine"
-            >
-              About Dr. Tibuakuu
-            </Link>
-          </div>
+          <Link
+            href="/about"
+            className="mt-8 inline-flex min-h-[44px] items-center gap-2 rounded-md border-[1.5px] border-wine bg-white px-5 py-[11.5px] text-[.85rem] font-semibold text-wine"
+          >
+            About Dr. Tibuakuu
+          </Link>
         </div>
       </div>
     </section>
