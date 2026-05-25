@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import Image from 'next/image'
 import Link from 'next/link'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
@@ -107,14 +106,7 @@ export default function AboutPage() {
               </div>
             </div>
             <div className="overflow-hidden rounded-md bg-graybg shadow-card">
-              <Image
-                src="/assets/hero.png"
-                alt="Dr. Martin Tibuakuu speaking with a PulsePoint Clinic patient"
-                width={1475}
-                height={1067}
-                className="aspect-[4/3] w-full object-cover object-left-center"
-                priority
-              />
+              \u003cimg\r\n                src="/assets/care-team.jpg"\r\n                alt="Dr. Martin Tibuakuu speaking with a PulsePoint Clinic patient"\r\n                className="aspect-[4/3] w-full object-cover object-left-center"\r\n                loading="eager"\r\n              /\u003e
             </div>
           </div>
         </section>

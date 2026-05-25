@@ -31,7 +31,7 @@ export default function TeamCard() {
         <div className="mt-8 overflow-hidden rounded bg-white">
           <div className="aspect-[4/3] overflow-hidden bg-[#dde4ee]">
             <img
-              src="/assets/care-team.jpg"
+              src="/assets/dr-tibuakuu.jpg"
               alt="Martin Tibuakuu, MD, MPH, FACC - Cardiologist at PulsePoint Clinic"
               className="h-full w-full object-cover object-top"
               loading="eager"
