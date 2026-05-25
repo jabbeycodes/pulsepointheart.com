@@ -7,9 +7,9 @@ import StickyMobileCta from '@/components/StickyMobileCta'
 import CtaBanner from '@/components/CtaBanner'
 
 export const metadata: Metadata = {
-  title: 'About Dr. Martin Tibuakuu',
+  title: 'Dr. Martin Tibuakuu, MD, MPH, FACC — Founder & Cardiologist',
   description:
-    'Meet Dr. Martin Tibuakuu and PulsePoint Clinic, a physician-led cardiovascular care platform in Columbia, MO focused on prevention, advanced diagnostics, access, and personalized heart health.',
+    'Meet Dr. Martin Tibuakuu, board-certified cardiologist, epidemiologist, and founder of PulsePoint. Johns Hopkins trained. Fellow of the American College of Cardiology. Dedicated to prevention, early detection, and compassionate cardiovascular care.',
 }
 
 const PRINCIPLES = [
@@ -33,6 +33,20 @@ const CREDENTIALS = [
   'Cardiovascular disease specialist',
   'Preventive and diagnostic heart care',
 ]
+
+const BIO = `Dr. Martin Tibuakuu is a board-certified cardiologist, epidemiologist, and preventive cardiovascular specialist dedicated to transforming the way heart disease is prevented and treated.
+
+Born and raised in northern Ghana, Dr. Tibuakuu's passion for cardiovascular medicine was shaped by personal tragedy and firsthand exposure to profound healthcare disparities. At the age of 12, he lost his mother to undiagnosed hypertension — a preventable condition made more devastating by the severe lack of access to healthcare in his rural community. That experience became the driving force behind his lifelong commitment to heart disease prevention, early detection, and expanding access to high-quality cardiovascular care.
+
+Dr. Tibuakuu received advanced training in both medicine and public health, developing a unique perspective that bridges clinical cardiology with population health and disease prevention. He completed a postdoctoral research fellowship at the internationally renowned Johns Hopkins Ciccarone Center for the Prevention of Heart Disease, where he trained under world-leading experts in preventive cardiology and cardiovascular epidemiology.
+
+His research has focused extensively on cardiovascular prevention, cardiometabolic disease, and healthcare disparities, contributing to numerous peer-reviewed scientific publications and national presentations aimed at improving cardiovascular outcomes across diverse populations.
+
+He subsequently completed fellowship training in cardiovascular disease at the world-renowned Johns Hopkins Hospital, where he received advanced training in non-invasive cardiology, cardiac imaging, preventive cardiology, and complex cardiovascular care.
+
+Dr. Tibuakuu is a Fellow of the American College of Cardiology and brings a modern, prevention-focused philosophy to patient care — combining evidence-based medicine, advanced diagnostics, lifestyle optimization, and personalized treatment strategies.
+
+Through PulsePoint, his vision is to build a next-generation cardiovascular platform that delivers world-class heart care with an emphasis on prevention, early detection, innovation, and compassionate patient-centered care.`
 
 const PHILOSOPHY_POINTS = [
   {
@@ -158,17 +172,35 @@ export default function AboutPage() {
           <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[420px_1fr] lg:items-start">
             <div className="rounded-md border border-[#E5EAF0] bg-white p-6 shadow-card">
               <div className="text-[.72rem] font-bold uppercase tracking-[2px] text-gold">
-                Medical Director
+                Founder & Cardiologist
               </div>
               <h2 className="mt-2 font-display text-[1.9rem] font-bold leading-tight text-charcoal">
-                Martin Tibuakuu, MD, MPH, FACC
+                Dr. Martin Tibuakuu, MD, MPH, FACC
               </h2>
-              <p className="mt-3 text-[.92rem] leading-[1.7] text-muted">
-                Dr. Tibuakuu leads PulsePoint with a focus on prevention, early
-                detection, physician accessibility, and personalized
-                cardiovascular care.
-              </p>
-              <ul className="mt-5 space-y-2">
+              <div className="mt-4 space-y-4 text-[.92rem] leading-[1.7] text-muted">
+                <p>
+                  Dr. Martin Tibuakuu is a board-certified cardiologist, epidemiologist, and preventive cardiovascular specialist dedicated to transforming the way heart disease is prevented and treated.
+                </p>
+                <p>
+                  Born and raised in northern Ghana, Dr. Tibuakuu's passion for cardiovascular medicine was shaped by personal tragedy and firsthand exposure to profound healthcare disparities. At the age of 12, he lost his mother to undiagnosed hypertension — a preventable condition made more devastating by the severe lack of access to healthcare in his rural community. That experience became the driving force behind his lifelong commitment to heart disease prevention, early detection, and expanding access to high-quality cardiovascular care.
+                </p>
+                <p>
+                  Dr. Tibuakuu received advanced training in both medicine and public health, developing a unique perspective that bridges clinical cardiology with population health and disease prevention. He completed a postdoctoral research fellowship at the internationally renowned Johns Hopkins Ciccarone Center for the Prevention of Heart Disease, where he trained under world-leading experts in preventive cardiology and cardiovascular epidemiology.
+                </p>
+                <p>
+                  His research has focused extensively on cardiovascular prevention, cardiometabolic disease, and healthcare disparities, contributing to numerous peer-reviewed scientific publications and national presentations aimed at improving cardiovascular outcomes across diverse populations.
+                </p>
+                <p>
+                  He subsequently completed fellowship training in cardiovascular disease at the world-renowned Johns Hopkins Hospital, where he received advanced training in non-invasive cardiology, cardiac imaging, preventive cardiology, and complex cardiovascular care.
+                </p>
+                <p>
+                  Dr. Tibuakuu is a Fellow of the American College of Cardiology and brings a modern, prevention-focused philosophy to patient care — combining evidence-based medicine, advanced diagnostics, lifestyle optimization, and personalized treatment strategies.
+                </p>
+                <p>
+                  Through PulsePoint, his vision is to build a next-generation cardiovascular platform that delivers world-class heart care with an emphasis on prevention, early detection, innovation, and compassionate patient-centered care.
+                </p>
+              </div>
+              <ul className="mt-6 space-y-2">
                 {CREDENTIALS.map((credential) => (
                   <li
                     key={credential}
