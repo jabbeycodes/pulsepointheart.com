@@ -22,10 +22,22 @@ export const metadata: Metadata = {
 
 const TOPICS = [
   'Preventive cardiology',
-  'Heart health optimization',
+  'Heart disease causes',
+  'Warning signs & symptoms',
+  'Blood pressure management',
+  'Cholesterol & lipids',
+  'Diabetes & heart health',
+  'Stroke prevention',
+  'Heart failure',
+  'Atrial fibrillation',
+  'Heart-healthy lifestyle',
+  'Women & heart disease',
+  'Exercise & fitness',
+  'Stress & mental health',
   'Cardiometabolic wellness',
   'Advanced diagnostics',
   'Executive heart health',
+  'Heart rhythm monitoring',
   'Longevity-focused care',
 ]
 
@@ -46,9 +58,10 @@ export default async function BlogIndexPage() {
             </h1>
             <div className="my-5 h-[3px] w-12 rounded bg-wine" />
             <p className="max-w-2xl text-[.98rem] leading-[1.75] text-muted">
-              This will become the editorial home for PulsePoint’s perspective
-              on preventive cardiology, advanced screening, cardiometabolic
-              wellness, and long-term cardiovascular health.
+              Educational articles on heart disease causes, warning signs, blood
+              pressure, cholesterol, diabetes, stroke prevention, heart-healthy
+              nutrition, exercise, stress management, and long-term cardiovascular
+              wellness from a preventive cardiology perspective.
             </p>
             <div className="mt-7">
               <Link
