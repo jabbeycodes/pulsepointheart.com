@@ -52,14 +52,16 @@ function FocusIcon({ name }: { name: string }) {
 export default function LongevitySection() {
   return (
     <section className="overflow-hidden lg:grid lg:grid-cols-2">
-      {/* LEFT: Lifestyle image — gradient placeholder, replace with /assets/wellness-lifestyle.jpg */}
+      {/* LEFT: Lifestyle image */}
       <div className="relative min-h-[320px] bg-gradient-to-br from-[#5a7a5a] via-[#4a6b56] to-[#3d5a4a] lg:min-h-full">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_30%,rgba(255,255,255,0.06)_0%,transparent_70%)]" />
         <Image
           src="/assets/wellness-lifestyle.jpg"
           alt="Active lifestyle and heart health"
           fill
+          sizes="(max-width: 1024px) 100vw, 50vw"
           className="object-cover"
+          priority
         />
       </div>
 
