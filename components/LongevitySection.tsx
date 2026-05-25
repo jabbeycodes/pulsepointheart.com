@@ -1,6 +1,3 @@
-'use client'
-
-import Image from 'next/image'
 import Link from 'next/link'
 
 const FOCUS_AREAS = [
@@ -54,16 +51,13 @@ function FocusIcon({ name }: { name: string }) {
 export default function LongevitySection() {
   return (
     <section className="overflow-hidden lg:grid lg:grid-cols-2">
-      {/* LEFT: Lifestyle image */}
-      <div className="relative min-h-[320px] bg-gradient-to-br from-[#5a7a5a] via-[#4a6b56] to-[#3d5a4a] lg:min-h-full">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_30%,rgba(255,255,255,0.06)_0%,transparent_70%)]" />
-        <Image
+      {/* LEFT: Lifestyle image — uses standard img for reliable rendering */}
+      <div className="relative min-h-[320px] lg:min-h-full">
+        <img
           src="/assets/wellness-lifestyle.jpg"
           alt="Active lifestyle and heart health"
-          fill
-          sizes="(max-width: 1024px) 100vw, 50vw"
-          className="object-cover"
-          priority
+          className="absolute inset-0 h-full w-full object-cover"
+          loading="eager"
         />
       </div>
 
