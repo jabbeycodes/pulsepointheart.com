@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import Image from 'next/image'
 import Link from 'next/link'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
@@ -284,14 +283,11 @@ export default function ServicesPage() {
               </div>
             </div>
             <div className="overflow-hidden rounded-sm bg-graybg shadow-card">
-              <Image
+              <img
                 src="/assets/hero.png"
                 alt="PulsePoint Clinic physician speaking with a patient"
-                width={1024}
-                height={768}
-                priority
-                sizes="(min-width: 1024px) 52vw, 100vw"
                 className="aspect-[4/3] h-full w-full object-cover object-center"
+                loading="eager"
               />
             </div>
           </div>
@@ -345,13 +341,11 @@ export default function ServicesPage() {
                     </p>
                   </div>
                   <div className="mt-4 overflow-hidden rounded-sm bg-graybg">
-                    <Image
+                    <img
                       src={service.image}
                       alt={`${service.title} at PulsePoint Clinic`}
-                      width={640}
-                      height={480}
-                      sizes="(min-width: 1024px) 19vw, (min-width: 640px) 45vw, 100vw"
                       className="aspect-[4/3] w-full object-cover object-center"
+                      loading="lazy"
                     />
                   </div>
                   <p className="mt-4 text-[.82rem] leading-[1.6] text-charcoal/70 2xl:text-[.76rem] 2xl:leading-[1.55]">
