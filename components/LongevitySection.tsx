@@ -60,9 +60,6 @@ export default function LongevitySection() {
           alt="Active lifestyle and heart health"
           fill
           className="object-cover"
-          onError={(e) => {
-            (e.target as HTMLElement).style.display = 'none'
-          }}
         />
       </div>
 

@@ -27,9 +27,6 @@ export default function TestimonialSection() {
                 alt="Happy patient"
                 fill
                 className="object-cover"
-                onError={(e) => {
-                  (e.target as HTMLElement).style.display = 'none'
-                }}
               />
             </div>
           </div>
