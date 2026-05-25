@@ -7,6 +7,9 @@ import BottomBanner from '@/components/BottomBanner'
 import Footer from '@/components/Footer'
 import StickyMobileCta from '@/components/StickyMobileCta'
 
+// Force SSR to avoid stale static caching
+export const dynamic = 'force-dynamic'
+
 export default function HomePage() {
   return (
     <div className="relative">
