@@ -3,6 +3,7 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import StickyMobileCta from '@/components/StickyMobileCta'
 import ContactForm from '@/components/ContactForm'
+import { CLINIC } from '@/lib/seo'
 
 export const metadata: Metadata = {
   title: 'Contact PulsePoint Clinic',
@@ -71,8 +72,8 @@ export default function ContactPage() {
                   </svg>
                   <div>
                     <div className="font-semibold text-charcoal">Email</div>
-                    <a href="mailto:Mtibuakuu@pulsepointheart.com" className="break-all text-wine hover:underline">
-                      Mtibuakuu@pulsepointheart.com
+                    <a href={`mailto:${CLINIC.email}`} className="break-all text-wine hover:underline">
+                      {CLINIC.email}
                     </a>
                   </div>
                 </div>
@@ -87,7 +88,7 @@ export default function ContactPage() {
                     <div className="font-semibold text-charcoal">Address</div>
                     <address className="not-italic leading-[1.6] text-muted">
                       1000 W Nifong Blvd<br />
-                      BLD 2 Suite 120<br />
+                      Bldg 2, Suite 120<br />
                       Columbia, MO 65203
                     </address>
                   </div>
@@ -102,9 +103,9 @@ export default function ContactPage() {
                   <div>
                     <div className="font-semibold text-charcoal">Hours</div>
                     <p className="leading-[1.6] text-muted">
-                      Monday-Friday, 8:00 AM-4:00 PM
+                      {CLINIC.hoursDisplay}
                       <br />
-                      By appointment
+                      {CLINIC.hoursNote}
                     </p>
                   </div>
                 </div>

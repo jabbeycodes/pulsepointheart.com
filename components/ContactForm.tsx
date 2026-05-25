@@ -6,7 +6,6 @@ import { CONTACT_REASONS } from '@/lib/validation'
 // Maps the internal reason codes to user-friendly labels
 const REASON_LABELS: Record<(typeof CONTACT_REASONS)[number], string> = {
   new_patient_inquiry: 'I want to become a patient',
-  membership_inquiry: 'I have a membership question',
   general_question: 'General question',
   media_or_partnership: 'Media / partnership',
   other: 'Other',

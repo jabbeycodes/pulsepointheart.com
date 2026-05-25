@@ -21,7 +21,7 @@ const DIFFERENTIATORS = [
     ),
   },
   {
-    title: 'Advanced Diagnostics',
+    title: 'Comprehensive Screening',
     text: 'State-of-the-art testing for earlier detection.',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-5 w-5">

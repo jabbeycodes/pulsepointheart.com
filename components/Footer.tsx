@@ -1,13 +1,12 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import NewsletterForm from './NewsletterForm'
+import { CLINIC } from '@/lib/seo'
 
 const QUICK_LINKS = [
   { href: '/about', label: 'About Us' },
   { href: '/services', label: 'Services' },
-  { href: '/membership', label: 'Membership' },
-  { href: '/diagnostics', label: 'Diagnostics' },
-  { href: '/patient-info', label: 'Patient Info' },
+  { href: '/patient-info', label: 'Patient Portal' },
   { href: '/blog', label: 'Blog' },
   { href: '/contact', label: 'Contact' },
 ]
@@ -16,7 +15,6 @@ const SERVICE_LINKS = [
   { href: '/services#preventive-cardiology', label: 'Preventive Cardiology' },
   { href: '/services#vascular-care', label: 'Vascular \u0026 Vein Care' },
   { href: '/services#advanced-imaging', label: 'Advanced Imaging' },
-  { href: '/services/cardiometabolic-wellness', label: 'Cardiometabolic Wellness' },
   { href: '/services/executive-health', label: 'Executive Health' },
   { href: '/services#telemedicine', label: 'Telemedicine' },
 ]
@@ -187,8 +185,8 @@ export default function Footer() {
               <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
               <polyline points="22,6 12,13 2,6" />
             </svg>
-            <a href="mailto:Mtibuakuu@pulsepointheart.com" className="hover:text-wine">
-              Mtibuakuu@pulsepointheart.com
+            <a href={`mailto:${CLINIC.email}`} className="hover:text-wine">
+              {CLINIC.email}
             </a>
           </div>
           <div className="mb-2.5 flex items-start gap-2.5 text-[.82rem] leading-[1.5] text-charcoal/65">
@@ -203,7 +201,9 @@ export default function Footer() {
               <circle cx="12" cy="10" r="3" />
             </svg>
             <span>
-              1000 W Nifong Blvd, BLD 2 Suite 120
+              1000 W Nifong Blvd
+              <br />
+              Bldg 2, Suite 120
               <br />
               Columbia, MO 65203
             </span>
@@ -220,9 +220,9 @@ export default function Footer() {
               <path d="M12 6v6l4 2" />
             </svg>
             <span>
-              Monday-Friday, 8:00 AM-4:00 PM
+              {CLINIC.hoursDisplay}
               <br />
-              By appointment
+              {CLINIC.hoursNote}
             </span>
           </div>
         </div>

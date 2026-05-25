@@ -100,10 +100,10 @@ export default function HipaaNoticePage() {
                   </a>{' '}
                   or{' '}
                   <a
-                    href="mailto:Mtibuakuu@pulsepointheart.com"
+                    href="mailto:info@pulsepointheart.com"
                     className="font-semibold text-wine hover:underline"
                   >
-                    Mtibuakuu@pulsepointheart.com
+                    info@pulsepointheart.com
                   </a>
                   . Do not include sensitive medical details in email unless
                   directed by the clinic to use an appropriate secure method.

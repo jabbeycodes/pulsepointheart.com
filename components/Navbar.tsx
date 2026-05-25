@@ -8,9 +8,6 @@ const NAV_LINKS = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
   { href: '/services', label: 'Services' },
-  { href: '/membership', label: 'Membership' },
-  { href: '/diagnostics', label: 'Diagnostics' },
-  { href: '/services/cardiometabolic-wellness', label: 'Wellness' },
   { href: '/contact', label: 'Contact' },
 ]
 
@@ -89,13 +86,13 @@ export default function Navbar() {
 
         {/* Desktop CTAs */}
         <div className="hidden items-center gap-3 lg:flex">
-          <Link href="/patient-info" className={`inline-flex ${CTA_BUTTON_CLASS}`}>
-            <UserIcon />
-            Patient Portal
-          </Link>
           <Link href="/book" className={`inline-flex ${CTA_BUTTON_CLASS}`}>
             <CalendarIcon />
             Book a Visit
+          </Link>
+          <Link href="/patient-info" className={`inline-flex ${CTA_BUTTON_CLASS}`}>
+            <UserIcon />
+            Patient Portal
           </Link>
         </div>
 
@@ -146,20 +143,20 @@ export default function Navbar() {
         </ul>
         <div className="mt-4 flex gap-3">
           <Link
-            href="/patient-info"
-            onClick={close}
-            className={`flex flex-1 ${CTA_BUTTON_CLASS}`}
-          >
-            <UserIcon />
-            Patient Portal
-          </Link>
-          <Link
             href="/book"
             onClick={close}
             className={`flex flex-1 ${CTA_BUTTON_CLASS}`}
           >
             <CalendarIcon />
             Book a Visit
+          </Link>
+          <Link
+            href="/patient-info"
+            onClick={close}
+            className={`flex flex-1 ${CTA_BUTTON_CLASS}`}
+          >
+            <UserIcon />
+            Patient Portal
           </Link>
         </div>
       </div>
