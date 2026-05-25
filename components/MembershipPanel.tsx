@@ -20,7 +20,7 @@ function CheckIcon() {
       fill="none"
       stroke="currentColor"
       strokeWidth="2"
-      className="h-5 w-5 flex-shrink-0 text-gold"
+      className="h-5 w-5 flex-shrink-0 text-wine"
     >
       <circle cx="12" cy="12" r="10" />
       <path d="M9 12l2 2 4-4" />
@@ -30,8 +30,8 @@ function CheckIcon() {
 
 export default function MembershipPanel() {
   return (
-    <div id="membership" className="flex flex-col lg:flex-row">
-      <div className="bg-wine px-5 py-10 sm:px-8 lg:flex-[0_0_340px] lg:p-[52px]">
+    <section id="membership" className="flex flex-col border-y border-[#E8EDF3] lg:flex-row">
+      <div className="bg-wine px-5 py-10 sm:px-8 lg:flex-[0_0_430px] lg:p-[56px]">
         <h2 className="mb-3.5 font-display text-[1.6rem] leading-[1.25] text-white">
           A More Personalized Approach to Healthcare
         </h2>
@@ -48,14 +48,22 @@ export default function MembershipPanel() {
         </Link>
       </div>
 
-      <div className="grid grid-cols-1 gap-3.5 bg-navy-light px-5 py-8 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-3.5 sm:px-8 lg:flex-1 lg:content-center lg:p-[52px]">
-        {BENEFITS.map((benefit) => (
-          <div key={benefit} className="flex items-center gap-3">
-            <CheckIcon />
-            <span className="text-[.88rem] text-white/90">{benefit}</span>
-          </div>
-        ))}
+      <div className="relative overflow-hidden bg-white px-5 py-8 sm:px-8 lg:flex-1 lg:p-[56px]">
+        <div className="pointer-events-none absolute right-6 top-1/2 hidden -translate-y-1/2 text-wine/[0.04] lg:block">
+          <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" strokeWidth="2" className="h-44 w-44">
+            <path d="M60 105s42-25 42-64c0-17-12-28-27-28-8 0-14 4-15 8-1-4-7-8-15-8-15 0-27 11-27 28 0 39 42 64 42 64Z" />
+            <path d="M24 61h20l7-19 15 40 8-21h22" />
+          </svg>
+        </div>
+        <div className="relative grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-x-10 sm:gap-y-5 lg:max-w-3xl">
+          {BENEFITS.map((benefit) => (
+            <div key={benefit} className="flex items-center gap-3">
+              <CheckIcon />
+              <span className="text-[.9rem] font-semibold text-charcoal">{benefit}</span>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   )
 }

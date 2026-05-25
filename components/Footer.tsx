@@ -13,7 +13,7 @@ const QUICK_LINKS = [
 
 const SERVICE_LINKS = [
   { href: '/services#preventive-cardiology', label: 'Preventive Cardiology' },
-  { href: '/services#vascular-care', label: 'Vascular \u0026 Vein Care' },
+  { href: '/services#vascular-care', label: 'Vascular & Vein Care' },
   { href: '/services#advanced-imaging', label: 'Advanced Imaging' },
   { href: '/services/executive-health', label: 'Executive Health' },
   { href: '/services#telemedicine', label: 'Telemedicine' },
@@ -39,7 +39,7 @@ export default function Footer() {
               alt="PulsePoint Clinic"
               width={170}
               height={42}
-              className="h-[42px] w-auto"
+              className="h-12 w-auto"
             />
           </div>
           <p className="my-3.5 text-[.82rem] leading-[1.7] text-charcoal/60">
@@ -232,7 +232,7 @@ export default function Footer() {
       <div className="bg-wine px-5 py-4 text-center text-[.72rem] text-white/70 sm:text-left sm:px-8 lg:px-12">
         <div className="flex flex-col items-center gap-2 sm:flex-row sm:justify-between">
           <span>
-            \u00a9 {new Date().getFullYear()} PulsePoint Clinic \u00b7 pulsepointheart.com
+            Copyright {new Date().getFullYear()} PulsePoint Clinic - pulsepointheart.com
           </span>
           <div className="flex flex-wrap justify-center gap-x-[18px] gap-y-2 sm:justify-end">
             <Link href="/privacy" className="text-white/60 hover:text-gold">

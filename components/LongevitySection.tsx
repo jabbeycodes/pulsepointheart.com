@@ -3,10 +3,10 @@ import Link from 'next/link'
 const FOCUS_AREAS = [
   { icon: 'heart', title: 'Heart Disease\nPrevention' },
   { icon: 'activity', title: 'Cardiometabolic\nOptimization' },
-  { icon: 'apple', title: 'Nutrition \u0026\nLifestyle' },
-  { icon: 'zap', title: 'Exercise \u0026\nPerformance' },
-  { icon: 'moon', title: 'Stress \u0026\nSleep Health' },
-  { icon: 'clock', title: 'Healthy Aging \u0026\nLongevity' },
+  { icon: 'apple', title: 'Nutrition &\nLifestyle' },
+  { icon: 'zap', title: 'Exercise &\nPerformance' },
+  { icon: 'moon', title: 'Stress &\nSleep Health' },
+  { icon: 'clock', title: 'Healthy Aging &\nLongevity' },
 ]
 
 function FocusIcon({ name }: { name: string }) {
@@ -50,7 +50,7 @@ function FocusIcon({ name }: { name: string }) {
 
 export default function LongevitySection() {
   return (
-    <section className="overflow-hidden lg:grid lg:grid-cols-2">
+    <section className="overflow-hidden bg-white lg:grid lg:grid-cols-2">
       {/* LEFT: Lifestyle image — uses standard img for reliable rendering */}
       <div className="relative min-h-[320px] lg:min-h-full">
         <img
@@ -62,15 +62,15 @@ export default function LongevitySection() {
       </div>
 
       {/* RIGHT: Content */}
-      <div className="bg-navy px-5 py-12 text-white sm:px-8 sm:py-16 lg:px-12 lg:py-[72px]">
+      <div className="bg-white px-5 py-12 text-charcoal sm:px-8 sm:py-16 lg:px-12 lg:py-[72px]">
         <div className="mb-2 text-[.68rem] font-semibold uppercase tracking-[2.5px] text-gold">
           Focused On
         </div>
-        <h2 className="font-display text-[1.8rem] font-bold leading-[1.15] sm:text-[2.4rem]">
+        <h2 className="font-display text-[1.8rem] font-bold leading-[1.15] text-navy sm:text-[2.4rem]">
           Prevention, Wellness, and Longevity
         </h2>
-        <p className="mt-4 max-w-lg text-[.92rem] leading-[1.7] text-white/72">
-          We go beyond treating disease — we help you optimize your heart
+        <p className="mt-4 max-w-lg text-[.92rem] leading-[1.7] text-muted">
+          We go beyond treating disease - we help you optimize your heart
           health, energy, and quality of life through a whole-person approach.
         </p>
 
@@ -78,10 +78,10 @@ export default function LongevitySection() {
         <div className="mt-8 grid gap-x-6 gap-y-5 sm:grid-cols-2 lg:grid-cols-3">
           {FOCUS_AREAS.map((area) => (
             <div key={area.title} className="flex items-start gap-3">
-              <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-white/10 text-gold">
+              <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-wine/10 text-wine">
                 <FocusIcon name={area.icon} />
               </div>
-              <span className="whitespace-pre-line text-[.84rem] font-semibold leading-[1.4] text-white">
+              <span className="whitespace-pre-line text-[.84rem] font-semibold leading-[1.4] text-charcoal">
                 {area.title}
               </span>
             </div>
@@ -90,7 +90,7 @@ export default function LongevitySection() {
 
         <Link
           href="/services/cardiometabolic-wellness"
-          className="mt-8 inline-flex min-h-[44px] items-center justify-center rounded-md border border-white/30 bg-transparent px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+          className="mt-8 inline-flex min-h-[44px] items-center justify-center rounded-md border border-wine bg-white px-6 py-3 text-sm font-semibold text-wine transition-colors hover:bg-wine/5"
         >
           Explore Wellness
         </Link>
