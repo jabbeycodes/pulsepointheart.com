@@ -284,7 +284,7 @@ export default function ServicesPage() {
             </div>
             <div className="overflow-hidden rounded-sm bg-graybg shadow-card">
               <img
-                src="/assets/hero.png"
+                src="/assets/services/service-hero-consult.png"
                 alt="PulsePoint Clinic physician speaking with a patient"
                 className="aspect-[4/3] h-full w-full object-cover object-center"
                 loading="eager"
