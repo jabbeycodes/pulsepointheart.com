@@ -118,44 +118,42 @@ export default function Navbar() {
         </button>
       </nav>
 
-      {/* Mobile drawer */}
-      <div
-        className={`fixed inset-x-0 top-16 z-[99] bg-white px-5 pb-6 pt-4 shadow-[0_4px_14px_rgba(0,0,0,.08)] transition-transform duration-300 lg:hidden ${
-          open ? 'translate-y-0' : '-translate-y-[110%]'
-        }`}
-      >
-        <ul>
-          {NAV_LINKS.map((link) => (
-            <li key={link.label}>
-              <Link
-                href={link.href}
-                onClick={close}
-                className="block border-b border-[#EEF1F5] py-[14px] text-[.95rem] font-medium text-charcoal"
-              >
-                {link.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
-        <div className="mt-4 flex gap-3">
-          <Link
-            href="/book"
-            onClick={close}
-            className={`flex flex-1 ${CTA_BUTTON_CLASS}`}
-          >
-            <CalendarIcon />
-            Book a Visit
-          </Link>
-          <Link
-            href="/patient-info"
-            onClick={close}
-            className={`flex flex-1 ${CTA_BUTTON_CLASS}`}
-          >
-            <UserIcon />
-            Patient Portal
-          </Link>
+      {/* Mobile drawer. Only mount while open so closed CTAs cannot peek over the logo. */}
+      {open ? (
+        <div className="fixed inset-x-0 top-16 z-[99] bg-white px-5 pb-6 pt-4 shadow-[0_4px_14px_rgba(0,0,0,.08)] lg:hidden">
+          <ul>
+            {NAV_LINKS.map((link) => (
+              <li key={link.label}>
+                <Link
+                  href={link.href}
+                  onClick={close}
+                  className="block border-b border-[#EEF1F5] py-[14px] text-[.95rem] font-medium text-charcoal"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-4 flex gap-3">
+            <Link
+              href="/book"
+              onClick={close}
+              className={`flex flex-1 ${CTA_BUTTON_CLASS}`}
+            >
+              <CalendarIcon />
+              Book a Visit
+            </Link>
+            <Link
+              href="/patient-info"
+              onClick={close}
+              className={`flex flex-1 ${CTA_BUTTON_CLASS}`}
+            >
+              <UserIcon />
+              Patient Portal
+            </Link>
+          </div>
         </div>
-      </div>
+      ) : null}
     </>
   )
 }
