@@ -36,10 +36,10 @@ export default function Footer() {
             <img
               src="/assets/logo.png"
               alt="PulsePoint Clinic"
-              className="h-12 w-auto"
+              className="h-14 w-auto"
             />
           </div>
-          <p className="my-3.5 text-[.82rem] leading-[1.7] text-charcoal/60">
+          <p className="my-3.5 text-[.82rem] leading-[1.7] text-charcoal/80">
             Premium personalized cardiovascular care. Stronger hearts. Better lives.
           </p>
           <div className="flex gap-2.5">
@@ -49,7 +49,7 @@ export default function Footer() {
               aria-label="Facebook"
               target="_blank"
               rel="noreferrer"
-              className="flex h-9 w-9 items-center justify-center rounded border border-charcoal/15 text-charcoal/50 transition-colors hover:border-wine hover:text-wine"
+              className="flex h-9 w-9 items-center justify-center rounded border border-charcoal/25 text-charcoal/75 transition-colors hover:border-wine hover:text-wine"
             >
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
@@ -61,7 +61,7 @@ export default function Footer() {
               aria-label="TikTok"
               target="_blank"
               rel="noreferrer"
-              className="flex h-9 w-9 items-center justify-center rounded border border-charcoal/15 text-charcoal/50 transition-colors hover:border-wine hover:text-wine"
+              className="flex h-9 w-9 items-center justify-center rounded border border-charcoal/25 text-charcoal/75 transition-colors hover:border-wine hover:text-wine"
             >
               <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path d="M16.6 5.82a5.7 5.7 0 003.23 1.03V10a8.9 8.9 0 01-3.23-.62v5.67a6.11 6.11 0 11-6.1-6.1c.39 0 .77.04 1.13.11v3.29a2.86 2.86 0 102.01 2.73V2h2.96v3.82z" />
@@ -73,7 +73,7 @@ export default function Footer() {
               aria-label="Instagram"
               target="_blank"
               rel="noreferrer"
-              className="flex h-9 w-9 items-center justify-center rounded border border-charcoal/15 text-charcoal/50 transition-colors hover:border-wine hover:text-wine"
+              className="flex h-9 w-9 items-center justify-center rounded border border-charcoal/25 text-charcoal/75 transition-colors hover:border-wine hover:text-wine"
             >
               <svg
                 width="14"
@@ -95,7 +95,7 @@ export default function Footer() {
 
         {/* Quick Links */}
         <div>
-          <h5 className="mb-3 text-[.72rem] font-bold uppercase tracking-[2px] text-gold">
+          <h5 className="mb-3 text-[.72rem] font-bold uppercase tracking-[2px] text-wine">
             Quick Links
           </h5>
           <ul className="flex flex-col gap-2">
@@ -103,7 +103,7 @@ export default function Footer() {
               <li key={link.label}>
                 <Link
                   href={link.href}
-                  className="text-[.85rem] text-charcoal/65 hover:text-wine"
+                  className="text-[.85rem] font-medium text-charcoal/85 hover:text-wine"
                 >
                   {link.label}
                 </Link>
@@ -114,7 +114,7 @@ export default function Footer() {
 
         {/* Services */}
         <div>
-          <h5 className="mb-3 text-[.72rem] font-bold uppercase tracking-[2px] text-gold">
+          <h5 className="mb-3 text-[.72rem] font-bold uppercase tracking-[2px] text-wine">
             Our Services
           </h5>
           <ul className="flex flex-col gap-2">
@@ -122,7 +122,7 @@ export default function Footer() {
               <li key={link.label}>
                 <Link
                   href={link.href}
-                  className="text-[.85rem] text-charcoal/65 hover:text-wine"
+                  className="text-[.85rem] font-medium text-charcoal/85 hover:text-wine"
                 >
                   {link.label}
                 </Link>
@@ -133,7 +133,7 @@ export default function Footer() {
 
         {/* For Patients */}
         <div>
-          <h5 className="mb-3 text-[.72rem] font-bold uppercase tracking-[2px] text-gold">
+          <h5 className="mb-3 text-[.72rem] font-bold uppercase tracking-[2px] text-wine">
             For Patients
           </h5>
           <ul className="flex flex-col gap-2">
@@ -141,7 +141,7 @@ export default function Footer() {
               <li key={link.label}>
                 <Link
                   href={link.href}
-                  className="text-[.85rem] text-charcoal/65 hover:text-wine"
+                  className="text-[.85rem] font-medium text-charcoal/85 hover:text-wine"
                 >
                   {link.label}
                 </Link>
@@ -152,10 +152,10 @@ export default function Footer() {
 
         {/* Contact info */}
         <div>
-          <h5 className="mb-3 text-[.72rem] font-bold uppercase tracking-[2px] text-gold">
+          <h5 className="mb-3 text-[.72rem] font-bold uppercase tracking-[2px] text-wine">
             Contact Us
           </h5>
-          <div className="mb-2.5 flex items-start gap-2.5 text-[.82rem] leading-[1.5] text-charcoal/65">
+          <div className="mb-2.5 flex items-start gap-2.5 text-[.82rem] font-medium leading-[1.5] text-charcoal/85">
             <svg
               viewBox="0 0 24 24"
               fill="none"
@@ -171,7 +171,7 @@ export default function Footer() {
               1-855-PULSEDR
             </a>
           </div>
-          <div className="mb-2.5 flex items-start gap-2.5 text-[.82rem] leading-[1.5] text-charcoal/65">
+          <div className="mb-2.5 flex items-start gap-2.5 text-[.82rem] font-medium leading-[1.5] text-charcoal/85">
             <svg
               viewBox="0 0 24 24"
               fill="none"
@@ -186,7 +186,7 @@ export default function Footer() {
               {CLINIC.email}
             </a>
           </div>
-          <div className="mb-2.5 flex items-start gap-2.5 text-[.82rem] leading-[1.5] text-charcoal/65">
+          <div className="mb-2.5 flex items-start gap-2.5 text-[.82rem] font-medium leading-[1.5] text-charcoal/85">
             <svg
               viewBox="0 0 24 24"
               fill="none"
@@ -205,7 +205,7 @@ export default function Footer() {
               Columbia, MO 65203
             </span>
           </div>
-          <div className="flex items-start gap-2.5 text-[.82rem] leading-[1.5] text-charcoal/65">
+          <div className="flex items-start gap-2.5 text-[.82rem] font-medium leading-[1.5] text-charcoal/85">
             <svg
               viewBox="0 0 24 24"
               fill="none"
@@ -226,19 +226,19 @@ export default function Footer() {
       </div>
 
       {/* Burgundy bottom bar */}
-      <div className="bg-wine px-5 py-4 text-center text-[.72rem] text-white/70 sm:text-left sm:px-8 lg:px-12">
+      <div className="bg-wine px-5 py-4 text-center text-[.72rem] font-medium text-white/90 sm:text-left sm:px-8 lg:px-12">
         <div className="flex flex-col items-center gap-2 sm:flex-row sm:justify-between">
           <span>
             Copyright {new Date().getFullYear()} PulsePoint Clinic - pulsepointheart.com
           </span>
           <div className="flex flex-wrap justify-center gap-x-[18px] gap-y-2 sm:justify-end">
-            <Link href="/privacy" className="text-white/60 hover:text-gold">
+            <Link href="/privacy" className="text-white/85 hover:text-gold">
               Privacy Policy
             </Link>
-            <Link href="/hipaa-notice" className="text-white/60 hover:text-gold">
+            <Link href="/hipaa-notice" className="text-white/85 hover:text-gold">
               Privacy Practices
             </Link>
-            <Link href="/terms" className="text-white/60 hover:text-gold">
+            <Link href="/terms" className="text-white/85 hover:text-gold">
               Terms of Service
             </Link>
           </div>

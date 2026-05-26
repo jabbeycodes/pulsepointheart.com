@@ -15,7 +15,7 @@ const SERVICE_PATHWAYS = [
   {
     marker: 'A',
     title: 'PulsePoint Core Cardiology',
-    subtitle: 'Insurance-Based Cardiovascular Care',
+    subtitle: 'Compatible with Insurance',
     image: '/assets/services/core-cardiology-consult.png',
     href: '/services/preventive-cardiology',
     description:
@@ -34,7 +34,7 @@ const SERVICE_PATHWAYS = [
   {
     marker: 'B',
     title: 'PulsePoint Premium & Executive Cardiovascular Care',
-    subtitle: 'Membership-Based Personalized Care',
+    subtitle: 'Membership Based',
     image: '/assets/services/premium-executive-consult.png',
     href: '/membership',
     description:
@@ -53,25 +53,25 @@ const SERVICE_PATHWAYS = [
   {
     marker: 'C',
     title: 'PulsePoint Vein & Vascular Clinic',
-    subtitle: 'Cash + Insurance Hybrid Care',
+    subtitle: 'Insurance and Self-Pay Options Available',
     image: '/assets/diagnostics/vascular-ultrasound.png',
     href: '/services/vascular-ultrasound',
     description:
       'Advanced evaluation and treatment of venous and vascular conditions using minimally invasive techniques and modern diagnostics.',
     services: [
-      'Varicose Vein Treatment',
       'Venous Insufficiency Evaluation',
-      'Venous Vein Treatment',
-      'Peripheral Vascular Screening',
-      'Vascular Ultrasound',
-      'Leg Swelling Evaluation',
-      'Vein Wellness Consultations',
+      'Varicose Vein Treatment',
+      'Spider Vein Treatment',
+      'Leg Swelling & Circulation Evaluation',
+      'Peripheral Artery Disease (PAD) Screening and Prevention',
+      'Vascular Ultrasound & Diagnostic Testing',
+      'Minimally Invasive Vein Procedures (RFA, VenaSeal, Sclerotherapy)',
     ],
   },
   {
     marker: 'D',
     title: 'PulsePoint Cardiometabolic & Weight Center',
-    subtitle: 'Membership-Based Prevention & Optimization',
+    subtitle: 'Membership Based',
     image: '/assets/services/cardiometabolic-bowl.png',
     href: '/services/cardiometabolic-wellness',
     description:
@@ -80,7 +80,6 @@ const SERVICE_PATHWAYS = [
       'Weight Management',
       'GLP-1 Therapy',
       'Obesity Medicine',
-      'Hypertension Optimization',
       'Diabetes Risk Reduction',
       'Lifestyle Coaching',
       'Nutrition Guidance',
@@ -90,7 +89,7 @@ const SERVICE_PATHWAYS = [
   {
     marker: 'E',
     title: 'PulsePoint Imaging & Diagnostics',
-    subtitle: 'Advanced Cardiovascular Diagnostics',
+    subtitle: 'Physician-Led Diagnostics Excellence',
     image: '/assets/services/diagnostics-suite.png',
     href: '/diagnostics',
     description:
@@ -100,14 +99,19 @@ const SERVICE_PATHWAYS = [
       'Vascular Ultrasound',
       'Stress Testing',
       'Rhythm Monitoring',
-      'Nuclear Cardiology',
-      'Cardiac CT / Calcium Score',
+      'Nuclear Cardiology (Coming Soon)',
+      'Cardiac CT (Coming Soon)',
       'Preventive Cardiovascular Screening',
     ],
   },
 ]
 
 const MODEL_DIFFERENCES = [
+  {
+    title: 'Personalized Care',
+    text: 'Care plans designed around your unique health goals, risks, and lifestyle.',
+    icon: 'leaf',
+  },
   {
     title: 'Prevention-Focused Care',
     text: 'We prioritize early detection and long-term prevention in every care pathway.',
@@ -132,11 +136,6 @@ const MODEL_DIFFERENCES = [
     title: 'Coordinated Specialty Care',
     text: 'Multiple cardiovascular specialties working together for seamless, comprehensive care.',
     icon: 'network',
-  },
-  {
-    title: 'Personalized Wellness',
-    text: 'Care plans designed around your unique health goals, risks, and lifestyle.',
-    icon: 'leaf',
   },
 ]
 
@@ -272,13 +271,13 @@ export default function ServicesPage() {
                   className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-md bg-wine px-5 py-3 text-[.82rem] font-bold uppercase tracking-[.6px] text-white transition-colors hover:bg-wine-light"
                 >
                   <Icon name="calendar" className="h-4 w-4" />
-                  Schedule Consultation
+                  Book a Visit
                 </Link>
                 <Link
-                  href="/membership"
+                  href="#service-pathways"
                   className="inline-flex min-h-[44px] items-center justify-center rounded-md border border-gold bg-white px-5 py-3 text-[.82rem] font-bold uppercase tracking-[.6px] text-navy transition-colors hover:bg-gold/10"
                 >
-                  Explore Membership
+                  Explore Services
                 </Link>
               </div>
             </div>
@@ -293,7 +292,7 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        <section className="border-y border-[#E8EDF3] bg-white px-5 py-10 sm:px-8 sm:py-12 lg:px-8 xl:px-12">
+        <section id="service-pathways" className="border-y border-[#E8EDF3] bg-white px-5 py-10 sm:px-8 sm:py-12 lg:px-8 xl:px-12">
           <div className="mx-auto max-w-[1480px] text-center">
             <div className="mx-auto mb-3 flex w-36 items-center justify-center text-gold">
               <span className="h-px flex-1 bg-gold/50" />
@@ -315,9 +314,9 @@ export default function ServicesPage() {
               Multiple Specialized Care Pathways.
             </h2>
             <p className="mx-auto mt-3 max-w-3xl text-[.9rem] leading-[1.65] text-charcoal/70">
-              PulsePoint combines traditional cardiology, preventive care,
-              advanced imaging, wellness optimization, and specialty vascular
-              services into one integrated patient-centered ecosystem.
+              PulsePoint combines comprehensive cardiovascular care, preventive
+              care, advanced imaging, wellness optimization, and specialty
+              vascular services into one integrated patient-centered ecosystem.
             </p>
 
             <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-5 lg:gap-3 xl:gap-5">
@@ -326,7 +325,13 @@ export default function ServicesPage() {
                   key={service.marker}
                   className="relative flex h-full flex-col rounded-sm border border-[#E5EAF0] bg-white p-4 text-left shadow-card transition-transform hover:-translate-y-1 hover:shadow-cardHover sm:p-5 lg:p-3 xl:p-4"
                 >
-                  <div className="absolute -top-4 left-1/2 flex h-8 w-8 -translate-x-1/2 items-center justify-center rounded-full bg-wine text-xs font-bold text-white ring-4 ring-white">
+                  <div
+                    className={`absolute -top-4 left-1/2 flex h-8 w-8 -translate-x-1/2 items-center justify-center rounded-full text-xs font-bold text-white ring-4 ring-white ${
+                      service.marker === 'B' || service.marker === 'D'
+                        ? 'bg-navy'
+                        : 'bg-wine'
+                    }`}
+                  >
                     {service.marker}
                   </div>
                   <div className="mt-4 min-h-[178px] text-center lg:min-h-[190px] xl:min-h-[180px]">
@@ -336,7 +341,7 @@ export default function ServicesPage() {
                     <h3 className="font-display text-[1.05rem] font-bold leading-tight text-navy lg:text-[.98rem] xl:text-[1.08rem]">
                       {service.title}
                     </h3>
-                    <p className="mt-2 text-[.62rem] font-bold uppercase tracking-[1.2px] text-wine lg:text-[.56rem] xl:text-[.62rem]">
+                    <p className="mx-auto mt-2 max-w-[170px] text-[.68rem] font-semibold leading-[1.35] text-wine/85 lg:text-[.62rem] xl:text-[.68rem]">
                       {service.subtitle}
                     </p>
                   </div>
@@ -436,18 +441,19 @@ export default function ServicesPage() {
           <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 text-center sm:flex-row sm:text-left">
             <div className="sm:flex-1">
               <h2 className="font-display text-[1.7rem] font-bold leading-tight sm:text-[2rem]">
-                Experience a More Personalized Approach to Heart Care
+                Comprehensive Heart Care. Personalized for You.
               </h2>
-              <p className="mt-3 max-w-2xl text-[.9rem] leading-[1.65] text-white/75">
-                Our membership-based care model creates more time, better
-                access, and highly individualized cardiovascular care.
+              <p className="mt-3 max-w-2xl text-[.9rem] font-medium leading-[1.65] text-white/90">
+                From prevention and wellness to advanced diagnostics and
+                specialty cardiovascular care, PulsePoint delivers an integrated
+                approach to lifelong heart health.
               </p>
             </div>
             <Link
-              href="/membership"
-              className="inline-flex min-h-[46px] w-full items-center justify-center rounded-md border border-gold/70 px-6 py-3 text-[.78rem] font-bold uppercase tracking-[1px] text-white transition-colors hover:bg-white/10 sm:w-auto"
+              href="#service-pathways"
+              className="inline-flex min-h-[46px] w-full items-center justify-center rounded-md border border-gold bg-gold px-6 py-3 text-[.78rem] font-bold uppercase tracking-[1px] text-navy transition-colors hover:bg-gold/90 sm:w-auto"
             >
-              Learn About Membership
+              View Care Pathways
             </Link>
           </div>
         </section>

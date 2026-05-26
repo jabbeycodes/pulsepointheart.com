@@ -36,6 +36,7 @@ const DIAGNOSTICS = [
     title: 'Cardiac CT & Calcium',
     desc: 'Advanced screening for coronary artery disease.',
     alt: 'Cardiac CT and calcium screening in a modern cardiovascular care setting',
+    comingSoon: true,
   },
 ]
 
@@ -48,7 +49,7 @@ export default function DiagnosticsScroll() {
     >
       <div className="lg:grid lg:grid-cols-[300px_1fr] lg:items-start lg:gap-14">
         <div className="mb-6 lg:mb-0">
-          <div className="mb-2 text-[.68rem] font-semibold uppercase tracking-[2.5px] text-gold">
+          <div className="mb-2 text-[.68rem] font-bold uppercase tracking-[2.5px] text-[#B88900]">
             Technology
           </div>
           <h2 className="font-display text-[1.7rem] font-bold leading-[1.2] text-charcoal sm:text-[2rem]">
@@ -62,7 +63,7 @@ export default function DiagnosticsScroll() {
           <div className="mt-5 hidden lg:block">
             <Link
               href="/diagnostics"
-              className="inline-flex min-h-[44px] items-center gap-2 rounded-md border-[1.5px] border-wine bg-white px-5 py-[11.5px] text-[.85rem] font-semibold text-wine"
+              className="inline-flex min-h-[44px] items-center gap-2 rounded-md border-[1.5px] border-gold bg-gold px-5 py-[11.5px] text-[.85rem] font-bold text-navy transition-colors hover:bg-gold/90"
             >
               Explore Diagnostics
             </Link>
@@ -85,9 +86,16 @@ export default function DiagnosticsScroll() {
                   loading="lazy"
                 />
               </div>
-              <h4 className="mx-3 mb-1 mt-2.5 text-[.82rem] font-bold text-wine">
-                {item.title}
-              </h4>
+              <div className="mx-3 mb-1 mt-2.5 flex items-start justify-between gap-2">
+                <h4 className="text-[.82rem] font-bold text-wine">
+                  {item.title}
+                </h4>
+                {item.comingSoon ? (
+                  <span className="rounded-full bg-gold px-2 py-0.5 text-[.58rem] font-bold uppercase tracking-[.7px] text-navy">
+                    Coming Soon
+                  </span>
+                ) : null}
+              </div>
               <p className="px-3 pb-3.5 text-[.75rem] leading-[1.5] text-muted">
                 {item.desc}
               </p>
@@ -99,7 +107,7 @@ export default function DiagnosticsScroll() {
         <div className="mt-6 lg:hidden">
           <Link
             href="/diagnostics"
-            className="flex min-h-[44px] w-full items-center justify-center gap-2 rounded-md border-[1.5px] border-wine bg-white px-5 py-[11.5px] text-[.85rem] font-semibold text-wine"
+            className="flex min-h-[44px] w-full items-center justify-center gap-2 rounded-md border-[1.5px] border-gold bg-gold px-5 py-[11.5px] text-[.85rem] font-bold text-navy"
           >
             Explore Diagnostics
           </Link>

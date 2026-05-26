@@ -29,7 +29,7 @@ const TRUST_INDICATORS = [
     ),
   },
   {
-    label: 'Personalized Plans',
+    label: 'Personalized Care',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
@@ -48,7 +48,7 @@ export default function Hero() {
         </h1>
         <p className="mb-8 max-w-[660px] animate-fadeUp text-[1.08rem] font-medium leading-[1.75] text-charcoal [animation-delay:.15s] sm:text-[1.14rem]">
           Personalized cardiovascular care focused on prevention, advanced
-          heart screening, physician accessibility, and long-term health.
+          cardiac care, physician accessibility, and long-term health.
         </p>
 
         <div className="mb-8 flex animate-fadeUp flex-col gap-2.5 [animation-delay:.25s] sm:flex-row">
@@ -59,10 +59,10 @@ export default function Hero() {
             Book a Visit
           </Link>
           <Link
-            href="/patient-info"
+            href="/services"
             className="flex min-h-[48px] w-full items-center justify-center gap-2 rounded-md border-[1.5px] border-gold bg-white px-6 py-3 text-[.94rem] font-semibold text-navy transition-colors hover:bg-gold/10 sm:w-auto"
           >
-            Patient Portal
+            Explore Services
           </Link>
         </div>
 
@@ -72,7 +72,7 @@ export default function Hero() {
               key={item.label}
               className="flex flex-col items-center gap-1.5 text-center"
             >
-              <span className="h-[28px] w-[28px] text-wine">{item.icon}</span>
+              <span className="h-11 w-11 text-wine sm:h-12 sm:w-12">{item.icon}</span>
               <span className="text-[.78rem] font-bold leading-[1.25] text-navy">
                 {item.label}
               </span>

@@ -33,10 +33,10 @@ export default function MembershipPanel() {
   return (
     <section id="membership" className="flex flex-col border-y border-[#E8EDF3] lg:flex-row">
       <div className="bg-wine px-5 py-10 sm:px-8 lg:flex-[0_0_430px] lg:p-[56px]">
-        <h2 className="mb-3.5 font-display text-[1.6rem] leading-[1.25] text-white">
+        <h2 className="mb-3.5 font-display text-[1.6rem] font-bold leading-[1.25] !text-white">
           A More Personalized Approach to Healthcare
         </h2>
-        <p className="mb-5 text-[.9rem] leading-[1.7] text-white/85">
+        <p className="mb-5 text-[.9rem] font-medium leading-[1.7] text-white/90">
           Our membership-based model allows us to maintain a smaller patient
           panel, so we can spend more time with you and focus on prevention,
           not paperwork.
