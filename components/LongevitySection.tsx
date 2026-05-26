@@ -64,7 +64,7 @@ export default function LongevitySection() {
 
       {/* RIGHT: Content */}
       <div className="bg-white px-5 py-12 text-charcoal sm:px-8 sm:py-16 lg:px-12 lg:py-[72px]">
-        <div className="mb-2 text-[.68rem] font-semibold uppercase tracking-[2.5px] text-gold">
+        <div className="mb-2 text-[.68rem] font-bold uppercase tracking-[2.5px] text-[#B88900]">
           Focused On
         </div>
         <h2 className="font-display text-[1.8rem] font-bold leading-[1.15] text-navy sm:text-[2.4rem]">
@@ -91,7 +91,7 @@ export default function LongevitySection() {
 
         <Link
           href="/services/cardiometabolic-wellness"
-          className="mt-8 inline-flex min-h-[44px] items-center justify-center rounded-md border border-wine bg-white px-6 py-3 text-sm font-semibold text-wine transition-colors hover:bg-wine/5"
+          className="mt-8 inline-flex min-h-[44px] items-center justify-center rounded-md border border-gold bg-white px-6 py-3 text-sm font-bold text-[#B88900] transition-colors hover:bg-gold/10"
         >
           Explore Wellness
         </Link>

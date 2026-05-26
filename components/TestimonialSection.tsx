@@ -6,12 +6,9 @@ export default function TestimonialSection() {
           {/* Left: quote */}
           <div className="relative">
             <blockquote className="font-display text-[1.25rem] font-medium leading-[1.55] text-charcoal sm:text-[1.45rem]">
-              Dr. Tibuakuu takes the time to truly listen and create a plan
-              that helps me feel my best. I have total confidence in his care.
+              Exceptional cardiovascular care begins with listening, education,
+              prevention, and personalized treatment planning.
             </blockquote>
-            <cite className="mt-5 block text-[.85rem] font-medium not-italic text-muted">
-              - Actual Patient
-            </cite>
           </div>
 
           {/* Right: patient image */}

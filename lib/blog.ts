@@ -15,7 +15,19 @@ export type BlogPost = {
   updated_at: string
 }
 
+function hasSupabaseConfig() {
+  return Boolean(
+    process.env.NEXT_PUBLIC_SUPABASE_URL &&
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+  )
+}
+
 export async function getPublishedBlogPosts(limit = 20) {
+  if (!hasSupabaseConfig()) {
+    console.warn('Supabase public config is missing; returning no blog posts.')
+    return []
+  }
+
   const supabase = await createServerClient()
   const { data, error } = await supabase
     .from('blog_posts')
@@ -33,6 +45,11 @@ export async function getPublishedBlogPosts(limit = 20) {
 }
 
 export async function getAdminBlogPosts(limit = 100) {
+  if (!hasSupabaseConfig()) {
+    console.warn('Supabase public config is missing; returning no admin blog posts.')
+    return []
+  }
+
   const supabase = await createServerClient()
   const { data, error } = await supabase
     .from('blog_posts')
@@ -49,6 +66,11 @@ export async function getAdminBlogPosts(limit = 100) {
 }
 
 export async function getPublishedBlogPost(slug: string) {
+  if (!hasSupabaseConfig()) {
+    console.warn(`Supabase public config is missing; blog post "${slug}" is unavailable.`)
+    return null
+  }
+
   const supabase = await createServerClient()
   const { data, error } = await supabase
     .from('blog_posts')

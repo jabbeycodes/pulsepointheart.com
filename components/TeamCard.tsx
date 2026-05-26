@@ -18,20 +18,16 @@ export default function TeamCard() {
       <div className="relative bg-navy px-5 py-10 text-white sm:px-8 lg:px-12">
         <div className="mx-auto grid max-w-4xl gap-8 sm:grid-cols-[1fr_220px] sm:items-center lg:max-w-none lg:grid-cols-[1fr_260px] xl:grid-cols-[1fr_300px]">
           <div>
-            <div className="mb-2 text-[.68rem] font-semibold uppercase tracking-[2.5px] text-gold">
-              Our Physician
-            </div>
             <h2 className="font-display text-[1.8rem] font-bold leading-[1.15] !text-white sm:text-[2.35rem]">
               Meet Our Physician
             </h2>
             <p className="mt-4 block max-w-lg text-[.94rem] leading-[1.7] text-white/85">
-              Led by board-certified cardiologist Dr. Martin Tibuakuu, MD, MPH,
-              FACC, our practice is built on expertise, integrity, and a
-              commitment to exceptional patient care.
+              Our practice is built on expertise, integrity, and a commitment to
+              exceptional patient care.
             </p>
             <Link
               href="/about"
-              className="mt-6 inline-flex min-h-[42px] items-center justify-center rounded-md border border-gold/70 px-5 py-2.5 text-[.78rem] font-bold uppercase tracking-[.8px] text-white transition-colors hover:bg-white/10"
+              className="mt-6 inline-flex min-h-[42px] items-center justify-center rounded-md border border-gold px-5 py-2.5 text-[.78rem] font-bold uppercase tracking-[.8px] text-gold transition-colors hover:bg-white/10"
             >
               About Dr. Tibuakuu
             </Link>
@@ -55,7 +51,7 @@ export default function TeamCard() {
               Martin Tibuakuu, MD, MPH, FACC
             </h3>
             <p className="mt-1 text-[.88rem] font-semibold text-wine">
-              Cardiologist - Preventive and Interventional Cardiology
+              Cardiologist
             </p>
           </div>
           <h3 className="mb-6 font-display text-[1.4rem] font-bold text-navy">
