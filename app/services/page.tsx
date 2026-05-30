@@ -36,7 +36,7 @@ const SERVICE_PATHWAYS = [
     title: 'PulsePoint Premium & Executive Cardiovascular Care',
     subtitle: 'Membership Based',
     image: '/assets/services/premium-executive-consult.png',
-    href: '/membership',
+    href: '/premium-cardiovascular-care',
     description:
       'A highly personalized experience focused on prevention, physician access, executive screening, wellness optimization, and long-term health planning.',
     services: [
@@ -73,7 +73,7 @@ const SERVICE_PATHWAYS = [
     title: 'PulsePoint Cardiometabolic & Weight Center',
     subtitle: 'Membership Based',
     image: '/assets/services/cardiometabolic-bowl.png',
-    href: '/services/cardiometabolic-wellness',
+    href: '/cardiometabolic-weight-loss',
     description:
       'A comprehensive program integrating obesity medicine, preventive cardiology, lifestyle medicine, and metabolic health optimization.',
     services: [
