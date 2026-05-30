@@ -4,107 +4,13 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import StickyMobileCta from '@/components/StickyMobileCta'
 import CtaBanner from '@/components/CtaBanner'
+import { SERVICE_PATHWAYS } from '@/lib/service-pathways'
 
 export const metadata: Metadata = {
   title: 'Cardiology Services in Columbia, MO',
   description:
     'PulsePoint Clinic offers one cardiovascular platform with core cardiology, executive care, vascular care, cardiometabolic care, and advanced diagnostics in Columbia, MO.',
 }
-
-const SERVICE_PATHWAYS = [
-  {
-    marker: 'A',
-    title: 'PulsePoint Core Cardiology',
-    subtitle: 'Compatible with Insurance',
-    image: '/assets/services/core-cardiology-consult.png',
-    href: '/services/preventive-cardiology',
-    description:
-      'Comprehensive evaluation and management of cardiovascular disease using evidence-based medicine and coordinated specialty care.',
-    services: [
-      'Hypertension Management',
-      'Coronary Artery Disease',
-      'Arrhythmia Evaluation',
-      'Heart Failure Management',
-      'Preventive Cardiology',
-      'Chest Pain Evaluation',
-      'Cardiac Risk Assessment',
-      'Second Opinions & Consultations',
-    ],
-  },
-  {
-    marker: 'B',
-    title: 'PulsePoint Premium & Executive Cardiovascular Care',
-    subtitle: 'Membership Based',
-    image: '/assets/services/premium-executive-consult.png',
-    href: '/premium-cardiovascular-care',
-    description:
-      'A highly personalized experience focused on prevention, physician access, executive screening, wellness optimization, and long-term health planning.',
-    services: [
-      'Extended Appointments',
-      'Same/Next-Day Access',
-      'Comprehensive Annual Evaluation',
-      'Executive Cardiovascular Screening',
-      'Direct Physician Communication',
-      'Personalized Wellness Planning',
-      'Lifestyle Optimization',
-      'Preventive Diagnostics',
-    ],
-  },
-  {
-    marker: 'C',
-    title: 'PulsePoint Vein & Vascular Clinic',
-    subtitle: 'Insurance and Self-Pay Options Available',
-    image: '/assets/diagnostics/vascular-ultrasound.png',
-    href: '/services/vascular-ultrasound',
-    description:
-      'Advanced evaluation and treatment of venous and vascular conditions using minimally invasive techniques and modern diagnostics.',
-    services: [
-      'Venous Insufficiency Evaluation',
-      'Varicose Vein Treatment',
-      'Spider Vein Treatment',
-      'Leg Swelling & Circulation Evaluation',
-      'Peripheral Artery Disease (PAD) Screening and Prevention',
-      'Vascular Ultrasound & Diagnostic Testing',
-      'Minimally Invasive Vein Procedures (RFA, VenaSeal, Sclerotherapy)',
-    ],
-  },
-  {
-    marker: 'D',
-    title: 'PulsePoint Cardiometabolic & Weight Center',
-    subtitle: 'Membership Based',
-    image: '/assets/services/cardiometabolic-bowl.png',
-    href: '/cardiometabolic-weight-loss',
-    description:
-      'A comprehensive program integrating obesity medicine, preventive cardiology, lifestyle medicine, and metabolic health optimization.',
-    services: [
-      'Weight Management',
-      'GLP-1 Therapy',
-      'Obesity Medicine',
-      'Diabetes Risk Reduction',
-      'Lifestyle Coaching',
-      'Nutrition Guidance',
-      'Body Composition Analysis',
-    ],
-  },
-  {
-    marker: 'E',
-    title: 'PulsePoint Imaging & Diagnostics',
-    subtitle: 'Physician-Led Diagnostics Excellence',
-    image: '/assets/services/diagnostics-suite.png',
-    href: '/diagnostics',
-    description:
-      'State-of-the-art cardiovascular imaging and diagnostic testing for early detection, accurate diagnosis, and personalized treatment.',
-    services: [
-      'Echocardiography',
-      'Vascular Ultrasound',
-      'Stress Testing',
-      'Rhythm Monitoring',
-      'Nuclear Cardiology (Coming Soon)',
-      'Cardiac CT (Coming Soon)',
-      'Preventive Cardiovascular Screening',
-    ],
-  },
-]
 
 const MODEL_DIFFERENCES = [
   {
@@ -323,7 +229,8 @@ export default function ServicesPage() {
               {SERVICE_PATHWAYS.map((service) => (
                 <article
                   key={service.marker}
-                  className="relative flex h-full flex-col rounded-sm border border-[#E5EAF0] bg-white p-4 text-left shadow-card transition-transform hover:-translate-y-1 hover:shadow-cardHover sm:p-5 lg:p-3 xl:p-4"
+                  id={service.id}
+                  className="relative flex h-full flex-col scroll-mt-24 rounded-sm border border-[#E5EAF0] bg-white p-4 text-left shadow-card transition-transform hover:-translate-y-1 hover:shadow-cardHover sm:p-5 lg:p-3 xl:p-4"
                 >
                   <div
                     className={`absolute -top-4 left-1/2 flex h-8 w-8 -translate-x-1/2 items-center justify-center rounded-full text-xs font-bold text-white ring-4 ring-white ${
@@ -364,13 +271,19 @@ export default function ServicesPage() {
                       </li>
                     ))}
                   </ul>
-                  <Link
-                    href={service.href}
-                    className="mt-5 inline-flex items-center gap-2 text-[.68rem] font-bold uppercase tracking-[1.4px] text-wine"
-                  >
-                    Learn More
-                    <span aria-hidden="true">-&gt;</span>
-                  </Link>
+                  {service.comingSoon ? (
+                    <span className="mt-5 inline-flex items-center text-[.68rem] font-bold uppercase tracking-[1.4px] text-muted">
+                      Coming Soon
+                    </span>
+                  ) : (
+                    <Link
+                      href={service.href}
+                      className="mt-5 inline-flex items-center gap-2 text-[.68rem] font-bold uppercase tracking-[1.4px] text-wine"
+                    >
+                      Learn More
+                      <span aria-hidden="true">-&gt;</span>
+                    </Link>
+                  )}
                 </article>
               ))}
             </div>

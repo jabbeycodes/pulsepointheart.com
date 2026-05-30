@@ -4,77 +4,42 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import StickyMobileCta from '@/components/StickyMobileCta'
 import CtaBanner from '@/components/CtaBanner'
+import {
+  PULSEPOINT_CLINIC_FAQS,
+  type FaqBlock,
+} from '@/lib/pulsepoint-clinic-faqs'
 
 export const metadata: Metadata = {
   title: 'Patient Info',
   description:
-    'New patient guidance for PulsePoint Clinic in Columbia, MO, including appointment preparation, forms, insurance, privacy, and visit expectations.',
+    'PulsePoint Clinic FAQs covering insurance, Core Cardiology, membership programs, diagnostics, cardiometabolic care, and choosing the right care pathway in Columbia, MO.',
 }
 
-const VISIT_STEPS = [
-  {
-    title: 'Before your visit',
-    text: 'Gather your medication list, prior cardiac testing, recent lab work, and the main questions you want answered.',
-  },
-  {
-    title: 'At the clinic',
-    text: 'Your visit focuses on history, risk factors, goals, and whether diagnostic testing or follow-up care is appropriate.',
-  },
-  {
-    title: 'After your visit',
-    text: 'You receive clear next steps so prevention, treatment, referrals, or follow-up testing are easier to act on.',
-  },
-]
+function FaqContent({ blocks }: { blocks: FaqBlock[] }) {
+  return (
+    <div className="mt-2 space-y-3 text-[.86rem] leading-[1.65] text-muted">
+      {blocks.map((block, index) => {
+        if (block.type === 'paragraph') {
+          return <p key={index}>{block.text}</p>
+        }
 
-const INFO_BLOCKS = [
-  {
-    title: 'Forms',
-    id: 'forms',
-    text: 'New patient forms and consent materials will be provided before or during scheduling. Please do not email medical details unless our team has instructed you to use a secure channel.',
-  },
-  {
-    title: 'Insurance & payment',
-    id: 'insurance',
-    text: 'Coverage can vary by service. Our team can discuss appointment type and payment expectations before your visit.',
-  },
-  {
-    title: 'Patient portal',
-    id: 'portal',
-    text: 'Portal access is intended for secure communication, results, and care follow-up when available. Contact the clinic if you need help getting connected.',
-  },
-  {
-    title: 'Privacy',
-    id: 'privacy',
-    text: 'For your safety, public website forms should not include symptoms, diagnoses, or other sensitive medical details.',
-  },
-]
-
-const PREP_CHECKLIST = [
-  'Current medication list, including supplements',
-  'Recent lab results and blood pressure readings',
-  'Prior ECG, echo, stress test, CT, or ultrasound reports',
-  'Hospital records or procedure reports if available',
-  'Insurance card and preferred pharmacy',
-  'Top questions you want answered during the visit',
-]
-
-const FAQS = [
-  {
-    question: 'What should I bring?',
-    answer:
-      'Bring a current medication list, supplements, allergies, prior cardiology records, imaging reports, lab results, and your insurance card if applicable.',
-  },
-  {
-    question: 'Can I request a second opinion?',
-    answer:
-      'Yes. PulsePoint can review prior results and help explain options, unanswered questions, and reasonable next steps.',
-  },
-  {
-    question: 'How do I schedule a visit?',
-    answer:
-      'Use the Book a Visit page to request a consultation or schedule follow-up care. Our team can help you choose the right next step.',
-  },
-]
+        return (
+          <div key={index}>
+            {block.intro ? <p className="mb-2">{block.intro}</p> : null}
+            <ul className="space-y-2">
+              {block.items.map((item) => (
+                <li key={item} className="flex items-start gap-2">
+                  <span className="mt-[7px] h-1.5 w-1.5 flex-shrink-0 rounded-full bg-wine" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )
+      })}
+    </div>
+  )
+}
 
 export default function PatientInfoPage() {
   return (
@@ -83,17 +48,13 @@ export default function PatientInfoPage() {
       <main>
         <section className="bg-white px-5 py-12 sm:px-8 sm:py-16 lg:px-12 lg:py-[76px]">
           <div className="mx-auto max-w-5xl">
-            <div className="mb-2 text-[.68rem] font-semibold uppercase tracking-[2.5px] text-gold">
-              Patient Info
-            </div>
             <h1 className="max-w-4xl font-display text-[2.2rem] font-bold leading-[1.12] text-charcoal sm:text-[3rem] lg:text-[3.3rem]">
-              Everything you need to feel prepared for heart care.
+              Questions About Your Care? We&apos;re Here to Help.
             </h1>
             <div className="my-5 h-[3px] w-12 rounded bg-wine" />
             <p className="max-w-2xl text-[.98rem] leading-[1.75] text-muted">
-              Whether you are scheduling a first visit, preparing for care,
-              or preparing for diagnostic care, this page outlines what to
-              expect and how to get ready.
+              Find answers about insurance, membership options, preventive care,
+              diagnostics, and the PulsePoint experience.
             </p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
               <Link
@@ -112,102 +73,20 @@ export default function PatientInfoPage() {
           </div>
         </section>
 
-        <section className="bg-graybg px-5 py-12 sm:px-8 sm:py-16 lg:px-12 lg:py-[72px]">
-          <div className="mx-auto max-w-6xl">
-            <h2 className="font-display text-[1.8rem] font-bold leading-tight text-charcoal sm:text-[2.25rem]">
-              What to expect
-            </h2>
-            <div className="mt-3 h-[3px] w-12 rounded bg-wine" />
-            <div className="mt-8 grid gap-5 md:grid-cols-3">
-              {VISIT_STEPS.map((step, index) => (
-                <article key={step.title} className="rounded-md bg-white p-6 shadow-card">
-                  <div className="text-[.78rem] font-bold text-wine">
-                    {String(index + 1).padStart(2, '0')}
-                  </div>
-                  <h3 className="mt-2 text-[1rem] font-bold text-charcoal">
-                    {step.title}
-                  </h3>
-                  <p className="mt-2 text-[.86rem] leading-[1.65] text-muted">
-                    {step.text}
-                  </p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="bg-white px-5 py-12 sm:px-8 sm:py-16 lg:px-12 lg:py-[72px]">
-          <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[330px_1fr]">
-            <div>
-              <h2 className="font-display text-[1.8rem] font-bold leading-tight text-charcoal sm:text-[2.2rem]">
-                Practical details
-              </h2>
-              <div className="mt-4 h-[3px] w-12 rounded bg-wine" />
-              <p className="mt-5 text-[.92rem] leading-[1.7] text-muted">
-                If you are unsure what applies to your visit, call the clinic
-                before sending private medical information through a public form.
-              </p>
-            </div>
-            <div className="grid gap-5 md:grid-cols-2">
-              {INFO_BLOCKS.map((block) => (
-                <article
-                  id={block.id}
-                  key={block.title}
-                  className="scroll-mt-24 border-t-2 border-gold pt-5"
-                >
-                  <h3 className="text-[1rem] font-bold text-charcoal">{block.title}</h3>
-                  <p className="mt-2 text-[.86rem] leading-[1.65] text-muted">
-                    {block.text}
-                  </p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="bg-graybg px-5 py-12 sm:px-8 sm:py-16 lg:px-12 lg:py-[72px]">
-          <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[360px_1fr] lg:items-start">
-            <div>
-              <h2 className="font-display text-[1.8rem] font-bold leading-tight text-charcoal sm:text-[2.2rem]">
-                New patient checklist.
-              </h2>
-              <div className="mt-4 h-[3px] w-12 rounded bg-wine" />
-              <p className="mt-5 text-[.92rem] leading-[1.7] text-muted">
-                Bringing the right information helps Dr. Tibuakuu understand
-                your risk quickly and avoid repeating tests unnecessarily.
-              </p>
-            </div>
-            <div className="grid gap-3 sm:grid-cols-2">
-              {PREP_CHECKLIST.map((item) => (
-                <div key={item} className="rounded-md bg-white px-4 py-3 shadow-card">
-                  <div className="flex items-start gap-3">
-                    <span className="mt-[7px] h-1.5 w-1.5 flex-shrink-0 rounded-full bg-wine" />
-                    <span className="text-[.88rem] font-semibold leading-[1.45] text-charcoal">
-                      {item}
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="bg-white px-5 py-12 sm:px-8 sm:py-16 lg:px-12 lg:py-[72px]">
+        <section id="faqs" className="bg-graybg px-5 py-12 sm:px-8 sm:py-16 lg:px-12 lg:py-[72px]">
           <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[1fr_380px]">
             <div>
               <h2 className="font-display text-[1.8rem] font-bold leading-tight text-charcoal sm:text-[2.25rem]">
-                Frequently asked questions
+                PulsePoint Clinic FAQs
               </h2>
               <div className="mt-3 h-[3px] w-12 rounded bg-wine" />
               <div className="mt-8 space-y-4">
-                {FAQS.map((faq) => (
+                {PULSEPOINT_CLINIC_FAQS.map((faq) => (
                   <article key={faq.question} className="rounded-md bg-white p-6 shadow-card">
                     <h3 className="text-[.98rem] font-bold text-charcoal">
                       {faq.question}
                     </h3>
-                    <p className="mt-2 text-[.86rem] leading-[1.65] text-muted">
-                      {faq.answer}
-                    </p>
+                    <FaqContent blocks={faq.blocks} />
                   </article>
                 ))}
               </div>

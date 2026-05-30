@@ -11,9 +11,8 @@ const PHYSICIANS = [
       'Martin Tibuakuu, MD, MPH, FACC - Cardiologist at PulsePoint Clinic',
     highlights: [
       'Board-Certified Cardiologist',
-      'Johns Hopkins Trained',
       'Expert in Preventive Cardiology',
-      'Multimodality Cardiac Imaging',
+      'Expertise in Multimodality Cardiac Imaging',
     ],
   },
   {
@@ -23,7 +22,6 @@ const PHYSICIANS = [
     imageAlt: 'James E. Fairlamb, MD, FACC - Cardiologist at PulsePoint Clinic',
     highlights: [
       'Board-Certified Cardiologist',
-      'Washington University Trained',
       'Expert in Preventive Cardiology & Lipids',
       "Missouri's Best Cardiologist (2024-2026)",
     ],

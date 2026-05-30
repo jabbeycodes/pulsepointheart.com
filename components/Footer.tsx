@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import NewsletterForm from './NewsletterForm'
 import { CLINIC } from '@/lib/seo'
+import { FOOTER_SERVICE_LINKS } from '@/lib/service-pathways'
 
 const QUICK_LINKS = [
   { href: '/about', label: 'About Us' },
@@ -10,19 +11,11 @@ const QUICK_LINKS = [
   { href: '/contact', label: 'Contact' },
 ]
 
-const SERVICE_LINKS = [
-  { href: '/services#preventive-cardiology', label: 'Preventive Cardiology' },
-  { href: '/services#vascular-care', label: 'Vascular & Vein Care' },
-  { href: '/services#advanced-imaging', label: 'Advanced Imaging' },
-  { href: '/services/executive-health', label: 'Executive Health' },
-  { href: '/services#telemedicine', label: 'Telemedicine' },
-]
-
 const PATIENT_LINKS = [
-  { href: '/patient-info#portal', label: 'Patient Portal' },
-  { href: '/patient-info#forms', label: 'Forms' },
-  { href: '/patient-info#insurance', label: 'Insurance Information' },
-  { href: '/patient-info', label: 'FAQs' },
+  { href: '/patient-info', label: 'Patient Portal' },
+  { href: '/patient-info', label: 'Forms' },
+  { href: '/patient-info', label: 'Insurance Information' },
+  { href: '/patient-info#faqs', label: 'FAQs' },
   { href: '/book', label: 'Book Appointment' },
 ]
 
@@ -118,7 +111,7 @@ export default function Footer() {
             Our Services
           </h5>
           <ul className="flex flex-col gap-2">
-            {SERVICE_LINKS.map((link) => (
+            {FOOTER_SERVICE_LINKS.map((link) => (
               <li key={link.label}>
                 <Link
                   href={link.href}
