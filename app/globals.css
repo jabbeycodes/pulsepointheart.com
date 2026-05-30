@@ -62,6 +62,18 @@ body {
   font-size: max(1.05rem, 1em);
 }
 
+/* FAQ questions/answers need brand colors, not the default navy heading rule above. */
+.site-content-wrapper main #faqs article h3 {
+  color: #7a1e2c !important;
+}
+
+.site-content-wrapper main #faqs .faq-answer,
+.site-content-wrapper main #faqs .faq-answer p,
+.site-content-wrapper main #faqs .faq-answer li {
+  color: rgba(30, 41, 59, 0.85);
+  font-weight: 500;
+}
+
 .site-content-wrapper main > :is(section, header, div):not(.bg-navy):not(.bg-wine) h4 {
   font-size: max(0.98rem, 1em);
 }

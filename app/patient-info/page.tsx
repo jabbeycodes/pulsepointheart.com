@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 function FaqContent({ blocks }: { blocks: FaqBlock[] }) {
   return (
-    <div className="mt-2 space-y-3 text-[.85rem] font-medium leading-[1.65] text-charcoal/85">
+    <div className="faq-answer mt-2 space-y-3 text-[.85rem] font-medium leading-[1.65] text-charcoal/85">
       {blocks.map((block, index) => {
         if (block.type === 'paragraph') {
           return <p key={index}>{block.text}</p>
