@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 function FaqContent({ blocks }: { blocks: FaqBlock[] }) {
   return (
-    <div className="mt-2 space-y-3 text-[.86rem] leading-[1.65] text-muted">
+    <div className="mt-2 space-y-3 text-[.85rem] font-medium leading-[1.65] text-charcoal/85">
       {blocks.map((block, index) => {
         if (block.type === 'paragraph') {
           return <p key={index}>{block.text}</p>
@@ -83,7 +83,7 @@ export default function PatientInfoPage() {
               <div className="mt-8 space-y-4">
                 {PULSEPOINT_CLINIC_FAQS.map((faq) => (
                   <article key={faq.question} className="rounded-md bg-white p-6 shadow-card">
-                    <h3 className="text-[.98rem] font-bold text-charcoal">
+                    <h3 className="text-[.98rem] font-bold text-wine">
                       {faq.question}
                     </h3>
                     <FaqContent blocks={faq.blocks} />
