@@ -40,7 +40,7 @@ const CONDITIONS = [
   { icon: 'arrhythmia', label: 'Arrhythmias' },
   { icon: 'valve', label: 'Valvular Heart Disease' },
   { icon: 'hypertension', label: 'Hypertension' },
-  { icon: 'complex', label: 'Complex Cardiovascular Disease' },
+  { icon: 'complex', label: 'Complex Cardiovascular Diseases' },
 ] as const
 
 const PILLARS = [
@@ -285,7 +285,7 @@ export default function CoreCardiologyPage() {
                 </span>
               </div>
               <h1 className="mt-5 max-w-xl font-display text-[2.5rem] font-bold leading-[1.08] text-navy sm:text-[3.25rem] lg:text-[3.6rem] xl:text-[4rem]">
-                Expert Heart Care for Symptoms, Diagnosis, and Complex Cardiac Disease
+                Expert Heart Care for Symptoms, Diagnosis, and Complex Cardiac Diseases
               </h1>
               <p className="mt-5 max-w-lg text-base leading-[1.75] text-charcoal/75 sm:text-[1.05rem]">
                 Evidence-based, patient-centered cardiovascular care focused on you, your health,
