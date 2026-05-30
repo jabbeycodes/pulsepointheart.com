@@ -1,4 +1,5 @@
 import { createServerClient } from '@/lib/supabase/server'
+import { USNEWS_BLOG_POSTS } from '@/lib/usnews-blog-posts'
 
 export type BlogPost = {
   id: string
@@ -22,10 +23,42 @@ function hasSupabaseConfig() {
   )
 }
 
+function staticUsNewsPosts(): BlogPost[] {
+  return USNEWS_BLOG_POSTS.filter((post) => post.is_published).map(
+    ({ source_url: _source, ...post }) => ({
+      ...post,
+      id: `usnews-${post.slug}`,
+      created_at: post.published_at ?? new Date().toISOString(),
+      updated_at: post.published_at ?? new Date().toISOString(),
+    })
+  )
+}
+
+function mergePublishedPosts(supabasePosts: BlogPost[], limit: number) {
+  const bySlug = new Map<string, BlogPost>()
+
+  for (const post of staticUsNewsPosts()) {
+    bySlug.set(post.slug, post)
+  }
+
+  for (const post of supabasePosts) {
+    bySlug.set(post.slug, post)
+  }
+
+  return [...bySlug.values()]
+    .sort(
+      (a, b) =>
+        new Date(b.published_at ?? 0).getTime() -
+        new Date(a.published_at ?? 0).getTime()
+    )
+    .slice(0, limit)
+}
+
 export async function getPublishedBlogPosts(limit = 20) {
+  const staticPosts = staticUsNewsPosts()
+
   if (!hasSupabaseConfig()) {
-    console.warn('Supabase public config is missing; returning no blog posts.')
-    return []
+    return staticPosts.slice(0, limit)
   }
 
   const supabase = await createServerClient()
@@ -38,10 +71,10 @@ export async function getPublishedBlogPosts(limit = 20) {
 
   if (error) {
     console.error('blog_posts select failed:', error)
-    return []
+    return staticPosts.slice(0, limit)
   }
 
-  return (data ?? []) as BlogPost[]
+  return mergePublishedPosts((data ?? []) as BlogPost[], limit)
 }
 
 export async function getAdminBlogPosts(limit = 100) {
@@ -66,9 +99,10 @@ export async function getAdminBlogPosts(limit = 100) {
 }
 
 export async function getPublishedBlogPost(slug: string) {
+  const staticMatch = staticUsNewsPosts().find((post) => post.slug === slug)
+
   if (!hasSupabaseConfig()) {
-    console.warn(`Supabase public config is missing; blog post "${slug}" is unavailable.`)
-    return null
+    return staticMatch ?? null
   }
 
   const supabase = await createServerClient()
@@ -81,10 +115,10 @@ export async function getPublishedBlogPost(slug: string) {
 
   if (error) {
     console.error('blog_posts single select failed:', error)
-    return null
+    return staticMatch ?? null
   }
 
-  return data as BlogPost | null
+  return (data as BlogPost | null) ?? staticMatch ?? null
 }
 
 export function formatPostDate(value: string | null) {

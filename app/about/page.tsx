@@ -85,7 +85,6 @@ const PHYSICIANS = [
       { icon: 'activity', label: 'Renowned Expert in Lipid Management' },
       { icon: 'leaf', label: 'Expertise in Cardiometabolic Management' },
       { icon: 'monitor', label: 'Extensive Background in Complex Cardiac Disease Management' },
-      { icon: 'partnership', label: 'Nationally Recognized for Patient-Centered Cardiovascular Care' },
       { icon: 'star', label: "Three-Time Recipient of Missouri's Best Cardiologist Award (2024, 2025, 2026)" },
     ],
   },
@@ -308,7 +307,7 @@ export default function AboutPage() {
             <div className="relative animate-fadeUp overflow-hidden rounded-sm bg-graybg shadow-card [animation-delay:.12s]">
               <img
                 src="/assets/about-hero-care-collage.png"
-                alt="PulsePoint Clinic care team speaking with patients"
+                alt="PulsePoint Clinic nurse consulting with a patient in a bright, modern outpatient setting with PulsePoint branding visible."
                 className="aspect-[4/3] h-full w-full object-cover object-center"
                 loading="eager"
               />
@@ -387,14 +386,9 @@ export default function AboutPage() {
         <section id="physicians" className="bg-graybg px-5 py-14 sm:px-8 sm:py-18 lg:px-12 lg:py-24">
           <div className="mx-auto max-w-[1240px]">
             <div className="mb-12 text-center">
-              <SectionLabel>Our Physicians</SectionLabel>
               <h2 className="font-display text-[2rem] font-bold leading-tight text-navy sm:text-[2.65rem]">
-                Meet the Cardiologists Behind PulsePoint
+                Our Physicians
               </h2>
-              <p className="mx-auto mt-4 max-w-2xl text-[.98rem] leading-[1.8] text-charcoal/75">
-                Board-certified, fellowship-trained, and deeply committed to
-                prevention-focused, patient-centered cardiovascular care.
-              </p>
             </div>
 
             <div className="space-y-12 lg:space-y-16">

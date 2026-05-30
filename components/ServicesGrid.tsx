@@ -1,30 +1,5 @@
-const SERVICES = [
-  {
-    name: 'Preventive Cardiology',
-    href: '/services/preventive-cardiology',
-    desc: 'Risk assessment and long-term heart health optimization.',
-  },
-  {
-    name: 'Advanced Imaging',
-    href: '/services/echocardiography',
-    desc: 'Echo, cardiac CT coordination, and imaging-guided prevention.',
-  },
-  {
-    name: 'Vascular & Vein Care',
-    href: '/services/vascular-ultrasound',
-    desc: 'Noninvasive vascular evaluation and blood-flow assessment.',
-  },
-  {
-    name: 'Executive Health',
-    href: '/services/executive-health',
-    desc: 'Efficient preventive cardiovascular insight for busy patients.',
-  },
-  {
-    name: 'Telemedicine & Remote',
-    href: '/services#telemedicine',
-    desc: 'Convenient results review, planning, and care coordination.',
-  },
-]
+import Link from 'next/link'
+import { SERVICE_PATHWAYS, servicePathwayHref } from '@/lib/service-pathways'
 
 export default function ServicesGrid() {
   return (
@@ -48,20 +23,20 @@ export default function ServicesGrid() {
         </div>
 
         <div className="grid gap-3 sm:grid-cols-2 sm:gap-4 xl:grid-cols-3">
-          {SERVICES.map((svc) => (
-            <a
-              key={svc.name}
-              href={svc.href}
+          {SERVICE_PATHWAYS.map((pathway) => (
+            <Link
+              key={pathway.id}
+              href={servicePathwayHref(pathway)}
               className="rounded bg-white px-5 py-5 shadow-card transition-transform hover:-translate-y-0.5 active:scale-[.98]"
             >
               <div className="mb-4 h-[2px] w-9 rounded bg-gold" />
               <h4 className="text-[.95rem] font-bold leading-[1.3] text-charcoal">
-                {svc.name}
+                {pathway.title}
               </h4>
               <p className="mt-2 text-[.8rem] leading-[1.55] text-muted">
-                {svc.desc}
+                {pathway.description}
               </p>
-            </a>
+            </Link>
           ))}
         </div>
       </div>

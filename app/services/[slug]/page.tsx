@@ -16,9 +16,11 @@ type ServicePageProps = {
 }
 
 export function generateStaticParams() {
-  return SERVICE_PAGES.map((service) => ({
-    slug: service.slug,
-  }))
+  return SERVICE_PAGES.filter((service) => service.slug !== 'preventive-cardiology').map(
+    (service) => ({
+      slug: service.slug,
+    }),
+  )
 }
 
 export async function generateMetadata({ params }: ServicePageProps): Promise<Metadata> {
