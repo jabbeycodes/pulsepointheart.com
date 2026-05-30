@@ -33,13 +33,62 @@ const PHILOSOPHY_CARDS = [
   },
 ]
 
-const PHYSICIAN_CREDENTIALS = [
-  { icon: 'shield', label: 'Board Certified' },
-  { icon: 'heart', label: 'Expertise in Preventive Cardiology' },
-  { icon: 'monitor', label: 'Published Researcher in Cardiovascular Prevention' },
-  { icon: 'partnership', label: 'Advocate for Health Equity & Access to High-Quality Cardiovascular Care' },
-  { icon: 'leaf', label: 'Expertise in Cardiometabolic Health' },
-  { icon: 'monitor', label: 'Expertise in Multimodality Cardiac Imaging' },
+// Physician profiles are data-driven so new doctors can be added without
+// touching layout. `intro` paragraphs are always visible; `fullBio` lives
+// inside an expandable block to keep each card compact and balanced.
+const PHYSICIANS = [
+  {
+    name: 'Dr. Martin Tibuakuu, MD, MPH, FACC',
+    title: 'Founder & Cardiologist',
+    image: '/assets/physician-headshot.png',
+    imageAlt: 'Dr. Martin Tibuakuu, founder and cardiologist at PulsePoint Clinic',
+    intro: [
+      'Dr. Martin Tibuakuu is a board-certified cardiologist, epidemiologist, and preventive cardiovascular specialist dedicated to transforming the way heart disease is prevented and treated.',
+      "Born and raised in northern Ghana, Dr. Tibuakuu's passion for cardiovascular medicine was shaped by personal tragedy and firsthand exposure to profound healthcare disparities. That experience became the driving force behind his lifelong commitment to heart disease prevention, early detection, and expanding access to high-quality cardiovascular care.",
+    ],
+    fullBio: [
+      'At the age of 12, he lost his mother to undiagnosed hypertension - a preventable condition made more devastating by the severe lack of access to healthcare in his rural community.',
+      'Dr. Tibuakuu received advanced training in both medicine and public health, developing a unique perspective that bridges clinical cardiology with population health and disease prevention. He completed a postdoctoral research fellowship at the internationally renowned Johns Hopkins Ciccarone Center for the Prevention of Heart Disease, where he trained under world-leading experts in preventive cardiology and cardiovascular epidemiology.',
+      'His research has focused extensively on cardiovascular prevention, cardiometabolic disease, and healthcare disparities, contributing to numerous peer-reviewed scientific publications and national presentations aimed at improving cardiovascular outcomes across diverse populations.',
+      'He subsequently completed fellowship training in cardiovascular disease at the world-renowned Johns Hopkins Hospital, where he received advanced training in non-invasive cardiology, cardiac imaging, preventive cardiology, and complex cardiovascular care.',
+      'Dr. Tibuakuu is a Fellow of the American College of Cardiology and brings a modern, prevention-focused philosophy to patient care - combining evidence-based medicine, advanced diagnostics, lifestyle optimization, and personalized treatment strategies.',
+      'Through PulsePoint, his vision is to build a next-generation cardiovascular platform that delivers world-class heart care with an emphasis on prevention, early detection, innovation, and compassionate patient-centered care.',
+    ],
+    credentials: [
+      { icon: 'shield', label: 'Board Certified' },
+      { icon: 'heart', label: 'Expertise in Preventive Cardiology' },
+      { icon: 'monitor', label: 'Published Researcher in Cardiovascular Prevention' },
+      { icon: 'partnership', label: 'Advocate for Health Equity & Access to High-Quality Cardiovascular Care' },
+      { icon: 'leaf', label: 'Expertise in Cardiometabolic Health' },
+      { icon: 'monitor', label: 'Expertise in Multimodality Cardiac Imaging' },
+    ],
+  },
+  {
+    name: 'Dr. James E. Fairlamb, MD, FACC',
+    title: 'Cardiologist',
+    image: '/assets/physician-fairlamb.png',
+    imageAlt: 'Dr. James E. Fairlamb, cardiologist at PulsePoint Clinic',
+    intro: [
+      "Dr. James E. Fairlamb is a board-certified cardiologist with decades of experience delivering comprehensive, patient-centered cardiovascular care across Missouri and surrounding communities. Known for his clinical excellence, compassionate bedside manner, and deep commitment to his patients, he has become one of the region's most respected and trusted cardiologists.",
+      "Dr. Fairlamb is a Fellow of the American College of Cardiology and has been voted Best Cardiologist in Missouri by Missouri's Best Magazine in 2024, 2025, and 2026.",
+    ],
+    fullBio: [
+      'Originally trained at the University of the Witwatersrand Medical School, Dr. Fairlamb built an extensive medical foundation spanning internal medicine, critical care, emergency medicine, and cardiovascular disease across South Africa, Canada, and the United States.',
+      'He completed advanced fellowship training in cardiovascular medicine and cardiovascular imaging at Washington University School of Medicine and Barnes-Jewish Hospital, developing specialized expertise in echocardiography, cardiac CT, cardiac MRI, nuclear cardiology, lipid management, and preventive cardiovascular care.',
+      'Throughout his career, Dr. Fairlamb has served patients across both urban and rural communities, earning a reputation for clinical precision, accessibility, and individualized care. His broad clinical background includes leadership experience in critical care medicine, cardiovascular imaging, inpatient cardiology, and preventive cardiology, allowing him to bring a uniquely comprehensive perspective to heart health and complex cardiovascular disease management.',
+      'His clinical interests include preventive cardiology, cholesterol management, coronary artery disease, heart failure, advanced cardiac imaging, and complex cardiovascular diagnostics. He has also contributed to cardiovascular imaging research and national scientific presentations focused on advanced cardiac MRI and non-invasive imaging techniques.',
+      'At PulsePoint, Dr. Fairlamb brings a thoughtful, relationship-driven approach to cardiovascular medicine - combining decades of experience with modern, evidence-based heart care focused on prevention, precision, and compassionate patient outcomes.',
+    ],
+    credentials: [
+      { icon: 'shield', label: 'Board-Certified Cardiologist with Decades of Clinical Experience' },
+      { icon: 'heart', label: 'Renowned Expert in Preventive Cardiology' },
+      { icon: 'activity', label: 'Renowned Expert in Lipid Management' },
+      { icon: 'leaf', label: 'Expertise in Cardiometabolic Management' },
+      { icon: 'monitor', label: 'Extensive Background in Complex Cardiac Disease Management' },
+      { icon: 'partnership', label: 'Nationally Recognized for Patient-Centered Cardiovascular Care' },
+      { icon: 'star', label: "Three-Time Recipient of Missouri's Best Cardiologist Award (2024, 2025, 2026)" },
+    ],
+  },
 ]
 
 const DIFFERENTIATORS = [
@@ -196,6 +245,12 @@ function Icon({ name, className = 'h-6 w-6' }: { name: string; className?: strin
           <path d="M21 13a8 8 0 1 1-9.9-9.8 6.5 6.5 0 0 0 9.9 9.8Z" />
         </svg>
       )
+    case 'star':
+      return (
+        <svg {...base}>
+          <path d="M12 2.5l2.95 5.98 6.6.96-4.77 4.65 1.13 6.57L12 18.56l-5.91 3.1 1.13-6.57L2.45 9.44l6.6-.96L12 2.5Z" />
+        </svg>
+      )
     default:
       return (
         <svg {...base}>
@@ -329,112 +384,86 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="bg-graybg px-5 py-14 sm:px-8 sm:py-18 lg:px-12 lg:py-24">
-          <div className="mx-auto grid max-w-[1240px] gap-10 lg:grid-cols-[0.86fr_1fr] lg:items-center">
-            <div className="overflow-hidden rounded-sm bg-white p-4 shadow-card">
-              <img
-                src="/assets/physician-headshot.png"
-                alt="Dr. Martin Tibuakuu, founder and cardiologist at PulsePoint Clinic"
-                className="max-h-[620px] w-full object-contain"
-                loading="lazy"
-              />
-            </div>
-            <div>
-              <SectionLabel>Our Physician</SectionLabel>
+        <section id="physicians" className="bg-graybg px-5 py-14 sm:px-8 sm:py-18 lg:px-12 lg:py-24">
+          <div className="mx-auto max-w-[1240px]">
+            <div className="mb-12 text-center">
+              <SectionLabel>Our Physicians</SectionLabel>
               <h2 className="font-display text-[2rem] font-bold leading-tight text-navy sm:text-[2.65rem]">
-                Dr. Martin Tibuakuu, MD, MPH, FACC
+                Meet the Cardiologists Behind PulsePoint
               </h2>
-              <div className="mt-2 text-[1rem] font-bold text-wine">
-                Founder & Cardiologist.
-              </div>
-              <div className="mt-6 space-y-4 text-[.96rem] leading-[1.8] text-charcoal/75">
-                <p>
-                  Dr. Martin Tibuakuu is a board-certified cardiologist,
-                  epidemiologist, and preventive cardiovascular specialist
-                  dedicated to transforming the way heart disease is prevented
-                  and treated.
-                </p>
-                <p>
-                  Born and raised in northern Ghana, Dr. Tibuakuu's passion for
-                  cardiovascular medicine was shaped by personal tragedy and
-                  firsthand exposure to profound healthcare disparities. That
-                  experience became the driving force behind his lifelong
-                  commitment to heart disease prevention, early detection, and
-                  expanding access to high-quality cardiovascular care.
-                </p>
-                <details className="group rounded-md border border-[#E5EAF0] bg-white p-4 shadow-sm">
-                  <summary className="cursor-pointer list-none text-[.82rem] font-bold uppercase tracking-[1px] text-wine transition-colors hover:text-wine-light">
-                    <span className="inline-flex items-center gap-2">
-                      Read Full Physician Profile
-                      <span className="text-gold transition-transform group-open:rotate-45">
-                        +
-                      </span>
-                    </span>
-                  </summary>
-                  <div className="mt-4 space-y-4 text-[.92rem] leading-[1.75] text-charcoal/75">
-                    <p>
-                      At the age of 12, he lost his mother to undiagnosed
-                      hypertension - a preventable condition made more
-                      devastating by the severe lack of access to healthcare in
-                      his rural community.
-                    </p>
-                    <p>
-                      Dr. Tibuakuu received advanced training in both medicine
-                      and public health, developing a unique perspective that
-                      bridges clinical cardiology with population health and
-                      disease prevention. He completed a postdoctoral research
-                      fellowship at the internationally renowned Johns Hopkins
-                      Ciccarone Center for the Prevention of Heart Disease,
-                      where he trained under world-leading experts in preventive
-                      cardiology and cardiovascular epidemiology.
-                    </p>
-                    <p>
-                      His research has focused extensively on cardiovascular
-                      prevention, cardiometabolic disease, and healthcare
-                      disparities, contributing to numerous peer-reviewed
-                      scientific publications and national presentations aimed
-                      at improving cardiovascular outcomes across diverse
-                      populations.
-                    </p>
-                    <p>
-                      He subsequently completed fellowship training in
-                      cardiovascular disease at the world-renowned Johns Hopkins
-                      Hospital, where he received advanced training in
-                      non-invasive cardiology, cardiac imaging, preventive
-                      cardiology, and complex cardiovascular care.
-                    </p>
-                    <p>
-                      Dr. Tibuakuu is a Fellow of the American College of
-                      Cardiology and brings a modern, prevention-focused
-                      philosophy to patient care - combining evidence-based
-                      medicine, advanced diagnostics, lifestyle optimization,
-                      and personalized treatment strategies.
-                    </p>
-                    <p>
-                      Through PulsePoint, his vision is to build a
-                      next-generation cardiovascular platform that delivers
-                      world-class heart care with an emphasis on prevention,
-                      early detection, innovation, and compassionate
-                      patient-centered care.
-                    </p>
-                  </div>
-                </details>
-              </div>
-              <div className="mt-7 grid gap-3 sm:grid-cols-2">
-                {PHYSICIAN_CREDENTIALS.map((item) => (
+              <p className="mx-auto mt-4 max-w-2xl text-[.98rem] leading-[1.8] text-charcoal/75">
+                Board-certified, fellowship-trained, and deeply committed to
+                prevention-focused, patient-centered cardiovascular care.
+              </p>
+            </div>
+
+            <div className="space-y-12 lg:space-y-16">
+              {PHYSICIANS.map((doctor, index) => {
+                // Alternate the image side on desktop for visual rhythm.
+                const imageRight = index % 2 === 1
+                return (
                   <div
-                    key={item.label}
-                    className="flex items-center gap-3 rounded-md border border-[#E5EAF0] bg-white px-4 py-3 shadow-sm"
+                    key={doctor.name}
+                    className="grid gap-10 lg:grid-cols-[0.86fr_1fr] lg:items-center"
                   >
-                    <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border border-gold/60 text-wine">
-                      <Icon name={item.icon} className="h-5 w-5" />
+                    <div
+                      className={`overflow-hidden rounded-sm bg-white p-4 shadow-card ${
+                        imageRight ? 'lg:order-2' : ''
+                      }`}
+                    >
+                      <img
+                        src={doctor.image}
+                        alt={doctor.imageAlt}
+                        className="max-h-[620px] w-full object-contain"
+                        loading="lazy"
+                      />
                     </div>
-                    <div className="text-[.78rem] font-bold leading-[1.35] text-charcoal/80">
-                      {item.label}
+                    <div className={imageRight ? 'lg:order-1' : ''}>
+                      <h3 className="font-display text-[1.7rem] font-bold leading-tight text-navy sm:text-[2.2rem]">
+                        {doctor.name}
+                      </h3>
+                      <div className="mt-2 text-[1rem] font-bold text-wine">
+                        {doctor.title}
+                      </div>
+                      <div className="mt-6 space-y-4 text-[.96rem] leading-[1.8] text-charcoal/75">
+                        {doctor.intro.map((paragraph) => (
+                          <p key={paragraph}>{paragraph}</p>
+                        ))}
+                        <details className="group rounded-md border border-[#E5EAF0] bg-white p-4 shadow-sm">
+                          <summary className="cursor-pointer list-none text-[.82rem] font-bold uppercase tracking-[1px] text-wine transition-colors hover:text-wine-light">
+                            <span className="inline-flex items-center gap-2">
+                              Read Full Physician Profile
+                              <span className="text-gold transition-transform group-open:rotate-45">
+                                +
+                              </span>
+                            </span>
+                          </summary>
+                          <div className="mt-4 space-y-4 text-[.92rem] leading-[1.75] text-charcoal/75">
+                            {doctor.fullBio.map((paragraph) => (
+                              <p key={paragraph}>{paragraph}</p>
+                            ))}
+                          </div>
+                        </details>
+                      </div>
+                      <div className="mt-7 grid gap-3 sm:grid-cols-2">
+                        {doctor.credentials.map((item) => (
+                          <div
+                            key={item.label}
+                            className="flex items-center gap-3 rounded-md border border-[#E5EAF0] bg-white px-4 py-3 shadow-sm"
+                          >
+                            <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border border-gold/60 text-wine">
+                              <Icon name={item.icon} className="h-5 w-5" />
+                            </div>
+                            <div className="text-[.78rem] font-bold leading-[1.35] text-charcoal/80">
+                              {item.label}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
-                ))}
-              </div>
+                )
+              })}
             </div>
           </div>
         </section>
