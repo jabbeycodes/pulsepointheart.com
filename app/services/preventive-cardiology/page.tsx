@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import type { ReactNode } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import Navbar from '@/components/Navbar'
@@ -22,9 +23,6 @@ export const metadata: Metadata = {
   },
 }
 
-const OFFICE_PHONE_DISPLAY = '(855) 785-7337'
-const OFFICE_PHONE_TEL = 'tel:18557857337'
-
 const SYMPTOMS = [
   { icon: 'chestPain', label: 'Chest Pain' },
   { icon: 'palpitations', label: 'Palpitations' },
@@ -41,6 +39,31 @@ const CONDITIONS = [
   { icon: 'valve', label: 'Valvular Heart Disease' },
   { icon: 'hypertension', label: 'Hypertension' },
   { icon: 'complex', label: 'Complex Cardiovascular Diseases' },
+] as const
+
+const OFFICE_PHONE_DISPLAY = '(855) 785-7337'
+const OFFICE_PHONE_TEL = 'tel:18557857337'
+
+const TRANSITIONAL_ACCESS_INTRO = [
+  'PulsePoint Cardiovascular is now accepting new patients and referrals.',
+  'As we complete enrollment and credentialing with Medicare and commercial insurance plans, we remain committed to ensuring that patients in our community have timely access to cardiovascular care during this period of significant transition in the local healthcare landscape.',
+  'To avoid delays in care, PulsePoint is offering a temporary Transitional Access Program for eligible patients. This program allows patients to receive prompt cardiovascular evaluation, diagnostic testing, treatment recommendations, and ongoing care while insurance credentialing is being finalized.',
+  'Our goal is simple: no patient should have to wait months for access to a cardiologist when timely evaluation may make a meaningful difference in their health.',
+] as const
+
+const TRANSITIONAL_ACCESS_SERVICES = [
+  'New patient cardiovascular consultations',
+  'Urgent cardiology evaluations',
+  'Pre-operative cardiac assessments',
+  'Heart rhythm evaluations',
+  'Coronary artery disease management',
+  'Heart failure management',
+  'Hypertension and preventive cardiology services',
+  'Electrocardiograms (ECG)',
+  'Echocardiography',
+  'Stress testing',
+  'Ambulatory cardiac monitoring',
+  'Vascular ultrasound testing',
 ] as const
 
 const PILLARS = [
@@ -230,6 +253,35 @@ function Icon({ name, className = 'h-7 w-7' }: { name: string; className?: strin
   }
 }
 
+function BulletList({ items }: { items: readonly string[] }) {
+  return (
+    <ul className="space-y-2.5">
+      {items.map((item) => (
+        <li key={item} className="flex items-start gap-2.5">
+          <span className="mt-[8px] h-1.5 w-1.5 flex-shrink-0 rounded-full bg-wine" />
+          <span>{item}</span>
+        </li>
+      ))}
+    </ul>
+  )
+}
+
+function Subsection({
+  title,
+  children,
+}: {
+  title: string
+  children: ReactNode
+}) {
+  return (
+    <div>
+      <h3 className="font-display text-[1.25rem] font-bold text-navy sm:text-[1.4rem]">{title}</h3>
+      <div className="mt-3 h-[2px] w-10 rounded bg-gold" />
+      <div className="mt-4 space-y-4 text-base leading-[1.75] text-charcoal/85">{children}</div>
+    </div>
+  )
+}
+
 function SectionHeading({ title }: { title: string }) {
   return (
     <div className="mb-8 flex items-center justify-center gap-3 sm:mb-10">
@@ -323,6 +375,70 @@ export default function CoreCardiologyPage() {
                 aria-hidden="true"
                 className="absolute inset-0 hidden bg-gradient-to-r from-white/95 via-white/35 to-transparent lg:block"
               />
+            </div>
+          </div>
+        </section>
+
+        {/* Transitional Access Program */}
+        <section className="border-y border-[#E8EDF3] bg-graybg px-5 py-12 sm:px-8 sm:py-14 lg:px-12 lg:py-16">
+          <div className="mx-auto max-w-3xl">
+            <h2 className="font-display text-[1.85rem] font-bold leading-tight text-navy sm:text-[2.25rem]">
+              Immediate Access to Cardiovascular Care
+            </h2>
+            <div className="mt-4 h-[3px] w-12 rounded bg-wine" />
+
+            <div className="mt-6 space-y-4 text-base leading-[1.75] text-charcoal/85 sm:text-[1.02rem]">
+              {TRANSITIONAL_ACCESS_INTRO.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </div>
+
+            <div className="mt-10 space-y-10">
+              <Subsection title="Services Available">
+                <BulletList items={TRANSITIONAL_ACCESS_SERVICES} />
+              </Subsection>
+
+              <Subsection title="For Patients with Insurance">
+                <p>
+                  PulsePoint is actively credentialing with Medicare and major commercial insurance
+                  plans. Coverage and billing options may vary depending on your insurance plan and
+                  the status of our enrollment process at the time of your visit.
+                </p>
+                <p>
+                  Our team will gladly discuss available options and provide transparent pricing
+                  information prior to scheduling.
+                </p>
+              </Subsection>
+
+              <Subsection title="Our Commitment">
+                <p>
+                  We believe access to high-quality cardiovascular care should not be interrupted
+                  by administrative transitions. Whether you are a new patient, an established
+                  cardiac patient seeking ongoing care, or a physician looking for timely specialty
+                  access for your patients, our team is here to help.
+                </p>
+                <p>
+                  To schedule an appointment or discuss available care options, please contact
+                  PulsePoint Cardiovascular directly.
+                </p>
+              </Subsection>
+            </div>
+
+            <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <Link
+                href="/book"
+                className="inline-flex min-h-[48px] items-center justify-center gap-2.5 rounded-full bg-wine px-6 py-3 text-[.72rem] font-bold uppercase tracking-[1px] text-white transition-colors hover:bg-wine-light sm:text-[.74rem]"
+              >
+                <Icon name="calendar" className="h-4 w-4" />
+                Schedule Appointment
+              </Link>
+              <a
+                href={OFFICE_PHONE_TEL}
+                className="inline-flex min-h-[48px] items-center justify-center gap-2.5 rounded-full border-2 border-wine bg-white px-6 py-3 text-[.72rem] font-bold uppercase tracking-[1px] text-wine transition-colors hover:bg-wine/5 sm:text-[.74rem]"
+              >
+                <Icon name="phone" className="h-4 w-4" />
+                Call {OFFICE_PHONE_DISPLAY}
+              </a>
             </div>
           </div>
         </section>
