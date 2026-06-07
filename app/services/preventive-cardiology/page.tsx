@@ -44,26 +44,45 @@ const CONDITIONS = [
 const OFFICE_PHONE_DISPLAY = '(855) 785-7337'
 const OFFICE_PHONE_TEL = 'tel:18557857337'
 
-const TRANSITIONAL_ACCESS_INTRO = [
-  'PulsePoint Cardiovascular is now accepting new patients and referrals.',
-  'As we complete enrollment and credentialing with Medicare and commercial insurance plans, we remain committed to ensuring that patients in our community have timely access to cardiovascular care during this period of significant transition in the local healthcare landscape.',
-  'To avoid delays in care, PulsePoint is offering a temporary Transitional Access Program for eligible patients. This program allows patients to receive prompt cardiovascular evaluation, diagnostic testing, treatment recommendations, and ongoing care while insurance credentialing is being finalized.',
-  'Our goal is simple: no patient should have to wait months for access to a cardiologist when timely evaluation may make a meaningful difference in their health.',
+const CORE_PROGRAM_INTRO = [
+  'The PulsePoint Core Cardiology Program is now accepting new patients and physician referrals for comprehensive cardiovascular evaluation and management.',
+  'As we complete enrollment and credentialing with Medicare and commercial insurance plans, we remain committed to ensuring that patients throughout Mid-Missouri have timely access to high-quality cardiovascular care during this period of significant transition in the local healthcare landscape.',
+] as const
+
+const TRANSITIONAL_SELF_PAY = [
+  'To avoid delays in care, the PulsePoint Core Cardiology Program is currently offering a temporary Transitional Self-Pay Access Program while insurance credentialing is being finalized.',
+  'Through this program, eligible patients may be seen immediately on a self-pay basis for cardiovascular consultations, diagnostic testing, preventive cardiology services, follow-up visits, and pre-operative cardiac evaluations. Transparent pricing will be provided prior to scheduling, with no membership requirements or long-term commitments.',
+  'Our goal is simple: to provide patients with timely access to a cardiologist when they need care most.',
 ] as const
 
 const TRANSITIONAL_ACCESS_SERVICES = [
   'New patient cardiovascular consultations',
-  'Urgent cardiology evaluations',
-  'Pre-operative cardiac assessments',
-  'Heart rhythm evaluations',
+  'Follow-up cardiology visits',
+  'Urgent cardiovascular evaluations',
+  'Hypertension management',
   'Coronary artery disease management',
+  'Heart rhythm evaluations',
   'Heart failure management',
-  'Hypertension and preventive cardiology services',
+  'Preventive cardiology services',
+  'Pre-operative cardiac assessments',
   'Electrocardiograms (ECG)',
   'Echocardiography',
-  'Stress testing',
+  'Exercise stress testing',
+  'Stress echocardiography',
   'Ambulatory cardiac monitoring',
   'Vascular ultrasound testing',
+] as const
+
+const INSURANCE_CREDENTIALING = [
+  'PulsePoint is actively pursuing enrollment and credentialing with Medicare and major commercial insurance plans.',
+  'During this transitional period, services provided through the Transitional Self-Pay Access Program are paid directly by the patient at the time of service. Insurance billing options may become available as credentialing is completed.',
+  'Patients with Medicare or commercial insurance are encouraged to contact our office so that we may discuss the most appropriate scheduling and payment options based on their individual circumstances.',
+] as const
+
+const CORE_PROGRAM_COMMITMENT = [
+  'At PulsePoint, we believe patients should not experience unnecessary delays in cardiovascular care due to healthcare system transitions or administrative barriers.',
+  'Whether you are experiencing new symptoms, need ongoing cardiac care, require a pre-operative evaluation, or have been displaced by recent changes in the local cardiology landscape, our team is here to help.',
+  'If you need a cardiologist now, we invite you to contact the PulsePoint Core Cardiology Program to discuss available appointment options.',
 ] as const
 
 const PILLARS = [
@@ -379,48 +398,44 @@ export default function CoreCardiologyPage() {
           </div>
         </section>
 
-        {/* Transitional Access Program */}
+        {/* Core Cardiology Program announcement */}
         <section className="border-y border-[#E8EDF3] bg-graybg px-5 py-12 sm:px-8 sm:py-14 lg:px-12 lg:py-16">
           <div className="mx-auto max-w-3xl">
-            <h2 className="font-display text-[1.85rem] font-bold leading-tight text-navy sm:text-[2.25rem]">
-              Immediate Access to Cardiovascular Care
+            <p className="text-[.68rem] font-bold uppercase tracking-[2.6px] text-wine sm:text-[.72rem]">
+              PulsePoint Core Cardiology Program
+            </p>
+            <h2 className="mt-3 font-display text-[1.85rem] font-bold leading-tight text-navy sm:text-[2.25rem]">
+              Now Accepting New Patients and Referrals
             </h2>
             <div className="mt-4 h-[3px] w-12 rounded bg-wine" />
 
             <div className="mt-6 space-y-4 text-base leading-[1.75] text-charcoal/85 sm:text-[1.02rem]">
-              {TRANSITIONAL_ACCESS_INTRO.map((paragraph) => (
+              {CORE_PROGRAM_INTRO.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}
             </div>
 
             <div className="mt-10 space-y-10">
+              <Subsection title="Transitional Self-Pay Access Program">
+                {TRANSITIONAL_SELF_PAY.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </Subsection>
+
               <Subsection title="Services Available">
                 <BulletList items={TRANSITIONAL_ACCESS_SERVICES} />
               </Subsection>
 
-              <Subsection title="For Patients with Insurance">
-                <p>
-                  PulsePoint is actively credentialing with Medicare and major commercial insurance
-                  plans. Coverage and billing options may vary depending on your insurance plan and
-                  the status of our enrollment process at the time of your visit.
-                </p>
-                <p>
-                  Our team will gladly discuss available options and provide transparent pricing
-                  information prior to scheduling.
-                </p>
+              <Subsection title="Insurance Credentialing Status">
+                {INSURANCE_CREDENTIALING.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
               </Subsection>
 
               <Subsection title="Our Commitment">
-                <p>
-                  We believe access to high-quality cardiovascular care should not be interrupted
-                  by administrative transitions. Whether you are a new patient, an established
-                  cardiac patient seeking ongoing care, or a physician looking for timely specialty
-                  access for your patients, our team is here to help.
-                </p>
-                <p>
-                  To schedule an appointment or discuss available care options, please contact
-                  PulsePoint Cardiovascular directly.
-                </p>
+                {CORE_PROGRAM_COMMITMENT.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
               </Subsection>
             </div>
 
