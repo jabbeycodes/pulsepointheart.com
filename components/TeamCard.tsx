@@ -1,14 +1,11 @@
 import Link from 'next/link'
 
-// Physician roster for the homepage. Kept as data so adding/removing a
-// doctor only changes this array, not the layout below.
 const PHYSICIANS = [
   {
     name: 'Martin Tibuakuu, MD, MPH, FACC',
     title: 'Founder & Cardiologist',
     image: '/assets/physician-headshot.png',
-    imageAlt:
-      'Martin Tibuakuu, MD, MPH, FACC - Cardiologist at PulsePoint Clinic',
+    imageAlt: 'Martin Tibuakuu, MD, MPH, FACC - Cardiologist at PulsePoint Clinic',
     highlights: [
       'Board-Certified Cardiologist',
       'Expert in Preventive Cardiology',
@@ -37,8 +34,8 @@ export default function TeamCard() {
             Meet Our Physicians
           </h2>
           <p className="mt-4 text-[.94rem] leading-[1.7] text-white/85">
-            Board-certified, fellowship-trained cardiologists united by a
-            commitment to prevention, precision, and exceptional patient care.
+            Board-certified, fellowship-trained cardiologists united by a commitment to prevention,
+            precision, and exceptional patient care.
           </p>
         </div>
 
@@ -61,9 +58,7 @@ export default function TeamCard() {
                 <h3 className="font-display text-[1.3rem] font-bold leading-tight text-navy">
                   {doctor.name}
                 </h3>
-                <p className="mt-1 text-[.88rem] font-semibold text-wine">
-                  {doctor.title}
-                </p>
+                <p className="mt-1 text-[.88rem] font-semibold text-wine">{doctor.title}</p>
 
                 <div className="mt-5 space-y-3">
                   {doctor.highlights.map((item) => (
