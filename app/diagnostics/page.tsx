@@ -5,7 +5,7 @@ import Footer from '@/components/Footer'
 export const metadata: Metadata = {
   title: 'Advanced Cardiovascular Diagnostics | PulsePoint Cardiology',
   description:
-    'State-of-the-art cardiovascular diagnostics in Columbia, MO with board-certified cardiologist interpretation. Transparent self-pay pricing on ECG, echocardiogram, stress testing, vascular ultrasound, and cardiac monitoring.',
+    'State-of-the-art cardiovascular diagnostics in Columbia, MO with board-certified cardiologist interpretation. Comprehensive ECG, echocardiogram, stress testing, vascular ultrasound, and cardiac monitoring services.',
 }
 
 // Diagnostics scheduling is intentionally phone-only. Reuses the established
@@ -50,70 +50,60 @@ const SERVICES = [
   {
     icon: 'activity',
     title: 'ECG',
-    price: '$35',
     image: '/assets/diagnostics/ecg.png',
     text: 'A quick, painless test that evaluates your heart rhythm and electrical activity.',
   },
   {
     icon: 'heart',
     title: 'Echocardiogram (TTE)',
-    price: '$395',
     image: '/assets/diagnostics/echocardiogram-tte.png',
     text: 'Ultrasound imaging of the heart to assess structure and function.',
   },
   {
     icon: 'heartPulse',
     title: 'Stress Echocardiogram',
-    price: '$795',
     image: '/assets/diagnostics/stress-echocardiogram.png',
     text: 'Evaluates heart function at rest and under stress to detect issues.',
   },
   {
     icon: 'run',
     title: 'Exercise Stress ECG',
-    price: '$295',
     image: '/assets/diagnostics/exercise-stress-ecg.png',
     text: 'Monitors your heart rhythm and response to exercise.',
   },
   {
     icon: 'waves',
     title: 'Carotid Ultrasound',
-    price: '$225',
     image: '/assets/diagnostics/carotid-ultrasound.png',
     text: 'Assesses carotid arteries to evaluate stroke risk.',
   },
   {
     icon: 'scan',
     title: 'Abdominal Aortic Ultrasound',
-    price: '$225',
     image: '/assets/diagnostics/abdominal-aortic-ultrasound.png',
     text: 'Screens for abdominal aortic aneurysm (AAA).',
   },
   {
     icon: 'pulse',
     title: 'Peripheral Arterial Doppler Study',
-    price: '$295',
     image: '/assets/diagnostics/peripheral-arterial-doppler.png',
     text: 'Evaluates blood flow in the legs to detect peripheral arterial disease (PAD).',
   },
   {
     icon: 'droplet',
     title: 'Venous Insufficiency Ultrasound',
-    price: '$395',
     image: '/assets/diagnostics/venous-insufficiency-ultrasound.png',
     text: 'Assesses venous reflux and circulation in the legs.',
   },
   {
     icon: 'patch',
     title: 'Holter Monitor (24-48 Hour)',
-    price: '$195',
     image: '/assets/diagnostics/holter-monitor.png',
     text: 'Continuous monitoring to detect arrhythmias and irregular rhythms.',
   },
   {
     icon: 'watch',
     title: 'Extended Cardiac Event Monitoring',
-    price: '$395',
     image: '/assets/diagnostics/extended-cardiac-event-monitoring.png',
     text: 'Wearable monitoring for longer periods to capture intermittent events.',
   },
@@ -443,15 +433,12 @@ export default function DiagnosticsPage() {
                   <p className="mt-3 flex-1 text-[.88rem] leading-[1.6] text-charcoal/72 sm:text-[.83rem]">
                     {service.text}
                   </p>
-                  <div className="mt-3 text-[1.15rem] font-bold text-wine">
-                    {service.price}
-                  </div>
                 </article>
               ))}
             </div>
 
             <p className="mt-8 text-center text-[.82rem] text-muted">
-              Self-pay pricing. No insurance required. Prices subject to change.
+              Contact us for more information about our diagnostic services.
             </p>
           </div>
         </section>

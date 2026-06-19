@@ -7,7 +7,7 @@ import StickyMobileCta from '@/components/StickyMobileCta'
 export const metadata: Metadata = {
   title: 'Cardiometabolic & Weight Loss Clinic | PulsePoint Cardiology',
   description:
-    'Physician-led medical weight loss and cardiometabolic care at PulsePoint. One simple $299/month membership including GLP-1 management, InBody analysis, personalized treatment plans, and cardiovascular risk reduction.',
+    'Physician-led medical weight loss and cardiometabolic care at PulsePoint. Membership includes GLP-1 management, InBody analysis, personalized treatment plans, and cardiovascular risk reduction.',
 }
 
 // Clinic contact, kept here so a single edit updates copy + tel: link.
@@ -303,12 +303,7 @@ export default function CardiometabolicWeightLossPage() {
                   <Icon name="calendar" className="h-4 w-4" />
                   Book a Consultation
                 </Link>
-                <Link
-                  href="#pricing"
-                  className="inline-flex min-h-[48px] items-center justify-center rounded-xl border border-gold bg-white px-6 py-3 text-sm font-bold text-navy transition-colors hover:bg-gold/10"
-                >
-                  View Membership
-                </Link>
+                {/* Pricing link removed */}
               </div>
             </div>
 
@@ -410,53 +405,7 @@ export default function CardiometabolicWeightLossPage() {
           </div>
         </section>
 
-        {/* SINGLE PRICING CARD */}
-        <section id="pricing" className="px-5 py-4 sm:px-8 lg:px-12">
-          <div className="mx-auto max-w-[1180px]">
-            <div className="grid overflow-hidden rounded-3xl border border-[#E9EDF2] bg-white shadow-card lg:grid-cols-[340px_1fr]">
-              {/* Maroon label panel */}
-              <div className="flex flex-col justify-center gap-5 bg-wine px-7 py-10 text-white sm:px-9">
-                <span className="flex h-16 w-16 items-center justify-center rounded-full border-2 border-gold text-gold">
-                  <Icon name="heart" className="h-8 w-8" />
-                </span>
-                <div className="text-[.74rem] font-bold uppercase tracking-[2.4px] text-gold">
-                  Membership Pricing
-                </div>
-                <h2 className="font-display text-[1.5rem] font-bold leading-tight sm:text-[1.75rem]">
-                  PulsePoint Cardiometabolic &amp; Weight Loss Membership
-                </h2>
-              </div>
-
-              {/* Price + benefits */}
-              <div className="p-7 sm:p-9 lg:p-10">
-                <div className="flex flex-wrap items-end gap-x-2">
-                  <span className="font-display text-[3rem] font-bold leading-none text-navy sm:text-[3.6rem]">
-                    $299
-                  </span>
-                  <span className="pb-1 text-[1.1rem] font-semibold text-muted">
-                    /month
-                  </span>
-                </div>
-                <p className="mt-2 text-[.95rem] font-semibold uppercase tracking-[1px] text-wine">
-                  One simple membership. Everything included.
-                </p>
-
-                <ul className="mt-6 grid gap-x-8 gap-y-3 sm:grid-cols-2">
-                  {PLAN_INCLUDES.map((item) => (
-                    <li key={item} className="flex items-start gap-3">
-                      <span className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-wine/10 text-wine">
-                        <CheckBadge />
-                      </span>
-                      <span className="text-[.9rem] leading-[1.45] text-charcoal/85">
-                        {item}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* PRICING SECTION REMOVED — contact office for pricing */}
 
         {/* IMPORTANT INFORMATION */}
         <section className="px-5 py-14 sm:px-8 sm:py-16 lg:px-12 lg:py-20">

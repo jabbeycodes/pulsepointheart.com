@@ -100,7 +100,7 @@ export default function MembershipInquiryForm() {
           name="notes"
           rows={3}
           maxLength={500}
-          placeholder="Any questions about the membership program, pricing, what's included, etc."
+          placeholder="Any questions about the membership program, what's included, etc."
           className={`${inputCls} resize-y`}
         />
       </div>

@@ -72,7 +72,7 @@ const PRICING = [
   {
     tier: 'Individual Membership',
     leadIn: 'Starting at',
-    price: '$299',
+    price: '',
     cadence: '/month',
     icon: 'person',
     text: 'Enhanced access, preventive cardiovascular care services, and longitudinal wellness-focused management.',
@@ -80,7 +80,7 @@ const PRICING = [
   {
     tier: 'Couple Membership',
     leadIn: 'Starting at',
-    price: '$499',
+    price: '',
     cadence: '/month',
     icon: 'couple',
     text: 'All the benefits of individual membership for you and your spouse/partner.',
@@ -88,10 +88,10 @@ const PRICING = [
   {
     tier: 'Family & Corporate Plans',
     leadIn: '',
-    price: 'Custom Pricing',
+    price: '',
     cadence: '',
     icon: 'group',
-    text: 'Custom pricing available for families, organizations, and corporate wellness programs.',
+    text: 'Available for families, organizations, and corporate wellness programs.',
   },
 ]
 
@@ -282,12 +282,7 @@ export default function PremiumCardiovascularCarePage() {
                   <Icon name="calendar" className="h-4 w-4" />
                   Request an Appointment
                 </Link>
-                <Link
-                  href="#pricing"
-                  className="inline-flex min-h-[48px] items-center justify-center rounded-xl border border-gold bg-white px-6 py-3 text-sm font-bold text-navy transition-colors hover:bg-gold/10"
-                >
-                  View Membership Pricing
-                </Link>
+                {/* Pricing link removed */}
               </div>
             </div>
 
@@ -381,124 +376,9 @@ export default function PremiumCardiovascularCarePage() {
           </div>
         </section>
 
-        {/* D. MEMBERSHIP PRICING */}
-        <section id="pricing" className="px-5 py-14 sm:px-8 sm:py-16 lg:px-12 lg:py-20">
-          <div className="mx-auto max-w-[1180px]">
-            <SectionHeading>Membership Pricing</SectionHeading>
+        {/* PRICING SECTION REMOVED — contact office for pricing */}
 
-            <div className="mt-10 grid gap-6 lg:grid-cols-3">
-              {PRICING.map((plan) => (
-                <article
-                  key={plan.tier}
-                  className="flex h-full flex-col overflow-hidden rounded-2xl border border-[#E9EDF2] bg-white shadow-card"
-                >
-                  <div className="flex items-center justify-between gap-3 bg-wine px-6 py-4">
-                    <h3 className="text-[.8rem] font-bold uppercase tracking-[1.2px] text-white">
-                      {plan.tier}
-                    </h3>
-                    <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-white/15 text-white">
-                      <Icon name={plan.icon} className="h-5 w-5" />
-                    </span>
-                  </div>
-                  <div className="flex flex-1 flex-col p-6">
-                    {plan.leadIn ? (
-                      <div className="text-[.78rem] font-semibold uppercase tracking-[1.4px] text-muted">
-                        {plan.leadIn}
-                      </div>
-                    ) : null}
-                    <div className="mt-1 flex items-baseline gap-1">
-                      <span className="font-display text-[2.4rem] font-bold leading-none text-navy sm:text-[2.7rem]">
-                        {plan.price}
-                      </span>
-                      {plan.cadence ? (
-                        <span className="text-[1rem] font-semibold text-muted">
-                          {plan.cadence}
-                        </span>
-                      ) : null}
-                    </div>
-                    <p className="mt-4 text-[.9rem] leading-[1.65] text-charcoal/70">
-                      {plan.text}
-                    </p>
-                  </div>
-                </article>
-              ))}
-            </div>
 
-            {/* Pricing disclaimer */}
-            <div className="mt-6 flex items-start gap-3 rounded-2xl border border-[#E9EDF2] bg-white px-6 py-5">
-              <span className="mt-0.5 flex-shrink-0 text-navy/60">
-                <Icon name="info" className="h-5 w-5" />
-              </span>
-              <p className="text-[.82rem] leading-[1.65] text-muted">
-                Membership pricing covers enhanced access, preventive
-                cardiovascular care services, and longitudinal wellness-focused
-                management. Diagnostic testing, imaging, procedures, laboratory
-                services, medications, hospital-based services, and
-                insurance-billed clinical services may be billed separately when
-                applicable.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* E. EXECUTIVE HEALTH PACKAGES + IMPORTANT INFORMATION */}
-        <section className="bg-white px-5 py-14 sm:px-8 sm:py-16 lg:px-12 lg:py-20">
-          <div className="mx-auto grid max-w-[1180px] gap-6 lg:grid-cols-2 lg:items-stretch">
-            {/* Executive Health Packages */}
-            <article className="flex flex-col overflow-hidden rounded-2xl border border-[#ECE7DF] bg-[#FBF8F2] shadow-card">
-              <div className="flex flex-1 flex-col p-7 sm:p-8">
-                <div className="flex items-center gap-3">
-                  <span className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-gold/15 text-gold">
-                    <Icon name="briefcase" className="h-6 w-6" />
-                  </span>
-                  <h2 className="font-display text-[1.3rem] font-bold text-navy sm:text-[1.45rem]">
-                    Executive Health Packages
-                  </h2>
-                </div>
-                <p className="mt-5 text-[.94rem] leading-[1.7] text-charcoal/75">
-                  Our Executive Cardiovascular Health Evaluations are highly
-                  individualized and customized based on your goals, risk
-                  profile, and desired level of testing and wellness assessment.
-                </p>
-                <p className="mt-4 text-[.94rem] leading-[1.7] text-charcoal/75">
-                  These programs may include advanced cardiovascular imaging,
-                  comprehensive metabolic evaluation, performance optimization,
-                  preventive diagnostics, and same-day coordinated testing.
-                </p>
-              </div>
-              <Link
-                href="/contact"
-                className="flex items-center justify-center gap-2 bg-gold px-6 py-4 text-center text-[.82rem] font-bold uppercase tracking-[1px] text-navy transition-opacity hover:opacity-90"
-              >
-                <Icon name="phone" className="h-4 w-4" />
-                Please Contact Our Office for Pricing and Customization
-              </Link>
-            </article>
-
-            {/* Important Information */}
-            <article className="flex flex-col rounded-2xl border border-[#E9EDF2] bg-white p-7 shadow-card sm:p-8">
-              <div className="flex items-center gap-3">
-                <span className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-navy/5 text-navy">
-                  <Icon name="info" className="h-6 w-6" />
-                </span>
-                <h2 className="font-display text-[1.3rem] font-bold text-navy sm:text-[1.45rem]">
-                  Important Information
-                </h2>
-              </div>
-              <p className="mt-5 text-[.94rem] leading-[1.7] text-charcoal/75">
-                PulsePoint Premium &amp; Executive Cardiovascular Care is
-                designed to complement&mdash;not replace&mdash;traditional
-                medical insurance.
-              </p>
-              <p className="mt-4 text-[.94rem] leading-[1.7] text-charcoal/75">
-                Patients are encouraged to maintain active health insurance
-                coverage for hospitalizations, specialist procedures, imaging,
-                laboratory testing, medications, and other healthcare services
-                outside the scope of membership services.
-              </p>
-            </article>
-          </div>
-        </section>
 
         {/* F. FINAL CTA / FOOTER PANEL */}
         <section className="bg-navy px-5 py-14 text-white sm:px-8 sm:py-16 lg:px-12 lg:py-20">
