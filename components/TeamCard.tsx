@@ -1,29 +1,5 @@
 import Link from 'next/link'
-
-const PHYSICIANS = [
-  {
-    name: 'Martin Tibuakuu, MD, MPH, FACC',
-    title: 'Founder & Cardiologist',
-    image: '/assets/physician-headshot.png',
-    imageAlt: 'Martin Tibuakuu, MD, MPH, FACC - Cardiologist at PulsePoint Clinic',
-    highlights: [
-      'Board-Certified Cardiologist',
-      'Expert in Preventive Cardiology',
-      'Expertise in Multimodality Cardiac Imaging',
-    ],
-  },
-  {
-    name: 'James E. Fairlamb, MD, FACC',
-    title: 'Cardiologist',
-    image: '/assets/physician-fairlamb.png',
-    imageAlt: 'James E. Fairlamb, MD, FACC - Cardiologist at PulsePoint Clinic',
-    highlights: [
-      'Board-Certified Cardiologist',
-      'Expert in Preventive Cardiology & Lipids',
-      "Missouri's Best Cardiologist (2024-2026)",
-    ],
-  },
-]
+import { PHYSICIANS, getPhysicianHighlights } from '@/lib/physicians'
 
 export default function TeamCard() {
   return (
@@ -42,7 +18,7 @@ export default function TeamCard() {
         <div className="grid gap-6 sm:grid-cols-2 lg:gap-8">
           {PHYSICIANS.map((doctor) => (
             <article
-              key={doctor.name}
+              key={doctor.slug}
               className="flex flex-col overflow-hidden rounded-lg bg-white text-charcoal shadow-card"
             >
               <div className="bg-graybg">
@@ -61,7 +37,7 @@ export default function TeamCard() {
                 <p className="mt-1 text-[.88rem] font-semibold text-wine">{doctor.title}</p>
 
                 <div className="mt-5 space-y-3">
-                  {doctor.highlights.map((item) => (
+                  {getPhysicianHighlights(doctor).map((item) => (
                     <div key={item} className="flex items-start gap-3">
                       <div className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full border border-wine text-wine">
                         <svg
@@ -82,7 +58,7 @@ export default function TeamCard() {
                 </div>
 
                 <Link
-                  href="/about#physicians"
+                  href={`/physicians/${doctor.slug}`}
                   className="mt-7 inline-flex min-h-[44px] items-center justify-center gap-2 rounded-md border-[1.5px] border-wine bg-white px-5 py-[11.5px] text-[.85rem] font-semibold text-wine transition-colors hover:bg-wine hover:text-white"
                 >
                   View Full Profile

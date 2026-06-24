@@ -3,12 +3,13 @@ import Link from 'next/link'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import StickyMobileCta from '@/components/StickyMobileCta'
+import { pageMeta } from '@/lib/page-metadata'
 
-export const metadata: Metadata = {
-  title: 'Notice of Privacy Practices',
-  description:
-    'Privacy practices overview for PulsePoint Clinic patients, including patient rights, protected health information, and secure communication guidance.',
-}
+export const metadata: Metadata = pageMeta(
+  '/hipaa-notice',
+  'Notice of Privacy Practices | PulsePoint Clinic',
+  'Privacy practices overview for PulsePoint Clinic patients, including patient rights, protected health information, and secure communication guidance.',
+)
 
 const RIGHTS = [
   'Request access to health information maintained by the clinic.',

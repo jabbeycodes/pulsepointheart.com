@@ -3,12 +3,13 @@ import Link from 'next/link'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import StickyMobileCta from '@/components/StickyMobileCta'
+import { pageMeta } from '@/lib/page-metadata'
 
-export const metadata: Metadata = {
-  title: 'Privacy Policy',
-  description:
-    'Website privacy policy for PulsePoint Clinic, including how public form submissions and administrative inquiries are handled.',
-}
+export const metadata: Metadata = pageMeta(
+  '/privacy',
+  'Privacy Policy | PulsePoint Clinic',
+  'Website privacy policy for PulsePoint Clinic, including how public form submissions and administrative inquiries are handled.',
+)
 
 const SECTIONS = [
   {

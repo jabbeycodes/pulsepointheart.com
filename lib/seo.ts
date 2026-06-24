@@ -1,4 +1,12 @@
+import type { PhysicianProfile } from '@/lib/physicians'
+
 export const SITE_URL = 'https://pulsepointheart.com'
+
+export const CLINIC_SOCIAL = {
+  facebook: 'https://www.facebook.com/profile.php?id=61590350815271',
+  tiktok: 'https://www.tiktok.com/@pulsepointheart',
+  instagram: 'https://www.instagram.com/pulsepointheart?igsh=aGtrcHo3YTQ5Y2t0',
+} as const
 
 export const CLINIC = {
   name: 'PulsePoint Clinic',
@@ -21,7 +29,16 @@ export const CLINIC = {
     latitude: 38.9108,
     longitude: -92.352,
   },
-  areaServed: ['Columbia, MO', 'Boone County, MO', 'Mid-Missouri'],
+  areaServed: [
+    'Columbia, MO',
+    'Boone County, MO',
+    'Jefferson City, MO',
+    'Ashland, MO',
+    'Fulton, MO',
+    'Moberly, MO',
+    'Mid-Missouri',
+    'Central Missouri',
+  ],
   services: [
     'Preventive cardiology',
     'Cardiovascular diagnostics',
@@ -39,6 +56,8 @@ export const CLINIC = {
 export const PUBLIC_ROUTES = [
   { path: '/', priority: 1, changeFrequency: 'weekly' as const },
   { path: '/about', priority: 0.8, changeFrequency: 'monthly' as const },
+  { path: '/physicians/martin-tibuakuu', priority: 0.85, changeFrequency: 'monthly' as const },
+  { path: '/physicians/james-fairlamb', priority: 0.85, changeFrequency: 'monthly' as const },
   { path: '/services', priority: 0.9, changeFrequency: 'monthly' as const },
   { path: '/services/preventive-cardiology', priority: 0.85, changeFrequency: 'monthly' as const },
   { path: '/services/echocardiography', priority: 0.85, changeFrequency: 'monthly' as const },
@@ -94,6 +113,11 @@ export function buildClinicJsonLd() {
       '@type': 'Place',
       name,
     })),
+    sameAs: Object.values(CLINIC_SOCIAL),
+    employee: [
+      { '@id': `${absoluteUrl('/physicians/martin-tibuakuu')}#physician` },
+      { '@id': `${absoluteUrl('/physicians/james-fairlamb')}#physician` },
+    ],
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
       name: 'Cardiology services',
@@ -122,6 +146,99 @@ export function buildWebsiteJsonLd() {
     '@id': `${SITE_URL}/#website`,
     url: SITE_URL,
     name: CLINIC.name,
+    publisher: {
+      '@id': `${SITE_URL}/#clinic`,
+    },
+  }
+}
+
+type FaqSchemaItem = {
+  question: string
+  answer: string
+}
+
+export function buildFaqJsonLd(faqs: FaqSchemaItem[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  }
+}
+
+type BreadcrumbItem = {
+  name: string
+  path: string
+}
+
+export function buildBreadcrumbJsonLd(items: BreadcrumbItem[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      item: absoluteUrl(item.path),
+    })),
+  }
+}
+
+export function buildPhysicianJsonLd(physician: PhysicianProfile) {
+  const path = `/physicians/${physician.slug}`
+  const url = absoluteUrl(path)
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Physician',
+    '@id': `${url}#physician`,
+    name: physician.schemaName,
+    honorificPrefix: 'Dr.',
+    honorificSuffix: physician.honorificSuffix,
+    jobTitle: physician.title,
+    medicalSpecialty: 'Cardiology',
+    image: absoluteUrl(physician.image),
+    url,
+    description: physician.intro.join(' '),
+    worksFor: { '@id': `${SITE_URL}/#clinic` },
+    memberOf: {
+      '@type': 'Organization',
+      name: 'American College of Cardiology',
+    },
+    knowsAbout: physician.credentials.map((item) => item.label),
+  }
+}
+
+type ArticleSchemaInput = {
+  title: string
+  description: string
+  slug: string
+  publishedAt: string | null
+  author?: string | null
+}
+
+export function buildArticleJsonLd(article: ArticleSchemaInput) {
+  const url = absoluteUrl(`/blog/${article.slug}`)
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: article.title,
+    description: article.description,
+    url,
+    mainEntityOfPage: url,
+    image: absoluteUrl('/assets/social-preview.png'),
+    datePublished: article.publishedAt ?? undefined,
+    author: {
+      '@type': 'Organization',
+      name: article.author ?? CLINIC.name,
+    },
     publisher: {
       '@id': `${SITE_URL}/#clinic`,
     },

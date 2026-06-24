@@ -4,12 +4,13 @@ import Footer from '@/components/Footer'
 import StickyMobileCta from '@/components/StickyMobileCta'
 import CtaBanner from '@/components/CtaBanner'
 import MembershipInquiryForm from '@/components/MembershipInquiryForm'
+import { pageMeta } from '@/lib/page-metadata'
 
-export const metadata: Metadata = {
-  title: 'Membership-Based Heart Care',
-  description:
-    'Learn about PulsePoint Clinic\'s premium membership-based heart care in Columbia, MO with extended visits, physician accessibility, prevention planning, and coordinated cardiovascular wellness.',
-}
+export const metadata: Metadata = pageMeta(
+  '/membership',
+  'Membership-Based Heart Care in Columbia, MO | PulsePoint Clinic',
+  'Learn about PulsePoint Clinic\'s premium membership-based heart care in Columbia, MO with extended visits, physician accessibility, prevention planning, and coordinated cardiovascular wellness.',
+)
 
 const BENEFITS = [
   { title: 'Extended Appointments', desc: 'Unhurried visits designed around your needs — not a 10-minute slot.' },

@@ -4,12 +4,13 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import StickyMobileCta from '@/components/StickyMobileCta'
 import { PHYSICIANS } from '@/lib/physicians'
+import { pageMeta } from '@/lib/page-metadata'
 
-export const metadata: Metadata = {
-  title: 'About PulsePoint Clinic | Physician-Led Cardiovascular Care',
-  description:
-    'Learn how PulsePoint Clinic delivers physician-led cardiovascular care focused on prevention, personalization, advanced diagnostics, and lifelong heart health.',
-}
+export const metadata: Metadata = pageMeta(
+  '/about',
+  'About PulsePoint | Cardiologists in Columbia, MO',
+  'Meet Dr. Martin Tibuakuu, MD, MPH, FACC and Dr. James E. Fairlamb, MD, FACC — board-certified cardiologists delivering preventive, physician-led heart care in Columbia, Missouri.',
+)
 
 const PHILOSOPHY_CARDS = [
   {
@@ -341,7 +342,7 @@ export default function AboutPage() {
                 const imageRight = index % 2 === 1
                 return (
                   <div
-                    key={doctor.name}
+                    key={doctor.slug}
                     className="grid gap-10 lg:grid-cols-[0.86fr_1fr] lg:items-center"
                   >
                     <div
@@ -382,6 +383,12 @@ export default function AboutPage() {
                             ))}
                           </div>
                         </details>
+                        <Link
+                          href={`/physicians/${doctor.slug}`}
+                          className="mt-4 inline-flex min-h-[44px] items-center justify-center rounded-md border border-wine px-4 py-2 text-[.82rem] font-semibold text-wine transition-colors hover:bg-wine hover:text-white"
+                        >
+                          View Dedicated Bio Page
+                        </Link>
                       </div>
                       <div className="mt-7 grid gap-3 sm:grid-cols-2">
                         {doctor.credentials.map((item) => (

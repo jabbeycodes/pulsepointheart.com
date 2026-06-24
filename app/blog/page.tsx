@@ -4,21 +4,13 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import StickyMobileCta from '@/components/StickyMobileCta'
 import { formatPostDate, getPublishedBlogPosts, readingTime } from '@/lib/blog'
+import { pageMeta } from '@/lib/page-metadata'
 
-export const metadata: Metadata = {
-  title: 'PulsePoint Journal',
-  description:
-    'PulsePoint Journal will feature preventive cardiology, cardiovascular wellness, advanced diagnostics, and heart health optimization insights.',
-  alternates: {
-    canonical: 'https://blog.pulsepointheart.com/',
-  },
-  openGraph: {
-    title: 'PulsePoint Journal',
-    description:
-      'Preventive cardiology, cardiovascular wellness, advanced diagnostics, and heart health optimization insights from PulsePoint Clinic.',
-    url: 'https://blog.pulsepointheart.com/',
-  },
-}
+export const metadata: Metadata = pageMeta(
+  '/blog',
+  'PulsePoint Journal | Cardiology & Heart Health Insights',
+  'Preventive cardiology, cardiovascular wellness, advanced diagnostics, and heart health insights from PulsePoint Clinic in Columbia, Missouri.',
+)
 
 const TOPICS = [
   'Preventive cardiology',

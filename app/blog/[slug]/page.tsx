@@ -5,7 +5,9 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import StickyMobileCta from '@/components/StickyMobileCta'
 import MarkdownContent from '@/components/MarkdownContent'
-import { absoluteUrl } from '@/lib/seo'
+import JsonLd from '@/components/JsonLd'
+import { pageMeta } from '@/lib/page-metadata'
+import { buildArticleJsonLd } from '@/lib/seo'
 import { formatPostDate, getPublishedBlogPost, readingTime } from '@/lib/blog'
 
 type BlogPostPageProps = {
@@ -20,19 +22,9 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
 
   if (!post) return {}
 
-  return {
-    title: post.title,
-    description: post.excerpt ?? undefined,
-    alternates: {
-      canonical: `https://blog.pulsepointheart.com/${post.slug}`,
-    },
-    openGraph: {
-      title: post.title,
-      description: post.excerpt ?? undefined,
-      url: `https://blog.pulsepointheart.com/${post.slug}`,
-      images: post.cover_image_url ? [post.cover_image_url] : [absoluteUrl('/assets/social-preview.png')],
-    },
-  }
+  const description = post.excerpt ?? 'PulsePoint Journal article on cardiovascular health and prevention.'
+
+  return pageMeta(`/blog/${post.slug}`, post.title, description)
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
@@ -41,8 +33,17 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   if (!post) notFound()
 
+  const articleJsonLd = buildArticleJsonLd({
+    title: post.title,
+    description: post.excerpt ?? '',
+    slug: post.slug,
+    publishedAt: post.published_at,
+    author: post.author,
+  })
+
   return (
     <>
+      <JsonLd data={articleJsonLd} />
       <Navbar />
       <main>
         <article>

@@ -3,12 +3,13 @@ import Link from 'next/link'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import StickyMobileCta from '@/components/StickyMobileCta'
+import { pageMeta } from '@/lib/page-metadata'
 
-export const metadata: Metadata = {
-  title: 'Terms of Use',
-  description:
-    'Website terms of use for PulsePoint Clinic, including public form, informational content, scheduling, and emergency-use disclaimers.',
-}
+export const metadata: Metadata = pageMeta(
+  '/terms',
+  'Terms of Use | PulsePoint Clinic',
+  'Website terms of use for PulsePoint Clinic, including public form, informational content, scheduling, and emergency-use disclaimers.',
+)
 
 const TERMS = [
   {

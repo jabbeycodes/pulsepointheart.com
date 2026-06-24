@@ -3,12 +3,13 @@ import Link from 'next/link'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import StickyMobileCta from '@/components/StickyMobileCta'
+import { pageMeta } from '@/lib/page-metadata'
 
-export const metadata: Metadata = {
-  title: 'Premium & Executive Cardiovascular Care | PulsePoint Cardiology',
-  description:
-    'PulsePoint Premium & Executive Cardiovascular Care offers membership-based preventive cardiology, enhanced access, executive screening, wellness planning, and personalized heart health support.',
-}
+export const metadata: Metadata = pageMeta(
+  '/premium-cardiovascular-care',
+  'Premium & Executive Cardiovascular Care | Columbia, MO',
+  'PulsePoint Premium & Executive Cardiovascular Care offers membership-based preventive cardiology, enhanced access, executive screening, wellness planning, and personalized heart health support.',
+)
 
 // Clinic contact used by the final CTA. Kept here so a single edit updates
 // both the page copy and the tel: link.

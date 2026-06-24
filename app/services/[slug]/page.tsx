@@ -6,8 +6,10 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import StickyMobileCta from '@/components/StickyMobileCta'
 import CtaBanner from '@/components/CtaBanner'
+import JsonLd from '@/components/JsonLd'
 import { SERVICE_PAGES, getServicePage } from '@/lib/service-pages'
-import { absoluteUrl } from '@/lib/seo'
+import { buildBreadcrumbJsonLd, buildFaqJsonLd } from '@/lib/seo'
+import { pageMeta } from '@/lib/page-metadata'
 
 type ServicePageProps = {
   params: Promise<{
@@ -31,19 +33,7 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
     return {}
   }
 
-  return {
-    title: service.title,
-    description: service.description,
-    alternates: {
-      canonical: absoluteUrl(`/services/${service.slug}`),
-    },
-    openGraph: {
-      title: service.title,
-      description: service.description,
-      url: absoluteUrl(`/services/${service.slug}`),
-      images: service.image ? [absoluteUrl(service.image)] : [absoluteUrl('/assets/social-preview.png')],
-    },
-  }
+  return pageMeta(`/services/${service.slug}`, service.title, service.description)
 }
 
 export default async function ServiceDetailPage({ params }: ServicePageProps) {
@@ -56,9 +46,23 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
 
   const relatedServices = SERVICE_PAGES.filter((item) => item.slug !== service.slug).slice(0, 3)
   const isExecutiveHealth = service.slug === 'executive-health'
+  const jsonLd = [
+    buildBreadcrumbJsonLd([
+      { name: 'Home', path: '/' },
+      { name: 'Services', path: '/services' },
+      { name: service.shortTitle, path: `/services/${service.slug}` },
+    ]),
+    buildFaqJsonLd(
+      service.faqs.map((faq) => ({
+        question: faq.question,
+        answer: faq.answer,
+      })),
+    ),
+  ]
 
   return (
     <>
+      <JsonLd data={jsonLd} />
       <Navbar />
       <main>
         <section className="bg-white px-5 py-12 sm:px-8 sm:py-16 lg:px-12 lg:py-[76px]">

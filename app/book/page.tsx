@@ -5,12 +5,13 @@ import Footer from '@/components/Footer'
 import StickyMobileCta from '@/components/StickyMobileCta'
 import AppointmentRequestForm from '@/components/AppointmentRequestForm'
 import { CLINIC } from '@/lib/seo'
+import { pageMeta } from '@/lib/page-metadata'
 
-export const metadata: Metadata = {
-  title: 'Book a Visit',
-  description:
-    'Request a consultation or schedule a follow-up appointment with PulsePoint Clinic in Columbia, MO.',
-}
+export const metadata: Metadata = pageMeta(
+  '/book',
+  'Schedule a Cardiology Appointment | Columbia, MO',
+  'Request a consultation or schedule a follow-up appointment with PulsePoint Clinic in Columbia, MO.',
+)
 
 const PATHWAYS = [
   {

@@ -1,0 +1,31 @@
+# PulsePoint Clinic
+
+> Physician-led cardiovascular care in Columbia, Missouri.
+
+PulsePoint Clinic provides preventive cardiology, advanced heart diagnostics, and personalized cardiovascular care for patients in Columbia, Boone County, and Central Missouri.
+
+## Location
+
+- Address: 1000 W Nifong Blvd, Bldg 2, Suite 120, Columbia, MO 65203
+- Phone: (855) 785-7337
+- Website: https://pulsepointheart.com
+
+## Physicians
+
+- Dr. Martin Tibuakuu, MD, MPH, FACC — https://pulsepointheart.com/physicians/martin-tibuakuu
+- Dr. James E. Fairlamb, MD, FACC — https://pulsepointheart.com/physicians/james-fairlamb
+
+## Key pages
+
+- Home: https://pulsepointheart.com/
+- About: https://pulsepointheart.com/about
+- Services: https://pulsepointheart.com/services
+- Core Cardiology: https://pulsepointheart.com/services/preventive-cardiology
+- Diagnostics: https://pulsepointheart.com/diagnostics
+- Patient FAQs: https://pulsepointheart.com/patient-info#faqs
+- Book appointment: https://pulsepointheart.com/book
+- Contact: https://pulsepointheart.com/contact
+
+## Services
+
+Preventive cardiology, echocardiography, stress testing, heart rhythm monitoring, vascular ultrasound, cardiac CT calcium scoring, cardiometabolic wellness, and executive cardiovascular care.

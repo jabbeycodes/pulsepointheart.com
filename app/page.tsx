@@ -11,21 +11,13 @@ import TeamCard from '@/components/TeamCard'
 import TestimonialSection from '@/components/TestimonialSection'
 import Footer from '@/components/Footer'
 import StickyMobileCta from '@/components/StickyMobileCta'
+import { pageMeta } from '@/lib/page-metadata'
 
-export const metadata: Metadata = {
-  title: 'PulsePoint Clinic | Cardiovascular Care, Diagnostics & Prevention in Columbia, MO',
-  description:
-    'PulsePoint Clinic provides physician-led cardiovascular care, advanced diagnostics, preventive cardiology, vein and vascular care, and cardiometabolic wellness in Columbia, Missouri.',
-  alternates: {
-    canonical: '/',
-  },
-  openGraph: {
-    title: 'PulsePoint Clinic | Cardiovascular Care, Diagnostics & Prevention in Columbia, MO',
-    description:
-      'Physician-led cardiovascular care integrating prevention, diagnostics, wellness, and specialty care in Columbia, Missouri.',
-    url: 'https://pulsepointheart.com/',
-  },
-}
+export const metadata: Metadata = pageMeta(
+  '/',
+  'Cardiologist in Columbia, MO | PulsePoint Clinic',
+  'Board-certified cardiologists in Columbia, Missouri. Preventive cardiology, echocardiograms, stress testing, and heart failure care. Schedule: (855) 785-7337.',
+)
 
 export default function HomePage() {
   return (

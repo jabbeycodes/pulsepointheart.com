@@ -1,5 +1,8 @@
 export type PhysicianProfile = {
+  slug: string
   name: string
+  schemaName: string
+  honorificSuffix: string
   title: string
   image: string
   imageAlt: string
@@ -8,10 +11,13 @@ export type PhysicianProfile = {
   credentials: { icon: string; label: string }[]
 }
 
-/** Shared physician roster for homepage and about page. */
+/** Shared physician roster for homepage, about, and SEO bio pages. */
 export const PHYSICIANS: PhysicianProfile[] = [
   {
+    slug: 'martin-tibuakuu',
     name: 'Dr. Martin Tibuakuu, MD, MPH, FACC',
+    schemaName: 'Martin Tibuakuu',
+    honorificSuffix: 'MD, MPH, FACC',
     title: 'Founder & Cardiologist',
     image: '/assets/physician-headshot.png',
     imageAlt: 'Dr. Martin Tibuakuu, founder and cardiologist at PulsePoint Clinic',
@@ -37,7 +43,10 @@ export const PHYSICIANS: PhysicianProfile[] = [
     ],
   },
   {
+    slug: 'james-fairlamb',
     name: 'Dr. James E. Fairlamb, MD, FACC',
+    schemaName: 'James E. Fairlamb',
+    honorificSuffix: 'MD, FACC',
     title: 'Cardiologist',
     image: '/assets/physician-fairlamb.png',
     imageAlt: 'Dr. James E. Fairlamb, cardiologist at PulsePoint Clinic',
@@ -62,3 +71,15 @@ export const PHYSICIANS: PhysicianProfile[] = [
     ],
   },
 ]
+
+export function getPhysicianBySlug(slug: string) {
+  return PHYSICIANS.find((physician) => physician.slug === slug)
+}
+
+export function getPhysicianSlugs() {
+  return PHYSICIANS.map((physician) => physician.slug)
+}
+
+export function getPhysicianHighlights(physician: PhysicianProfile, count = 3) {
+  return physician.credentials.slice(0, count).map((item) => item.label)
+}

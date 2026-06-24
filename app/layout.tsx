@@ -35,9 +35,6 @@ export const metadata: Metadata = {
     'heart health optimization',
     'physician-led care',
   ],
-  alternates: {
-    canonical: '/',
-  },
   icons: {
     icon: '/assets/favicon.png',
     apple: '/assets/favicon.png',

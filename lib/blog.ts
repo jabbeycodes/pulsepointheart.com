@@ -1,4 +1,5 @@
 import { createServerClient } from '@/lib/supabase/server'
+import { getScheduledEditorialPosts } from '@/lib/scheduled-editorial-posts'
 import { USNEWS_BLOG_POSTS } from '@/lib/usnews-blog-posts'
 
 export type BlogPost = {
@@ -34,10 +35,18 @@ function staticUsNewsPosts(): BlogPost[] {
   )
 }
 
+function staticEditorialPosts(): BlogPost[] {
+  return getScheduledEditorialPosts()
+}
+
 function mergePublishedPosts(supabasePosts: BlogPost[], limit: number) {
   const bySlug = new Map<string, BlogPost>()
 
   for (const post of staticUsNewsPosts()) {
+    bySlug.set(post.slug, post)
+  }
+
+  for (const post of staticEditorialPosts()) {
     bySlug.set(post.slug, post)
   }
 
@@ -55,10 +64,10 @@ function mergePublishedPosts(supabasePosts: BlogPost[], limit: number) {
 }
 
 export async function getPublishedBlogPosts(limit = 20) {
-  const staticPosts = staticUsNewsPosts()
+  const staticPosts = mergePublishedPosts([], limit)
 
   if (!hasSupabaseConfig()) {
-    return staticPosts.slice(0, limit)
+    return staticPosts
   }
 
   const supabase = await createServerClient()
@@ -71,7 +80,7 @@ export async function getPublishedBlogPosts(limit = 20) {
 
   if (error) {
     console.error('blog_posts select failed:', error)
-    return staticPosts.slice(0, limit)
+    return staticPosts
   }
 
   return mergePublishedPosts((data ?? []) as BlogPost[], limit)
@@ -99,7 +108,9 @@ export async function getAdminBlogPosts(limit = 100) {
 }
 
 export async function getPublishedBlogPost(slug: string) {
-  const staticMatch = staticUsNewsPosts().find((post) => post.slug === slug)
+  const staticMatch =
+    staticEditorialPosts().find((post) => post.slug === slug) ??
+    staticUsNewsPosts().find((post) => post.slug === slug)
 
   if (!hasSupabaseConfig()) {
     return staticMatch ?? null

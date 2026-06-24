@@ -4,12 +4,13 @@ import Footer from '@/components/Footer'
 import StickyMobileCta from '@/components/StickyMobileCta'
 import ContactForm from '@/components/ContactForm'
 import { CLINIC } from '@/lib/seo'
+import { pageMeta } from '@/lib/page-metadata'
 
-export const metadata: Metadata = {
-  title: 'Contact PulsePoint Clinic',
-  description:
-    'Contact PulsePoint Clinic in Columbia, MO. Call (855) 785-7337, email the clinic, or send a secure administrative inquiry.',
-}
+export const metadata: Metadata = pageMeta(
+  '/contact',
+  'Contact PulsePoint Clinic | Columbia, MO Cardiologist',
+  'Contact PulsePoint Clinic in Columbia, MO. Call (855) 785-7337, email the clinic, or send a secure administrative inquiry.',
+)
 
 export default function ContactPage() {
   return (

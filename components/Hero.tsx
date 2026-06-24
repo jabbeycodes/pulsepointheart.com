@@ -22,7 +22,7 @@ export default function Hero() {
     <section className="bg-white px-5 pb-12 pt-8 lg:grid lg:min-h-[620px] lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-12 lg:px-12 lg:py-14">
       <div className="lg:order-1">
         <h1 className="mb-3 max-w-[760px] animate-fadeUp font-display text-[2.35rem] font-bold leading-[1.08] text-navy [animation-delay:.05s] sm:text-[3.05rem] lg:text-[3.6rem]">
-          State-of-the-Art Heart Care Built Around{' '}
+          Cardiologist in Columbia, MO — Heart Care Built Around{' '}
           <em className="not-italic text-wine">You.</em>
         </h1>
         <GoldSquiggle className="mb-5 h-3 w-24 animate-fadeUp [animation-delay:.1s]" />

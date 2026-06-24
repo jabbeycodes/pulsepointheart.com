@@ -5,12 +5,13 @@ import Footer from '@/components/Footer'
 import StickyMobileCta from '@/components/StickyMobileCta'
 import CtaBanner from '@/components/CtaBanner'
 import { SERVICE_PATHWAYS } from '@/lib/service-pathways'
+import { pageMeta } from '@/lib/page-metadata'
 
-export const metadata: Metadata = {
-  title: 'Cardiology Services in Columbia, MO',
-  description:
-    'PulsePoint Clinic offers one cardiovascular platform with core cardiology, executive care, vascular care, cardiometabolic care, and advanced diagnostics in Columbia, MO.',
-}
+export const metadata: Metadata = pageMeta(
+  '/services',
+  'Cardiology Services in Columbia, MO | PulsePoint Clinic',
+  'PulsePoint Clinic offers core cardiology, executive care, vascular care, cardiometabolic care, and advanced diagnostics in Columbia, Missouri.',
+)
 
 const MODEL_DIFFERENCES = [
   {

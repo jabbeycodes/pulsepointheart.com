@@ -3,12 +3,13 @@ import Link from 'next/link'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import StickyMobileCta from '@/components/StickyMobileCta'
+import { pageMeta } from '@/lib/page-metadata'
 
-export const metadata: Metadata = {
-  title: 'Cardiometabolic & Weight Loss Clinic | PulsePoint Cardiology',
-  description:
-    'Physician-led medical weight loss and cardiometabolic care at PulsePoint. One simple $299/month membership including GLP-1 management, InBody analysis, personalized treatment plans, and cardiovascular risk reduction.',
-}
+export const metadata: Metadata = pageMeta(
+  '/cardiometabolic-weight-loss',
+  'Cardiometabolic & Weight Loss Clinic | Columbia, MO',
+  'Physician-led medical weight loss and cardiometabolic care at PulsePoint in Columbia, MO. $299/month membership including GLP-1 management, InBody analysis, and cardiovascular risk reduction.',
+)
 
 // Clinic contact, kept here so a single edit updates copy + tel: link.
 const OFFICE_PHONE_DISPLAY = '(855) 785-7337'

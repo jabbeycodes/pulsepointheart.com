@@ -68,7 +68,11 @@ const RELEVANCE_TERMS = [
   'wellness',
 ]
 
-const PULSEPOINT_AUTHOR = 'Martin Tibuakuu, MD, MPH'
+const PULSEPOINT_AUTHOR = 'Martin Tibuakuu, MD, MPH, FACC'
+
+export type BlogDraftSlot = 0 | 1
+
+export type EditorialTopic = BlogTopic
 
 export function getAutoPublishAfterHours() {
   const rawValue = process.env.BLOG_AUTO_PUBLISH_AFTER_HOURS
@@ -78,7 +82,8 @@ export function getAutoPublishAfterHours() {
   return parsed
 }
 
-const TOPICS: BlogTopic[] = [
+/** Physician-led article templates used for the 2x/week publishing cadence. */
+export const EDITORIAL_TOPICS: EditorialTopic[] = [
   {
     pillar: 'Preventive Cardiology',
     title: 'Why Preventive Cardiology Belongs at the Center of Long-Term Heart Health',
@@ -628,6 +633,32 @@ function getWeekIndex(date: Date) {
   return Math.floor(diffDays / 7)
 }
 
+/** Tuesday = slot 0, Friday = slot 1 for the twice-weekly cadence. */
+export function getBlogDraftSlot(now = new Date()): BlogDraftSlot {
+  return now.getUTCDay() === 5 ? 1 : 0
+}
+
+export function getEditorialPostIndex(now: Date, slot: BlogDraftSlot) {
+  return getWeekIndex(now) * 2 + slot
+}
+
+export function getTopicForWeekSlot(now: Date, slot: BlogDraftSlot) {
+  const index = getEditorialPostIndex(now, slot)
+  return EDITORIAL_TOPICS[index % EDITORIAL_TOPICS.length]
+}
+
+/** First scheduled publish slot: Tuesday, Jan 7 2026 at 15:00 UTC. */
+export const EDITORIAL_SCHEDULE_START_MS = Date.UTC(2026, 0, 7, 15, 0, 0)
+
+export function getEditorialPublishDate(postIndex: number) {
+  const week = Math.floor(postIndex / 2)
+  const slot = postIndex % 2
+  const dayOffset = slot === 0 ? 0 : 3
+  return new Date(EDITORIAL_SCHEDULE_START_MS + week * 7 * 86400000 + dayOffset * 86400000)
+}
+
+export { PULSEPOINT_AUTHOR }
+
 function buildClinicalQuestions(pillar: string) {
   const lower = pillar.toLowerCase()
 
@@ -939,7 +970,7 @@ function buildList(items: string[]) {
   return items.map((item) => `- ${item}`).join('\n')
 }
 
-function buildBody(topic: BlogTopic) {
+export function buildEditorialPostBody(topic: BlogTopic) {
   const sections = topic.sections
     .map((section) => {
       const body = section.paragraphs.join('\n\n')
@@ -1214,12 +1245,11 @@ function datedSlug(title: string, date: Date) {
 
 export async function createAutomatedBlogDraft(
   supabase: SupabaseClient,
-  now = new Date()
+  now = new Date(),
+  options: { slot?: BlogDraftSlot } = {}
 ) {
-  const feedDraft = await createFeedInspiredDraft(supabase, now)
-  if (feedDraft) return feedDraft
-
-  const topic = TOPICS[getWeekIndex(now) % TOPICS.length]
+  const slot = options.slot ?? getBlogDraftSlot(now)
+  const topic = getTopicForWeekSlot(now, slot)
   const baseSlug = datedSlug(topic.title, now)
   const createdAt = now.toISOString()
 
@@ -1233,7 +1263,7 @@ export async function createAutomatedBlogDraft(
     return {
       created: false,
       post: existing,
-      message: 'A draft for this scheduled topic already exists.',
+      message: `A draft for this week's slot ${slot} topic already exists.`,
     }
   }
 
@@ -1243,9 +1273,9 @@ export async function createAutomatedBlogDraft(
       slug: baseSlug,
       title: topic.title,
       excerpt: topic.excerpt,
-      body_md: buildBody(topic),
+      body_md: buildEditorialPostBody(topic),
       author: PULSEPOINT_AUTHOR,
-      tags: topic.tags,
+      tags: [...topic.tags, 'pulsepoint-journal', slot === 0 ? 'tuesday-slot' : 'friday-slot'],
       is_published: false,
       created_at: createdAt,
       updated_at: createdAt,
@@ -1260,7 +1290,7 @@ export async function createAutomatedBlogDraft(
   return {
     created: true,
     post: data,
-    message: `Created a new ${topic.pillar} draft.`,
+    message: `Created a new ${topic.pillar} draft for publishing slot ${slot}.`,
   }
 }
 

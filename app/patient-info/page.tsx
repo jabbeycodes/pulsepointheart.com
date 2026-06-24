@@ -4,16 +4,27 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import StickyMobileCta from '@/components/StickyMobileCta'
 import CtaBanner from '@/components/CtaBanner'
+import JsonLd from '@/components/JsonLd'
 import {
   PULSEPOINT_CLINIC_FAQS,
   type FaqBlock,
 } from '@/lib/pulsepoint-clinic-faqs'
+import { faqBlocksToPlainText, normalizeFaqQuestion } from '@/lib/faq-schema'
+import { buildFaqJsonLd } from '@/lib/seo'
+import { pageMeta } from '@/lib/page-metadata'
 
-export const metadata: Metadata = {
-  title: 'Patient Info',
-  description:
-    'PulsePoint Clinic FAQs covering insurance, Core Cardiology, membership programs, diagnostics, cardiometabolic care, and choosing the right care pathway in Columbia, MO.',
-}
+export const metadata: Metadata = pageMeta(
+  '/patient-info',
+  'Cardiology FAQs | Insurance, Appointments & Services | Columbia, MO',
+  'PulsePoint Clinic FAQs covering insurance, Core Cardiology, membership programs, diagnostics, cardiometabolic care, and choosing the right care pathway in Columbia, MO.',
+)
+
+const FAQ_SCHEMA = buildFaqJsonLd(
+  PULSEPOINT_CLINIC_FAQS.map((faq) => ({
+    question: normalizeFaqQuestion(faq.question),
+    answer: faqBlocksToPlainText(faq.blocks),
+  })),
+)
 
 function FaqContent({ blocks }: { blocks: FaqBlock[] }) {
   return (
@@ -44,12 +55,13 @@ function FaqContent({ blocks }: { blocks: FaqBlock[] }) {
 export default function PatientInfoPage() {
   return (
     <>
+      <JsonLd data={FAQ_SCHEMA} />
       <Navbar />
       <main>
         <section className="bg-white px-5 py-12 sm:px-8 sm:py-16 lg:px-12 lg:py-[76px]">
           <div className="mx-auto max-w-5xl">
             <h1 className="max-w-4xl font-display text-[2.2rem] font-bold leading-[1.12] text-charcoal sm:text-[3rem] lg:text-[3.3rem]">
-              Questions About Your Care? We&apos;re Here to Help.
+              Cardiology Patient FAQs — Columbia, MO
             </h1>
             <div className="my-5 h-[3px] w-12 rounded bg-wine" />
             <p className="max-w-2xl text-[.98rem] leading-[1.75] text-muted">

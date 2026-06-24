@@ -5,23 +5,13 @@ import Link from 'next/link'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import StickyMobileCta from '@/components/StickyMobileCta'
-import { absoluteUrl } from '@/lib/seo'
+import { pageMeta } from '@/lib/page-metadata'
 
-export const metadata: Metadata = {
-  title: 'PulsePoint Core Cardiology | Heart Care in Columbia, MO',
-  description:
-    'Evidence-based, insurance-accepted cardiology care for chest pain, palpitations, shortness of breath, hypertension, arrhythmias, heart failure, coronary artery disease, and complex cardiovascular disease.',
-  alternates: {
-    canonical: absoluteUrl('/services/preventive-cardiology'),
-  },
-  openGraph: {
-    title: 'PulsePoint Core Cardiology | Heart Care in Columbia, MO',
-    description:
-      'Evidence-based, insurance-accepted cardiology care for symptoms, diagnosis, and complex cardiovascular disease in Columbia, MO.',
-    url: absoluteUrl('/services/preventive-cardiology'),
-    images: [absoluteUrl('/assets/services/core-cardiology-consult.png')],
-  },
-}
+export const metadata: Metadata = pageMeta(
+  '/services/preventive-cardiology',
+  'Heart Doctor in Columbia, MO | PulsePoint Core Cardiology',
+  'Insurance-accepted cardiology for chest pain, hypertension, heart failure, CAD, and arrhythmias. Board-certified cardiologists in Columbia, MO. Call (855) 785-7337.',
+)
 
 const SYMPTOMS = [
   { icon: 'chestPain', label: 'Chest Pain' },

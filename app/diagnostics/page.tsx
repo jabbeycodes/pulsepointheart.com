@@ -1,12 +1,13 @@
 import type { Metadata } from 'next'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import { pageMeta } from '@/lib/page-metadata'
 
-export const metadata: Metadata = {
-  title: 'Advanced Cardiovascular Diagnostics | PulsePoint Cardiology',
-  description:
-    'State-of-the-art cardiovascular diagnostics in Columbia, MO with board-certified cardiologist interpretation. Comprehensive ECG, echocardiogram, stress testing, vascular ultrasound, and cardiac monitoring services.',
-}
+export const metadata: Metadata = pageMeta(
+  '/diagnostics',
+  'Heart Testing & Echocardiogram in Columbia, MO | PulsePoint Clinic',
+  'ECG, echocardiogram, stress test, Holter monitor, and vascular ultrasound in Columbia, Missouri. Physician-interpreted results. Call (855) 785-7337.',
+)
 
 // Diagnostics scheduling is intentionally phone-only. Reuses the established
 // site-wide clinic number so contact details stay consistent everywhere.
