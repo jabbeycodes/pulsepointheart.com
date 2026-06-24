@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import StickyMobileCta from '@/components/StickyMobileCta'
@@ -92,6 +93,9 @@ export default function ContactPage() {
                       Bldg 2, Suite 120<br />
                       Columbia, MO 65203
                     </address>
+                    <Link href="/locations/columbia-mo" className="mt-2 inline-block text-[.82rem] font-semibold text-wine hover:underline">
+                      Directions & location details
+                    </Link>
                   </div>
                 </div>
 

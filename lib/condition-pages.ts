@@ -422,6 +422,58 @@ export const CONDITION_PAGES: ConditionPage[] = [
       },
     ],
   },
+  {
+    slug: 'valvular-heart-disease',
+    shortTitle: 'Valvular Heart Disease',
+    title: 'Valvular Heart Disease Treatment in Columbia, MO',
+    description:
+      'Valve disorder evaluation and management in Columbia, Missouri. PulsePoint cardiologists use echocardiography and clinical expertise to guide treatment for stenosis and regurgitation. (855) 785-7337.',
+    heroText:
+      'Heart valve problems can cause shortness of breath, fatigue, chest discomfort, or no symptoms at all until the valve disease progresses. Early evaluation matters.',
+    overview:
+      'Valvular heart disease includes conditions where heart valves do not open or close properly — such as aortic stenosis, mitral regurgitation, or other valve disorders. PulsePoint cardiologists in Columbia, MO use careful history, physical examination, and echocardiography to determine severity, monitor progression, and coordinate medical or procedural treatment when appropriate.',
+    symptoms: [
+      'Shortness of breath with activity',
+      'Chest discomfort or pressure',
+      'Fatigue or reduced exercise tolerance',
+      'Dizziness or fainting (especially with aortic stenosis)',
+      'Palpitations or irregular heartbeat',
+      'Sometimes discovered incidentally on echocardiogram',
+    ],
+    whenToSeeCardiologist: [
+      'Murmur noted on exam or prior echocardiogram',
+      'Known valve disease needing surveillance',
+      'Worsening shortness of breath or exercise intolerance',
+      'Syncope or presyncope with valve disease',
+      'Planning for surgery or procedure and need for cardiology input',
+    ],
+    howWeTreat: [
+      'Comprehensive history and cardiovascular examination',
+      'Echocardiography to assess valve structure and function',
+      'Medical management and activity guidance when appropriate',
+      'Serial monitoring for moderate valve disease',
+      'Referral coordination for valve intervention when indicated',
+    ],
+    relatedServicePath: '/services/preventive-cardiology',
+    relatedDiagnosticPath: '/services/echocardiography',
+    faqs: [
+      {
+        question: 'What is a heart murmur?',
+        answer:
+          'A murmur is an extra sound heard during the heartbeat, sometimes caused by turbulent blood flow across a valve. Not all murmurs indicate serious disease, but evaluation is important.',
+      },
+      {
+        question: 'Do all valve problems need surgery?',
+        answer:
+          'No. Many patients with mild or moderate valve disease are monitored over time with echocardiography and medical therapy. Surgery or transcatheter valve procedures are considered when disease is severe and symptomatic.',
+      },
+      {
+        question: 'Where can I get an echocardiogram for valve disease in Columbia?',
+        answer:
+          'PulsePoint offers physician-interpreted echocardiography at our Columbia clinic on Nifong Blvd.',
+      },
+    ],
+  },
 ]
 
 export function getConditionPage(slug: string) {

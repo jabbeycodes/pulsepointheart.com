@@ -6,6 +6,7 @@ import Footer from '@/components/Footer'
 import StickyMobileCta from '@/components/StickyMobileCta'
 import MarkdownContent from '@/components/MarkdownContent'
 import JsonLd from '@/components/JsonLd'
+import BlogRelatedConditions from '@/components/BlogRelatedConditions'
 import { pageMeta } from '@/lib/page-metadata'
 import { buildArticleJsonLd } from '@/lib/seo'
 import { formatPostDate, getPublishedBlogPost, readingTime } from '@/lib/blog'
@@ -67,6 +68,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <section className="bg-graybg px-5 py-10 sm:px-8 sm:py-14 lg:px-12">
             <div className="mx-auto max-w-4xl rounded-md bg-white p-6 shadow-card sm:p-8 lg:p-10">
               <MarkdownContent body={post.body_md} />
+              <BlogRelatedConditions tags={post.tags} title={post.title} />
               <div className="mt-10 rounded-md border-l-2 border-gold bg-graybg p-5">
                 <p className="text-[.84rem] leading-[1.65] text-muted">
                   This article is for educational purposes only and is not a

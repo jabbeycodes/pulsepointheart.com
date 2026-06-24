@@ -26,6 +26,7 @@ PulsePoint Clinic provides preventive cardiology, advanced heart diagnostics, an
 - Patient FAQs: https://pulsepointheart.com/patient-info#faqs
 - Book appointment: https://pulsepointheart.com/book
 - Contact: https://pulsepointheart.com/contact
+- Columbia, MO location: https://pulsepointheart.com/locations/columbia-mo
 
 ## Services
 

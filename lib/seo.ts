@@ -1,4 +1,5 @@
 import type { PhysicianProfile } from '@/lib/physicians'
+import { CONDITION_PAGES } from '@/lib/condition-pages'
 
 export const SITE_URL = 'https://pulsepointheart.com'
 
@@ -53,8 +54,6 @@ export const CLINIC = {
   ],
 }
 
-import { CONDITION_PAGES } from '@/lib/condition-pages'
-
 const CONDITION_ROUTES = [
   { path: '/conditions', priority: 0.85, changeFrequency: 'monthly' as const },
   ...CONDITION_PAGES.map((condition) => ({
@@ -84,6 +83,7 @@ export const PUBLIC_ROUTES = [
   { path: '/cardiometabolic-weight-loss', priority: 0.85, changeFrequency: 'monthly' as const },
   { path: '/book', priority: 0.9, changeFrequency: 'weekly' as const },
   { path: '/contact', priority: 0.85, changeFrequency: 'monthly' as const },
+  { path: '/locations/columbia-mo', priority: 0.9, changeFrequency: 'monthly' as const },
   { path: '/patient-info', priority: 0.75, changeFrequency: 'monthly' as const },
   { path: '/blog', priority: 0.65, changeFrequency: 'weekly' as const },
   { path: '/privacy', priority: 0.3, changeFrequency: 'yearly' as const },
@@ -126,6 +126,8 @@ export function buildClinicJsonLd() {
       name,
     })),
     sameAs: Object.values(CLINIC_SOCIAL),
+    hasMap:
+      'https://www.google.com/maps/dir/?api=1&destination=1000+W+Nifong+Blvd,+Bldg+2,+Suite+120,+Columbia,+MO+65203',
     employee: [
       { '@id': `${absoluteUrl('/physicians/martin-tibuakuu')}#physician` },
       { '@id': `${absoluteUrl('/physicians/james-fairlamb')}#physician` },

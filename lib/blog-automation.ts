@@ -1,6 +1,7 @@
 import type { SupabaseClient } from '@supabase/supabase-js'
 import { XMLParser } from 'fast-xml-parser'
 import { slugify } from '@/lib/blog'
+import { buildRelatedConditionsMarkdown } from '@/lib/blog-condition-links'
 
 type BlogTopic = {
   pillar: string
@@ -1273,7 +1274,7 @@ export async function createAutomatedBlogDraft(
       slug: baseSlug,
       title: topic.title,
       excerpt: topic.excerpt,
-      body_md: buildEditorialPostBody(topic),
+      body_md: `${buildEditorialPostBody(topic)}\n\n${buildRelatedConditionsMarkdown(topic.tags, topic.title, topic.pillar)}`.trim(),
       author: PULSEPOINT_AUTHOR,
       tags: [...topic.tags, 'pulsepoint-journal', slot === 0 ? 'tuesday-slot' : 'friday-slot'],
       is_published: false,

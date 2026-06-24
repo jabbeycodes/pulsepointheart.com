@@ -28,7 +28,7 @@ const CONDITIONS = [
   { icon: 'coronary', label: 'Coronary Artery Disease', href: '/conditions/coronary-artery-disease' },
   { icon: 'heartFailure', label: 'Congestive Heart Failure', href: '/conditions/heart-failure' },
   { icon: 'arrhythmia', label: 'Arrhythmias', href: '/conditions/atrial-fibrillation' },
-  { icon: 'valve', label: 'Valvular Heart Disease' },
+  { icon: 'valve', label: 'Valvular Heart Disease', href: '/conditions/valvular-heart-disease' },
   { icon: 'hypertension', label: 'Hypertension', href: '/conditions/hypertension' },
   { icon: 'complex', label: 'Complex Cardiovascular Diseases', href: '/conditions/cardiac-risk-assessment' },
 ] as const

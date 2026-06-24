@@ -7,6 +7,8 @@ import {
   PULSEPOINT_AUTHOR,
 } from '@/lib/blog-automation'
 
+import { buildRelatedConditionsMarkdown } from '@/lib/blog-condition-links'
+
 /** Static editorial posts released on the 2x/week cadence (Tue + Fri). */
 export function getScheduledEditorialPosts(now = new Date()): BlogPost[] {
   const posts: BlogPost[] = []
@@ -24,7 +26,7 @@ export function getScheduledEditorialPosts(now = new Date()): BlogPost[] {
       slug,
       title: topic.title,
       excerpt: topic.excerpt,
-      body_md: buildEditorialPostBody(topic),
+      body_md: `${buildEditorialPostBody(topic)}\n\n${buildRelatedConditionsMarkdown(topic.tags, topic.title, topic.pillar)}`.trim(),
       cover_image_url: null,
       author: PULSEPOINT_AUTHOR,
       tags: topic.tags,
