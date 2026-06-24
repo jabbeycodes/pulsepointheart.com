@@ -53,6 +53,17 @@ export const CLINIC = {
   ],
 }
 
+import { CONDITION_PAGES } from '@/lib/condition-pages'
+
+const CONDITION_ROUTES = [
+  { path: '/conditions', priority: 0.85, changeFrequency: 'monthly' as const },
+  ...CONDITION_PAGES.map((condition) => ({
+    path: `/conditions/${condition.slug}`,
+    priority: 0.8,
+    changeFrequency: 'monthly' as const,
+  })),
+]
+
 export const PUBLIC_ROUTES = [
   { path: '/', priority: 1, changeFrequency: 'weekly' as const },
   { path: '/about', priority: 0.8, changeFrequency: 'monthly' as const },
@@ -78,6 +89,7 @@ export const PUBLIC_ROUTES = [
   { path: '/privacy', priority: 0.3, changeFrequency: 'yearly' as const },
   { path: '/terms', priority: 0.3, changeFrequency: 'yearly' as const },
   { path: '/hipaa-notice', priority: 0.3, changeFrequency: 'yearly' as const },
+  ...CONDITION_ROUTES,
 ]
 
 export function absoluteUrl(path = '/') {

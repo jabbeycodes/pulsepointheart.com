@@ -21,6 +21,7 @@ PulsePoint Clinic provides preventive cardiology, advanced heart diagnostics, an
 - About: https://pulsepointheart.com/about
 - Services: https://pulsepointheart.com/services
 - Core Cardiology: https://pulsepointheart.com/services/preventive-cardiology
+- Heart Conditions: https://pulsepointheart.com/conditions
 - Diagnostics: https://pulsepointheart.com/diagnostics
 - Patient FAQs: https://pulsepointheart.com/patient-info#faqs
 - Book appointment: https://pulsepointheart.com/book

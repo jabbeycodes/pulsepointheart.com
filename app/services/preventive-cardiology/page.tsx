@@ -5,6 +5,8 @@ import Link from 'next/link'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import StickyMobileCta from '@/components/StickyMobileCta'
+import JsonLd from '@/components/JsonLd'
+import { buildBreadcrumbJsonLd } from '@/lib/seo'
 import { pageMeta } from '@/lib/page-metadata'
 
 export const metadata: Metadata = pageMeta(
@@ -14,21 +16,21 @@ export const metadata: Metadata = pageMeta(
 )
 
 const SYMPTOMS = [
-  { icon: 'chestPain', label: 'Chest Pain' },
-  { icon: 'palpitations', label: 'Palpitations' },
-  { icon: 'shortBreath', label: 'Shortness of Breath' },
-  { icon: 'syncope', label: 'Syncope & Dizziness' },
-  { icon: 'legSwelling', label: 'Leg Swelling' },
-  { icon: 'fatigue', label: 'Fatigue' },
+  { icon: 'chestPain', label: 'Chest Pain', href: '/conditions/chest-pain' },
+  { icon: 'palpitations', label: 'Palpitations', href: '/conditions/palpitations' },
+  { icon: 'shortBreath', label: 'Shortness of Breath', href: '/conditions/heart-failure' },
+  { icon: 'syncope', label: 'Syncope & Dizziness', href: '/conditions/palpitations' },
+  { icon: 'legSwelling', label: 'Leg Swelling', href: '/conditions/heart-failure' },
+  { icon: 'fatigue', label: 'Fatigue', href: '/conditions/heart-failure' },
 ] as const
 
 const CONDITIONS = [
-  { icon: 'coronary', label: 'Coronary Artery Disease' },
-  { icon: 'heartFailure', label: 'Congestive Heart Failure' },
-  { icon: 'arrhythmia', label: 'Arrhythmias' },
+  { icon: 'coronary', label: 'Coronary Artery Disease', href: '/conditions/coronary-artery-disease' },
+  { icon: 'heartFailure', label: 'Congestive Heart Failure', href: '/conditions/heart-failure' },
+  { icon: 'arrhythmia', label: 'Arrhythmias', href: '/conditions/atrial-fibrillation' },
   { icon: 'valve', label: 'Valvular Heart Disease' },
-  { icon: 'hypertension', label: 'Hypertension' },
-  { icon: 'complex', label: 'Complex Cardiovascular Diseases' },
+  { icon: 'hypertension', label: 'Hypertension', href: '/conditions/hypertension' },
+  { icon: 'complex', label: 'Complex Cardiovascular Diseases', href: '/conditions/cardiac-risk-assessment' },
 ] as const
 
 const OFFICE_PHONE_DISPLAY = '(855) 785-7337'
@@ -306,30 +308,57 @@ function SectionHeading({ title }: { title: string }) {
 function CardGrid({
   items,
 }: {
-  items: ReadonlyArray<{ icon: string; label: string }>
+  items: ReadonlyArray<{ icon: string; label: string; href?: string }>
 }) {
   return (
     <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 md:gap-5">
-      {items.map((item) => (
-        <article
-          key={item.label}
-          className="flex min-h-[132px] flex-col items-center justify-center rounded-md bg-white px-3 py-5 text-center shadow-card sm:min-h-[148px] sm:px-4 sm:py-6"
-        >
-          <div className="mb-3 flex h-11 w-11 items-center justify-center text-wine sm:h-12 sm:w-12">
-            <Icon name={item.icon} className="h-7 w-7 sm:h-8 sm:w-8" />
-          </div>
-          <h3 className="text-[.92rem] font-semibold leading-snug text-navy sm:text-[1rem]">
-            {item.label}
-          </h3>
-        </article>
-      ))}
+      {items.map((item) => {
+        const content = (
+          <>
+            <div className="mb-3 flex h-11 w-11 items-center justify-center text-wine sm:h-12 sm:w-12">
+              <Icon name={item.icon} className="h-7 w-7 sm:h-8 sm:w-8" />
+            </div>
+            <h3 className="text-[.92rem] font-semibold leading-snug text-navy sm:text-[1rem]">
+              {item.label}
+            </h3>
+          </>
+        )
+
+        if (item.href) {
+          return (
+            <Link
+              key={item.label}
+              href={item.href}
+              className="flex min-h-[132px] flex-col items-center justify-center rounded-md bg-white px-3 py-5 text-center shadow-card transition-transform hover:-translate-y-0.5 sm:min-h-[148px] sm:px-4 sm:py-6"
+            >
+              {content}
+            </Link>
+          )
+        }
+
+        return (
+          <article
+            key={item.label}
+            className="flex min-h-[132px] flex-col items-center justify-center rounded-md bg-white px-3 py-5 text-center shadow-card sm:min-h-[148px] sm:px-4 sm:py-6"
+          >
+            {content}
+          </article>
+        )
+      })}
     </div>
   )
 }
 
 export default function CoreCardiologyPage() {
+  const jsonLd = buildBreadcrumbJsonLd([
+    { name: 'Home', path: '/' },
+    { name: 'Services', path: '/services' },
+    { name: 'Core Cardiology', path: '/services/preventive-cardiology' },
+  ])
+
   return (
     <>
+      <JsonLd data={jsonLd} />
       <Navbar />
       <main className="bg-white">
         {/* Hero */}

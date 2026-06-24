@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import JsonLd from '@/components/JsonLd'
+import { buildBreadcrumbJsonLd } from '@/lib/seo'
 import { pageMeta } from '@/lib/page-metadata'
 
 export const metadata: Metadata = pageMeta(
@@ -313,8 +315,14 @@ function PhoneCta({
 }
 
 export default function DiagnosticsPage() {
+  const jsonLd = buildBreadcrumbJsonLd([
+    { name: 'Home', path: '/' },
+    { name: 'Diagnostics', path: '/diagnostics' },
+  ])
+
   return (
     <>
+      <JsonLd data={jsonLd} />
       <Navbar />
       <main className="bg-white">
         {/* HERO */}

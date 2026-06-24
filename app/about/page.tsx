@@ -3,7 +3,9 @@ import Link from 'next/link'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import StickyMobileCta from '@/components/StickyMobileCta'
+import JsonLd from '@/components/JsonLd'
 import { PHYSICIANS } from '@/lib/physicians'
+import { buildBreadcrumbJsonLd } from '@/lib/seo'
 import { pageMeta } from '@/lib/page-metadata'
 
 export const metadata: Metadata = pageMeta(
@@ -214,8 +216,14 @@ function SectionLabel({ children, light = false }: { children: React.ReactNode; 
 }
 
 export default function AboutPage() {
+  const jsonLd = buildBreadcrumbJsonLd([
+    { name: 'Home', path: '/' },
+    { name: 'About', path: '/about' },
+  ])
+
   return (
     <>
+      <JsonLd data={jsonLd} />
       <Navbar />
       <main className="bg-white">
         <section className="overflow-hidden bg-white px-5 py-12 sm:px-8 sm:py-16 lg:px-12 lg:py-20">

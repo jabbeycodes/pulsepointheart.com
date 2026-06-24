@@ -6,6 +6,7 @@ import { FOOTER_SERVICE_LINKS } from '@/lib/service-pathways'
 const QUICK_LINKS = [
   { href: '/about', label: 'About Us' },
   { href: '/about#physicians', label: 'Our Cardiologists' },
+  { href: '/conditions', label: 'Heart Conditions' },
   { href: '/services', label: 'Services' },
   { href: '/patient-info', label: 'Patient Portal' },
   { href: '/blog', label: 'Blog' },
