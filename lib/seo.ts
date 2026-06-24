@@ -84,6 +84,7 @@ export const PUBLIC_ROUTES = [
   { path: '/book', priority: 0.9, changeFrequency: 'weekly' as const },
   { path: '/contact', priority: 0.85, changeFrequency: 'monthly' as const },
   { path: '/locations/columbia-mo', priority: 0.9, changeFrequency: 'monthly' as const },
+  { path: '/cardiologist-columbia-mo', priority: 0.95, changeFrequency: 'monthly' as const },
   { path: '/patient-info', priority: 0.75, changeFrequency: 'monthly' as const },
   { path: '/blog', priority: 0.65, changeFrequency: 'weekly' as const },
   { path: '/privacy', priority: 0.3, changeFrequency: 'yearly' as const },

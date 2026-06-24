@@ -232,6 +232,7 @@ export default function ColumbiaLocationPage() {
             <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {[
                 { href: '/services/preventive-cardiology', label: 'Core Cardiology' },
+                { href: '/cardiologist-columbia-mo', label: 'Cardiologist Columbia, MO' },
                 { href: '/conditions', label: 'Heart Conditions' },
                 { href: '/diagnostics', label: 'Heart Testing & Diagnostics' },
                 { href: '/services/echocardiography', label: 'Echocardiography' },

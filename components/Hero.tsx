@@ -46,6 +46,12 @@ export default function Hero() {
             Learn More
             <ArrowLinkIcon />
           </Link>
+          <Link
+            href="/cardiologist-columbia-mo"
+            className="text-center text-[.78rem] font-semibold text-wine underline-offset-2 hover:underline sm:text-left"
+          >
+            Cardiologist in Columbia, MO →
+          </Link>
         </div>
 
         <div className="grid max-w-[680px] animate-fadeUp grid-cols-2 gap-x-4 gap-y-7 border-t border-[#EEF1F5] pb-2 pt-6 [animation-delay:.35s] sm:grid-cols-4 lg:pb-0">
