@@ -29,7 +29,7 @@ export default async function AdminAppointmentsPage() {
 
   return (
     <div>
-      <h1 className="mb-2 font-display text-2xl font-bold text-charcoal">Appointment Requests</h1>
+      <h1 className="mb-2 font-display text-xl font-bold text-charcoal sm:text-2xl">Appointment Requests</h1>
       <p className="mb-6 text-[.88rem] text-muted">{rows.length} total requests</p>
       <AdminTable
         rows={rows}

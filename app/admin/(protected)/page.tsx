@@ -35,12 +35,12 @@ export default async function AdminDashboardPage() {
 
   return (
     <div>
-      <div className="mb-8">
-        <h1 className="font-display text-2xl font-bold text-charcoal">Dashboard</h1>
+      <div className="mb-6 sm:mb-8">
+        <h1 className="font-display text-xl font-bold text-charcoal sm:text-2xl">Dashboard</h1>
         <p className="mt-1 text-[.88rem] text-muted">Overview of all patient inquiries and submissions.</p>
       </div>
 
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+      <div className="grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-5">
         {cards.map((card) => (
           <Link
             key={card.label}
@@ -69,8 +69,11 @@ export default async function AdminDashboardPage() {
         <p className="mb-4 text-[.82rem] text-muted">Jump to a specific section to review and update submissions.</p>
         <div className="flex flex-wrap gap-2">
           {cards.map((card) => (
-            <Link key={card.label} href={card.href}
-              className="rounded-md border border-[#E2E8F0] px-3 py-1.5 text-[.82rem] font-medium text-charcoal hover:border-wine hover:text-wine transition-colors">
+            <Link
+              key={card.label}
+              href={card.href}
+              className="min-h-[44px] rounded-md border border-[#E2E8F0] px-3 py-2 text-[.8rem] font-medium text-charcoal transition-colors hover:border-wine hover:text-wine sm:text-[.82rem] sm:py-1.5"
+            >
               {card.label} →
             </Link>
           ))}

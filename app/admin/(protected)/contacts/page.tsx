@@ -29,7 +29,7 @@ export default async function AdminContactsPage() {
 
   return (
     <div>
-      <h1 className="mb-2 font-display text-2xl font-bold text-charcoal">Contact Messages</h1>
+      <h1 className="mb-2 font-display text-xl font-bold text-charcoal sm:text-2xl">Contact Messages</h1>
       <p className="mb-6 text-[.88rem] text-muted">{rows.length} total submissions</p>
       <AdminTable
         rows={rows}
