@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Inter, Playfair_Display } from 'next/font/google'
 import { buildClinicJsonLd, buildWebsiteJsonLd } from '@/lib/seo'
+import GoogleTag from '@/components/GoogleTag'
 import PublicSiteFrame from '@/components/PublicSiteFrame'
 import './globals.css'
 
@@ -88,6 +89,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${playfairDisplay.variable}`}>
       <body className="font-sans text-charcoal bg-white">
+        <GoogleTag />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
