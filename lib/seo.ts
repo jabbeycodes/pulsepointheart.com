@@ -67,8 +67,9 @@ const CONDITION_ROUTES = [
 export const PUBLIC_ROUTES = [
   { path: '/', priority: 1, changeFrequency: 'weekly' as const },
   { path: '/about', priority: 0.8, changeFrequency: 'monthly' as const },
-  { path: '/physicians/martin-tibuakuu', priority: 0.85, changeFrequency: 'monthly' as const },
-  { path: '/physicians/james-fairlamb', priority: 0.85, changeFrequency: 'monthly' as const },
+  { path: '/physicians', priority: 0.92, changeFrequency: 'monthly' as const },
+  { path: '/physicians/martin-tibuakuu', priority: 0.96, changeFrequency: 'weekly' as const },
+  { path: '/physicians/james-fairlamb', priority: 0.96, changeFrequency: 'weekly' as const },
   { path: '/services', priority: 0.9, changeFrequency: 'monthly' as const },
   { path: '/services/preventive-cardiology', priority: 0.85, changeFrequency: 'monthly' as const },
   { path: '/services/echocardiography', priority: 0.85, changeFrequency: 'monthly' as const },
@@ -212,22 +213,47 @@ export function buildPhysicianJsonLd(physician: PhysicianProfile) {
 
   return {
     '@context': 'https://schema.org',
-    '@type': 'Physician',
+    '@type': ['Physician', 'Person'],
     '@id': `${url}#physician`,
     name: physician.schemaName,
+    alternateName: physician.searchKeywords.filter(
+      (keyword) => keyword.toLowerCase() !== physician.schemaName.toLowerCase(),
+    ),
     honorificPrefix: 'Dr.',
     honorificSuffix: physician.honorificSuffix,
-    jobTitle: physician.title,
+    jobTitle: `${physician.title} · Cardiologist`,
     medicalSpecialty: 'Cardiology',
     image: absoluteUrl(physician.image),
     url,
-    description: physician.intro.join(' '),
-    worksFor: { '@id': `${SITE_URL}/#clinic` },
+    description: `${physician.name} is a board-certified cardiologist at PulsePoint Clinic in Columbia, Missouri. ${physician.intro[0]}`,
+    worksFor: {
+      '@type': 'MedicalClinic',
+      '@id': `${SITE_URL}/#clinic`,
+      name: CLINIC.name,
+      url: SITE_URL,
+      telephone: CLINIC.phoneHref,
+      address: {
+        '@type': 'PostalAddress',
+        ...CLINIC.address,
+      },
+    },
+    workLocation: {
+      '@type': 'Place',
+      name: CLINIC.name,
+      address: {
+        '@type': 'PostalAddress',
+        ...CLINIC.address,
+      },
+    },
     memberOf: {
       '@type': 'Organization',
       name: 'American College of Cardiology',
     },
     knowsAbout: physician.credentials.map((item) => item.label),
+    areaServed: CLINIC.areaServed.map((name) => ({
+      '@type': 'Place',
+      name,
+    })),
   }
 }
 

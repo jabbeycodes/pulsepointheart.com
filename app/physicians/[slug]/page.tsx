@@ -6,7 +6,8 @@ import Footer from '@/components/Footer'
 import StickyMobileCta from '@/components/StickyMobileCta'
 import JsonLd from '@/components/JsonLd'
 import { pageMeta } from '@/lib/page-metadata'
-import { CLINIC, buildBreadcrumbJsonLd, buildPhysicianJsonLd } from '@/lib/seo'
+import { CLINIC, buildBreadcrumbJsonLd, buildFaqJsonLd, buildPhysicianJsonLd } from '@/lib/seo'
+import { buildPhysicianPageMeta, getPhysicianFaqs } from '@/lib/physician-seo'
 import {
   PHYSICIANS,
   getPhysicianBySlug,
@@ -31,11 +32,7 @@ export async function generateMetadata({ params }: PhysicianPageProps): Promise<
     return {}
   }
 
-  return pageMeta(
-    `/physicians/${physician.slug}`,
-    `${physician.name} | Cardiologist in Columbia, MO`,
-    `${physician.name} provides board-certified cardiovascular care at PulsePoint Clinic in Columbia, Missouri. ${physician.intro[0]}`,
-  )
+  return buildPhysicianPageMeta(physician)
 }
 
 function CredentialIcon({ name }: { name: string }) {
@@ -111,11 +108,14 @@ export default async function PhysicianPage({ params }: PhysicianPageProps) {
   }
 
   const otherPhysicians = PHYSICIANS.filter((item) => item.slug !== physician.slug)
+  const faqs = getPhysicianFaqs(physician)
+  const fullAddress = `${CLINIC.address.streetAddress}, ${CLINIC.address.addressLocality}, ${CLINIC.address.addressRegion} ${CLINIC.address.postalCode}`
   const jsonLd = [
     buildPhysicianJsonLd(physician),
+    buildFaqJsonLd(faqs),
     buildBreadcrumbJsonLd([
       { name: 'Home', path: '/' },
-      { name: 'About', path: '/about' },
+      { name: 'Our Cardiologists', path: '/physicians' },
       { name: physician.name, path: `/physicians/${physician.slug}` },
     ]),
   ]
@@ -127,12 +127,16 @@ export default async function PhysicianPage({ params }: PhysicianPageProps) {
       <main>
         <section className="bg-white px-5 py-12 sm:px-8 sm:py-16 lg:px-12 lg:py-[76px]">
           <div className="mx-auto max-w-6xl">
-            <nav aria-label="Breadcrumb" className="mb-6 text-[.78rem] font-semibold uppercase tracking-[1.8px] text-wine">
-              <Link href="/about" className="hover:text-wine-light">
-                About
+            <nav aria-label="Breadcrumb" className="mb-6 text-[.78rem] text-muted">
+              <Link href="/" className="hover:text-wine">
+                Home
               </Link>
-              <span className="mx-2 text-gold">/</span>
-              <span className="text-charcoal/70">Physicians</span>
+              <span className="mx-2">/</span>
+              <Link href="/physicians" className="hover:text-wine">
+                Our Cardiologists
+              </Link>
+              <span className="mx-2">/</span>
+              <span className="font-semibold text-charcoal">{physician.schemaName}</span>
             </nav>
 
             <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
@@ -152,11 +156,17 @@ export default async function PhysicianPage({ params }: PhysicianPageProps) {
                 <h1 className="font-display text-[2rem] font-bold leading-[1.1] text-navy sm:text-[2.75rem]">
                   {physician.name}
                 </h1>
-                <p className="mt-2 text-[1rem] font-bold text-wine">{physician.title}</p>
+                <p className="mt-2 text-[1rem] font-bold text-wine">
+                  {physician.title} · PulsePoint Clinic, Columbia, MO
+                </p>
 
                 <p className="mt-6 text-[.98rem] leading-[1.8] text-charcoal/80">
-                  {physician.name} is a board-certified cardiologist at PulsePoint Clinic in Columbia,
-                  Missouri, serving patients throughout Boone County and Central Missouri.
+                  {physician.name} is a board-certified cardiologist at{' '}
+                  <Link href="/cardiologist-columbia-mo" className="font-semibold text-wine hover:underline">
+                    PulsePoint Clinic in Columbia, Missouri
+                  </Link>
+                  , located at {fullAddress}. {physician.schemaName} serves patients throughout
+                  Boone County and Central Missouri.
                 </p>
 
                 <div className="mt-6 space-y-4 text-[.96rem] leading-[1.8] text-charcoal/75">
@@ -178,6 +188,60 @@ export default async function PhysicianPage({ params }: PhysicianPageProps) {
                   >
                     {CLINIC.phoneDisplay}
                   </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-white px-5 py-12 sm:px-8 sm:py-16 lg:px-12 lg:py-[72px]">
+          <div className="mx-auto max-w-6xl">
+            <h2 className="font-display text-[1.8rem] font-bold leading-tight text-navy sm:text-[2.25rem]">
+              Practice location in Columbia, MO
+            </h2>
+            <div className="mt-3 h-[3px] w-12 rounded bg-wine" />
+            <div className="mt-6 grid gap-6 lg:grid-cols-2">
+              <div className="rounded-md border border-[#E5EAF0] bg-graybg p-5">
+                <p className="text-[.72rem] font-semibold uppercase tracking-[1.5px] text-wine">
+                  Current clinic
+                </p>
+                <p className="mt-2 text-[1rem] font-bold text-charcoal">{CLINIC.name}</p>
+                <p className="mt-2 text-[.92rem] leading-[1.7] text-muted">{fullAddress}</p>
+                <p className="mt-3 text-[.92rem] text-muted">
+                  Phone:{' '}
+                  <a href={`tel:${CLINIC.phoneHref}`} className="font-semibold text-wine">
+                    {CLINIC.phoneDisplay}
+                  </a>
+                </p>
+                <p className="mt-1 text-[.92rem] text-muted">
+                  {CLINIC.hoursDisplay}. {CLINIC.hoursNote}.
+                </p>
+                <div className="mt-4 flex flex-wrap gap-3">
+                  <Link
+                    href="/locations/columbia-mo"
+                    className="text-[.84rem] font-semibold text-wine hover:underline"
+                  >
+                    Directions & location page →
+                  </Link>
+                  <Link
+                    href="/book"
+                    className="text-[.84rem] font-semibold text-wine hover:underline"
+                  >
+                    Book with {physician.schemaName} →
+                  </Link>
+                </div>
+              </div>
+              <div>
+                <h3 className="text-[1rem] font-bold text-charcoal">
+                  Frequently asked questions about {physician.schemaName}
+                </h3>
+                <div className="mt-4 space-y-4">
+                  {faqs.map((faq) => (
+                    <div key={faq.question} className="rounded-md bg-graybg p-4">
+                      <h4 className="text-[.9rem] font-bold text-charcoal">{faq.question}</h4>
+                      <p className="mt-2 text-[.86rem] leading-[1.65] text-muted">{faq.answer}</p>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>

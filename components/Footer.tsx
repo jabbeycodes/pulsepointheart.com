@@ -5,7 +5,9 @@ import { FOOTER_SERVICE_LINKS } from '@/lib/service-pathways'
 
 const QUICK_LINKS = [
   { href: '/about', label: 'About Us' },
-  { href: '/about#physicians', label: 'Our Cardiologists' },
+  { href: '/physicians', label: 'Our Cardiologists' },
+  { href: '/physicians/martin-tibuakuu', label: 'Dr. Martin Tibuakuu' },
+  { href: '/physicians/james-fairlamb', label: 'Dr. James Fairlamb' },
   { href: '/conditions', label: 'Heart Conditions' },
   { href: '/cardiologist-columbia-mo', label: 'Cardiologist Columbia, MO' },
   { href: '/locations/columbia-mo', label: 'Columbia, MO Location' },

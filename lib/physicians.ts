@@ -9,6 +9,10 @@ export type PhysicianProfile = {
   intro: string[]
   fullBio: string[]
   credentials: { icon: string; label: string }[]
+  /** Name variants patients use in search (schema alternateName + meta keywords). */
+  searchKeywords: string[]
+  /** Optional extra FAQs beyond the standard location/scheduling set. */
+  faqs: { question: string; answer: string }[]
 }
 
 /** Shared physician roster for homepage, about, and SEO bio pages. */
@@ -41,6 +45,21 @@ export const PHYSICIANS: PhysicianProfile[] = [
       { icon: 'leaf', label: 'Expertise in Cardiometabolic Health' },
       { icon: 'monitor', label: 'Expertise in Multimodality Cardiac Imaging' },
     ],
+    searchKeywords: [
+      'Martin Tibuakuu',
+      'Dr Martin Tibuakuu',
+      'Dr. Martin Tibuakuu cardiologist',
+      'Martin Tibuakuu Columbia MO',
+      'Martin Tibuakuu cardiologist Columbia Missouri',
+      'Tibuakuu cardiologist',
+    ],
+    faqs: [
+      {
+        question: 'What is Dr. Martin Tibuakuu’s specialty at PulsePoint Clinic?',
+        answer:
+          'Dr. Martin Tibuakuu, MD, MPH, FACC specializes in preventive cardiology, cardiometabolic health, advanced cardiac imaging, and population-based cardiovascular prevention at PulsePoint Clinic in Columbia, Missouri.',
+      },
+    ],
   },
   {
     slug: 'james-fairlamb',
@@ -68,6 +87,22 @@ export const PHYSICIANS: PhysicianProfile[] = [
       { icon: 'leaf', label: 'Expertise in Cardiometabolic Management' },
       { icon: 'monitor', label: 'Extensive Background in Complex Cardiac Disease Management' },
       { icon: 'star', label: "Three-Time Recipient of Missouri's Best Cardiologist Award (2024, 2025, 2026)" },
+    ],
+    searchKeywords: [
+      'James Fairlamb',
+      'Dr James Fairlamb',
+      'Dr. James E. Fairlamb',
+      'James Fairlamb cardiologist',
+      'James Fairlamb Columbia MO',
+      'James Fairlamb cardiologist Columbia Missouri',
+      'Best cardiologist Missouri',
+    ],
+    faqs: [
+      {
+        question: 'What is Dr. James Fairlamb known for in Columbia, MO?',
+        answer:
+          'Dr. James E. Fairlamb, MD, FACC is a board-certified cardiologist at PulsePoint Clinic with expertise in preventive cardiology, lipid management, advanced cardiac imaging, and complex cardiovascular disease. He has been recognized as Missouri\'s Best Cardiologist in 2024, 2025, and 2026.',
+      },
     ],
   },
 ]
