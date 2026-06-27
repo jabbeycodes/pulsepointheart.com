@@ -6,7 +6,7 @@ import StickyMobileCta from '@/components/StickyMobileCta'
 import JsonLd from '@/components/JsonLd'
 import { CONDITION_PAGES } from '@/lib/condition-pages'
 import { PHYSICIANS } from '@/lib/physicians'
-import { CLINIC, buildBreadcrumbJsonLd, buildFaqJsonLd } from '@/lib/seo'
+import { CLINIC, buildBreadcrumbJsonLd, buildFaqJsonLd, buildSpeakableWebPageJsonLd } from '@/lib/seo'
 import { pageMeta } from '@/lib/page-metadata'
 
 export const metadata: Metadata = pageMeta(
@@ -83,6 +83,13 @@ export default function CardiologistColumbiaPage() {
       { name: 'Cardiologist Columbia MO', path: '/cardiologist-columbia-mo' },
     ]),
     buildFaqJsonLd(FAQS),
+    buildSpeakableWebPageJsonLd({
+      path: '/cardiologist-columbia-mo',
+      name: 'Cardiologist in Columbia, MO | Board-Certified Heart Doctors',
+      description:
+        'Board-certified cardiologists at PulsePoint Clinic in Columbia, Missouri. New patients welcome.',
+      cssSelectors: ['#cardiologist-faqs', '.voice-answer'],
+    }),
     {
       '@context': 'https://schema.org',
       '@type': 'MedicalWebPage',
@@ -239,7 +246,7 @@ export default function CardiologistColumbiaPage() {
           </div>
         </section>
 
-        <section className="bg-white px-5 py-12 sm:px-8 sm:py-16 lg:px-12 lg:py-[72px]">
+        <section id="cardiologist-faqs" className="bg-white px-5 py-12 sm:px-8 sm:py-16 lg:px-12 lg:py-[72px]">
           <div className="mx-auto max-w-6xl">
             <h2 className="font-display text-[1.8rem] font-bold leading-tight text-charcoal sm:text-[2.25rem]">
               Frequently asked questions
@@ -249,7 +256,7 @@ export default function CardiologistColumbiaPage() {
               {FAQS.map((faq) => (
                 <article key={faq.question} className="rounded-md bg-graybg p-6">
                   <h3 className="text-[.98rem] font-bold text-charcoal">{faq.question}</h3>
-                  <p className="mt-2 text-[.86rem] leading-[1.65] text-muted">{faq.answer}</p>
+                  <p className="voice-answer mt-2 text-[.86rem] leading-[1.65] text-muted">{faq.answer}</p>
                 </article>
               ))}
             </div>

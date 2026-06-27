@@ -153,6 +153,28 @@ export function buildClinicJsonLd() {
       areaServed: 'US',
       availableLanguage: 'English',
     },
+    potentialAction: [
+      {
+        '@type': 'ReserveAction',
+        target: {
+          '@type': 'EntryPoint',
+          urlTemplate: absoluteUrl('/book'),
+          actionPlatform: [
+            'http://schema.org/DesktopWebPlatform',
+            'http://schema.org/MobileWebPlatform',
+          ],
+        },
+        name: 'Book a cardiology appointment',
+      },
+      {
+        '@type': 'CommunicateAction',
+        target: {
+          '@type': 'EntryPoint',
+          urlTemplate: `tel:${CLINIC.phoneHref}`,
+        },
+        name: 'Call PulsePoint Clinic',
+      },
+    ],
   }
 }
 
@@ -186,6 +208,38 @@ export function buildFaqJsonLd(faqs: FaqSchemaItem[]) {
         text: faq.answer,
       },
     })),
+  }
+}
+
+type SpeakableWebPageInput = {
+  path: string
+  name: string
+  description?: string
+  cssSelectors?: readonly string[]
+}
+
+/** Marks content assistants can read aloud (Google Assistant, voice search). */
+export function buildSpeakableWebPageJsonLd({
+  path,
+  name,
+  description,
+  cssSelectors = ['#voice-quick-answers', '.voice-answer'],
+}: SpeakableWebPageInput) {
+  const url = absoluteUrl(path)
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': `${url}#webpage`,
+    url,
+    name,
+    description,
+    isPartOf: { '@id': `${SITE_URL}/#website` },
+    about: { '@id': `${SITE_URL}/#clinic` },
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: [...cssSelectors],
+    },
   }
 }
 

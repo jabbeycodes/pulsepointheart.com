@@ -5,12 +5,14 @@ import Footer from '@/components/Footer'
 import StickyMobileCta from '@/components/StickyMobileCta'
 import CtaBanner from '@/components/CtaBanner'
 import JsonLd from '@/components/JsonLd'
+import VoiceQuickAnswers from '@/components/VoiceQuickAnswers'
 import {
   PULSEPOINT_CLINIC_FAQS,
   type FaqBlock,
 } from '@/lib/pulsepoint-clinic-faqs'
 import { faqBlocksToPlainText, normalizeFaqQuestion } from '@/lib/faq-schema'
-import { buildFaqJsonLd } from '@/lib/seo'
+import { buildFaqJsonLd, buildSpeakableWebPageJsonLd } from '@/lib/seo'
+import { VOICE_HOME_ANSWERS, voiceAnswersToFaqSchema } from '@/lib/voice-seo'
 import { pageMeta } from '@/lib/page-metadata'
 
 export const metadata: Metadata = pageMeta(
@@ -19,12 +21,20 @@ export const metadata: Metadata = pageMeta(
   'PulsePoint Clinic FAQs covering insurance, Core Cardiology, membership programs, diagnostics, cardiometabolic care, and choosing the right care pathway in Columbia, MO.',
 )
 
-const FAQ_SCHEMA = buildFaqJsonLd(
-  PULSEPOINT_CLINIC_FAQS.map((faq) => ({
-    question: normalizeFaqQuestion(faq.question),
-    answer: faqBlocksToPlainText(faq.blocks),
-  })),
-)
+const FAQ_SCHEMA = [
+  buildFaqJsonLd([
+    ...PULSEPOINT_CLINIC_FAQS.map((faq) => ({
+      question: normalizeFaqQuestion(faq.question),
+      answer: faqBlocksToPlainText(faq.blocks),
+    })),
+    ...voiceAnswersToFaqSchema(VOICE_HOME_ANSWERS),
+  ]),
+  buildSpeakableWebPageJsonLd({
+    path: '/patient-info',
+    name: 'Cardiology FAQs | Insurance, Appointments & Services | Columbia, MO',
+    description: 'PulsePoint Clinic patient FAQs and voice-search quick answers in Columbia, Missouri.',
+  }),
+]
 
 function FaqContent({ blocks }: { blocks: FaqBlock[] }) {
   return (
@@ -84,6 +94,12 @@ export default function PatientInfoPage() {
             </div>
           </div>
         </section>
+
+        <VoiceQuickAnswers
+          answers={VOICE_HOME_ANSWERS}
+          heading="Quick answers (phone, hours, location)"
+          intro="Short answers for common spoken searches about PulsePoint in Columbia, Missouri."
+        />
 
         <section id="faqs" className="bg-graybg px-5 py-12 sm:px-8 sm:py-16 lg:px-12 lg:py-[72px]">
           <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[1fr_380px]">

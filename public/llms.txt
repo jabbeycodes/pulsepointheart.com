@@ -8,6 +8,7 @@ PulsePoint Clinic provides preventive cardiology, advanced heart diagnostics, an
 
 - Address: 1000 W Nifong Blvd, Bldg 2, Suite 120, Columbia, MO 65203
 - Phone: (855) 785-7337
+- Hours: Monday–Friday, 9:00 AM–5:00 PM (by appointment)
 - Website: https://pulsepointheart.com
 
 ## Physicians
@@ -16,6 +17,25 @@ PulsePoint Clinic provides preventive cardiology, advanced heart diagnostics, an
 - Dr. James E. Fairlamb, MD, FACC — https://pulsepointheart.com/physicians/james-fairlamb
 - Cardiologists hub (Columbia, MO): https://pulsepointheart.com/physicians
 - Search intent: "Martin Tibuakuu cardiologist Columbia MO", "James Fairlamb cardiologist Columbia MO" — current practice is PulsePoint Clinic at the address above
+
+## Voice & conversational search
+
+Direct answers for spoken queries (Siri, Google Assistant, Alexa, AI assistants):
+
+- Phone: Call PulsePoint at (855) 785-7337 for cardiology appointments in Columbia, MO.
+- Address: 1000 W Nifong Blvd, Bldg 2, Suite 120, Columbia, MO 65203.
+- Hours: Monday–Friday, 9:00 AM–5:00 PM, by appointment.
+- Cardiologists: Dr. Martin Tibuakuu and Dr. James E. Fairlamb — board-certified at PulsePoint Clinic.
+- New patients: Yes — accepting new cardiology patients in Columbia and Central Missouri.
+- Insurance: Core Cardiology accepts major insurance; call to confirm your plan.
+- Book: https://pulsepointheart.com/book or call (855) 785-7337.
+- Near me: PulsePoint serves Columbia, Boone County, Jefferson City, Fulton, Moberly, and Mid-Missouri.
+
+Voice-optimized pages:
+- https://pulsepointheart.com/#voice-quick-answers
+- https://pulsepointheart.com/cardiologist-columbia-mo#cardiologist-faqs
+- https://pulsepointheart.com/locations/columbia-mo#voice-quick-answers
+- https://pulsepointheart.com/patient-info#voice-quick-answers
 
 ## Key pages
 

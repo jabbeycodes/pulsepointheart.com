@@ -4,7 +4,9 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import StickyMobileCta from '@/components/StickyMobileCta'
 import JsonLd from '@/components/JsonLd'
-import { CLINIC, absoluteUrl, buildBreadcrumbJsonLd } from '@/lib/seo'
+import VoiceQuickAnswers from '@/components/VoiceQuickAnswers'
+import { CLINIC, absoluteUrl, buildBreadcrumbJsonLd, buildFaqJsonLd, buildSpeakableWebPageJsonLd } from '@/lib/seo'
+import { VOICE_LOCATION_ANSWERS, voiceAnswersToFaqSchema } from '@/lib/voice-seo'
 import { pageMeta } from '@/lib/page-metadata'
 
 export const metadata: Metadata = pageMeta(
@@ -82,6 +84,12 @@ export default function ColumbiaLocationPage() {
       openingHours: CLINIC.openingHours,
       medicalSpecialty: 'Cardiology',
     },
+    buildSpeakableWebPageJsonLd({
+      path: '/locations/columbia-mo',
+      name: 'Cardiologist in Columbia, MO | PulsePoint Clinic Location',
+      description: `PulsePoint cardiologists at ${fullAddress}. Call ${CLINIC.phoneDisplay}.`,
+    }),
+    buildFaqJsonLd(voiceAnswersToFaqSchema(VOICE_LOCATION_ANSWERS)),
   ]
 
   return (
@@ -222,6 +230,13 @@ export default function ColumbiaLocationPage() {
             </div>
           </div>
         </section>
+
+        <VoiceQuickAnswers
+          answers={VOICE_LOCATION_ANSWERS}
+          heading="Voice search: cardiologist near Columbia, MO"
+          intro="Answers phrased for spoken searches like “cardiologist near me in Columbia Missouri” or “PulsePoint clinic hours.”"
+          className="bg-white"
+        />
 
         <section className="bg-navy px-5 py-12 text-white sm:px-8 sm:py-16 lg:px-12">
           <div className="mx-auto max-w-6xl">
