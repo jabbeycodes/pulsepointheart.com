@@ -11,10 +11,6 @@ import TeamCard from '@/components/TeamCard'
 import TestimonialSection from '@/components/TestimonialSection'
 import Footer from '@/components/Footer'
 import StickyMobileCta from '@/components/StickyMobileCta'
-import VoiceQuickAnswers from '@/components/VoiceQuickAnswers'
-import JsonLd from '@/components/JsonLd'
-import { buildFaqJsonLd, buildSpeakableWebPageJsonLd } from '@/lib/seo'
-import { VOICE_HOME_ANSWERS, voiceAnswersToFaqSchema } from '@/lib/voice-seo'
 import { pageMeta } from '@/lib/page-metadata'
 
 export const metadata: Metadata = pageMeta(
@@ -24,19 +20,8 @@ export const metadata: Metadata = pageMeta(
 )
 
 export default function HomePage() {
-  const jsonLd = [
-    buildSpeakableWebPageJsonLd({
-      path: '/',
-      name: 'Cardiologist in Columbia, MO | PulsePoint Clinic',
-      description:
-        'Board-certified cardiologists in Columbia, Missouri. Preventive cardiology, diagnostics, and heart care.',
-    }),
-    buildFaqJsonLd(voiceAnswersToFaqSchema(VOICE_HOME_ANSWERS)),
-  ]
-
   return (
     <div className="relative">
-      <JsonLd data={jsonLd} />
       <Navbar />
       <main>
         <Hero />
@@ -47,11 +32,6 @@ export default function HomePage() {
         <LongevitySection />
         <HomeEcosystem />
         <TeamCard />
-        <VoiceQuickAnswers
-          answers={VOICE_HOME_ANSWERS}
-          heading="Common questions about our Columbia cardiologists"
-          intro="Direct answers for patients searching by voice or looking for quick clinic information."
-        />
         <TestimonialSection />
       </main>
       <Footer />
