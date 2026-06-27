@@ -1,7 +1,7 @@
 'use server'
 
 import { revalidatePath } from 'next/cache'
-import { createAutomatedBlogDraft } from '@/lib/blog-automation'
+import { createAutomatedBlogDraft, PHYSICIAN_VERIFIED_TAG } from '@/lib/blog-automation'
 import { createServerClient } from '@/lib/supabase/server'
 
 export async function generateBlogDraftAction() {
@@ -17,12 +17,23 @@ export async function publishBlogPostAction(formData: FormData) {
   const supabase = await createServerClient()
   const now = new Date().toISOString()
 
+  const { data: existing } = await supabase
+    .from('blog_posts')
+    .select('tags')
+    .eq('id', id)
+    .maybeSingle()
+
+  const tags = Array.from(
+    new Set([...(existing?.tags ?? []), PHYSICIAN_VERIFIED_TAG]),
+  )
+
   await supabase
     .from('blog_posts')
     .update({
       is_published: true,
       published_at: now,
       updated_at: now,
+      tags,
     })
     .eq('id', id)
 

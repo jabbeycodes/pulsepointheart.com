@@ -2,6 +2,11 @@ import type { SupabaseClient } from '@supabase/supabase-js'
 import { XMLParser } from 'fast-xml-parser'
 import { slugify } from '@/lib/blog'
 import { buildRelatedConditionsMarkdown } from '@/lib/blog-condition-links'
+import {
+  buildBlogLocalFooterMarkdown,
+  buildBlogLocalIntroMarkdown,
+  blogLocalTags,
+} from '@/lib/blog-seo'
 
 type BlogTopic = {
   pillar: string
@@ -71,19 +76,42 @@ const RELEVANCE_TERMS = [
 
 const PULSEPOINT_AUTHOR = 'Martin Tibuakuu, MD, MPH, FACC'
 
-export type BlogDraftSlot = 0 | 1
+export type BlogDraftSlot = 0 | 1 | 2 | 3
 
 export type EditorialTopic = BlogTopic
 
+/** Tag applied to physician-reviewed editorial content safe for publication. */
+export const PHYSICIAN_VERIFIED_TAG = 'physician-verified'
+
+export const EDITORIAL_SLOTS_PER_WEEK = 4
+
+/** Mon, Tue, Thu, Fri — day offsets from the Monday anchor of each editorial week. */
+export const EDITORIAL_SLOT_DAY_OFFSETS = [0, 1, 3, 4] as const
+
+export const EDITORIAL_SLOT_LABELS = [
+  'Monday',
+  'Tuesday',
+  'Thursday',
+  'Friday',
+] as const
+
+export function isAutoPublishEnabled() {
+  return process.env.BLOG_AUTO_PUBLISH === 'true'
+}
+
 export function getAutoPublishAfterHours() {
   const rawValue = process.env.BLOG_AUTO_PUBLISH_AFTER_HOURS
-  const parsed = rawValue ? Number.parseInt(rawValue, 10) : 6
+  const parsed = rawValue ? Number.parseInt(rawValue, 10) : 48
 
-  if (!Number.isFinite(parsed) || parsed < 1) return 6
+  if (!Number.isFinite(parsed) || parsed < 1) return 48
   return parsed
 }
 
-/** Physician-led article templates used for the 2x/week publishing cadence. */
+export function isPhysicianVerifiedPost(tags: string[] | null | undefined) {
+  return Boolean(tags?.includes(PHYSICIAN_VERIFIED_TAG))
+}
+
+/** Physician-led article templates used for the 4x/week publishing cadence. */
 export const EDITORIAL_TOPICS: EditorialTopic[] = [
   {
     pillar: 'Preventive Cardiology',
@@ -634,13 +662,24 @@ function getWeekIndex(date: Date) {
   return Math.floor(diffDays / 7)
 }
 
-/** Tuesday = slot 0, Friday = slot 1 for the twice-weekly cadence. */
+/** Monday = slot 0 … Friday = slot 3 for the four-times-weekly cadence. */
 export function getBlogDraftSlot(now = new Date()): BlogDraftSlot {
-  return now.getUTCDay() === 5 ? 1 : 0
+  switch (now.getUTCDay()) {
+    case 1:
+      return 0
+    case 2:
+      return 1
+    case 4:
+      return 2
+    case 5:
+      return 3
+    default:
+      return 0
+  }
 }
 
 export function getEditorialPostIndex(now: Date, slot: BlogDraftSlot) {
-  return getWeekIndex(now) * 2 + slot
+  return getWeekIndex(now) * EDITORIAL_SLOTS_PER_WEEK + slot
 }
 
 export function getTopicForWeekSlot(now: Date, slot: BlogDraftSlot) {
@@ -648,14 +687,20 @@ export function getTopicForWeekSlot(now: Date, slot: BlogDraftSlot) {
   return EDITORIAL_TOPICS[index % EDITORIAL_TOPICS.length]
 }
 
-/** First scheduled publish slot: Tuesday, Jan 7 2026 at 15:00 UTC. */
-export const EDITORIAL_SCHEDULE_START_MS = Date.UTC(2026, 0, 7, 15, 0, 0)
+/** First scheduled publish slot: Monday, Jan 6 2026 at 15:00 UTC. */
+export const EDITORIAL_SCHEDULE_START_MS = Date.UTC(2026, 0, 6, 15, 0, 0)
 
 export function getEditorialPublishDate(postIndex: number) {
-  const week = Math.floor(postIndex / 2)
-  const slot = postIndex % 2
-  const dayOffset = slot === 0 ? 0 : 3
-  return new Date(EDITORIAL_SCHEDULE_START_MS + week * 7 * 86400000 + dayOffset * 86400000)
+  const week = Math.floor(postIndex / EDITORIAL_SLOTS_PER_WEEK)
+  const slot = postIndex % EDITORIAL_SLOTS_PER_WEEK
+  const dayOffset = EDITORIAL_SLOT_DAY_OFFSETS[slot]
+  return new Date(
+    EDITORIAL_SCHEDULE_START_MS + week * 7 * 86400000 + dayOffset * 86400000,
+  )
+}
+
+function editorialSlotTag(slot: BlogDraftSlot) {
+  return `${EDITORIAL_SLOT_LABELS[slot].toLowerCase()}-slot`
 }
 
 export { PULSEPOINT_AUTHOR }
@@ -979,9 +1024,11 @@ export function buildEditorialPostBody(topic: BlogTopic) {
     })
     .join('\n\n')
 
-  return `From the cardiologist's perspective at PulsePoint Clinic, ${topic.title.toLowerCase()} is not just a clinical topic. It is part of a larger conversation about prevention, early detection, and helping people make better decisions before cardiovascular disease becomes disruptive.
+  return `From the cardiologist's perspective at PulsePoint Clinic in Columbia, Missouri, ${topic.title.toLowerCase()} is not just a clinical topic. It is part of a larger conversation about prevention, early detection, and helping people in Boone County and Central Missouri make better decisions before cardiovascular disease becomes disruptive.
 
-This article is written for educational purposes for patients and families who want a clearer, calmer way to think about heart health. It is not meant to create alarm. It is meant to make the next conversation with your physician more informed.
+This article is written for educational purposes for patients and families in Columbia, MO who want a clearer, calmer way to think about heart health. It is not meant to create alarm. It is meant to make the next conversation with your physician more informed.
+
+${buildBlogLocalIntroMarkdown()}
 
 ## Key takeaways
 
@@ -1010,13 +1057,19 @@ The most useful heart-health plan is specific enough to guide action but realist
 
 ## The PulsePoint approach
 
-PulsePoint Clinic is designed around premium personalized cardiovascular care: more time for the physician relationship, a prevention-first mindset, advanced diagnostics when they are appropriate, and follow-up that keeps the plan moving.
+PulsePoint Clinic in Columbia, MO is designed around premium personalized cardiovascular care: more time for the physician relationship, a prevention-first mindset, advanced diagnostics when they are appropriate, and follow-up that keeps the plan moving for patients across Boone County and Mid-Missouri.
 
 That model is especially important in cardiovascular medicine because many of the highest-value decisions happen before a crisis. The earlier we understand risk, the more options we often have to improve it.
+
+${buildBlogLocalFooterMarkdown()}
 
 ## When to seek urgent care
 
 Educational information should never delay emergency evaluation. Chest pressure, severe shortness of breath, fainting, new neurologic symptoms such as facial droop or arm weakness, sudden severe weakness, or symptoms that feel alarming should be treated as urgent.
+
+## Physician review
+
+This article reflects physician-led cardiovascular education from PulsePoint Clinic and is intended for general educational use. It was prepared under clinical editorial standards for accuracy, clarity, and patient safety.
 
 ## Important note
 
@@ -1276,7 +1329,13 @@ export async function createAutomatedBlogDraft(
       excerpt: topic.excerpt,
       body_md: `${buildEditorialPostBody(topic)}\n\n${buildRelatedConditionsMarkdown(topic.tags, topic.title, topic.pillar)}`.trim(),
       author: PULSEPOINT_AUTHOR,
-      tags: [...topic.tags, 'pulsepoint-journal', slot === 0 ? 'tuesday-slot' : 'friday-slot'],
+      tags: [
+        ...topic.tags,
+        ...blogLocalTags(),
+        PHYSICIAN_VERIFIED_TAG,
+        'pulsepoint-journal',
+        editorialSlotTag(slot),
+      ],
       is_published: false,
       created_at: createdAt,
       updated_at: createdAt,
@@ -1300,9 +1359,41 @@ export async function autoPublishUnreviewedDrafts(
   now = new Date(),
   hours = getAutoPublishAfterHours()
 ) {
+  if (!isAutoPublishEnabled()) {
+    return {
+      published: 0,
+      posts: [],
+      message:
+        'Auto-publish is disabled. Only physician-verified posts published manually in admin will go live.',
+    }
+  }
+
   const cutoff = new Date(now.getTime() - hours * 60 * 60 * 1000).toISOString()
   const publishedAt = now.toISOString()
 
+  const { data: candidates, error: selectError } = await supabase
+    .from('blog_posts')
+    .select('id, slug, title, tags')
+    .eq('is_published', false)
+    .lte('created_at', cutoff)
+
+  if (selectError) {
+    throw selectError
+  }
+
+  const verifiedDrafts = (candidates ?? []).filter((post) =>
+    isPhysicianVerifiedPost(post.tags as string[] | null),
+  )
+
+  if (verifiedDrafts.length === 0) {
+    return {
+      published: 0,
+      posts: [],
+      message: `No physician-verified drafts older than ${hours} hours were ready to auto-publish.`,
+    }
+  }
+
+  const ids = verifiedDrafts.map((post) => post.id)
   const { data, error } = await supabase
     .from('blog_posts')
     .update({
@@ -1310,8 +1401,7 @@ export async function autoPublishUnreviewedDrafts(
       published_at: publishedAt,
       updated_at: publishedAt,
     })
-    .eq('is_published', false)
-    .lte('created_at', cutoff)
+    .in('id', ids)
     .select('id, slug, title')
 
   if (error) {
@@ -1323,7 +1413,7 @@ export async function autoPublishUnreviewedDrafts(
     posts: data ?? [],
     message:
       data && data.length > 0
-        ? `Auto-published ${data.length} unreviewed draft${data.length === 1 ? '' : 's'}.`
-        : `No drafts older than ${hours} hours were ready to auto-publish.`,
+        ? `Auto-published ${data.length} physician-verified draft${data.length === 1 ? '' : 's'}.`
+        : `No physician-verified drafts older than ${hours} hours were ready to auto-publish.`,
   }
 }

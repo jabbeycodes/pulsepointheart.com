@@ -17,8 +17,9 @@ export const CLINIC = {
   phoneHref: '+18557857337',
   vanityPhone: '1-855-PULSEDR',
   email: 'info@pulsepointheart.com',
-  hoursDisplay: 'Monday-Friday, 8:00 AM-5:00 PM',
+  hoursDisplay: 'Monday-Friday, 9:00 AM-5:00 PM',
   hoursNote: 'By appointment',
+  openingHours: 'Mo-Fr 09:00-17:00',
   address: {
     streetAddress: '1000 W Nifong Blvd, Bldg 2, Suite 120',
     addressLocality: 'Columbia',
@@ -86,7 +87,7 @@ export const PUBLIC_ROUTES = [
   { path: '/locations/columbia-mo', priority: 0.9, changeFrequency: 'monthly' as const },
   { path: '/cardiologist-columbia-mo', priority: 0.95, changeFrequency: 'monthly' as const },
   { path: '/patient-info', priority: 0.75, changeFrequency: 'monthly' as const },
-  { path: '/blog', priority: 0.65, changeFrequency: 'weekly' as const },
+  { path: '/blog', priority: 0.75, changeFrequency: 'weekly' as const },
   { path: '/privacy', priority: 0.3, changeFrequency: 'yearly' as const },
   { path: '/terms', priority: 0.3, changeFrequency: 'yearly' as const },
   { path: '/hipaa-notice', priority: 0.3, changeFrequency: 'yearly' as const },
@@ -111,7 +112,7 @@ export function buildClinicJsonLd() {
     email: CLINIC.email,
     medicalSpecialty: 'Cardiovascular',
     priceRange: '$$',
-    openingHours: 'Mo-Fr 08:00-17:00',
+    openingHours: CLINIC.openingHours,
     description:
       'PulsePoint Clinic is a physician-led cardiovascular care platform in Columbia, Missouri focused on prevention, advanced heart screening, and personalized heart health planning.',
     address: {
@@ -236,6 +237,23 @@ type ArticleSchemaInput = {
   slug: string
   publishedAt: string | null
   author?: string | null
+  tags?: string[] | null
+}
+
+function articleAuthorSchema(author?: string | null) {
+  if (author?.includes('MD')) {
+    return {
+      '@type': 'Person',
+      name: author,
+      jobTitle: 'Cardiologist',
+      worksFor: { '@id': `${SITE_URL}/#clinic` },
+    }
+  }
+
+  return {
+    '@type': 'Organization',
+    name: author ?? CLINIC.name,
+  }
 }
 
 export function buildArticleJsonLd(article: ArticleSchemaInput) {
@@ -243,19 +261,35 @@ export function buildArticleJsonLd(article: ArticleSchemaInput) {
 
   return {
     '@context': 'https://schema.org',
-    '@type': 'Article',
+    '@type': 'BlogPosting',
     headline: article.title,
     description: article.description,
     url,
     mainEntityOfPage: url,
     image: absoluteUrl('/assets/social-preview.png'),
     datePublished: article.publishedAt ?? undefined,
-    author: {
-      '@type': 'Organization',
-      name: article.author ?? CLINIC.name,
-    },
+    author: articleAuthorSchema(article.author),
     publisher: {
       '@id': `${SITE_URL}/#clinic`,
+    },
+    isPartOf: {
+      '@type': 'Blog',
+      '@id': `${SITE_URL}/blog#journal`,
+      name: 'PulsePoint Journal',
+      url: absoluteUrl('/blog'),
+    },
+    contentLocation: {
+      '@type': 'Place',
+      name: 'Columbia, Missouri',
+      address: {
+        '@type': 'PostalAddress',
+        ...CLINIC.address,
+      },
+    },
+    keywords: article.tags?.join(', '),
+    about: {
+      '@type': 'MedicalSpecialty',
+      name: 'Cardiology',
     },
   }
 }

@@ -79,7 +79,7 @@ export default function ColumbiaLocationPage() {
       },
       hasMap: DIRECTIONS_URL,
       areaServed: CLINIC.areaServed.map((name) => ({ '@type': 'Place', name })),
-      openingHours: 'Mo-Fr 08:00-17:00',
+      openingHours: CLINIC.openingHours,
       medicalSpecialty: 'Cardiology',
     },
   ]

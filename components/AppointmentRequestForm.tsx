@@ -5,13 +5,23 @@ import FormPrivacyNotice from './FormPrivacyNotice'
 import {
   APPOINTMENT_REASON_LABELS,
   APPOINTMENT_REASONS,
-  PREFERRED_TIMEFRAMES,
-  TIMEFRAME_LABELS,
 } from '@/lib/validation'
 
 type Status = 'idle' | 'submitting' | 'success' | 'error'
 
-export default function AppointmentRequestForm() {
+type Props = {
+  availableTimeframes: readonly string[]
+  timeframeLabels: Record<string, string>
+  showEarliestDateNotice?: boolean
+  earliestDateNotice?: string
+}
+
+export default function AppointmentRequestForm({
+  availableTimeframes,
+  timeframeLabels,
+  showEarliestDateNotice = false,
+  earliestDateNotice,
+}: Props) {
   const [status, setStatus] = useState<Status>('idle')
   const [errorMsg, setErrorMsg] = useState('')
 
@@ -68,6 +78,12 @@ export default function AppointmentRequestForm() {
     <form onSubmit={handleSubmit} className="space-y-4">
       <FormPrivacyNotice />
 
+      {showEarliestDateNotice && earliestDateNotice && (
+        <div className="rounded-md border-l-2 border-wine bg-wine/5 p-3">
+          <p className="text-[.84rem] leading-[1.6] text-charcoal">{earliestDateNotice}</p>
+        </div>
+      )}
+
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
           <label className={labelCls}>Full Name <span className="text-wine">*</span></label>
@@ -98,8 +114,8 @@ export default function AppointmentRequestForm() {
           <label className={labelCls}>Preferred timeframe <span className="text-wine">*</span></label>
           <select name="preferred_timeframe" required defaultValue="" className={inputCls}>
             <option value="" disabled>Select...</option>
-            {PREFERRED_TIMEFRAMES.map(t => (
-              <option key={t} value={t}>{TIMEFRAME_LABELS[t]}</option>
+            {availableTimeframes.map((t) => (
+              <option key={t} value={t}>{timeframeLabels[t] ?? t}</option>
             ))}
           </select>
         </div>

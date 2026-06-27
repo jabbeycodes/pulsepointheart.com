@@ -113,5 +113,5 @@ export function buildRelatedConditionsMarkdown(
 
 ${list}
 
-Learn more about [cardiology services at PulsePoint Clinic](https://pulsepointheart.com/services/preventive-cardiology) or [schedule a consultation](https://pulsepointheart.com/book).`
+Learn more about [cardiology services in Columbia, MO](https://pulsepointheart.com/services/preventive-cardiology), our [cardiologist in Columbia, Missouri](https://pulsepointheart.com/cardiologist-columbia-mo), or [schedule a consultation](https://pulsepointheart.com/book).`
 }

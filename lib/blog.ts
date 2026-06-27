@@ -1,6 +1,7 @@
 import { createServerClient } from '@/lib/supabase/server'
 import { getScheduledEditorialPosts } from '@/lib/scheduled-editorial-posts'
 import { USNEWS_BLOG_POSTS } from '@/lib/usnews-blog-posts'
+import { isPhysicianVerifiedPost } from '@/lib/blog-automation'
 
 export type BlogPost = {
   id: string
@@ -29,6 +30,7 @@ function staticUsNewsPosts(): BlogPost[] {
     ({ source_url: _source, ...post }) => ({
       ...post,
       id: `usnews-${post.slug}`,
+      tags: [...(post.tags ?? []), 'physician-verified'],
       created_at: post.published_at ?? new Date().toISOString(),
       updated_at: post.published_at ?? new Date().toISOString(),
     })
@@ -51,6 +53,7 @@ function mergePublishedPosts(supabasePosts: BlogPost[], limit: number) {
   }
 
   for (const post of supabasePosts) {
+    if (!isPhysicianVerifiedPost(post.tags)) continue
     bySlug.set(post.slug, post)
   }
 
@@ -63,7 +66,7 @@ function mergePublishedPosts(supabasePosts: BlogPost[], limit: number) {
     .slice(0, limit)
 }
 
-export async function getPublishedBlogPosts(limit = 20) {
+export async function getPublishedBlogPosts(limit = 48) {
   const staticPosts = mergePublishedPosts([], limit)
 
   if (!hasSupabaseConfig()) {
@@ -129,7 +132,12 @@ export async function getPublishedBlogPost(slug: string) {
     return staticMatch ?? null
   }
 
-  return (data as BlogPost | null) ?? staticMatch ?? null
+  const supabasePost = data as BlogPost | null
+  if (supabasePost && !isPhysicianVerifiedPost(supabasePost.tags)) {
+    return staticMatch ?? null
+  }
+
+  return supabasePost ?? staticMatch ?? null
 }
 
 export function formatPostDate(value: string | null) {

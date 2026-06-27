@@ -2,10 +2,18 @@
   "crons": [
     {
       "path": "/api/blog/generate-draft?slot=0",
-      "schedule": "0 15 * * 2"
+      "schedule": "0 15 * * 1"
     },
     {
       "path": "/api/blog/generate-draft?slot=1",
+      "schedule": "0 15 * * 2"
+    },
+    {
+      "path": "/api/blog/generate-draft?slot=2",
+      "schedule": "0 15 * * 4"
+    },
+    {
+      "path": "/api/blog/generate-draft?slot=3",
       "schedule": "0 15 * * 5"
     },
     {

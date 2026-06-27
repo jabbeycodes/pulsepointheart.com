@@ -6,6 +6,7 @@ import {
   appointmentRequestSchema,
 } from '@/lib/validation'
 import { sendFormNotification } from '@/lib/email'
+import { formatBookingDate, getTimeframeLabels, isAllowedTimeframe, EARLIEST_BOOKING_DATE } from '@/lib/booking'
 
 export const runtime = 'nodejs'
 
@@ -23,6 +24,18 @@ export async function POST(request: NextRequest) {
 
   // Honeypot
   if (website && website.length > 0) return NextResponse.json({ ok: true })
+
+  if (!isAllowedTimeframe(preferred_timeframe)) {
+    return NextResponse.json(
+      {
+        error: `Appointments are available starting ${formatBookingDate(EARLIEST_BOOKING_DATE)}. Please choose a later timeframe.`,
+      },
+      { status: 400 },
+    )
+  }
+
+  const timeframeLabel =
+    getTimeframeLabels()[preferred_timeframe] ?? TIMEFRAME_LABELS[preferred_timeframe]
 
   const supabase = await createServerClient()
   const { error } = await supabase.from('appointment_requests').insert({
@@ -52,7 +65,7 @@ export async function POST(request: NextRequest) {
         { label: 'Email', value: email },
         { label: 'Phone', value: phone },
         { label: 'Preferred contact', value: preferred_contact },
-        { label: 'Preferred timeframe', value: TIMEFRAME_LABELS[preferred_timeframe] },
+        { label: 'Preferred timeframe', value: timeframeLabel },
         { label: 'Reason for visit', value: APPOINTMENT_REASON_LABELS[reason_for_visit] },
       ],
     })

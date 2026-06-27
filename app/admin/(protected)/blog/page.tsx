@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { formatPostDate, getAdminBlogPosts, readingTime } from '@/lib/blog'
-import { getAutoPublishAfterHours } from '@/lib/blog-automation'
+import { getAutoPublishAfterHours, isAutoPublishEnabled } from '@/lib/blog-automation'
 import {
   generateBlogDraftAction,
   publishBlogPostAction,
@@ -18,6 +18,7 @@ function tagList(tags: string[] | null) {
 export default async function AdminBlogPage() {
   const posts = await getAdminBlogPosts()
   const autoPublishHours = getAutoPublishAfterHours()
+  const autoPublishEnabled = isAutoPublishEnabled()
   const draftCount = posts.filter((post) => !post.is_published).length
   const publishedCount = posts.length - draftCount
 
@@ -27,12 +28,15 @@ export default async function AdminBlogPage() {
         <div>
           <h1 className="font-display text-xl font-bold text-charcoal sm:text-2xl">Blog Automation</h1>
           <p className="mt-1 max-w-2xl text-[.88rem] leading-[1.6] text-muted">
-            Automated drafts monitor curated cardiovascular RSS feeds, then
-            create original PulsePoint perspectives around preventive
-            cardiology, advanced diagnostics, cardiometabolic wellness,
-            executive heart health, and longevity-focused care. Drafts stay
-            private for review, then auto-publish after {autoPublishHours} hours
-            on the next scheduled automation run if no admin action is taken.
+            Physician-led articles publish four times per week (Monday, Tuesday,
+            Thursday, Friday). Drafts are created from verified editorial
+            templates for clinical review. Only posts tagged{' '}
+            <code className="rounded bg-graybg px-1">physician-verified</code>{' '}
+            appear on the public blog. Manual publish in admin marks a draft as
+            verified.
+            {autoPublishEnabled
+              ? ` Optional auto-publish runs after ${autoPublishHours} hours for verified drafts only.`
+              : ' Auto-publish is off — review and publish each draft manually.'}
           </p>
           <p className="mt-2 text-[.78rem] font-semibold uppercase tracking-[1px] text-gold">
             {draftCount} drafts · {publishedCount} published
@@ -49,12 +53,15 @@ export default async function AdminBlogPage() {
       <div className="mb-6 rounded-md border border-[#E2E8F0] bg-white p-4 shadow-card">
         <h2 className="font-semibold text-charcoal">Automation setup</h2>
         <p className="mt-2 text-[.82rem] leading-[1.6] text-muted">
-          Vercel Cron will call <code className="rounded bg-graybg px-1">/api/blog/generate-draft</code> weekly
-          and <code className="rounded bg-graybg px-1">/api/blog/auto-publish</code> daily.
-          Set <code className="rounded bg-graybg px-1">CRON_SECRET</code> in Vercel so the endpoint can verify scheduled requests.
-          RSS-inspired drafts include the source link for review and should be
-          edited before publishing when possible.
-          On Vercel Pro, this can be changed to check every {autoPublishHours} hours.
+          Vercel Cron calls{' '}
+          <code className="rounded bg-graybg px-1">/api/blog/generate-draft</code>{' '}
+          four times weekly (Mon/Tue/Thu/Fri at 15:00 UTC) and{' '}
+          <code className="rounded bg-graybg px-1">/api/blog/auto-publish</code>{' '}
+          daily. Set <code className="rounded bg-graybg px-1">CRON_SECRET</code>{' '}
+          in Vercel. Auto-publish is disabled by default; set{' '}
+          <code className="rounded bg-graybg px-1">BLOG_AUTO_PUBLISH=true</code>{' '}
+          only if you want verified drafts to go live automatically after{' '}
+          {autoPublishHours} hours.
         </p>
       </div>
 

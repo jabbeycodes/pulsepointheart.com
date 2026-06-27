@@ -7,8 +7,9 @@ import StickyMobileCta from '@/components/StickyMobileCta'
 import MarkdownContent from '@/components/MarkdownContent'
 import JsonLd from '@/components/JsonLd'
 import BlogRelatedConditions from '@/components/BlogRelatedConditions'
-import { pageMeta } from '@/lib/page-metadata'
-import { buildArticleJsonLd } from '@/lib/seo'
+import BlogLocalSeo from '@/components/BlogLocalSeo'
+import { buildArticleJsonLd, buildBreadcrumbJsonLd } from '@/lib/seo'
+import { buildBlogPostMetaForSlug } from '@/lib/blog-seo'
 import { formatPostDate, getPublishedBlogPost, readingTime } from '@/lib/blog'
 
 type BlogPostPageProps = {
@@ -23,9 +24,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
 
   if (!post) return {}
 
-  const description = post.excerpt ?? 'PulsePoint Journal article on cardiovascular health and prevention.'
-
-  return pageMeta(`/blog/${post.slug}`, post.title, description)
+  return buildBlogPostMetaForSlug(post.slug, post.title, post.excerpt)
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
@@ -34,24 +33,47 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   if (!post) notFound()
 
-  const articleJsonLd = buildArticleJsonLd({
-    title: post.title,
-    description: post.excerpt ?? '',
-    slug: post.slug,
-    publishedAt: post.published_at,
-    author: post.author,
-  })
+  const description =
+    post.excerpt ??
+    'Physician-verified cardiovascular education from PulsePoint Clinic in Columbia, Missouri.'
+
+  const jsonLd = [
+    buildArticleJsonLd({
+      title: post.title,
+      description,
+      slug: post.slug,
+      publishedAt: post.published_at,
+      author: post.author,
+      tags: post.tags,
+    }),
+    buildBreadcrumbJsonLd([
+      { name: 'Home', path: '/' },
+      { name: 'Heart Health Blog Columbia, MO', path: '/blog' },
+      { name: post.title, path: `/blog/${post.slug}` },
+    ]),
+  ]
 
   return (
     <>
-      <JsonLd data={articleJsonLd} />
+      <JsonLd data={jsonLd} />
       <Navbar />
       <main>
         <article>
           <header className="bg-white px-5 py-12 sm:px-8 sm:py-16 lg:px-12 lg:py-[76px]">
             <div className="mx-auto max-w-4xl">
+              <nav aria-label="Breadcrumb" className="mb-4 text-[.78rem] text-muted">
+                <Link href="/" className="hover:text-wine">
+                  Home
+                </Link>
+                <span className="mx-2">/</span>
+                <Link href="/blog" className="hover:text-wine">
+                  Heart Health Blog Columbia, MO
+                </Link>
+                <span className="mx-2">/</span>
+                <span className="line-clamp-1 font-semibold text-charcoal">{post.title}</span>
+              </nav>
               <Link href="/blog" className="text-[.78rem] font-semibold uppercase tracking-[1.8px] text-wine">
-                PulsePoint Journal
+                PulsePoint Journal · Columbia, Missouri
               </Link>
               <h1 className="mt-3 font-display text-[2.15rem] font-bold leading-[1.12] text-charcoal sm:text-[3rem] lg:text-[3.35rem]">
                 {post.title}
@@ -60,7 +82,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 {post.excerpt}
               </p>
               <div className="mt-6 text-[.78rem] font-semibold uppercase tracking-[1.5px] text-gold">
-                {formatPostDate(post.published_at)} · {readingTime(post.body_md)} · {post.author ?? 'PulsePoint Clinic'}
+                {formatPostDate(post.published_at)} · {readingTime(post.body_md)} ·{' '}
+                {post.author ?? 'PulsePoint Clinic, Columbia, MO'}
               </div>
             </div>
           </header>
@@ -72,12 +95,15 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               <div className="mt-10 rounded-md border-l-2 border-gold bg-graybg p-5">
                 <p className="text-[.84rem] leading-[1.65] text-muted">
                   This article is for educational purposes only and is not a
-                  substitute for medical advice, diagnosis, or treatment. If you
-                  have urgent symptoms, call 911 or seek emergency care.
+                  substitute for medical advice, diagnosis, or treatment from a
+                  cardiologist in Columbia, MO. If you have urgent symptoms, call
+                  911 or seek emergency care.
                 </p>
               </div>
             </div>
           </section>
+
+          <BlogLocalSeo variant="post" />
         </article>
       </main>
       <Footer />

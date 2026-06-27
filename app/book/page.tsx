@@ -4,8 +4,18 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import StickyMobileCta from '@/components/StickyMobileCta'
 import AppointmentRequestForm from '@/components/AppointmentRequestForm'
+import BookingEarliestDateNotice from '@/components/BookingEarliestDateNotice'
+import OutlookBookingEmbed from '@/components/OutlookBookingEmbed'
 import { CLINIC } from '@/lib/seo'
 import { pageMeta } from '@/lib/page-metadata'
+import {
+  earliestBookingNotice,
+  formatBookingDate,
+  getAvailableTimeframes,
+  getTimeframeLabels,
+  isOnlineBookingOpen,
+  EARLIEST_BOOKING_DATE,
+} from '@/lib/booking'
 
 export const metadata: Metadata = pageMeta(
   '/book',
@@ -27,6 +37,10 @@ const PATHWAYS = [
 ]
 
 export default function BookPage() {
+  const bookingOpen = isOnlineBookingOpen()
+  const availableTimeframes = getAvailableTimeframes()
+  const timeframeLabels = getTimeframeLabels()
+
   return (
     <>
       <Navbar />
@@ -44,7 +58,15 @@ export default function BookPage() {
               Whether you are seeking a first consultation or follow-up as an
               existing patient, our team will help route you to the right
               experience.
+              {!bookingOpen && (
+                <>
+                  {' '}
+                  The earliest appointments begin{' '}
+                  {formatBookingDate(EARLIEST_BOOKING_DATE)}.
+                </>
+              )}
             </p>
+            <BookingEarliestDateNotice />
           </div>
         </section>
 
@@ -92,7 +114,12 @@ export default function BookPage() {
               </div>
             </div>
             <div className="rounded-md bg-graybg p-5 shadow-card sm:p-6">
-              <AppointmentRequestForm />
+              <AppointmentRequestForm
+                availableTimeframes={availableTimeframes}
+                timeframeLabels={timeframeLabels}
+                showEarliestDateNotice={!bookingOpen}
+                earliestDateNotice={earliestBookingNotice()}
+              />
             </div>
           </div>
         </section>
@@ -108,8 +135,9 @@ export default function BookPage() {
               </h2>
               <div className="mt-3 h-[3px] w-12 rounded bg-wine" />
               <p className="mt-5 text-[.92rem] leading-[1.7] text-muted">
-                Use the calendar for follow-up visits and ongoing care
-                coordination.
+                {bookingOpen
+                  ? 'Use the calendar for follow-up visits and ongoing care coordination.'
+                  : `Online calendar booking opens ${formatBookingDate(EARLIEST_BOOKING_DATE)}. Until then, submit a request above or call our team.`}
               </p>
               <div className="mt-6 rounded-md bg-navy p-5 text-white">
                 <p className="mb-1 text-[.78rem] font-semibold uppercase tracking-[1.5px] text-gold">
@@ -132,28 +160,7 @@ export default function BookPage() {
               </div>
             </div>
             <div>
-              <div className="overflow-hidden rounded-md bg-white shadow-card">
-                <iframe
-                  src="https://outlook.office.com/book/PulsePointHeartClinic@pulsepointheart.com/"
-                  width="100%"
-                  height="620"
-                  scrolling="yes"
-                  style={{ border: 0, minHeight: 620 }}
-                  title="Book an appointment with PulsePoint Clinic"
-                  allow="camera; microphone"
-                />
-              </div>
-              <p className="mt-3 text-center text-[.78rem] text-muted">
-                Having trouble?{' '}
-                <a
-                  href="https://outlook.office.com/book/PulsePointHeartClinic@pulsepointheart.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-semibold text-wine hover:underline"
-                >
-                  Open scheduling page directly
-                </a>
-              </p>
+              <OutlookBookingEmbed />
             </div>
           </div>
         </section>
