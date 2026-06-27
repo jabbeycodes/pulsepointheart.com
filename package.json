@@ -8,9 +8,11 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "tsx scripts/postbuild-google-indexing.ts",
     "start": "next start",
     "lint": "eslint . --ext .ts,.tsx",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "indexing:submit": "tsx scripts/submit-google-indexing.ts"
   },
   "dependencies": {
     "@supabase/ssr": "^0.5.2",
@@ -31,6 +33,7 @@
     "eslint-config-next": "14.2.15",
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.13",
+    "tsx": "^4.19.4",
     "typescript": "^5.6.2"
   }
 }
