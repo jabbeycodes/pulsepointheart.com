@@ -31,10 +31,10 @@ Direct answers for spoken queries (Siri, Google Assistant, Alexa, AI assistants)
 - Book: https://pulsepointheart.com/book or call (855) 785-7337.
 - Near me: PulsePoint serves Columbia, Boone County, Jefferson City, Fulton, Moberly, and Mid-Missouri.
 
-Voice-optimized pages:
+Voice-optimized pages (existing on-page content, no separate UI):
 - https://pulsepointheart.com/cardiologist-columbia-mo#cardiologist-faqs
-- https://pulsepointheart.com/locations/columbia-mo#voice-quick-answers
-- https://pulsepointheart.com/patient-info#voice-quick-answers
+- https://pulsepointheart.com/locations/columbia-mo#clinic-contact
+- https://pulsepointheart.com/patient-info#faqs
 
 ## Key pages
 

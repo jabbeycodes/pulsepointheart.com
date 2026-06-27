@@ -223,7 +223,7 @@ export function buildSpeakableWebPageJsonLd({
   path,
   name,
   description,
-  cssSelectors = ['#voice-quick-answers', '.voice-answer'],
+  cssSelectors = ['.speakable'],
 }: SpeakableWebPageInput) {
   const url = absoluteUrl(path)
 

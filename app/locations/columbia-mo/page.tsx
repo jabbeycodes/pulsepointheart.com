@@ -4,9 +4,7 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import StickyMobileCta from '@/components/StickyMobileCta'
 import JsonLd from '@/components/JsonLd'
-import VoiceQuickAnswers from '@/components/VoiceQuickAnswers'
-import { CLINIC, absoluteUrl, buildBreadcrumbJsonLd, buildFaqJsonLd, buildSpeakableWebPageJsonLd } from '@/lib/seo'
-import { VOICE_LOCATION_ANSWERS, voiceAnswersToFaqSchema } from '@/lib/voice-seo'
+import { CLINIC, absoluteUrl, buildBreadcrumbJsonLd, buildSpeakableWebPageJsonLd } from '@/lib/seo'
 import { pageMeta } from '@/lib/page-metadata'
 
 export const metadata: Metadata = pageMeta(
@@ -88,8 +86,8 @@ export default function ColumbiaLocationPage() {
       path: '/locations/columbia-mo',
       name: 'Cardiologist in Columbia, MO | PulsePoint Clinic Location',
       description: `PulsePoint cardiologists at ${fullAddress}. Call ${CLINIC.phoneDisplay}.`,
+      cssSelectors: ['#location-intro', '#clinic-contact'],
     }),
-    buildFaqJsonLd(voiceAnswersToFaqSchema(VOICE_LOCATION_ANSWERS)),
   ]
 
   return (
@@ -106,7 +104,7 @@ export default function ColumbiaLocationPage() {
               Cardiologist in Columbia, MO
             </h1>
             <div className="my-5 h-[3px] w-12 rounded bg-wine" />
-            <p className="max-w-2xl text-[.98rem] leading-[1.75] text-muted">
+            <p id="location-intro" className="max-w-2xl text-[.98rem] leading-[1.75] text-muted">
               PulsePoint Clinic is a physician-led cardiovascular practice located at{' '}
               {fullAddress}. Board-certified cardiologists Dr. Martin Tibuakuu and Dr. James
               Fairlamb provide preventive cardiology, diagnostics, and comprehensive heart care for
@@ -129,7 +127,7 @@ export default function ColumbiaLocationPage() {
           </div>
         </section>
 
-        <section className="bg-graybg px-5 py-12 sm:px-8 sm:py-16 lg:px-12 lg:py-[72px]">
+        <section id="clinic-contact" className="bg-graybg px-5 py-12 sm:px-8 sm:py-16 lg:px-12 lg:py-[72px]">
           <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1fr_1.1fr]">
             <div>
               <h2 className="font-display text-[1.8rem] font-bold leading-tight text-charcoal sm:text-[2.25rem]">
@@ -230,13 +228,6 @@ export default function ColumbiaLocationPage() {
             </div>
           </div>
         </section>
-
-        <VoiceQuickAnswers
-          answers={VOICE_LOCATION_ANSWERS}
-          heading="Voice search: cardiologist near Columbia, MO"
-          intro="Answers phrased for spoken searches like “cardiologist near me in Columbia Missouri” or “PulsePoint clinic hours.”"
-          className="bg-white"
-        />
 
         <section className="bg-navy px-5 py-12 text-white sm:px-8 sm:py-16 lg:px-12">
           <div className="mx-auto max-w-6xl">
