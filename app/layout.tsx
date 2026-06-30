@@ -88,8 +88,10 @@ export default function RootLayout({
 
   return (
     <html lang="en" className={`${inter.variable} ${playfairDisplay.variable}`}>
-      <body className="font-sans text-charcoal bg-white">
+      <head>
         <GoogleTag />
+      </head>
+      <body className="font-sans text-charcoal bg-white">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

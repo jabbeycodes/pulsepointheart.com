@@ -6,6 +6,7 @@ import StickyMobileCta from '@/components/StickyMobileCta'
 import AppointmentRequestForm from '@/components/AppointmentRequestForm'
 import BookingEarliestDateNotice from '@/components/BookingEarliestDateNotice'
 import OutlookBookingEmbed from '@/components/OutlookBookingEmbed'
+import GoogleAdsBookConversion from '@/components/GoogleAdsBookConversion'
 import { CLINIC } from '@/lib/seo'
 import { pageMeta } from '@/lib/page-metadata'
 import {
@@ -43,6 +44,7 @@ export default function BookPage() {
 
   return (
     <>
+      <GoogleAdsBookConversion />
       <Navbar />
       <main>
         <section className="bg-white px-5 py-12 sm:px-8 sm:py-16 lg:px-12 lg:py-[76px]">
