@@ -10,6 +10,15 @@ type SendNotificationInput = {
   fields: NotificationField[]
 }
 
+export type SendEmailInput = {
+  to: string | string[]
+  subject: string
+  html: string
+  text: string
+  from?: string
+  replyTo?: string
+}
+
 const DEFAULT_TO = 'info@pulsepointheart.com'
 const DEFAULT_FROM = 'PulsePoint Clinic <notifications@pulsepointheart.com>'
 
@@ -76,6 +85,39 @@ function buildText({ heading, intro, fields }: SendNotificationInput) {
     '',
     'Privacy note: this notification intentionally excludes free-text medical details. Review the secure admin dashboard for the saved submission.',
   ].join('\n')
+}
+
+export async function sendEmail(input: SendEmailInput) {
+  const apiKey = process.env.RESEND_API_KEY
+  const from = input.from ?? process.env.NOTIFICATION_FROM_EMAIL ?? DEFAULT_FROM
+
+  if (!apiKey) {
+    console.warn('Email skipped: RESEND_API_KEY is not configured.')
+    return { skipped: true as const }
+  }
+
+  const response = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${apiKey}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      from,
+      to: input.to,
+      subject: input.subject,
+      html: input.html,
+      text: input.text,
+      reply_to: input.replyTo,
+    }),
+  })
+
+  if (!response.ok) {
+    const message = await response.text().catch(() => 'Unknown email provider error')
+    throw new Error(`Resend email failed: ${response.status} ${message}`)
+  }
+
+  return { skipped: false as const }
 }
 
 export async function sendFormNotification(input: SendNotificationInput) {

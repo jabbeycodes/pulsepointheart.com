@@ -9,7 +9,7 @@ import { pageMeta } from '@/lib/page-metadata'
 
 export const metadata: Metadata = pageMeta(
   '/locations/columbia-mo',
-  'Cardiologist in Columbia, MO | PulsePoint Clinic Location',
+  'PulsePoint Clinic Columbia, MO | Address, Hours & Directions',
   'PulsePoint Clinic — board-certified cardiologists at 1000 W Nifong Blvd, Columbia, MO 65203. Serving Boone County and Central Missouri. Call (573) 968-0800.',
 )
 
@@ -66,7 +66,7 @@ export default function ColumbiaLocationPage() {
       '@id': `${absoluteUrl('/locations/columbia-mo')}#location`,
       name: CLINIC.name,
       url: absoluteUrl('/locations/columbia-mo'),
-      telephone: CLINIC.phoneHref,
+      telephone: CLINIC.localPhoneHref,
       email: CLINIC.email,
       image: absoluteUrl('/assets/social-preview.png'),
       address: {
@@ -84,8 +84,8 @@ export default function ColumbiaLocationPage() {
     },
     buildSpeakableWebPageJsonLd({
       path: '/locations/columbia-mo',
-      name: 'Cardiologist in Columbia, MO | PulsePoint Clinic Location',
-      description: `PulsePoint cardiologists at ${fullAddress}. Call ${CLINIC.phoneDisplay}.`,
+      name: 'PulsePoint Clinic Columbia, MO | Address, Hours & Directions',
+      description: `PulsePoint cardiologists at ${fullAddress}. Call ${CLINIC.localPhoneDisplay}.`,
       cssSelectors: ['#location-intro', '#clinic-contact'],
     }),
   ]

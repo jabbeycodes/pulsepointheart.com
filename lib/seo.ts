@@ -94,6 +94,9 @@ export const PUBLIC_ROUTES = [
   { path: '/contact', priority: 0.85, changeFrequency: 'monthly' as const },
   { path: '/locations/columbia-mo', priority: 0.9, changeFrequency: 'monthly' as const },
   { path: '/cardiologist-columbia-mo', priority: 0.95, changeFrequency: 'monthly' as const },
+  { path: '/missouri-heart-center-transition', priority: 0.94, changeFrequency: 'monthly' as const },
+  { path: '/best-cardiologist-columbia-mo', priority: 0.93, changeFrequency: 'monthly' as const },
+  { path: '/heart-screening-columbia-mo', priority: 0.9, changeFrequency: 'monthly' as const },
   { path: '/patient-info', priority: 0.75, changeFrequency: 'monthly' as const },
   { path: '/blog', priority: 0.75, changeFrequency: 'weekly' as const },
   { path: '/privacy', priority: 0.3, changeFrequency: 'yearly' as const },
@@ -275,6 +278,77 @@ export function buildBreadcrumbJsonLd(items: BreadcrumbItem[]) {
       item: absoluteUrl(item.path),
     })),
   }
+}
+
+type ConditionSchemaInput = {
+  slug: string
+  shortTitle: string
+  title: string
+  description: string
+  overview: string
+  symptoms: string[]
+  howWeTreat: string[]
+  faqs: { question: string; answer: string }[]
+}
+
+export function buildMedicalConditionJsonLd(condition: ConditionSchemaInput) {
+  const url = absoluteUrl(`/conditions/${condition.slug}`)
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'MedicalCondition',
+    '@id': `${url}#condition`,
+    name: condition.shortTitle,
+    description: condition.overview,
+    url,
+    associatedAnatomy: {
+      '@type': 'AnatomicalStructure',
+      name: 'Heart and cardiovascular system',
+    },
+    signOrSymptom: condition.symptoms.map((symptom) => ({
+      '@type': 'MedicalSignOrSymptom',
+      name: symptom,
+    })),
+    possibleTreatment: condition.howWeTreat.map((treatment) => ({
+      '@type': 'MedicalTherapy',
+      name: treatment,
+    })),
+    relevantSpecialty: {
+      '@type': 'MedicalSpecialty',
+      name: 'Cardiology',
+    },
+  }
+}
+
+/** Breadcrumb, FAQ, MedicalCondition, and MedicalWebPage JSON-LD for condition detail pages. */
+export function buildConditionPageJsonLd(condition: ConditionSchemaInput) {
+  const url = absoluteUrl(`/conditions/${condition.slug}`)
+
+  return [
+    buildBreadcrumbJsonLd([
+      { name: 'Home', path: '/' },
+      { name: 'Conditions', path: '/conditions' },
+      { name: condition.shortTitle, path: `/conditions/${condition.slug}` },
+    ]),
+    buildFaqJsonLd(condition.faqs),
+    buildMedicalConditionJsonLd(condition),
+    {
+      '@context': 'https://schema.org',
+      '@type': 'MedicalWebPage',
+      '@id': `${url}#webpage`,
+      name: condition.title,
+      description: condition.description,
+      url,
+      mainEntity: { '@id': `${url}#condition` },
+      about: { '@id': `${url}#condition` },
+      lastReviewed: '2026-06-30',
+      reviewedBy: {
+        '@type': 'Physician',
+        name: 'Martin Tibuakuu, MD, MPH, FACC',
+      },
+      publisher: { '@id': `${SITE_URL}/#clinic` },
+    },
+  ]
 }
 
 export function buildPhysicianJsonLd(physician: PhysicianProfile) {

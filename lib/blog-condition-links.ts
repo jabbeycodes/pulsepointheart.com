@@ -15,7 +15,11 @@ const TAG_KEYWORDS: Array<{ pattern: RegExp; slug: string }> = [
   { pattern: /cholesterol|lipid/i, slug: 'high-cholesterol' },
   { pattern: /preventive|prevention|risk assessment|screening/i, slug: 'cardiac-risk-assessment' },
   { pattern: /valve|valvular|stenosis|regurgitation/i, slug: 'valvular-heart-disease' },
-  { pattern: /diabetes|a1c|metabolic/i, slug: 'cardiac-risk-assessment' },
+  { pattern: /peripheral artery|pad|claudication|leg pain.*walk/i, slug: 'peripheral-artery-disease' },
+  { pattern: /sleep apnea|cpap|snoring/i, slug: 'sleep-apnea-and-heart-disease' },
+  { pattern: /syncope|faint|fainting/i, slug: 'syncope' },
+  { pattern: /cardiomyopathy|heart muscle/i, slug: 'cardiomyopathy' },
+  { pattern: /diabetes|a1c|metabolic/i, slug: 'diabetes-and-heart-disease' },
   { pattern: /stroke/i, slug: 'coronary-artery-disease' },
 ]
 
@@ -28,7 +32,7 @@ const PILLAR_SLUGS: Record<string, string[]> = {
   'Warning Signs': ['chest-pain', 'coronary-artery-disease'],
   'Blood Pressure': ['hypertension'],
   Cholesterol: ['high-cholesterol'],
-  'Diabetes and Heart Health': ['cardiac-risk-assessment', 'high-cholesterol'],
+  'Diabetes and Heart Health': ['diabetes-and-heart-disease', 'cardiac-risk-assessment'],
   'Stroke Prevention': ['atrial-fibrillation', 'coronary-artery-disease'],
   'Heart Failure': ['heart-failure'],
   'Atrial Fibrillation': ['atrial-fibrillation'],

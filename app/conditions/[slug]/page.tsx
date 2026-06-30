@@ -11,7 +11,7 @@ import {
   getConditionPage,
   getConditionSlugs,
 } from '@/lib/condition-pages'
-import { CLINIC, buildBreadcrumbJsonLd, buildFaqJsonLd } from '@/lib/seo'
+import { CLINIC, buildConditionPageJsonLd } from '@/lib/seo'
 import { pageMeta } from '@/lib/page-metadata'
 
 type ConditionPageProps = {
@@ -48,28 +48,7 @@ export default async function ConditionDetailPage({ params }: ConditionPageProps
     3,
   )
 
-  const jsonLd = [
-    buildBreadcrumbJsonLd([
-      { name: 'Home', path: '/' },
-      { name: 'Conditions', path: '/conditions' },
-      { name: condition.shortTitle, path: `/conditions/${condition.slug}` },
-    ]),
-    buildFaqJsonLd(condition.faqs),
-    {
-      '@context': 'https://schema.org',
-      '@type': 'MedicalWebPage',
-      name: condition.title,
-      description: condition.description,
-      url: `https://pulsepointheart.com/conditions/${condition.slug}`,
-      about: condition.shortTitle,
-      lastReviewed: '2026-05-30',
-      reviewedBy: {
-        '@type': 'Physician',
-        name: 'Martin Tibuakuu, MD, MPH, FACC',
-      },
-      publisher: { '@id': 'https://pulsepointheart.com/#clinic' },
-    },
-  ]
+  const jsonLd = buildConditionPageJsonLd(condition)
 
   return (
     <>

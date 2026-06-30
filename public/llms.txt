@@ -7,22 +7,31 @@ PulsePoint Clinic provides preventive cardiology, advanced heart diagnostics, an
 ## Location
 
 - Address: 1000 W Nifong Blvd, Bldg 2, Suite 120, Columbia, MO 65203
-- Phone: (855) 785-7337
+- Local phone: (573) 968-0800
+- Toll-free appointments: (855) 785-7337 (1-855-PULSEDR)
 - Hours: Monday–Friday, 9:00 AM–5:00 PM (by appointment)
 - Website: https://pulsepointheart.com
+- Opening: July 1, 2026
 
 ## Physicians
 
 - Dr. Martin Tibuakuu, MD, MPH, FACC — https://pulsepointheart.com/physicians/martin-tibuakuu
 - Dr. James E. Fairlamb, MD, FACC — https://pulsepointheart.com/physicians/james-fairlamb
 - Cardiologists hub (Columbia, MO): https://pulsepointheart.com/physicians
-- Search intent: "Martin Tibuakuu cardiologist Columbia MO", "James Fairlamb cardiologist Columbia MO" — current practice is PulsePoint Clinic at the address above
+- Search intent: "Martin Tibuakuu cardiologist Columbia MO", "James Fairlamb cardiologist Columbia MO" — current practice is PulsePoint Clinic at the Nifong Blvd address above (not Missouri Heart Center at 1605 E Broadway)
+
+## Missouri Heart Center transition
+
+Missouri Heart Center closed in May 2026. Dr. Martin Tibuakuu and Dr. James E. Fairlamb now practice at PulsePoint Clinic, an independent cardiology practice in Columbia, MO. Patients seeking former Missouri Heart Center cardiologists may schedule at PulsePoint Clinic.
+
+- Transition guide: https://pulsepointheart.com/missouri-heart-center-transition
+- Cardiologist in Columbia: https://pulsepointheart.com/cardiologist-columbia-mo
 
 ## Voice & conversational search
 
 Direct answers for spoken queries (Siri, Google Assistant, Alexa, AI assistants):
 
-- Phone: Call PulsePoint at (855) 785-7337 for cardiology appointments in Columbia, MO.
+- Phone: Call PulsePoint at (573) 968-0800 (local) or (855) 785-7337 (toll-free) for cardiology appointments in Columbia, MO.
 - Address: 1000 W Nifong Blvd, Bldg 2, Suite 120, Columbia, MO 65203.
 - Hours: Monday–Friday, 9:00 AM–5:00 PM, by appointment.
 - Cardiologists: Dr. Martin Tibuakuu and Dr. James E. Fairlamb — board-certified at PulsePoint Clinic.
@@ -35,6 +44,7 @@ Voice-optimized pages (existing on-page content, no separate UI):
 - https://pulsepointheart.com/cardiologist-columbia-mo#cardiologist-faqs
 - https://pulsepointheart.com/locations/columbia-mo#clinic-contact
 - https://pulsepointheart.com/patient-info#faqs
+- https://pulsepointheart.com/missouri-heart-center-transition#transition-faqs
 
 ## Key pages
 
@@ -49,6 +59,9 @@ Voice-optimized pages (existing on-page content, no separate UI):
 - Contact: https://pulsepointheart.com/contact
 - Columbia, MO location: https://pulsepointheart.com/locations/columbia-mo
 - Cardiologist in Columbia, MO: https://pulsepointheart.com/cardiologist-columbia-mo
+- Best cardiologist Columbia, MO: https://pulsepointheart.com/best-cardiologist-columbia-mo
+- Heart screening Columbia, MO: https://pulsepointheart.com/heart-screening-columbia-mo
+- Missouri Heart Center transition: https://pulsepointheart.com/missouri-heart-center-transition
 
 ## Blog
 

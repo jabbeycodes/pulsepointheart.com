@@ -42,3 +42,6 @@ supabase/.temp
 supabase/.branches
 public/assets/ads/frames/
 public/assets/ads/*.mp4
+
+# generated outreach drafts
+scripts/outreach-drafts/

@@ -12,7 +12,8 @@
     "start": "next start",
     "lint": "eslint . --ext .ts,.tsx",
     "typecheck": "tsc --noEmit",
-    "indexing:submit": "tsx scripts/submit-google-indexing.ts"
+    "indexing:submit": "tsx scripts/submit-google-indexing.ts",
+    "outreach:directory": "tsx scripts/directory-outreach.ts"
   },
   "dependencies": {
     "@supabase/ssr": "^0.5.2",

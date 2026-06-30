@@ -474,6 +474,266 @@ export const CONDITION_PAGES: ConditionPage[] = [
       },
     ],
   },
+  {
+    slug: 'peripheral-artery-disease',
+    shortTitle: 'Peripheral Artery Disease',
+    title: 'Peripheral Artery Disease (PAD) Treatment in Columbia, MO',
+    description:
+      'PAD evaluation and prevention in Columbia, Missouri. PulsePoint cardiologists assess leg pain, circulation, and cardiovascular risk. Call (855) 785-7337.',
+    heroText:
+      'Peripheral artery disease affects blood flow to the legs and is a marker of broader cardiovascular risk. Early evaluation helps prevent progression and complications.',
+    overview:
+      'Peripheral artery disease (PAD) develops when plaque narrows arteries outside the heart — most often in the legs. It can cause leg pain with walking, slow-healing wounds, and reduced exercise tolerance. PAD also signals higher risk for heart attack and stroke. At PulsePoint Clinic in Columbia, MO, cardiologists evaluate circulation concerns alongside blood pressure, cholesterol, diabetes, and smoking history to build a prevention and treatment plan.',
+    symptoms: [
+      'Leg pain or cramping with walking that improves with rest (claudication)',
+      'Numbness or weakness in the legs',
+      'Coldness in the lower leg or foot',
+      'Slow-healing sores on toes, feet, or legs',
+      'Shiny skin or reduced hair growth on the legs',
+      'Sometimes no symptoms until disease is advanced',
+    ],
+    whenToSeeCardiologist: [
+      'Leg pain with exertion that limits walking',
+      'Known PAD or abnormal ankle-brachial index (ABI)',
+      'Diabetes, smoking, or coronary disease with leg symptoms',
+      'Non-healing foot or leg wounds',
+      'Family history of PAD or vascular disease',
+    ],
+    howWeTreat: [
+      'Cardiovascular risk assessment and medication review',
+      'Vascular ultrasound when circulation symptoms need clarification',
+      'Exercise and walking therapy guidance',
+      'Blood pressure, cholesterol, and diabetes optimization',
+      'Smoking cessation counseling and referral coordination when needed',
+    ],
+    relatedServicePath: '/services/preventive-cardiology',
+    relatedDiagnosticPath: '/services/vascular-ultrasound',
+    faqs: [
+      {
+        question: 'Is leg pain always peripheral artery disease?',
+        answer:
+          'No. Leg pain can come from arthritis, neuropathy, spine problems, or other causes. A cardiologist helps determine when circulation testing is appropriate.',
+      },
+      {
+        question: 'How is PAD diagnosed?',
+        answer:
+          'Diagnosis may include history, physical exam, ankle-brachial index testing, and vascular ultrasound. Your cardiologist selects tests based on your symptoms and risk profile.',
+      },
+      {
+        question: 'Where can I see a cardiologist for PAD in Columbia, MO?',
+        answer:
+          'PulsePoint Clinic on Nifong Blvd provides PAD evaluation and cardiovascular risk management for patients throughout Boone County and Central Missouri.',
+      },
+    ],
+  },
+  {
+    slug: 'diabetes-and-heart-disease',
+    shortTitle: 'Diabetes & Heart Disease',
+    title: 'Diabetes and Heart Disease Care in Columbia, MO',
+    description:
+      'Cardiometabolic heart care for diabetes and prediabetes in Columbia, Missouri. PulsePoint cardiologists reduce cardiovascular risk. (855) 785-7337.',
+    heroText:
+      'Diabetes and prediabetes significantly increase heart attack, stroke, and heart failure risk — but aggressive prevention can change the trajectory.',
+    overview:
+      'Diabetes affects the heart and blood vessels through elevated blood sugar, inflammation, blood pressure, cholesterol patterns, and kidney strain. Many patients with type 2 diabetes or prediabetes benefit from cardiology input before symptoms appear. PulsePoint cardiologists in Columbia, MO integrate glucose control, blood pressure, lipids, weight, and lifestyle into a unified cardiovascular prevention plan.',
+    symptoms: [
+      'Often no cardiac symptoms until complications develop',
+      'Shortness of breath with exertion',
+      'Chest discomfort or reduced exercise tolerance',
+      'Swelling in the legs',
+      'Fatigue related to heart strain or poor glucose control',
+      'Elevated A1c, blood pressure, or cholesterol on routine labs',
+    ],
+    whenToSeeCardiologist: [
+      'Type 2 diabetes, prediabetes, or metabolic syndrome',
+      'Diabetes with hypertension or high cholesterol',
+      'Family history of heart disease and diabetes together',
+      'Albuminuria or kidney concerns related to diabetes',
+      'Questions about heart-protective medications (statins, BP targets, SGLT2/GLP-1)',
+    ],
+    howWeTreat: [
+      'Cardiometabolic risk review and goal setting',
+      'Blood pressure and lipid management',
+      'A1c interpretation in cardiovascular context',
+      'Lifestyle and nutrition priorities',
+      'Coordination with primary care and endocrinology',
+    ],
+    relatedServicePath: '/services/cardiometabolic-wellness',
+    relatedDiagnosticPath: '/diagnostics',
+    faqs: [
+      {
+        question: 'Why does diabetes increase heart disease risk?',
+        answer:
+          'High blood sugar damages blood vessels over time and often clusters with hypertension, abnormal lipids, obesity, and kidney disease — all of which raise cardiovascular risk.',
+      },
+      {
+        question: 'Should every person with diabetes see a cardiologist?',
+        answer:
+          'Not always. A cardiologist is especially helpful when multiple risk factors cluster, when prevention goals are unclear, or when symptoms or abnormal testing need evaluation.',
+      },
+      {
+        question: 'Does PulsePoint treat diabetes-related heart risk in Columbia?',
+        answer:
+          'Yes. Cardiometabolic wellness and preventive cardiology at PulsePoint address diabetes, prediabetes, and long-term cardiovascular protection.',
+      },
+    ],
+  },
+  {
+    slug: 'sleep-apnea-and-heart-disease',
+    shortTitle: 'Sleep Apnea & Heart Health',
+    title: 'Sleep Apnea and Heart Disease in Columbia, MO',
+    description:
+      'Sleep apnea cardiovascular evaluation in Columbia, Missouri. PulsePoint cardiologists address hypertension, AFib risk, and heart strain linked to sleep apnea. (855) 785-7337.',
+    heroText:
+      'Untreated sleep apnea strains the heart and blood vessels — raising blood pressure, arrhythmia risk, and long-term cardiovascular events.',
+    overview:
+      'Obstructive sleep apnea causes repeated breathing interruptions during sleep, leading to oxygen drops, surges in blood pressure, and stress on the heart. It is linked to hypertension, atrial fibrillation, heart failure, and coronary artery disease. PulsePoint cardiologists in Columbia, MO help patients understand when sleep apnea may be contributing to cardiovascular problems and coordinate testing and treatment planning with sleep medicine when appropriate.',
+    symptoms: [
+      'Loud snoring or witnessed breathing pauses during sleep',
+      'Daytime sleepiness or unrefreshing sleep',
+      'Morning headaches',
+      'Difficulty controlling blood pressure',
+      'Palpitations or AFib, especially with untreated apnea',
+      'Often reported by a partner before the patient notices symptoms',
+    ],
+    whenToSeeCardiologist: [
+      'Hypertension that is hard to control',
+      'AFib or palpitations with suspected sleep apnea',
+      'Heart failure with excessive daytime fatigue',
+      'Positive sleep apnea screen or prior sleep study',
+      'Coronary disease with prominent snoring or sleep symptoms',
+    ],
+    howWeTreat: [
+      'Cardiovascular history and risk factor review',
+      'Blood pressure and rhythm assessment',
+      'Sleep apnea screening guidance and referral coordination',
+      'Medication optimization for heart and vascular risk',
+      'Follow-up after CPAP or other sleep therapy begins',
+    ],
+    relatedServicePath: '/services/preventive-cardiology',
+    relatedDiagnosticPath: '/services/heart-rhythm-monitoring',
+    faqs: [
+      {
+        question: 'Can sleep apnea cause high blood pressure?',
+        answer:
+          'Yes. Repeated nighttime oxygen drops and sympathetic surges are strongly linked to hypertension and can make blood pressure harder to control.',
+      },
+      {
+        question: 'Does treating sleep apnea help the heart?',
+        answer:
+          'Treating obstructive sleep apnea often improves blood pressure control and may reduce arrhythmia burden. Your cardiologist helps monitor cardiovascular response over time.',
+      },
+      {
+        question: 'Who evaluates sleep apnea and heart disease in Columbia, MO?',
+        answer:
+          'PulsePoint cardiologists evaluate cardiovascular impact and coordinate with sleep specialists for diagnostic sleep studies when indicated.',
+      },
+    ],
+  },
+  {
+    slug: 'syncope',
+    shortTitle: 'Syncope (Fainting)',
+    title: 'Fainting & Syncope Evaluation in Columbia, MO',
+    description:
+      'Syncope and fainting evaluation in Columbia, Missouri. PulsePoint cardiologists assess heart rhythm, blood pressure, and serious causes. Call (855) 785-7337.',
+    heroText:
+      'Fainting can be benign — or a warning sign of a heart rhythm problem, structural issue, or dangerous drop in blood pressure.',
+    overview:
+      'Syncope is a temporary loss of consciousness, usually from reduced blood flow to the brain. Causes range from dehydration and vasovagal episodes to serious arrhythmias or structural heart disease. PulsePoint cardiologists in Columbia, MO take a structured approach: characterizing the event, reviewing medications and triggers, and using ECG, monitoring, and imaging when needed to determine whether cardiac causes require treatment.',
+    symptoms: [
+      'Sudden loss of consciousness with spontaneous recovery',
+      'Lightheadedness or near-fainting (presyncope)',
+      'Palpitations before fainting',
+      'Fainting during exertion (always warrants prompt evaluation)',
+      'Brief confusion after the event',
+      'Injury from falling during syncope',
+    ],
+    whenToSeeCardiologist: [
+      'Fainting during exercise or while lying flat',
+      'Recurrent unexplained syncope',
+      'Family history of sudden cardiac death',
+      'Known heart disease or abnormal ECG',
+      'Palpitations, chest pain, or shortness of breath with syncope',
+    ],
+    howWeTreat: [
+      'Detailed event history and medication review',
+      'ECG and ambulatory rhythm monitoring when indicated',
+      'Echocardiography if structural disease is suspected',
+      'Blood pressure and autonomic assessment',
+      'Clear guidance on activity restrictions until evaluation is complete',
+    ],
+    relatedServicePath: '/services/preventive-cardiology',
+    relatedDiagnosticPath: '/services/heart-rhythm-monitoring',
+    faqs: [
+      {
+        question: 'When is fainting an emergency?',
+        answer:
+          'Call 911 for fainting with chest pain, severe shortness of breath, sustained confusion, injury, or if the person does not wake up normally. Fainting during exertion needs urgent evaluation.',
+      },
+      {
+        question: 'Can fainting be caused by the heart?',
+        answer:
+          'Yes. Slow or fast heart rhythms and some structural heart conditions can cause syncope. Cardiac evaluation helps identify these causes.',
+      },
+      {
+        question: 'Where can I get syncope evaluation in Columbia, MO?',
+        answer:
+          'PulsePoint Clinic provides cardiologist-led syncope evaluation with rhythm monitoring and echocardiography at our Nifong Blvd location.',
+      },
+    ],
+  },
+  {
+    slug: 'cardiomyopathy',
+    shortTitle: 'Cardiomyopathy',
+    title: 'Cardiomyopathy Treatment in Columbia, MO',
+    description:
+      'Cardiomyopathy evaluation and management in Columbia, Missouri. PulsePoint cardiologists assess heart muscle disease, pumping function, and treatment options. (855) 785-7337.',
+    heroText:
+      'Cardiomyopathy affects the heart muscle itself — how well the heart pumps and fills — and benefits from specialist evaluation and long-term planning.',
+    overview:
+      'Cardiomyopathy refers to diseases of the heart muscle that can weaken pumping function, cause arrhythmias, or lead to heart failure. Causes include genetics, long-standing hypertension, prior heart attack, toxins, pregnancy-related cardiomyopathy, and other conditions. PulsePoint cardiologists in Columbia, MO use history, examination, echocardiography, and targeted testing to classify the type of cardiomyopathy and guide medications, lifestyle changes, device therapy referrals, and surveillance.',
+    symptoms: [
+      'Shortness of breath with activity or at rest',
+      'Fatigue and reduced exercise tolerance',
+      'Leg swelling or abdominal bloating',
+      'Palpitations or irregular heartbeat',
+      'Chest discomfort or pressure',
+      'Sometimes discovered incidentally on echocardiogram',
+    ],
+    whenToSeeCardiologist: [
+      'Reduced ejection fraction on prior echocardiogram',
+      'Heart failure symptoms with unclear cause',
+      'Family history of cardiomyopathy or sudden cardiac death',
+      'Persistent palpitations with cardiomyopathy',
+      'Need for ongoing surveillance after diagnosis',
+    ],
+    howWeTreat: [
+      'Echocardiography and cardiac imaging review',
+      'Guideline-directed medical therapy for heart muscle disease',
+      'Rhythm monitoring when arrhythmia risk is a concern',
+      'Lifestyle and activity counseling',
+      'Referral coordination for advanced therapies when appropriate',
+    ],
+    relatedServicePath: '/services/preventive-cardiology',
+    relatedDiagnosticPath: '/services/echocardiography',
+    faqs: [
+      {
+        question: 'Is cardiomyopathy the same as heart failure?',
+        answer:
+          'Cardiomyopathy is disease of the heart muscle. Heart failure is a syndrome that can result from cardiomyopathy when the heart cannot pump effectively. Many patients have both.',
+      },
+      {
+        question: 'Can cardiomyopathy be inherited?',
+        answer:
+          'Some forms are genetic. Family history matters, and your cardiologist may recommend screening for relatives when an inherited pattern is suspected.',
+      },
+      {
+        question: 'Does PulsePoint manage cardiomyopathy in Columbia, MO?',
+        answer:
+          'Yes. PulsePoint provides outpatient evaluation, echocardiography, medication management, and long-term follow-up for cardiomyopathy and related heart failure.',
+      },
+    ],
+  },
 ]
 
 export function getConditionPage(slug: string) {
