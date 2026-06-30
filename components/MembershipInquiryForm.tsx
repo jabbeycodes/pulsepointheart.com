@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import FormPrivacyNotice from './FormPrivacyNotice'
+import { CLINIC, clinicPhonesInlineText } from '@/lib/seo'
 import { INTEREST_LEVELS, INTEREST_LEVEL_LABELS } from '@/lib/validation'
 
 type Status = 'idle' | 'submitting' | 'success' | 'error'
@@ -37,7 +38,7 @@ export default function MembershipInquiryForm() {
       if (!res.ok) { setErrorMsg(data.error || 'Something went wrong.'); setStatus('error'); return }
       setStatus('success')
     } catch {
-      setErrorMsg('Network error. Please try again or call (855) 785-7337.')
+      setErrorMsg(`Network error. Please try again or call ${clinicPhonesInlineText()}.`)
       setStatus('error')
     }
   }
@@ -48,8 +49,10 @@ export default function MembershipInquiryForm() {
         <h3 className="mb-2 font-display text-xl font-bold text-charcoal">Thank you for your interest.</h3>
         <p className="text-[.92rem] leading-[1.65] text-muted">
           We will reach out shortly to tell you more about the PulsePoint membership program.
-          Questions? Call us at{' '}
-          <a href="tel:18557857337" className="font-semibold text-wine">(855) 785-7337</a>.
+          Questions? Call our local office at{' '}
+          <a href={`tel:${CLINIC.localPhoneHref}`} className="font-semibold text-wine">{CLINIC.localPhoneDisplay}</a>
+          {' '}or toll-free{' '}
+          <a href={`tel:${CLINIC.phoneHref}`} className="font-semibold text-wine">{CLINIC.phoneDisplay}</a>.
         </p>
       </div>
     )

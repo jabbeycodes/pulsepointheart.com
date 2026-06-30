@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { CLINIC } from '@/lib/seo'
+import ClinicPhoneNumbers from '@/components/ClinicPhoneNumbers'
 
 function PhoneIcon() {
   return (
@@ -36,12 +36,10 @@ export default function TestimonialSection() {
           <p className="mt-2 text-[.9rem] leading-relaxed text-charcoal/75">
             Speak with our team to schedule a consultation or ask about our cardiovascular services.
           </p>
-          <a
-            href="tel:18557857337"
-            className="mt-4 block text-[1.05rem] font-bold text-wine hover:underline"
-          >
-            {CLINIC.phoneDisplay}
-          </a>
+          <ClinicPhoneNumbers
+            className="mt-4 block text-[1.02rem] font-bold"
+            linkClassName="text-wine hover:underline"
+          />
           <Link
             href="/book"
             className="mt-5 flex min-h-[48px] w-full items-center justify-center rounded-md bg-wine px-5 py-3 text-[.88rem] font-semibold text-white transition-colors hover:bg-wine-light"

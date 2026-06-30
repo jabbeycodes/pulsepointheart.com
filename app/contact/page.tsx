@@ -4,13 +4,14 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import StickyMobileCta from '@/components/StickyMobileCta'
 import ContactForm from '@/components/ContactForm'
+import ClinicPhoneNumbers from '@/components/ClinicPhoneNumbers'
 import { CLINIC } from '@/lib/seo'
 import { pageMeta } from '@/lib/page-metadata'
 
 export const metadata: Metadata = pageMeta(
   '/contact',
   'Contact PulsePoint Clinic | Columbia, MO Cardiologist',
-  'Contact PulsePoint Clinic in Columbia, MO. Call (855) 785-7337, email the clinic, or send a secure administrative inquiry.',
+  'Contact PulsePoint Clinic in Columbia, MO. Call our local office at (573) 968-0800 or toll-free (855) 785-7337, email the clinic, or send a secure administrative inquiry.',
 )
 
 export default function ContactPage() {
@@ -58,11 +59,7 @@ export default function ContactPage() {
                   </svg>
                   <div>
                     <div className="font-semibold text-charcoal">Phone</div>
-                    <a href="tel:18557857337" className="text-wine hover:underline">
-                      (855) 785-7337
-                      <br />
-                      1-855-PULSEDR
-                    </a>
+                    <ClinicPhoneNumbers linkClassName="text-wine hover:underline" />
                   </div>
                 </div>
 

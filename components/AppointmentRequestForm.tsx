@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import FormPrivacyNotice from './FormPrivacyNotice'
+import { CLINIC, clinicPhonesInlineText } from '@/lib/seo'
 import {
   APPOINTMENT_REASON_LABELS,
   APPOINTMENT_REASONS,
@@ -53,7 +54,7 @@ export default function AppointmentRequestForm({
       if (!res.ok) { setErrorMsg(data.error || 'Something went wrong.'); setStatus('error'); return }
       setStatus('success')
     } catch {
-      setErrorMsg('Network error. Please try again or call (855) 785-7337.')
+      setErrorMsg(`Network error. Please try again or call ${clinicPhonesInlineText()}.`)
       setStatus('error')
     }
   }
@@ -65,7 +66,9 @@ export default function AppointmentRequestForm({
         <p className="text-[.92rem] leading-[1.65] text-muted">
           A member of our team will contact you within one business day to confirm your consultation.
           For urgent matters, call us at{' '}
-          <a href="tel:18557857337" className="font-semibold text-wine">(855) 785-7337</a>.
+          <a href={`tel:${CLINIC.localPhoneHref}`} className="font-semibold text-wine">{CLINIC.localPhoneDisplay}</a>
+          {' '}or toll-free{' '}
+          <a href={`tel:${CLINIC.phoneHref}`} className="font-semibold text-wine">{CLINIC.phoneDisplay}</a>.
         </p>
       </div>
     )

@@ -1,3 +1,4 @@
+import ClinicPhoneNumbers from '@/components/ClinicPhoneNumbers'
 import { CLINIC } from '@/lib/seo'
 import {
   EARLIEST_BOOKING_DATE,
@@ -25,11 +26,9 @@ export default function OutlookBookingEmbed() {
           the first available opening.
         </p>
         <p className="mt-4 text-[.88rem] leading-[1.65] text-muted">
-          <a href={`tel:${CLINIC.phoneHref}`} className="font-semibold text-wine">
-            {CLINIC.phoneDisplay}
-          </a>{' '}
-          ·{' '}
-          <a href={`mailto:${CLINIC.email}`} className="font-semibold text-wine">
+          <ClinicPhoneNumbers linkClassName="font-semibold text-wine hover:underline" showVanity={false} />
+          <br />
+          <a href={`mailto:${CLINIC.email}`} className="font-semibold text-wine hover:underline">
             {CLINIC.email}
           </a>
         </p>

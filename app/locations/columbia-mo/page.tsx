@@ -10,7 +10,7 @@ import { pageMeta } from '@/lib/page-metadata'
 export const metadata: Metadata = pageMeta(
   '/locations/columbia-mo',
   'Cardiologist in Columbia, MO | PulsePoint Clinic Location',
-  'PulsePoint Clinic — board-certified cardiologists at 1000 W Nifong Blvd, Columbia, MO 65203. Serving Boone County and Central Missouri. Call (855) 785-7337.',
+  'PulsePoint Clinic — board-certified cardiologists at 1000 W Nifong Blvd, Columbia, MO 65203. Serving Boone County and Central Missouri. Call (573) 968-0800.',
 )
 
 const AREAS_SERVED = [
@@ -118,10 +118,10 @@ export default function ColumbiaLocationPage() {
                 Schedule Consultation
               </Link>
               <a
-                href={`tel:${CLINIC.phoneHref}`}
+                href={`tel:${CLINIC.localPhoneHref}`}
                 className="inline-flex min-h-[44px] items-center justify-center rounded-md border border-navy/20 px-5 py-3 text-sm font-semibold text-navy transition-colors hover:border-wine hover:text-wine"
               >
-                {CLINIC.phoneDisplay}
+                {CLINIC.localPhoneDisplay}
               </a>
             </div>
           </div>
@@ -146,6 +146,9 @@ export default function ColumbiaLocationPage() {
                 </div>
                 <div>
                   <p className="font-bold text-charcoal">Phone</p>
+                  <a href={`tel:${CLINIC.localPhoneHref}`} className="mt-1 block text-wine hover:underline">
+                    {CLINIC.localPhoneDisplay} · Local office
+                  </a>
                   <a href={`tel:${CLINIC.phoneHref}`} className="mt-1 block text-wine hover:underline">
                     {CLINIC.phoneDisplay} · {CLINIC.vanityPhone}
                   </a>

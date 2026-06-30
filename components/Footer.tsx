@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import NewsletterForm from './NewsletterForm'
+import ClinicPhoneNumbers from './ClinicPhoneNumbers'
 import { CLINIC } from '@/lib/seo'
 import { FOOTER_SERVICE_LINKS } from '@/lib/service-pathways'
 
@@ -164,11 +165,7 @@ export default function Footer() {
             >
               <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a2 2 0 012-2.18h3a2 2 0 012 1.72l.26 1.56a12 12 0 00.75 2.57l-1.5 1.5a16 16 0 006.29 6.29l1.5-1.5a12 12 0 002.57.75l1.56.26a2 2 0 011.72 2z" />
             </svg>
-            <a href="tel:18557857337" className="hover:text-wine">
-              (855) 785-7337
-              <br />
-              1-855-PULSEDR
-            </a>
+            <ClinicPhoneNumbers className="hover:text-wine" linkClassName="hover:text-wine" />
           </div>
           <div className="mb-2.5 flex items-start gap-2.5 text-[.82rem] font-medium leading-[1.5] text-charcoal/85">
             <svg

@@ -16,6 +16,8 @@ export const CLINIC = {
   phoneDisplay: '(855) 785-7337',
   phoneHref: '+18557857337',
   vanityPhone: '1-855-PULSEDR',
+  localPhoneDisplay: '(573) 968-0800',
+  localPhoneHref: '+15739680800',
   email: 'info@pulsepointheart.com',
   hoursDisplay: 'Monday-Friday, 9:00 AM-5:00 PM',
   hoursNote: 'By appointment',
@@ -53,6 +55,11 @@ export const CLINIC = {
     'Cardiac CT and calcium scoring',
     'Membership-based cardiology care',
   ],
+}
+
+/** Plain-text both lines for form errors and short copy. */
+export function clinicPhonesInlineText() {
+  return `${CLINIC.localPhoneDisplay} (local) or ${CLINIC.phoneDisplay} (toll-free)`
 }
 
 const CONDITION_ROUTES = [
@@ -109,7 +116,7 @@ export function buildClinicJsonLd() {
     url: SITE_URL,
     image: absoluteUrl('/assets/social-preview.png'),
     logo: absoluteUrl('/assets/logo.png'),
-    telephone: CLINIC.phoneHref,
+    telephone: CLINIC.localPhoneHref,
     email: CLINIC.email,
     medicalSpecialty: 'Cardiovascular',
     priceRange: '$$',
@@ -146,13 +153,22 @@ export function buildClinicJsonLd() {
         },
       })),
     },
-    contactPoint: {
-      '@type': 'ContactPoint',
-      telephone: CLINIC.phoneHref,
-      contactType: 'appointments and clinic inquiries',
-      areaServed: 'US',
-      availableLanguage: 'English',
-    },
+    contactPoint: [
+      {
+        '@type': 'ContactPoint',
+        telephone: CLINIC.localPhoneHref,
+        contactType: 'local office',
+        areaServed: 'Columbia, MO',
+        availableLanguage: 'English',
+      },
+      {
+        '@type': 'ContactPoint',
+        telephone: CLINIC.phoneHref,
+        contactType: 'toll-free appointments and clinic inquiries',
+        areaServed: 'US',
+        availableLanguage: 'English',
+      },
+    ],
     potentialAction: [
       {
         '@type': 'ReserveAction',
@@ -285,7 +301,7 @@ export function buildPhysicianJsonLd(physician: PhysicianProfile) {
       '@id': `${SITE_URL}/#clinic`,
       name: CLINIC.name,
       url: SITE_URL,
-      telephone: CLINIC.phoneHref,
+      telephone: CLINIC.localPhoneHref,
       address: {
         '@type': 'PostalAddress',
         ...CLINIC.address,

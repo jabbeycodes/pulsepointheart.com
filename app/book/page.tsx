@@ -7,6 +7,7 @@ import AppointmentRequestForm from '@/components/AppointmentRequestForm'
 import BookingEarliestDateNotice from '@/components/BookingEarliestDateNotice'
 import OutlookBookingEmbed from '@/components/OutlookBookingEmbed'
 import GoogleAdsBookConversion from '@/components/GoogleAdsBookConversion'
+import ClinicPhoneNumbers from '@/components/ClinicPhoneNumbers'
 import { CLINIC } from '@/lib/seo'
 import { pageMeta } from '@/lib/page-metadata'
 import {
@@ -146,10 +147,8 @@ export default function BookPage() {
                   Prefer to call?
                 </p>
                 <p className="text-[.88rem] leading-[1.65] text-white/80">
-                  Call{' '}
-                  <a href="tel:18557857337" className="font-semibold text-gold">
-                    (855) 785-7337 / 1-855-PULSEDR
-                  </a>{' '}
+                  <ClinicPhoneNumbers linkClassName="font-semibold text-gold hover:underline" />
+                  <br />
                   or email{' '}
                   <a href={`mailto:${CLINIC.email}`} className="font-semibold text-gold">
                     {CLINIC.email}

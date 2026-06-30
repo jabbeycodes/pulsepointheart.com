@@ -4,13 +4,14 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import StickyMobileCta from '@/components/StickyMobileCta'
 import CtaBanner from '@/components/CtaBanner'
+import ClinicPhoneNumbers from '@/components/ClinicPhoneNumbers'
 import JsonLd from '@/components/JsonLd'
 import {
   PULSEPOINT_CLINIC_FAQS,
   type FaqBlock,
 } from '@/lib/pulsepoint-clinic-faqs'
 import { faqBlocksToPlainText, normalizeFaqQuestion } from '@/lib/faq-schema'
-import { buildFaqJsonLd, buildSpeakableWebPageJsonLd } from '@/lib/seo'
+import { buildFaqJsonLd, buildSpeakableWebPageJsonLd, CLINIC } from '@/lib/seo'
 import { pageMeta } from '@/lib/page-metadata'
 
 export const metadata: Metadata = pageMeta(
@@ -119,12 +120,20 @@ export default function PatientInfoPage() {
                 Call the clinic and our team can help with appointment
                 scheduling, visit preparation, and patient portal access.
               </p>
-              <a
-                href="tel:18557857337"
-                className="mt-5 inline-flex min-h-[44px] items-center justify-center rounded-md bg-gold px-5 py-3 text-sm font-bold text-navy transition-colors hover:bg-white"
-              >
-                (855) 785-7337
-              </a>
+              <div className="mt-5 space-y-3">
+                <a
+                  href={`tel:${CLINIC.localPhoneHref}`}
+                  className="inline-flex min-h-[44px] w-full items-center justify-center rounded-md bg-gold px-5 py-3 text-sm font-bold text-navy transition-colors hover:bg-white"
+                >
+                  {CLINIC.localPhoneDisplay}
+                </a>
+                <ClinicPhoneNumbers
+                  className="block text-center text-[.82rem] text-white/80"
+                  linkClassName="text-white hover:text-gold"
+                  showVanity
+                  showLocal={false}
+                />
+              </div>
             </aside>
           </div>
         </section>

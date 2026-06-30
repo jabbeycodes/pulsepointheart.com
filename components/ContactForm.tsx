@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { CONTACT_REASONS } from '@/lib/validation'
+import { CLINIC } from '@/lib/seo'
 
 // Maps the internal reason codes to user-friendly labels
 const REASON_LABELS: Record<(typeof CONTACT_REASONS)[number], string> = {
@@ -65,8 +66,12 @@ export default function ContactForm() {
         <p className="text-[.92rem] leading-[1.65] text-muted">
           We received your message and will reach out within one business day.
           For urgent matters, please call us at{' '}
-          <a href="tel:18557857337" className="font-semibold text-wine">
-            (855) 785-7337
+          <a href={`tel:${CLINIC.localPhoneHref}`} className="font-semibold text-wine">
+            {CLINIC.localPhoneDisplay}
+          </a>{' '}
+          or toll-free{' '}
+          <a href={`tel:${CLINIC.phoneHref}`} className="font-semibold text-wine">
+            {CLINIC.phoneDisplay}
           </a>
           .
         </p>
