@@ -10,10 +10,12 @@ const NAV_LINKS = [
   { href: '/contact', label: 'Contact' },
 ]
 
+const HEALOW_PAY_URL = 'https://www.healowpay.com/HealowPay/jsp/healow/login.jsp'
+
 const CTA_BUTTON_CLASS =
   'min-h-[44px] items-center justify-center gap-2 rounded-md bg-wine px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-wine-light'
 
-function CalendarIcon() {
+function PaymentIcon() {
   return (
     <svg
       width="14"
@@ -23,8 +25,8 @@ function CalendarIcon() {
       stroke="currentColor"
       strokeWidth="2"
     >
-      <rect x="3" y="4" width="18" height="18" rx="2" />
-      <path d="M16 2v4M8 2v4M3 10h18" />
+      <rect x="2" y="5" width="20" height="14" rx="2" />
+      <path d="M2 10h20" />
     </svg>
   )
 }
@@ -78,10 +80,15 @@ export default function Navbar() {
         </ul>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <Link href="/book" className={`inline-flex ${CTA_BUTTON_CLASS}`}>
-            <CalendarIcon />
-            Book a Visit
-          </Link>
+          <a
+            href={HEALOW_PAY_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`inline-flex ${CTA_BUTTON_CLASS}`}
+          >
+            <PaymentIcon />
+            Pay a Bill
+          </a>
           <Link href="/patient-info" className={`inline-flex ${CTA_BUTTON_CLASS}`}>
             <UserIcon />
             Patient Portal
@@ -129,14 +136,16 @@ export default function Navbar() {
             ))}
           </ul>
           <div className="mt-4 flex gap-3">
-            <Link
-              href="/book"
+            <a
+              href={HEALOW_PAY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={close}
               className={`flex flex-1 ${CTA_BUTTON_CLASS}`}
             >
-              <CalendarIcon />
-              Book a Visit
-            </Link>
+              <PaymentIcon />
+              Pay a Bill
+            </a>
             <Link
               href="/patient-info"
               onClick={close}
