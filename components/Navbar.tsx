@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import { CLINIC } from '@/lib/seo'
 
 const NAV_LINKS = [
   { href: '/', label: 'Home' },
@@ -9,8 +10,6 @@ const NAV_LINKS = [
   { href: '/services', label: 'Services' },
   { href: '/contact', label: 'Contact' },
 ]
-
-const HEALOW_PAY_URL = 'https://www.healowpay.com/HealowPay/jsp/healow/login.jsp'
 
 const CTA_BUTTON_CLASS =
   'min-h-[44px] items-center justify-center gap-2 rounded-md bg-wine px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-wine-light'
@@ -81,7 +80,7 @@ export default function Navbar() {
 
         <div className="hidden items-center gap-3 lg:flex">
           <a
-            href={HEALOW_PAY_URL}
+            href={CLINIC.healowPayUrl}
             target="_blank"
             rel="noopener noreferrer"
             className={`inline-flex ${CTA_BUTTON_CLASS}`}
@@ -89,10 +88,15 @@ export default function Navbar() {
             <PaymentIcon />
             Pay a Bill
           </a>
-          <Link href="/patient-info" className={`inline-flex ${CTA_BUTTON_CLASS}`}>
+          <a
+            href={CLINIC.patientPortalUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`inline-flex ${CTA_BUTTON_CLASS}`}
+          >
             <UserIcon />
             Patient Portal
-          </Link>
+          </a>
         </div>
 
         <button
@@ -137,7 +141,7 @@ export default function Navbar() {
           </ul>
           <div className="mt-4 flex gap-3">
             <a
-              href={HEALOW_PAY_URL}
+              href={CLINIC.healowPayUrl}
               target="_blank"
               rel="noopener noreferrer"
               onClick={close}
@@ -146,14 +150,16 @@ export default function Navbar() {
               <PaymentIcon />
               Pay a Bill
             </a>
-            <Link
-              href="/patient-info"
+            <a
+              href={CLINIC.patientPortalUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={close}
               className={`flex flex-1 ${CTA_BUTTON_CLASS}`}
             >
               <UserIcon />
               Patient Portal
-            </Link>
+            </a>
           </div>
         </div>
       ) : null}

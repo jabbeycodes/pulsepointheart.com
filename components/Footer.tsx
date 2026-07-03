@@ -4,7 +4,13 @@ import ClinicPhoneNumbers from './ClinicPhoneNumbers'
 import { CLINIC } from '@/lib/seo'
 import { FOOTER_SERVICE_LINKS } from '@/lib/service-pathways'
 
-const QUICK_LINKS = [
+type FooterLink = {
+  href: string
+  label: string
+  external?: boolean
+}
+
+const QUICK_LINKS: FooterLink[] = [
   { href: '/about', label: 'About Us' },
   { href: '/physicians', label: 'Our Cardiologists' },
   { href: '/physicians/martin-tibuakuu', label: 'Dr. Martin Tibuakuu' },
@@ -16,18 +22,41 @@ const QUICK_LINKS = [
   { href: '/missouri-heart-center-transition', label: 'Former Missouri Heart Center' },
   { href: '/locations/columbia-mo', label: 'Columbia, MO Location' },
   { href: '/services', label: 'Services' },
-  { href: '/patient-info', label: 'Patient Portal' },
+  { href: CLINIC.patientPortalUrl, label: 'Patient Portal', external: true },
   { href: '/blog', label: 'Blog' },
   { href: '/contact', label: 'Contact' },
 ]
 
-const PATIENT_LINKS = [
-  { href: '/patient-info', label: 'Patient Portal' },
+const PATIENT_LINKS: FooterLink[] = [
+  { href: CLINIC.patientPortalUrl, label: 'Patient Portal', external: true },
   { href: '/patient-info', label: 'Forms' },
   { href: '/patient-info', label: 'Insurance Information' },
   { href: '/patient-info#faqs', label: 'FAQs' },
   { href: '/book', label: 'Book Appointment' },
 ]
+
+const footerLinkClass = 'text-[.85rem] font-medium text-charcoal/85 hover:text-wine'
+
+function FooterNavLink({ link }: { link: FooterLink }) {
+  if (link.external) {
+    return (
+      <a
+        href={link.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={footerLinkClass}
+      >
+        {link.label}
+      </a>
+    )
+  }
+
+  return (
+    <Link href={link.href} className={footerLinkClass}>
+      {link.label}
+    </Link>
+  )
+}
 
 export default function Footer() {
   return (
@@ -104,12 +133,7 @@ export default function Footer() {
           <ul className="flex flex-col gap-2">
             {QUICK_LINKS.map((link) => (
               <li key={link.label}>
-                <Link
-                  href={link.href}
-                  className="text-[.85rem] font-medium text-charcoal/85 hover:text-wine"
-                >
-                  {link.label}
-                </Link>
+                <FooterNavLink link={link} />
               </li>
             ))}
           </ul>
@@ -142,12 +166,7 @@ export default function Footer() {
           <ul className="flex flex-col gap-2">
             {PATIENT_LINKS.map((link) => (
               <li key={link.label}>
-                <Link
-                  href={link.href}
-                  className="text-[.85rem] font-medium text-charcoal/85 hover:text-wine"
-                >
-                  {link.label}
-                </Link>
+                <FooterNavLink link={link} />
               </li>
             ))}
           </ul>
