@@ -45,3 +45,4 @@ public/assets/ads/*.mp4
 
 # generated outreach drafts
 scripts/outreach-drafts/
+.env*

@@ -13,7 +13,11 @@
     "lint": "eslint . --ext .ts,.tsx",
     "typecheck": "tsc --noEmit",
     "indexing:submit": "tsx scripts/submit-google-indexing.ts",
-    "outreach:directory": "tsx scripts/directory-outreach.ts"
+    "outreach:directory": "tsx scripts/directory-outreach.ts",
+    "seo:run": "tsx scripts/seo-engine/run.ts run",
+    "seo:research": "tsx scripts/seo-engine/run.ts research",
+    "seo:refresh": "tsx scripts/seo-engine/run.ts refresh",
+    "seo:report": "tsx scripts/seo-engine/run.ts report"
   },
   "dependencies": {
     "@supabase/ssr": "^0.5.2",
@@ -21,6 +25,7 @@
     "fast-xml-parser": "^5.8.0",
     "framer-motion": "^11.18.2",
     "next": "^16.2.6",
+    "pg": "^8.22.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "zod": "^3.23.8"
