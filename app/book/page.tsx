@@ -7,6 +7,7 @@ import AppointmentRequestForm from '@/components/AppointmentRequestForm'
 import BookingEarliestDateNotice from '@/components/BookingEarliestDateNotice'
 import OutlookBookingEmbed from '@/components/OutlookBookingEmbed'
 import GoogleAdsBookConversion from '@/components/GoogleAdsBookConversion'
+import MetaLeadConversion from '@/components/MetaLeadConversion'
 import ClinicPhoneNumbers from '@/components/ClinicPhoneNumbers'
 import { CLINIC } from '@/lib/seo'
 import { pageMeta } from '@/lib/page-metadata'
@@ -46,6 +47,7 @@ export default function BookPage() {
   return (
     <>
       <GoogleAdsBookConversion />
+      <MetaLeadConversion />
       <Navbar />
       <main>
         <section className="bg-white px-5 py-12 sm:px-8 sm:py-16 lg:px-12 lg:py-[76px]">

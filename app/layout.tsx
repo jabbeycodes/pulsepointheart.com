@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next'
 import { Inter, Playfair_Display } from 'next/font/google'
 import { buildClinicJsonLd, buildWebsiteJsonLd } from '@/lib/seo'
 import GoogleTag from '@/components/GoogleTag'
+import MetaPixel from '@/components/MetaPixel'
 import PublicSiteFrame from '@/components/PublicSiteFrame'
 import './globals.css'
 
@@ -90,6 +91,7 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${playfairDisplay.variable}`}>
       <head>
         <GoogleTag />
+        <MetaPixel />
       </head>
       <body className="font-sans text-charcoal bg-white">
         <script
