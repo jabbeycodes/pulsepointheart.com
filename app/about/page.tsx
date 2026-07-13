@@ -342,6 +342,12 @@ export default function AboutPage() {
               <h2 className="font-display text-[2rem] font-bold leading-tight text-navy sm:text-[2.65rem]">
                 Our Physicians
               </h2>
+              <Link
+                href="/about/team"
+                className="mt-4 inline-flex items-center gap-2 text-[.78rem] font-bold uppercase tracking-[1.2px] text-wine hover:text-wine-light"
+              >
+                Meet the Full Leadership Team →
+              </Link>
             </div>
 
             <div className="space-y-12 lg:space-y-16">

@@ -12,6 +12,7 @@ type FooterLink = {
 
 const QUICK_LINKS: FooterLink[] = [
   { href: '/about', label: 'About Us' },
+  { href: '/about/team', label: 'Our Team' },
   { href: '/physicians', label: 'Our Cardiologists' },
   { href: '/physicians/martin-tibuakuu', label: 'Dr. Martin Tibuakuu' },
   { href: '/physicians/james-fairlamb', label: 'Dr. James Fairlamb' },

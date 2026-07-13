@@ -76,6 +76,7 @@ const CONDITION_ROUTES = [
 export const PUBLIC_ROUTES = [
   { path: '/', priority: 1, changeFrequency: 'weekly' as const },
   { path: '/about', priority: 0.8, changeFrequency: 'monthly' as const },
+  { path: '/about/team', priority: 0.85, changeFrequency: 'monthly' as const },
   { path: '/physicians', priority: 0.92, changeFrequency: 'monthly' as const },
   { path: '/physicians/martin-tibuakuu', priority: 0.96, changeFrequency: 'weekly' as const },
   { path: '/physicians/james-fairlamb', priority: 0.96, changeFrequency: 'weekly' as const },
