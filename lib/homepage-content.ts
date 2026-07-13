@@ -109,7 +109,7 @@ export const HOME_DIAGNOSTIC_TILES = [
   },
   {
     title: 'Advanced Cardiac Imaging',
-    image: '/assets/diagnostics/diagnostics-hero.png',
+    image: '/assets/diagnostics/cardiac-ct-calcium.png',
     href: '/diagnostics',
   },
 ] as const

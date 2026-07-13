@@ -2,19 +2,19 @@ import type { Metadata } from 'next'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import JsonLd from '@/components/JsonLd'
-import { buildBreadcrumbJsonLd } from '@/lib/seo'
+import { CLINIC, buildBreadcrumbJsonLd } from '@/lib/seo'
 import { pageMeta } from '@/lib/page-metadata'
 
 export const metadata: Metadata = pageMeta(
   '/diagnostics',
   'Heart Testing & Echocardiogram in Columbia, MO | PulsePoint Clinic',
-  'ECG, echocardiogram, stress test, Holter monitor, and vascular ultrasound in Columbia, Missouri. Physician-interpreted results. Call (855) 785-7337.',
+  `ECG, echocardiogram, stress test, Holter monitor, and vascular ultrasound in Columbia, Missouri. Physician-interpreted results. Call ${CLINIC.localPhoneDisplay}.`,
 )
 
-// Diagnostics scheduling is intentionally phone-only. Reuses the established
-// site-wide clinic number so contact details stay consistent everywhere.
-const DIAGNOSTICS_PHONE_DISPLAY = '(855) 785-7337'
-const DIAGNOSTICS_PHONE_TEL = 'tel:18557857337'
+// Diagnostics scheduling is intentionally phone-only. Prefer the local Columbia
+// office line so callers can confirm they are reaching PulsePoint.
+const DIAGNOSTICS_PHONE_DISPLAY = CLINIC.localPhoneDisplay
+const DIAGNOSTICS_PHONE_TEL = `tel:${CLINIC.localPhoneHref}`
 
 const WHY_CHOOSE = [
   {
