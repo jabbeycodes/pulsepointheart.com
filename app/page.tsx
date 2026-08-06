@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
+import CommunityStatementCallout from '@/components/CommunityStatementCallout'
 import WhyPulsePoint from '@/components/WhyPulsePoint'
 import HomeServiceCards from '@/components/HomeServiceCards'
 import PremiumCareSection from '@/components/PremiumCareSection'
@@ -25,6 +26,7 @@ export default function HomePage() {
       <Navbar />
       <main>
         <Hero />
+        <CommunityStatementCallout />
         <WhyPulsePoint />
         <HomeServiceCards />
         <PremiumCareSection />
