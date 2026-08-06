@@ -98,6 +98,7 @@ export const PUBLIC_ROUTES = [
   { path: '/locations/columbia-mo', priority: 0.9, changeFrequency: 'monthly' as const },
   { path: '/cardiologist-columbia-mo', priority: 0.95, changeFrequency: 'monthly' as const },
   { path: '/missouri-heart-center-transition', priority: 0.94, changeFrequency: 'monthly' as const },
+  { path: '/community-statement', priority: 0.95, changeFrequency: 'weekly' as const },
   { path: '/best-cardiologist-columbia-mo', priority: 0.93, changeFrequency: 'monthly' as const },
   { path: '/heart-screening-columbia-mo', priority: 0.9, changeFrequency: 'monthly' as const },
   { path: '/patient-info', priority: 0.75, changeFrequency: 'monthly' as const },

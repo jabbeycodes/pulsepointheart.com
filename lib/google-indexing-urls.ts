@@ -8,6 +8,7 @@ export const GOOGLE_INDEXING_PRIORITY_URLS = [
   '/physicians/james-fairlamb',
   '/cardiologist-columbia-mo',
   '/missouri-heart-center-transition',
+  '/community-statement',
   '/best-cardiologist-columbia-mo',
   '/heart-screening-columbia-mo',
   '/conditions/peripheral-artery-disease',

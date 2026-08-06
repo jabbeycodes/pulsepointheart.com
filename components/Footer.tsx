@@ -21,6 +21,7 @@ const QUICK_LINKS: FooterLink[] = [
   { href: '/best-cardiologist-columbia-mo', label: 'Best Cardiologist Columbia, MO' },
   { href: '/heart-screening-columbia-mo', label: 'Heart Screening Columbia, MO' },
   { href: '/missouri-heart-center-transition', label: 'Former Missouri Heart Center' },
+  { href: '/community-statement', label: 'Community Statement' },
   { href: '/locations/columbia-mo', label: 'Columbia, MO Location' },
   { href: '/services', label: 'Services' },
   { href: CLINIC.patientPortalUrl, label: 'Patient Portal', external: true },
@@ -30,6 +31,7 @@ const QUICK_LINKS: FooterLink[] = [
 
 const PATIENT_LINKS: FooterLink[] = [
   { href: CLINIC.patientPortalUrl, label: 'Patient Portal', external: true },
+  { href: '/community-statement', label: 'Community Statement' },
   { href: '/patient-info', label: 'Forms' },
   { href: '/patient-info', label: 'Insurance Information' },
   { href: '/patient-info#faqs', label: 'FAQs' },

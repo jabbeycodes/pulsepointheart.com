@@ -1,6 +1,7 @@
 'use client'
 
 import { usePathname } from 'next/navigation'
+import CommunityAnnouncementBar from '@/components/CommunityAnnouncementBar'
 import HeartScrollStoryLoader from '@/components/HeartScrollStoryLoader'
 
 export default function PublicSiteFrame({
@@ -18,7 +19,10 @@ export default function PublicSiteFrame({
   return (
     <div className="site-content-wrapper relative isolate min-h-screen overflow-hidden bg-white">
       <HeartScrollStoryLoader />
-      <div className="site-with-cardiac-bg relative z-10">{children}</div>
+      <div className="site-with-cardiac-bg relative z-10">
+        <CommunityAnnouncementBar />
+        {children}
+      </div>
     </div>
   )
 }
