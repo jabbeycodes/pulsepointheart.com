@@ -5,6 +5,7 @@ import Footer from '@/components/Footer'
 import StickyMobileCta from '@/components/StickyMobileCta'
 import JsonLd from '@/components/JsonLd'
 import {
+  COMMUNITY_PRESS_COVERAGE,
   COMMUNITY_STATEMENT_BANNER_LINE,
   COMMUNITY_STATEMENT_DATE,
   COMMUNITY_STATEMENT_PATH,
@@ -51,7 +52,7 @@ export default function CommunityStatementPage() {
       description: COMMUNITY_STATEMENT_BANNER_LINE,
       url: `https://pulsepointheart.com${COMMUNITY_STATEMENT_PATH}`,
       datePublished: '2026-08-06',
-      dateModified: '2026-08-06',
+      dateModified: '2026-08-11',
       publisher: { '@id': 'https://pulsepointheart.com/#clinic' },
       about: {
         '@type': 'MedicalClinic',
@@ -147,6 +148,51 @@ export default function CommunityStatementPage() {
                 The PulsePoint Clinic Team
               </span>
             </p>
+
+            {/* Link out only — do not republish third-party article text. */}
+            <aside
+              aria-labelledby="community-press-heading"
+              className="mt-10 rounded-md border border-[#E8EDF3] bg-graybg p-6 sm:p-7"
+            >
+              <p className="mb-2 text-[.68rem] font-semibold uppercase tracking-[2.5px] text-gold">
+                Local coverage
+              </p>
+              <h2
+                id="community-press-heading"
+                className="font-display text-[1.25rem] font-bold text-navy sm:text-[1.35rem]"
+              >
+                In the news
+              </h2>
+              <ul className="mt-5 space-y-4">
+                {COMMUNITY_PRESS_COVERAGE.map((item) => (
+                  <li key={item.href}>
+                    <a
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group block rounded-md bg-white p-5 shadow-card transition-shadow hover:shadow-cardHover"
+                    >
+                      <p className="text-[.72rem] font-semibold uppercase tracking-[1.5px] text-wine">
+                        {item.outlet}
+                      </p>
+                      <p className="mt-2 font-display text-[1.05rem] font-bold leading-[1.35] text-charcoal group-hover:text-wine">
+                        {item.title}
+                      </p>
+                      <p className="mt-2 text-[.88rem] leading-[1.6] text-muted">
+                        {item.summary}
+                      </p>
+                      <p className="mt-3 text-[.82rem] font-semibold text-wine">
+                        Read the article →
+                      </p>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-4 text-[.78rem] leading-[1.55] text-muted">
+                PulsePoint Clinic remains open. Legal matters are being addressed
+                through the courts.
+              </p>
+            </aside>
 
             <div className="mt-10 flex flex-col gap-3 border-t border-[#E8EDF3] pt-8 sm:flex-row">
               <Link
