@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { createClient } from '@/lib/supabase/client'
 
-type Status = 'idle' | 'signing-in' | 'error'
+type Status = 'idle' | 'signing-in' | 'sending-reset' | 'reset-sent' | 'error'
 
 function EyeIcon({ open }: { open: boolean }) {
   if (open) {
@@ -54,6 +54,39 @@ export default function AdminLoginForm() {
     window.location.href = '/admin'
   }
 
+  async function handleForgotPassword() {
+    if (!email) {
+      setStatus('error')
+      setErrorMsg('Enter your admin email first, then tap Forgot password.')
+      return
+    }
+
+    setStatus('sending-reset')
+    setErrorMsg('')
+
+    const supabase = createClient()
+    const { error } = await supabase.auth.resetPasswordForEmail(email, {
+      redirectTo: `${window.location.origin}/auth/callback?next=/admin/reset-password`,
+    })
+
+    if (error) {
+      setStatus('error')
+      setErrorMsg(error.message)
+      return
+    }
+
+    setStatus('reset-sent')
+  }
+
+  if (status === 'reset-sent') {
+    return (
+      <div className="rounded border border-gold/40 bg-gold/5 p-4 text-[.9rem] leading-[1.65] text-charcoal">
+        If that email has an admin account, a reset link is on the way. Open it on
+        this same device.
+      </div>
+    )
+  }
+
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div>
@@ -93,6 +126,13 @@ export default function AdminLoginForm() {
             <EyeIcon open={showPassword} />
           </button>
         </div>
+        <button
+          type="button"
+          onClick={handleForgotPassword}
+          className="mt-2 text-[.8rem] font-semibold text-wine hover:underline"
+        >
+          Forgot password?
+        </button>
       </div>
 
       {status === 'error' && errorMsg && (
@@ -103,7 +143,7 @@ export default function AdminLoginForm() {
 
       <button
         type="submit"
-        disabled={status === 'signing-in'}
+        disabled={status === 'signing-in' || status === 'sending-reset'}
         className="flex min-h-[44px] w-full items-center justify-center rounded-md bg-wine px-5 py-3 text-[.88rem] font-semibold text-white transition-colors hover:bg-wine-light disabled:opacity-60"
       >
         {status === 'signing-in' ? 'Signing in...' : 'Sign in'}

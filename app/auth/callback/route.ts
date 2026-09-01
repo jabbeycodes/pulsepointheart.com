@@ -5,10 +5,17 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createServerClient } from '@/lib/supabase/server'
 
+function safeNext(next: string | null, fallback: string) {
+  if (!next || !next.startsWith('/') || next.startsWith('//')) return fallback
+  return next
+}
+
 export async function GET(request: NextRequest) {
   const { searchParams, origin } = new URL(request.url)
   const code = searchParams.get('code')
-  const next = searchParams.get('next') ?? '/admin'
+  const type = searchParams.get('type')
+  const fallback = type === 'recovery' ? '/admin/reset-password' : '/admin'
+  const next = safeNext(searchParams.get('next'), fallback)
 
   if (code) {
     const supabase = await createServerClient()
