@@ -72,7 +72,7 @@ const FAQS = [
   {
     question: 'How do I schedule an appointment with a cardiologist in Columbia?',
     answer:
-      'Call (855) 785-7337 or request an appointment online at pulsepointheart.com/book. The team will help match you with the right visit type.',
+      'Self-schedule online at pulsepointheart.com/book, or call (855) 785-7337. New and existing patients can book a visit type that fits their care.',
   },
 ]
 

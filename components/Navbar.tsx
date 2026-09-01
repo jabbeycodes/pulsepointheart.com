@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import HealowScheduleLink from '@/components/HealowScheduleLink'
 import { CLINIC } from '@/lib/seo'
 
 const NAV_LINKS = [
@@ -12,7 +13,7 @@ const NAV_LINKS = [
 ]
 
 const CTA_BUTTON_CLASS =
-  'min-h-[44px] items-center justify-center gap-2 rounded-md bg-wine px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-wine-light'
+  'min-h-[44px] items-center justify-center gap-2 rounded-md bg-wine px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-wine-light'
 
 function PaymentIcon() {
   return (
@@ -42,6 +43,22 @@ function UserIcon() {
     >
       <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
       <circle cx="12" cy="7" r="4" />
+    </svg>
+  )
+}
+
+function CalendarIcon() {
+  return (
+    <svg
+      width="14"
+      height="14"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+    >
+      <rect x="3" y="4" width="18" height="18" rx="2" />
+      <path d="M16 2v4M8 2v4M3 10h18" />
     </svg>
   )
 }
@@ -97,6 +114,10 @@ export default function Navbar() {
             <UserIcon />
             Patient Portal
           </a>
+          <HealowScheduleLink className={`inline-flex ${CTA_BUTTON_CLASS}`}>
+            <CalendarIcon />
+            Book
+          </HealowScheduleLink>
         </div>
 
         <button
@@ -139,27 +160,36 @@ export default function Navbar() {
               </li>
             ))}
           </ul>
-          <div className="mt-4 flex gap-3">
-            <a
-              href={CLINIC.healowPayUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+          <div className="mt-4 flex flex-col gap-3">
+            <HealowScheduleLink
               onClick={close}
-              className={`flex flex-1 ${CTA_BUTTON_CLASS}`}
+              className={`flex w-full ${CTA_BUTTON_CLASS}`}
             >
-              <PaymentIcon />
-              Pay a Bill
-            </a>
-            <a
-              href={CLINIC.patientPortalUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={close}
-              className={`flex flex-1 ${CTA_BUTTON_CLASS}`}
-            >
-              <UserIcon />
-              Patient Portal
-            </a>
+              <CalendarIcon />
+              Book
+            </HealowScheduleLink>
+            <div className="flex gap-3">
+              <a
+                href={CLINIC.healowPayUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={close}
+                className={`flex flex-1 ${CTA_BUTTON_CLASS}`}
+              >
+                <PaymentIcon />
+                Pay a Bill
+              </a>
+              <a
+                href={CLINIC.patientPortalUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={close}
+                className={`flex flex-1 ${CTA_BUTTON_CLASS}`}
+              >
+                <UserIcon />
+                Patient Portal
+              </a>
+            </div>
           </div>
         </div>
       ) : null}

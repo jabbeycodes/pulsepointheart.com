@@ -21,6 +21,9 @@ export const CLINIC = {
   email: 'info@pulsepointheart.com',
   patientPortalUrl: 'https://health.healow.com/PulsePointClinic',
   healowPayUrl: 'https://www.healowpay.com/HealowPay/jsp/healow/login.jsp',
+  /** Official Healow self-scheduling for new and existing patients. */
+  schedulingUrl:
+    'https://healow.com/apps/practice/pulsepoint-cardiovascular-pc-dba-pulsepoint-clinic-33490?v=2&t=1',
   hoursDisplay: 'Monday-Friday, 8:30 AM-4:30 PM',
   hoursNote: 'Phone lines open; clinic visits by appointment',
   openingHours: 'Mo-Fr 08:30-16:30',

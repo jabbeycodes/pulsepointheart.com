@@ -36,7 +36,7 @@ export function getPhysicianFaqs(physician: PhysicianProfile): PhysicianFaq[] {
     },
     {
       question: `How do I schedule an appointment with ${physician.schemaName}?`,
-      answer: `Call PulsePoint Clinic at ${CLINIC.phoneDisplay} or request an appointment online at pulsepointheart.com/book. New and existing patients can schedule cardiovascular consultations, preventive cardiology visits, and follow-up care with ${physician.schemaName}.`,
+      answer: `New and existing patients can self-schedule online at pulsepointheart.com/book, or call PulsePoint Clinic at ${CLINIC.phoneDisplay}. You can book cardiovascular consultations, preventive cardiology visits, and follow-up care with ${physician.schemaName}.`,
     },
     {
       question: `Is ${physician.schemaName} accepting new patients in Columbia, Missouri?`,

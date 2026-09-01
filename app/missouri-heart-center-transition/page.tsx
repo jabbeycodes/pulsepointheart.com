@@ -57,7 +57,7 @@ const FAQS = [
   {
     question: 'How do I schedule an appointment at PulsePoint Clinic?',
     answer:
-      'Call (855) 785-7337, call the local office at (573) 968-0800, or request an appointment online at pulsepointheart.com/book.',
+      'Self-schedule online at pulsepointheart.com/book, call (855) 785-7337, or call the local office at (573) 968-0800.',
   },
   {
     question: 'What is the difference between PulsePoint and Boone Health cardiology?',

@@ -65,7 +65,7 @@ const FAQS = [
   {
     question: 'How do I schedule heart screening in Columbia?',
     answer:
-      `Call ${CLINIC.phoneDisplay} or request an appointment at pulsepointheart.com/book. Your cardiologist will recommend screening based on your individual risk — not a one-size-fits-all panel.`,
+      `Self-schedule at pulsepointheart.com/book or call ${CLINIC.phoneDisplay}. Your cardiologist will recommend screening based on your individual risk — not a one-size-fits-all panel.`,
   },
 ]
 

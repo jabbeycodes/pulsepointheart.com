@@ -5,6 +5,7 @@ import Footer from '@/components/Footer'
 import StickyMobileCta from '@/components/StickyMobileCta'
 import ContactForm from '@/components/ContactForm'
 import ClinicPhoneNumbers from '@/components/ClinicPhoneNumbers'
+import HealowScheduleLink from '@/components/HealowScheduleLink'
 import { CLINIC } from '@/lib/seo'
 import { pageMeta } from '@/lib/page-metadata'
 
@@ -50,6 +51,10 @@ export default function ContactPage() {
               <h3 className="mb-4 font-display text-[1.1rem] font-bold text-charcoal">
                 Clinic Information
               </h3>
+
+              <HealowScheduleLink className="mb-5 flex min-h-[44px] items-center justify-center rounded-md bg-wine px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-wine-light">
+                Schedule Online
+              </HealowScheduleLink>
 
               <div className="space-y-4 text-[.88rem]">
                 <div className="flex gap-3">

@@ -4,9 +4,6 @@ import { PREFERRED_TIMEFRAMES, TIMEFRAME_LABELS } from '@/lib/validation'
 export const EARLIEST_BOOKING_DATE =
   process.env.NEXT_PUBLIC_EARLIEST_BOOKING_DATE ?? '2026-07-06'
 
-export const OUTLOOK_BOOKING_URL =
-  'https://outlook.office.com/book/PulsePointHeartClinic@pulsepointheart.com/'
-
 const CLINIC_TIMEZONE = 'America/Chicago'
 
 function parseLocalDate(isoDate: string): Date {
