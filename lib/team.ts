@@ -14,7 +14,7 @@ export const TEAM_INTRO = {
   body: 'PulsePoint Clinic is led by an experienced team of physicians and healthcare professionals committed to delivering accessible, patient-centered cardiovascular care. Together, our leadership team combines clinical excellence, operational expertise, and a shared commitment to building a better healthcare experience for patients throughout Mid-Missouri.',
 } as const
 
-/** Leadership roster for the About Team page — physicians first, then founding directors. */
+/** Leadership roster for the About Team page — physicians first, then operations. */
 export const TEAM_MEMBERS: TeamMember[] = [
   {
     slug: 'martin-tibuakuu',
@@ -31,20 +31,6 @@ export const TEAM_MEMBERS: TeamMember[] = [
     image: '/assets/physician-fairlamb.png',
     imageAlt: 'Dr. James Fairlamb, Chief Medical Officer at PulsePoint Clinic',
     profileHref: '/physicians/james-fairlamb',
-  },
-  {
-    slug: 'afton-miller',
-    name: 'Afton Miller',
-    title: 'Founding Director of Clinical Operations & Cardiovascular Imaging',
-    image: '/assets/team/afton-miller.png',
-    imageAlt: 'Afton Miller, Founding Director of Clinical Operations and Cardiovascular Imaging',
-  },
-  {
-    slug: 'janelle-bond',
-    name: 'Janelle Bond',
-    title: 'Founding Director of Patient Experience & Access',
-    image: '/assets/team/janelle-bond.png',
-    imageAlt: 'Janelle Bond, Founding Director of Patient Experience and Access',
   },
   {
     slug: 'chrissy-teter',
