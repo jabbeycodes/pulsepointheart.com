@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { createClient } from '@/lib/supabase/client'
 
 type Status = 'idle' | 'signing-in' | 'sending-reset' | 'reset-sent' | 'error'
@@ -27,12 +27,23 @@ function EyeIcon({ open }: { open: boolean }) {
   )
 }
 
-export default function AdminLoginForm() {
+export default function AdminLoginForm({ authError }: { authError?: string }) {
   const [status, setStatus] = useState<Status>('idle')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
-  const [errorMsg, setErrorMsg] = useState('')
+  const [errorMsg, setErrorMsg] = useState(
+    authError === 'auth_failed'
+      ? 'That reset link expired or was opened incorrectly. Request a new one below.'
+      : '',
+  )
+
+  useEffect(() => {
+    const hash = new URLSearchParams(window.location.hash.replace(/^#/, ''))
+    if (hash.get('type') === 'recovery' || hash.get('access_token')) {
+      window.location.replace(`/admin/reset-password${window.location.hash}`)
+    }
+  }, [])
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
@@ -135,11 +146,11 @@ export default function AdminLoginForm() {
         </button>
       </div>
 
-      {status === 'error' && errorMsg && (
+      {errorMsg ? (
         <div className="rounded border border-red-200 bg-red-50 p-3 text-[.82rem] text-red-700">
           {errorMsg}
         </div>
-      )}
+      ) : null}
 
       <button
         type="submit"

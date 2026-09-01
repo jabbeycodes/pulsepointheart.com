@@ -4,7 +4,13 @@ import AdminLogo from '@/components/admin/AdminLogo'
 
 export const metadata: Metadata = { title: 'Admin Login | PulsePoint Clinic' }
 
-export default function AdminLoginPage() {
+export default async function AdminLoginPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ error?: string }>
+}) {
+  const { error } = await searchParams
+
   return (
     <div className="flex min-h-screen items-center justify-center bg-navy px-5 py-8">
       <div className="w-full max-w-md">
@@ -18,7 +24,7 @@ export default function AdminLoginPage() {
           <p className="mb-6 text-[.85rem] text-muted">
             Enter your admin email and password to access the dashboard.
           </p>
-          <AdminLoginForm />
+          <AdminLoginForm authError={error} />
         </div>
         <p className="mt-4 text-center text-[.75rem] text-white/40">
           PulsePoint Clinic &middot; Staff access only

@@ -1,16 +1,46 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { createClient } from '@/lib/supabase/client'
 
-type Status = 'idle' | 'saving' | 'success' | 'error'
+type Status = 'checking' | 'idle' | 'saving' | 'success' | 'error' | 'expired'
 
 export default function AdminResetPasswordForm() {
   const [password, setPassword] = useState('')
   const [confirm, setConfirm] = useState('')
-  const [status, setStatus] = useState<Status>('idle')
+  const [status, setStatus] = useState<Status>('checking')
   const [errorMsg, setErrorMsg] = useState('')
+
+  useEffect(() => {
+    const supabase = createClient()
+    let ready = false
+
+    const markReady = () => {
+      if (ready) return
+      ready = true
+      setStatus('idle')
+    }
+
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((event, session) => {
+      if (event === 'PASSWORD_RECOVERY' || session) markReady()
+    })
+
+    void supabase.auth.getSession().then(({ data }) => {
+      if (data.session) markReady()
+    })
+
+    const timeout = window.setTimeout(() => {
+      if (!ready) setStatus('expired')
+    }, 4000)
+
+    return () => {
+      subscription.unsubscribe()
+      window.clearTimeout(timeout)
+    }
+  }, [])
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
@@ -45,6 +75,23 @@ export default function AdminResetPasswordForm() {
     window.setTimeout(() => {
       window.location.href = '/admin'
     }, 800)
+  }
+
+  if (status === 'checking') {
+    return <p className="text-[.92rem] leading-[1.65] text-muted">Checking your reset link…</p>
+  }
+
+  if (status === 'expired') {
+    return (
+      <div className="space-y-4">
+        <p className="text-[.92rem] leading-[1.65] text-muted">
+          This reset link expired or was already used. Request a new one from the login page.
+        </p>
+        <Link href="/admin/login" className="font-semibold text-wine hover:underline">
+          Back to login
+        </Link>
+      </div>
+    )
   }
 
   if (status === 'success') {
