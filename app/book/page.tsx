@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import StickyMobileCta from '@/components/StickyMobileCta'
-import AppointmentRequestForm from '@/components/AppointmentRequestForm'
 import BookingEarliestDateNotice from '@/components/BookingEarliestDateNotice'
 import HealowScheduleLink from '@/components/HealowScheduleLink'
 import GoogleAdsBookConversion from '@/components/GoogleAdsBookConversion'
@@ -11,24 +10,14 @@ import ClinicPhoneNumbers from '@/components/ClinicPhoneNumbers'
 import { CalendarCtaIcon } from '@/components/home/HomeIcons'
 import { CLINIC } from '@/lib/seo'
 import { pageMeta } from '@/lib/page-metadata'
-import {
-  earliestBookingNotice,
-  getAvailableTimeframes,
-  getTimeframeLabels,
-  isOnlineBookingOpen,
-} from '@/lib/booking'
 
 export const metadata: Metadata = pageMeta(
   '/book',
   'Schedule a Cardiology Appointment | Columbia, MO',
-  'Self-schedule a new or follow-up cardiology appointment at PulsePoint Clinic in Columbia, MO, or request a callback if you need help booking.',
+  'Self-schedule a new or follow-up cardiology appointment at PulsePoint Clinic in Columbia, MO through Healow.',
 )
 
 export default function BookPage() {
-  const availableTimeframes = getAvailableTimeframes()
-  const timeframeLabels = getTimeframeLabels()
-  const bookingOpen = isOnlineBookingOpen()
-
   return (
     <>
       <GoogleAdsBookConversion />
@@ -116,33 +105,6 @@ export default function BookPage() {
           </div>
         </section>
 
-        <section id="request" className="bg-white px-5 py-12 sm:px-8 sm:py-16 lg:px-12 lg:py-[72px]">
-          <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1fr_420px] lg:items-start">
-            <div>
-              <div className="mb-1 text-[.72rem] font-semibold uppercase tracking-[1.8px] text-wine">
-                Need help booking?
-              </div>
-              <h2 className="font-display text-[1.8rem] font-bold leading-tight text-charcoal sm:text-[2.25rem]">
-                Request a callback.
-              </h2>
-              <div className="mt-3 h-[3px] w-12 rounded bg-wine" />
-              <p className="mt-5 max-w-2xl text-[.92rem] leading-[1.7] text-muted">
-                If Healow is not working for you, or you want our team to help
-                choose the right visit type, leave your contact information. Please
-                do not include symptoms, diagnoses, test results, or other private
-                medical details in this public form.
-              </p>
-            </div>
-            <div className="rounded-md bg-graybg p-5 shadow-card sm:p-6">
-              <AppointmentRequestForm
-                availableTimeframes={availableTimeframes}
-                timeframeLabels={timeframeLabels}
-                showEarliestDateNotice={!bookingOpen}
-                earliestDateNotice={earliestBookingNotice()}
-              />
-            </div>
-          </div>
-        </section>
       </main>
       <Footer />
       <StickyMobileCta />

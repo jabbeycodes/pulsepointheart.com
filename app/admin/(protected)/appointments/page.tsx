@@ -29,8 +29,33 @@ export default async function AdminAppointmentsPage() {
 
   return (
     <div>
-      <h1 className="mb-2 font-display text-xl font-bold text-charcoal sm:text-2xl">Appointment Requests</h1>
-      <p className="mb-6 text-[.88rem] text-muted">{rows.length} total requests</p>
+      <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <h1 className="mb-2 font-display text-xl font-bold text-charcoal sm:text-2xl">
+            Appointment Requests
+          </h1>
+          <p className="text-[.88rem] text-muted">
+            {rows.length} historical requests · New requests are handled through Healow.
+          </p>
+        </div>
+        <a
+          href="/admin/appointments/export"
+          download
+          className="inline-flex min-h-[44px] items-center justify-center gap-2 self-start rounded-md bg-wine px-5 py-2.5 text-[.82rem] font-semibold text-white transition-colors hover:bg-wine-light sm:self-auto"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            className="h-4 w-4"
+            aria-hidden="true"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14" />
+          </svg>
+          Export all as CSV
+        </a>
+      </div>
       <AdminTable
         rows={rows}
         table="appointment_requests"
