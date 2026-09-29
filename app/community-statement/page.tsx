@@ -91,7 +91,14 @@ export default function CommunityStatementPage() {
             </h1>
             <div className="my-5 h-[3px] w-12 rounded bg-wine" />
 
-            <div className="space-y-5 text-[1rem] leading-[1.8] text-charcoal/90">\n              <section className="rounded-md border border-[#E8EDF3] bg-graybg p-5 sm:p-6" aria-labelledby="court-update-heading">\n                <p className="text-[.68rem] font-semibold uppercase tracking-[2px] text-gold">September 2026 update</p>\n                <h2 id="court-update-heading" className="mt-2 font-display text-[1.35rem] font-bold text-navy">PulsePoint Clinic remains open and continues caring for patients</h2>\n                <p className="mt-3">A Boone County judge issued a temporary restraining order protecting PulsePoint’s ability to continue operating while the legal process moves forward. The order is temporary, and the underlying dispute remains pending.</p>\n                <p className="mt-3">Patients can continue scheduling appointments and receiving cardiovascular care with Dr. James Fairlamb and Dr. Martin Tibuakuu at PulsePoint Clinic in Columbia, Missouri.</p>\n                <p className="mt-3 text-[.9rem] text-muted">This update describes the current court order and does not state that the underlying litigation has been finally resolved.</p>\n              </section>
+            <div className="space-y-5 text-[1rem] leading-[1.8] text-charcoal/90">
+              <section className="rounded-md border border-[#E8EDF3] bg-graybg p-5 sm:p-6" aria-labelledby="court-update-heading">
+                <p className="text-[.68rem] font-semibold uppercase tracking-[2px] text-gold">September 2026 update</p>
+                <h2 id="court-update-heading" className="mt-2 font-display text-[1.35rem] font-bold text-navy">PulsePoint Clinic remains open and continues caring for patients</h2>
+                <p className="mt-3">A Boone County judge issued a temporary restraining order protecting PulsePoint’s ability to continue operating while the legal process moves forward. The order is temporary, and the underlying dispute remains pending.</p>
+                <p className="mt-3">Patients can continue scheduling appointments and receiving cardiovascular care with Dr. James Fairlamb and Dr. Martin Tibuakuu at PulsePoint Clinic in Columbia, Missouri.</p>
+                <p className="mt-3 text-[.9rem] text-muted">This update describes the current court order and does not state that the underlying litigation has been finally resolved.</p>
+              </section>
               {LETTER_PARAGRAPHS.slice(0, 2).map((paragraph) => (
                 <p key={paragraph.slice(0, 48)}>{paragraph}</p>
               ))}
