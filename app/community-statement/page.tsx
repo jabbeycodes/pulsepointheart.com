@@ -17,8 +17,8 @@ import { pageMeta } from '@/lib/page-metadata'
 
 export const metadata: Metadata = pageMeta(
   COMMUNITY_STATEMENT_PATH,
-  'Statement to Our Patients | PulsePoint Clinic Remains Open',
-  'PulsePoint Clinic remains open and continues to provide comprehensive cardiovascular care in mid-Missouri. Read our statement to patients and the community.',
+  'PulsePoint Clinic Remains Open | September 2026 Court Update',
+  'PulsePoint Clinic in Columbia, Missouri remains open and continues caring for patients. Read the September 2026 court update involving Dr. James Fairlamb and Dr. Martin Tibuakuu.',
 )
 
 const LETTER_PARAGRAPHS = [
@@ -52,7 +52,7 @@ export default function CommunityStatementPage() {
       description: COMMUNITY_STATEMENT_BANNER_LINE,
       url: `https://pulsepointheart.com${COMMUNITY_STATEMENT_PATH}`,
       datePublished: '2026-08-06',
-      dateModified: '2026-08-11',
+      dateModified: '2026-09-29',
       publisher: { '@id': 'https://pulsepointheart.com/#clinic' },
       about: {
         '@type': 'MedicalClinic',
@@ -76,8 +76,7 @@ export default function CommunityStatementPage() {
               {COMMUNITY_STATEMENT_BANNER_LINE}
             </p>
             <p className="mt-3 text-[.88rem] text-white/75">
-              There has been no court order preventing PulsePoint Clinic from
-              caring for patients.
+              A Boone County court issued a temporary restraining order protecting PulsePoint’s ability to continue operating while the legal process moves forward.
             </p>
           </div>
         </section>
@@ -85,7 +84,7 @@ export default function CommunityStatementPage() {
         <section className="bg-white px-5 py-12 sm:px-8 sm:py-16 lg:px-12 lg:py-[76px]">
           <article className="mx-auto max-w-3xl">
             <p className="mb-2 text-[.68rem] font-semibold uppercase tracking-[2.5px] text-gold">
-              Official statement · {COMMUNITY_STATEMENT_DATE}
+              Official statement · {COMMUNITY_STATEMENT_DATE} · Updated September 29, 2026
             </p>
             <h1 className="font-display text-[2.1rem] font-bold leading-[1.15] text-charcoal sm:text-[2.75rem]">
               {COMMUNITY_STATEMENT_TITLE}
@@ -93,6 +92,13 @@ export default function CommunityStatementPage() {
             <div className="my-5 h-[3px] w-12 rounded bg-wine" />
 
             <div className="space-y-5 text-[1rem] leading-[1.8] text-charcoal/90">
+              <section className="rounded-md border border-[#E8EDF3] bg-graybg p-5 sm:p-6" aria-labelledby="court-update-heading">
+                <p className="text-[.68rem] font-semibold uppercase tracking-[2px] text-gold">September 2026 update</p>
+                <h2 id="court-update-heading" className="mt-2 font-display text-[1.35rem] font-bold text-navy">PulsePoint Clinic remains open and continues caring for patients</h2>
+                <p className="mt-3">A Boone County judge issued a temporary restraining order protecting PulsePoint’s ability to continue operating while the legal process moves forward. The order is temporary, and the underlying dispute remains pending.</p>
+                <p className="mt-3">Patients can continue scheduling appointments and receiving cardiovascular care with Dr. James Fairlamb and Dr. Martin Tibuakuu at PulsePoint Clinic in Columbia, Missouri.</p>
+                <p className="mt-3 text-[.9rem] text-muted">This update describes the current court order and does not state that the underlying litigation has been finally resolved.</p>
+              </section>
               {LETTER_PARAGRAPHS.slice(0, 2).map((paragraph) => (
                 <p key={paragraph.slice(0, 48)}>{paragraph}</p>
               ))}
