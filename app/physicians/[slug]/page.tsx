@@ -175,13 +175,23 @@ export default async function PhysicianPage({ params }: PhysicianPageProps) {
                   ))}
                 </div>
 
-                <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                   <Link
                     href="/book"
                     className="inline-flex min-h-[44px] items-center justify-center rounded-md bg-wine px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-wine-light"
                   >
                     Schedule a Consultation
                   </Link>
+                  {physician.cvPath ? (
+                    <Link
+                      href={`/physicians/${physician.slug}/cv`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex min-h-[44px] items-center justify-center rounded-md border border-navy/20 px-5 py-3 text-sm font-semibold text-navy transition-colors hover:border-wine hover:text-wine"
+                    >
+                      View Curriculum Vitae (CV)
+                    </Link>
+                  ) : null}
                   <a
                     href={`tel:${CLINIC.phoneHref}`}
                     className="inline-flex min-h-[44px] items-center justify-center rounded-md border border-navy/20 px-5 py-3 text-sm font-semibold text-navy transition-colors hover:border-wine hover:text-wine"

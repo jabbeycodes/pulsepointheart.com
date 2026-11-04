@@ -361,6 +361,7 @@ export function buildConditionPageJsonLd(condition: ConditionSchemaInput) {
 export function buildPhysicianJsonLd(physician: PhysicianProfile) {
   const path = `/physicians/${physician.slug}`
   const url = absoluteUrl(path)
+  const cvUrl = physician.cvPath ? absoluteUrl(`/physicians/${physician.slug}/cv`) : undefined
 
   return {
     '@context': 'https://schema.org',
@@ -377,6 +378,16 @@ export function buildPhysicianJsonLd(physician: PhysicianProfile) {
     image: absoluteUrl(physician.image),
     url,
     description: `${physician.name} is a board-certified cardiologist at PulsePoint Clinic in Columbia, Missouri. ${physician.intro[0]}`,
+    ...(cvUrl
+      ? {
+          subjectOf: {
+            '@type': 'CreativeWork',
+            name: `${physician.name} — Curriculum Vitae`,
+            encodingFormat: 'application/pdf',
+            url: cvUrl,
+          },
+        }
+      : {}),
     worksFor: {
       '@type': 'MedicalClinic',
       '@id': `${SITE_URL}/#clinic`,

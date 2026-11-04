@@ -13,6 +13,11 @@ export type PhysicianProfile = {
   searchKeywords: string[]
   /** Optional extra FAQs beyond the standard location/scheduling set. */
   faqs: { question: string; answer: string }[]
+  /**
+   * Public CV/resume PDF path under /public.
+   * Shareable pretty URL: `/physicians/{slug}/cv`
+   */
+  cvPath?: string
 }
 
 /** Shared physician roster for homepage, about, and SEO bio pages. */
@@ -60,6 +65,7 @@ export const PHYSICIANS: PhysicianProfile[] = [
           'Dr. Martin Tibuakuu, MD, MPH, FACC specializes in preventive cardiology, cardiometabolic health, advanced cardiac imaging, and population-based cardiovascular prevention at PulsePoint Clinic in Columbia, Missouri.',
       },
     ],
+    cvPath: '/assets/physicians/martin-tibuakuu-cv.pdf',
   },
   {
     slug: 'james-fairlamb',
